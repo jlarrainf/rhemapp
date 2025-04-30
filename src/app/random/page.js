@@ -17,22 +17,22 @@ export default function RandomVerse() {
 			try {
 				setLoading(true);
 				setError(null);
-				
+
 				const response = await fetch("/data/verses.json");
 				if (!response.ok) {
 					throw new Error("No se pudo cargar el archivo de versículos");
 				}
-				
+
 				const data = await response.json();
 				if (!data || !Array.isArray(data.verses) || data.verses.length === 0) {
 					throw new Error("El formato del archivo de versículos es incorrecto");
 				}
-				
+
 				// Verificar que los versículos tienen el formato correcto
 				const validVerses = data.verses.filter(
-					verse => verse && verse.verse && verse.reference
+					(verse) => verse && verse.verse && verse.reference
 				);
-				
+
 				if (validVerses.length === 0) {
 					throw new Error("No se encontraron versículos válidos");
 				}
@@ -60,7 +60,7 @@ export default function RandomVerse() {
 	// Función para mostrar el siguiente versículo aleatorio
 	const getNextVerse = () => {
 		if (verses.length <= 1) return;
-		
+
 		let randomIndex;
 		do {
 			randomIndex = Math.floor(Math.random() * verses.length);
@@ -93,7 +93,7 @@ export default function RandomVerse() {
 			</div>
 		);
 	}
-	
+
 	// Si hay un error, mostrarlo
 	if (error || verses.length === 0) {
 		return (
@@ -101,8 +101,10 @@ export default function RandomVerse() {
 				<h1 className="text-2xl font-semibold text-red-600 mb-4">
 					Error al cargar los versículos
 				</h1>
-				<p className="text-gray-600">{error || "No se pudieron cargar los versículos"}</p>
-				<button 
+				<p className="text-gray-600">
+					{error || "No se pudieron cargar los versículos"}
+				</p>
+				<button
 					onClick={() => window.location.reload()}
 					className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
 				>
