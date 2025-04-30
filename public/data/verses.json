@@ -1,0 +1,138 @@
+{
+	"verses": [
+		{
+			"verse": "El Señor es mi pastor, nada me falta.",
+			"reference": "Salmos 23:1",
+			"verseId": "PSA.23.1",
+			"chapterId": "PSA.23"
+		},
+		{
+			"verse": "Todo lo puedo en Cristo que me fortalece.",
+			"reference": "Filipenses 4:13",
+			"verseId": "PHP.4.13",
+			"chapterId": "PHP.4"
+		},
+		{
+			"verse": "Porque de tal manera amó Dios al mundo, que ha dado a su Hijo unigénito, para que todo aquel que en él cree no se pierda, sino que tenga vida eterna.",
+			"reference": "Juan 3:16",
+			"verseId": "JHN.3.16",
+			"chapterId": "JHN.3"
+		},
+		{
+			"verse": "Mira que te mando que te esfuerces y seas valiente; no temas ni desmayes, porque Jehová, tu Dios, estará contigo dondequiera que vayas.",
+			"reference": "Josué 1:9",
+			"verseId": "JOS.1.9",
+			"chapterId": "JOS.1"
+		},
+		{
+			"verse": "Y sabemos que a los que aman a Dios, todas las cosas les ayudan a bien, esto es, a los que conforme a su propósito son llamados.",
+			"reference": "Romanos 8:28",
+			"verseId": "ROM.8.28",
+			"chapterId": "ROM.8"
+		},
+		{
+			"verse": "Deléitate asimismo en Jehová, y él te concederá las peticiones de tu corazón.",
+			"reference": "Salmos 37:4",
+			"verseId": "PSA.37.4",
+			"chapterId": "PSA.37"
+		},
+		{
+			"verse": "No se inquieten por nada; más bien, en toda ocasión, con oración y ruego, presenten sus peticiones a Dios y denle gracias.",
+			"reference": "Filipenses 4:6",
+			"verseId": "PHP.4.6",
+			"chapterId": "PHP.4"
+		},
+		{
+			"verse": "Yo soy el camino, la verdad y la vida; nadie viene al Padre sino por mí.",
+			"reference": "Juan 14:6",
+			"verseId": "JHN.14.6",
+			"chapterId": "JHN.14"
+		},
+		{
+			"verse": "Ama al Señor tu Dios con todo tu corazón, con toda tu alma, con toda tu mente y con todas tus fuerzas.",
+			"reference": "Marcos 12:30",
+			"verseId": "MRK.12.30",
+			"chapterId": "MRK.12"
+		},
+		{
+			"verse": "Ama a tu prójimo como a ti mismo.",
+			"reference": "Marcos 12:31",
+			"verseId": "MRK.12.31",
+			"chapterId": "MRK.12"
+		},
+		{
+			"verse": "Venid a mí todos los que estáis trabajados y cargados, y yo os haré descansar.",
+			"reference": "Mateo 11:28",
+			"verseId": "MAT.11.28",
+			"chapterId": "MAT.11"
+		},
+		{
+			"verse": "No temas, porque yo estoy contigo; no te desalientes, porque yo soy tu Dios. Te fortaleceré, ciertamente te ayudaré, sí, te sostendré con la diestra de mi justicia.",
+			"reference": "Isaías 41:10",
+			"verseId": "ISA.41.10",
+			"chapterId": "ISA.41"
+		},
+		{
+			"verse": "Confía en el Señor con todo tu corazón, y no te apoyes en tu propio entendimiento. Reconócelo en todos tus caminos, y él enderezará tus veredas.",
+			"reference": "Proverbios 3:5-6",
+			"verseId": "PRO.3.5-PRO.3.6",
+			"chapterId": "PRO.3"
+		},
+		{
+			"verse": "El amor es paciente, es bondadoso. El amor no es envidioso ni jactancioso ni orgulloso.",
+			"reference": "1 Corintios 13:4",
+			"verseId": "1CO.13.4",
+			"chapterId": "1CO.13"
+		},
+		{
+			"verse": "Porque yo sé los planes que tengo para vosotros —declara el Señor— planes de bienestar y no de calamidad, para daros un futuro y una esperanza.",
+			"reference": "Jeremías 29:11",
+			"verseId": "JER.29.11",
+			"chapterId": "JER.29"
+		}
+	],
+	"dailyVerses": [
+		{
+			"date": "01-01",
+			"verse": "He aquí, yo hago nueva todas las cosas.",
+			"reference": "Apocalipsis 21:5",
+			"verseId": "REV.21.5",
+			"chapterId": "REV.21"
+		},
+		{
+			"date": "02-01",
+			"verse": "Encomienda al Señor tu camino; confía en él, y él actuará.",
+			"reference": "Salmos 37:5",
+			"verseId": "PSA.37.5",
+			"chapterId": "PSA.37"
+		},
+		{
+			"date": "03-01",
+			"verse": "Porque para Dios no hay nada imposible.",
+			"reference": "Lucas 1:37",
+			"verseId": "LUK.1.37",
+			"chapterId": "LUK.1"
+		},
+		{
+			"date": "04-01",
+			"verse": "Por nada estéis afanosos, sino sean conocidas vuestras peticiones delante de Dios en toda oración y ruego, con acción de gracias.",
+			"reference": "Filipenses 4:6",
+			"verseId": "PHP.4.6",
+			"chapterId": "PHP.4"
+		},
+		{
+			"date": "05-01",
+			"verse": "Guíame por tu verdad, y enséñame, porque tú eres el Dios de mi salvación; en ti espero todo el día.",
+			"reference": "Salmos 25:5",
+			"verseId": "PSA.25.5",
+			"chapterId": "PSA.25"
+		},
+		{
+			"date": "04-30",
+			"verse": "Dios es nuestro amparo y fortaleza, nuestro pronto auxilio en las tribulaciones.",
+			"reference": "Salmos 46:1",
+			"verseId": "PSA.46.1",
+			"chapterId": "PSA.46"
+		}
+	]
+}
