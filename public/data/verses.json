@@ -13,13 +13,13 @@
 			"chapterId": "PHP.4"
 		},
 		{
-			"verse": "Porque de tal manera amó Dios al mundo, que ha dado a su Hijo unigénito, para que todo aquel que en él cree no se pierda, sino que tenga vida eterna.",
+			"verse": "Porque de tal manera amó Dios al mundo, que ha dado a su Hijo unigénito, para que todo aquel que en él cree, no se pierda, mas tenga vida eterna.",
 			"reference": "Juan 3:16",
 			"verseId": "JHN.3.16",
 			"chapterId": "JHN.3"
 		},
 		{
-			"verse": "Mira que te mando que te esfuerces y seas valiente; no temas ni desmayes, porque Jehová, tu Dios, estará contigo dondequiera que vayas.",
+			"verse": "Mira que te mando que te esfuerces y seas valiente; no temas ni desmayes, porque Jehová tu Dios estará contigo en dondequiera que vayas.",
 			"reference": "Josué 1:9",
 			"verseId": "JOS.1.9",
 			"chapterId": "JOS.1"
@@ -37,13 +37,13 @@
 			"chapterId": "PSA.37"
 		},
 		{
-			"verse": "No se inquieten por nada; más bien, en toda ocasión, con oración y ruego, presenten sus peticiones a Dios y denle gracias.",
+			"verse": "Por nada estéis afanosos, sino sean conocidas vuestras peticiones delante de Dios en toda oración y ruego, con acción de gracias.",
 			"reference": "Filipenses 4:6",
 			"verseId": "PHP.4.6",
 			"chapterId": "PHP.4"
 		},
 		{
-			"verse": "Yo soy el camino, la verdad y la vida; nadie viene al Padre sino por mí.",
+			"verse": "Yo soy el camino, y la verdad, y la vida; nadie viene al Padre, sino por mí.",
 			"reference": "Juan 14:6",
 			"verseId": "JHN.14.6",
 			"chapterId": "JHN.14"
@@ -122,17 +122,17 @@
 		},
 		{
 			"date": "05-01",
-			"verse": "Guíame por tu verdad, y enséñame, porque tú eres el Dios de mi salvación; en ti espero todo el día.",
-			"reference": "Salmos 25:5",
-			"verseId": "PSA.25.5",
-			"chapterId": "PSA.25"
+			"verse": "El que habita al abrigo del Altísimo morará bajo la sombra del Omnipotente.",
+			"reference": "Salmos 91:1",
+			"verseId": "PSA.91.1",
+			"chapterId": "PSA.91"
 		},
 		{
-			"date": "04-30",
-			"verse": "Dios es nuestro amparo y fortaleza, nuestro pronto auxilio en las tribulaciones.",
-			"reference": "Salmos 46:1",
-			"verseId": "PSA.46.1",
-			"chapterId": "PSA.46"
+			"date": "05-02",
+			"verse": "No se turbe vuestro corazón; creéis en Dios, creed también en mí.",
+			"reference": "Juan 14:1",
+			"verseId": "JHN.14.1",
+			"chapterId": "JHN.14"
 		}
 	]
 }

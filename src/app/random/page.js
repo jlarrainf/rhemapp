@@ -8,17 +8,39 @@ export default function RandomVerse() {
 	const [currentVerseIndex, setCurrentVerseIndex] = useState(0);
 	const [history, setHistory] = useState([]);
 	const [historyIndex, setHistoryIndex] = useState(-1);
+	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState(null);
 
 	// Cargar versículos del archivo JSON
 	useEffect(() => {
 		const loadVerses = async () => {
 			try {
+				setLoading(true);
+				setError(null);
+				
 				const response = await fetch("/data/verses.json");
+				if (!response.ok) {
+					throw new Error("No se pudo cargar el archivo de versículos");
+				}
+				
 				const data = await response.json();
-				setVerses(data.verses);
+				if (!data || !Array.isArray(data.verses) || data.verses.length === 0) {
+					throw new Error("El formato del archivo de versículos es incorrecto");
+				}
+				
+				// Verificar que los versículos tienen el formato correcto
+				const validVerses = data.verses.filter(
+					verse => verse && verse.verse && verse.reference
+				);
+				
+				if (validVerses.length === 0) {
+					throw new Error("No se encontraron versículos válidos");
+				}
+
+				setVerses(validVerses);
 
 				// Seleccionar un versículo aleatorio inicial
-				const randomIndex = Math.floor(Math.random() * data.verses.length);
+				const randomIndex = Math.floor(Math.random() * validVerses.length);
 				setCurrentVerseIndex(randomIndex);
 
 				// Inicializar el historial con el primer versículo
@@ -26,6 +48,9 @@ export default function RandomVerse() {
 				setHistoryIndex(0);
 			} catch (error) {
 				console.error("Error al cargar versículos:", error);
+				setError(error.message || "Error desconocido al cargar versículos");
+			} finally {
+				setLoading(false);
 			}
 		};
 
@@ -34,6 +59,8 @@ export default function RandomVerse() {
 
 	// Función para mostrar el siguiente versículo aleatorio
 	const getNextVerse = () => {
+		if (verses.length <= 1) return;
+		
 		let randomIndex;
 		do {
 			randomIndex = Math.floor(Math.random() * verses.length);
@@ -57,7 +84,7 @@ export default function RandomVerse() {
 	};
 
 	// Si aún no se han cargado los versículos, mostrar un mensaje de carga
-	if (verses.length === 0) {
+	if (loading) {
 		return (
 			<div className="flex flex-col items-center justify-center min-h-[70vh]">
 				<h1 className="text-2xl font-semibold text-gray-700">
@@ -66,8 +93,26 @@ export default function RandomVerse() {
 			</div>
 		);
 	}
+	
+	// Si hay un error, mostrarlo
+	if (error || verses.length === 0) {
+		return (
+			<div className="flex flex-col items-center justify-center min-h-[70vh]">
+				<h1 className="text-2xl font-semibold text-red-600 mb-4">
+					Error al cargar los versículos
+				</h1>
+				<p className="text-gray-600">{error || "No se pudieron cargar los versículos"}</p>
+				<button 
+					onClick={() => window.location.reload()}
+					className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+				>
+					Reintentar
+				</button>
+			</div>
+		);
+	}
 
-	const currentVerse = verses[currentVerseIndex];
+	const currentVerse = verses[currentVerseIndex] || {};
 
 	return (
 		<div className="flex flex-col items-center justify-center min-h-[70vh]">
@@ -76,10 +121,10 @@ export default function RandomVerse() {
 			</h1>
 
 			<VerseCard
-				verse={currentVerse.verse}
-				reference={currentVerse.reference}
-				verseId={currentVerse.verseId}
-				chapterId={currentVerse.chapterId}
+				verse={currentVerse.verse || ""}
+				reference={currentVerse.reference || ""}
+				verseId={currentVerse.verseId || ""}
+				chapterId={currentVerse.chapterId || ""}
 				onNext={getNextVerse}
 				onPrevious={getPreviousVerse}
 				showNavigation={true}
