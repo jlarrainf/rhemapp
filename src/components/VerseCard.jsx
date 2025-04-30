@@ -23,6 +23,7 @@ const VerseCard = ({
 	const [fullPassage, setFullPassage] = useState(null);
 	const [isLoading, setIsLoading] = useState(false);
 	const [showFullPassage, setShowFullPassage] = useState(false);
+	const [errorMessage, setErrorMessage] = useState(null);
 
 	const toggleFavorite = () => {
 		setIsFavorite(!isFavorite);
@@ -30,6 +31,7 @@ const VerseCard = ({
 	};
 
 	const getFullPassage = async () => {
+		setErrorMessage(null);
 		if (!chapterId) {
 			// Si no tenemos un chapterId, intentamos extraerlo del verseId
 			if (verseId) {
@@ -38,6 +40,7 @@ const VerseCard = ({
 					const extractedChapterId = `${parts[0]}.${parts[1]}`;
 					fetchPassage(extractedChapterId);
 				} else {
+					setErrorMessage("No se pudo determinar el capítulo de la referencia");
 					console.error("No se pudo determinar el chapterId del versículo");
 				}
 			}
@@ -53,15 +56,23 @@ const VerseCard = ({
 			const response = await fetch(
 				`/api/passage?bibleId=${bibleId}&passageId=${passageId}`
 			);
-			if (!response.ok) {
-				throw new Error("Error al obtener el pasaje");
-			}
+			
 			const data = await response.json();
+			
+			if (!response.ok || data.error) {
+				throw new Error(data.error || "Error al obtener el pasaje");
+			}
+			
+			// Verificar que tenemos todos los campos necesarios
+			if (!data.content || !data.reference) {
+				throw new Error("Los datos del pasaje están incompletos");
+			}
+			
 			setFullPassage(data);
 			setShowFullPassage(true);
 		} catch (error) {
 			console.error("Error al obtener el pasaje completo:", error);
-			alert(
+			setErrorMessage(
 				"No se pudo cargar el pasaje completo. Por favor, intenta de nuevo."
 			);
 		} finally {
@@ -136,10 +147,17 @@ const VerseCard = ({
 						<span>{isLoading ? "Cargando..." : "Ver pasaje completo"}</span>
 					</button>
 				</div>
+				
+				{/* Mensaje de error */}
+				{errorMessage && (
+					<div className="mt-3 text-center text-red-500 text-sm">
+						{errorMessage}
+					</div>
+				)}
 			</div>
 
 			{/* Modal para mostrar el pasaje completo */}
-			{showFullPassage && fullPassage && (
+			{showFullPassage && fullPassage && fullPassage.content && (
 				<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
 					<div className="bg-white rounded-lg max-w-3xl w-full max-h-[80vh] overflow-auto p-6">
 						<div className="flex justify-between items-center mb-4">

@@ -16,7 +16,18 @@ export async function GET(request) {
 		}
 
 		// Realizar la petición a la API de Bible
-		const apiKey = process.env.NEXT_PUBLIC_BIBLE_API_KEY;
+		// Intentamos obtener la API key de las variables de entorno, en dos posibles ubicaciones
+		const apiKey =
+			process.env.BIBLE_API_KEY || process.env.NEXT_PUBLIC_BIBLE_API_KEY;
+
+		if (!apiKey) {
+			console.error("No se encontró la API key para la Bible API");
+			return NextResponse.json(
+				{ error: "Configuración de API incompleta" },
+				{ status: 500 }
+			);
+		}
+
 		const apiUrl = `https://api.scripture.api.bible/v1/bibles/${bibleId}/passages/${passageId}`;
 
 		const response = await fetch(apiUrl, {
