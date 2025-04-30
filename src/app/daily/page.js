@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import VerseCard from "@/components/VerseCard";
+import VerseCard from "@/components/VerseCard.jsx";
 
 export default function DailyVerse() {
 	const [verse, setVerse] = useState(null);
