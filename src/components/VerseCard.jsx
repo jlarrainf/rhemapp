@@ -2,13 +2,10 @@
 
 import React, { useState, useEffect } from "react";
 import {
-	ArrowPathIcon,
-	HeartIcon,
 	ArrowLeftIcon,
 	ArrowRightIcon,
 	BookOpenIcon,
 } from "@heroicons/react/24/outline";
-import { HeartIcon as HeartSolidIcon } from "@heroicons/react/24/solid";
 
 const VerseCard = ({
 	verse,
@@ -19,16 +16,10 @@ const VerseCard = ({
 	onPrevious,
 	showNavigation = false,
 }) => {
-	const [isFavorite, setIsFavorite] = useState(false);
 	const [fullPassage, setFullPassage] = useState(null);
 	const [isLoading, setIsLoading] = useState(false);
 	const [showFullPassage, setShowFullPassage] = useState(false);
 	const [errorMessage, setErrorMessage] = useState(null);
-
-	const toggleFavorite = () => {
-		setIsFavorite(!isFavorite);
-		// En una implementación más completa, aquí guardaríamos el favorito en localStorage
-	};
 
 	const getFullPassage = async () => {
 		setErrorMessage(null);
@@ -56,18 +47,18 @@ const VerseCard = ({
 			const response = await fetch(
 				`/api/passage?bibleId=${bibleId}&passageId=${passageId}`
 			);
-			
+
 			const data = await response.json();
-			
+
 			if (!response.ok || data.error) {
 				throw new Error(data.error || "Error al obtener el pasaje");
 			}
-			
+
 			// Verificar que tenemos todos los campos necesarios
 			if (!data.content || !data.reference) {
 				throw new Error("Los datos del pasaje están incompletos");
 			}
-			
+
 			setFullPassage(data);
 			setShowFullPassage(true);
 		} catch (error) {
@@ -123,31 +114,17 @@ const VerseCard = ({
 				</div>
 
 				{/* Botones de acción */}
-				<div className="flex justify-center space-x-4">
-					<button
-						onClick={toggleFavorite}
-						className="p-2 text-red-600 transition-colors rounded-full hover:bg-red-100"
-						aria-label={
-							isFavorite ? "Quitar de favoritos" : "Marcar como favorito"
-						}
-					>
-						{isFavorite ? (
-							<HeartSolidIcon className="w-6 h-6" />
-						) : (
-							<HeartIcon className="w-6 h-6" />
-						)}
-					</button>
-
+				<div className="flex justify-center">
 					<button
 						onClick={getFullPassage}
 						disabled={isLoading}
-						className="flex items-center space-x-1 px-3 py-2 text-[#314156] transition-colors rounded-full hover:bg-[#b79b72]/20 disabled:opacity-50"
+						className="flex items-center space-x-1 px-4 py-2 text-[#314156] transition-colors rounded-full hover:bg-[#b79b72]/20 disabled:opacity-50"
 					>
 						<BookOpenIcon className="w-5 h-5" />
 						<span>{isLoading ? "Cargando..." : "Ver pasaje completo"}</span>
 					</button>
 				</div>
-				
+
 				{/* Mensaje de error */}
 				{errorMessage && (
 					<div className="mt-3 text-center text-red-500 text-sm">
@@ -161,7 +138,9 @@ const VerseCard = ({
 				<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
 					<div className="bg-white rounded-lg max-w-3xl w-full max-h-[80vh] overflow-auto p-6">
 						<div className="flex justify-between items-center mb-4">
-							<h3 className="text-xl font-semibold text-[#314156]">{fullPassage.reference}</h3>
+							<h3 className="text-xl font-semibold text-[#314156]">
+								{fullPassage.reference}
+							</h3>
 							<button
 								onClick={closeFullPassage}
 								className="text-gray-600 hover:text-[#314156]"

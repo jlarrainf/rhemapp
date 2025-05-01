@@ -30,7 +30,11 @@ const Navbar = () => {
 	};
 
 	return (
-		<nav className={`fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-300 ${scrolled ? 'shadow-md' : ''}`}>
+		<nav
+			className={`fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-300 ${
+				scrolled ? "shadow-md" : ""
+			}`}
+		>
 			<div className="max-w-6xl mx-auto px-4">
 				<div className="flex justify-between items-center py-3">
 					{/* Logo */}
@@ -39,10 +43,10 @@ const Navbar = () => {
 							href="/"
 							className="flex items-center space-x-2 text-xl font-bold text-[#314156]"
 						>
-							<Image 
-								src="/Rhemapp_isotype.svg" 
-								alt="Rhemapp Logo" 
-								width={32} 
+							<Image
+								src="/Rhemapp_isotype.svg"
+								alt="Rhemapp Logo"
+								width={32}
 								height={32}
 								className="w-8 h-8"
 							/>
@@ -55,13 +59,25 @@ const Navbar = () => {
 						<NavLink href="/" pathname={pathname} onClick={handleLinkClick}>
 							Inicio
 						</NavLink>
-						<NavLink href="/random" pathname={pathname} onClick={handleLinkClick}>
+						<NavLink
+							href="/random"
+							pathname={pathname}
+							onClick={handleLinkClick}
+						>
 							Versículo Aleatorio
 						</NavLink>
-						<NavLink href="/daily" pathname={pathname} onClick={handleLinkClick}>
+						<NavLink
+							href="/daily"
+							pathname={pathname}
+							onClick={handleLinkClick}
+						>
 							Lectura del Día
 						</NavLink>
-						<NavLink href="/rosario" pathname={pathname} onClick={handleLinkClick}>
+						<NavLink
+							href="/rosario"
+							pathname={pathname}
+							onClick={handleLinkClick}
+						>
 							Misterios del Rosario
 						</NavLink>
 					</div>
@@ -74,14 +90,20 @@ const Navbar = () => {
 							aria-expanded={isMenuOpen}
 							aria-label="Menú principal"
 						>
-							<span 
-								className={`block w-6 h-0.5 bg-[#314156] transition-all duration-300 ease-out ${isMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}
+							<span
+								className={`block w-6 h-0.5 bg-[#314156] transition-all duration-300 ease-out ${
+									isMenuOpen ? "rotate-45 translate-y-1.5" : ""
+								}`}
 							></span>
-							<span 
-								className={`block w-6 h-0.5 bg-[#314156] mt-1.5 transition-all duration-300 ease-out ${isMenuOpen ? 'opacity-0' : ''}`}
+							<span
+								className={`block w-6 h-0.5 bg-[#314156] mt-1.5 transition-all duration-300 ease-out ${
+									isMenuOpen ? "opacity-0" : ""
+								}`}
 							></span>
-							<span 
-								className={`block w-6 h-0.5 bg-[#314156] mt-1.5 transition-all duration-300 ease-out ${isMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}
+							<span
+								className={`block w-6 h-0.5 bg-[#314156] mt-1.5 transition-all duration-300 ease-out ${
+									isMenuOpen ? "-rotate-45 -translate-y-1.5" : ""
+								}`}
 							></span>
 						</button>
 					</div>
@@ -89,29 +111,38 @@ const Navbar = () => {
 			</div>
 
 			{/* Menú desplegable móvil */}
-			<div 
+			<div
 				className={`md:hidden absolute w-full bg-white transition-all duration-300 overflow-hidden shadow-lg ${
-					isMenuOpen ? 'max-h-screen py-3 opacity-100' : 'max-h-0 opacity-0'
+					isMenuOpen ? "max-h-screen py-3 opacity-100" : "max-h-0 opacity-0"
 				}`}
 			>
 				<div className="flex flex-col space-y-2 px-4 pb-4">
 					<MobileNavLink href="/" pathname={pathname} onClick={handleLinkClick}>
 						Inicio
 					</MobileNavLink>
-					<MobileNavLink href="/random" pathname={pathname} onClick={handleLinkClick}>
+					<MobileNavLink
+						href="/random"
+						pathname={pathname}
+						onClick={handleLinkClick}
+					>
 						Versículo Aleatorio
 					</MobileNavLink>
-					<MobileNavLink href="/daily" pathname={pathname} onClick={handleLinkClick}>
+					<MobileNavLink
+						href="/daily"
+						pathname={pathname}
+						onClick={handleLinkClick}
+					>
 						Lectura del Día
 					</MobileNavLink>
-					<MobileNavLink href="/rosario" pathname={pathname} onClick={handleLinkClick}>
+					<MobileNavLink
+						href="/rosario"
+						pathname={pathname}
+						onClick={handleLinkClick}
+					>
 						Misterios del Rosario
 					</MobileNavLink>
 				</div>
 			</div>
-			
-			{/* Espaciador para compensar la barra fija */}
-			<div className="h-16"></div>
 		</nav>
 	);
 };

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import VerseCard from "@/components/VerseCard.jsx";
+import { BookOpenIcon } from "@heroicons/react/24/outline";
 
 export default function RandomVerse() {
 	const [verses, setVerses] = useState([]);
@@ -118,9 +119,12 @@ export default function RandomVerse() {
 
 	return (
 		<div className="flex flex-col items-center justify-center min-h-[70vh]">
-			<h1 className="text-3xl font-bold text-gray-800 mb-8">
-				Versículo Aleatorio
-			</h1>
+			<div className="mb-8 text-center">
+				<BookOpenIcon className="w-14 h-14 mx-auto mb-4 text-[#314156]" />
+				<h1 className="text-3xl font-bold text-[#314156] mb-2">
+					Versículo Aleatorio
+				</h1>
+			</div>
 
 			<VerseCard
 				verse={currentVerse.verse || ""}
@@ -131,11 +135,6 @@ export default function RandomVerse() {
 				onPrevious={getPreviousVerse}
 				showNavigation={true}
 			/>
-
-			<div className="mt-8 text-gray-600">
-				<p>Haz clic en "Siguiente" para ver otro versículo aleatorio</p>
-				<p>Haz clic en "Anterior" para volver al versículo previo</p>
-			</div>
 		</div>
 	);
 }

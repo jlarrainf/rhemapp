@@ -1,10 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import {
-	BookOpenIcon,
-	CalendarIcon,
-	BeakerIcon,
-} from "@heroicons/react/24/outline";
+import { BookOpenIcon, CalendarIcon } from "@heroicons/react/24/outline";
 
 export default function Home() {
 	return (
@@ -20,9 +16,31 @@ export default function Home() {
 					/>
 				</div>
 				<h1 className="text-4xl font-bold text-[#314156] mb-4">Rhemapp</h1>
-				<p className="text-xl text-gray-600 max-w-2xl">
-					Una aplicación minimalista para leer versículos bíblicos aleatorios y
-					la lectura del día
+				<p className="text-xl text-gray-600 max-w-2xl mb-8">
+					El nombre RHEMA viene del griego{" "}
+					<span className="italic font-semibold">ῥῆμα</span> que significa
+					"Palabra". Representa la palabra viva de Dios que habla directamente a
+					nuestro corazón en el momento presente, trayendo revelación, dirección
+					y propósito a nuestra vida diaria.
+				</p>
+
+				<div className="bg-white rounded-lg shadow-md p-6 max-w-3xl mx-auto border-l-4 border-[#b79b72] mb-6">
+					<blockquote className="pl-4 py-2 mb-0 italic text-lg">
+						<p className="text-gray-700">
+							«Si ustedes permanecen fieles a mi palabra, serán verdaderamente
+							mis discípulos: conocerán la verdad y la verdad los hará libres».
+						</p>
+						<p className="text-right text-[#b79b72] font-semibold mt-2">
+							— Juan 8:31-32
+						</p>
+					</blockquote>
+				</div>
+
+				<p className="text-gray-600 text-lg max-w-3xl mx-auto mb-10">
+					Esta aplicación es una herramienta para ayudarte a conectar con la
+					Palabra de Dios todos los días, permitiéndote descubrir versículos,
+					reflexionar sobre la lectura diaria y meditar los misterios del
+					rosario.
 				</p>
 			</div>
 
@@ -54,7 +72,13 @@ export default function Home() {
 
 				<Link href="/rosario" className="w-full">
 					<div className="flex flex-col items-center p-8 bg-white rounded-lg shadow-md border border-gray-100 transition-transform hover:transform hover:scale-105 hover:shadow-lg h-full hover:border-[#b79b72]">
-						<BeakerIcon className="w-16 h-16 text-[#b79b72] mb-4" />
+						<Image
+							src="/rosary.svg"
+							alt="Rosario"
+							width={64}
+							height={64}
+							className="w-16 h-16 mb-4"
+						/>
 						<h2 className="text-2xl font-semibold text-[#314156] mb-2">
 							Misterios del Rosario
 						</h2>

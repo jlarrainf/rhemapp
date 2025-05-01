@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import VerseCard from "@/components/VerseCard.jsx";
+import { CalendarIcon } from "@heroicons/react/24/outline";
 
 export default function DailyVerse() {
 	const [verse, setVerse] = useState(null);
@@ -106,8 +107,13 @@ export default function DailyVerse() {
 
 	return (
 		<div className="flex flex-col items-center justify-center min-h-[70vh]">
-			<h1 className="text-3xl font-bold text-gray-800 mb-2">Lectura del Día</h1>
-			<p className="text-xl text-gray-600 mb-8">{currentDate}</p>
+			<div className="mb-8 text-center">
+				<CalendarIcon className="w-14 h-14 mx-auto mb-4 text-[#b79b72]" />
+				<h1 className="text-3xl font-bold text-[#314156] mb-2">
+					Lectura del Día
+				</h1>
+				<p className="text-xl text-[#b79b72] mb-2">{currentDate}</p>
+			</div>
 
 			<VerseCard
 				verse={verse.verse || ""}

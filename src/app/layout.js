@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
 		<html lang="es">
 			<body className={`${inter.variable} min-h-screen bg-gray-50`}>
 				<Navbar />
-				<main className="max-w-6xl mx-auto px-4 py-8">{children}</main>
+				<main className="max-w-6xl mx-auto px-4 py-8 pt-24">{children}</main>
 				<footer className="py-6 mt-8 bg-white border-t border-gray-200">
 					<div className="max-w-6xl mx-auto px-4 text-center text-gray-500">
 						<p>&copy; {new Date().getFullYear()} Rhemapp</p>
