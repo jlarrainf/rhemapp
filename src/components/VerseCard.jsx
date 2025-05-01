@@ -6,6 +6,7 @@ import {
 	ArrowRightIcon,
 	BookOpenIcon,
 } from "@heroicons/react/24/outline";
+import { useTheme } from "./ThemeContext";
 
 const VerseCard = ({
 	verse,
@@ -20,6 +21,7 @@ const VerseCard = ({
 	const [isLoading, setIsLoading] = useState(false);
 	const [showFullPassage, setShowFullPassage] = useState(false);
 	const [errorMessage, setErrorMessage] = useState(null);
+	const { isDarkMode } = useTheme();
 
 	const getFullPassage = async () => {
 		setErrorMessage(null);
@@ -83,34 +85,36 @@ const VerseCard = ({
 					{/* Área para "anterior" (lado izquierdo) */}
 					<div
 						onClick={onPrevious}
-						className="absolute left-0 top-0 bottom-0 w-1/4 z-10 cursor-pointer flex items-center justify-start pl-2 opacity-0 hover:opacity-100 transition-opacity"
+						className="absolute left-0 top-0 bottom-0 w-1/4 z-10 cursor-pointer flex items-center justify-start pl-2 opacity-0 hover:opacity-100 transition-opacity duration-300"
 						aria-label="Anterior versículo"
 					>
-						<div className="bg-white rounded-full p-2 shadow-md">
-							<ArrowLeftIcon className="w-5 h-5 text-[#314156]" />
+						<div className="bg-white dark:bg-gray-700 rounded-full p-2 shadow-md backdrop-blur-sm transition-colors duration-300">
+							<ArrowLeftIcon className="w-5 h-5 text-[#314156] dark:text-gray-100" />
 						</div>
 					</div>
 
 					{/* Área para "siguiente" (lado derecho) */}
 					<div
 						onClick={onNext}
-						className="absolute right-0 top-0 bottom-0 w-1/4 z-10 cursor-pointer flex items-center justify-end pr-2 opacity-0 hover:opacity-100 transition-opacity"
+						className="absolute right-0 top-0 bottom-0 w-1/4 z-10 cursor-pointer flex items-center justify-end pr-2 opacity-0 hover:opacity-100 transition-opacity duration-300"
 						aria-label="Siguiente versículo"
 					>
-						<div className="bg-white rounded-full p-2 shadow-md">
-							<ArrowRightIcon className="w-5 h-5 text-[#314156]" />
+						<div className="bg-white dark:bg-gray-700 rounded-full p-2 shadow-md backdrop-blur-sm transition-colors duration-300">
+							<ArrowRightIcon className="w-5 h-5 text-[#314156] dark:text-gray-100" />
 						</div>
 					</div>
 				</>
 			)}
 
 			{/* Tarjeta del versículo */}
-			<div className="p-6 bg-white rounded-lg shadow-lg border border-gray-100 hover:border-[#b79b72] transition-colors">
+			<div className="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-100 dark:border-gray-700 hover:border-[#b79b72] dark:hover:border-[#b79b72]/80 transition-all duration-300">
 				<div className="mb-4 text-center">
-					<blockquote className="mb-4 text-xl italic text-[#314156]">
+					<blockquote className="mb-4 text-xl italic text-[#314156] dark:text-gray-100 font-medium transition-colors duration-300">
 						"{verse}"
 					</blockquote>
-					<p className="text-lg font-semibold text-[#b79b72]">— {reference}</p>
+					<p className="text-lg font-semibold text-[#b79b72] dark:text-[#b79b72]/90 transition-colors duration-300">
+						— {reference}
+					</p>
 				</div>
 
 				{/* Botones de acción */}
@@ -118,7 +122,7 @@ const VerseCard = ({
 					<button
 						onClick={getFullPassage}
 						disabled={isLoading}
-						className="flex items-center space-x-1 px-4 py-2 text-[#314156] transition-colors rounded-full hover:bg-[#b79b72]/20 disabled:opacity-50"
+						className="flex items-center space-x-1 px-4 py-2 text-[#314156] dark:text-gray-200 transition-all duration-300 rounded-full hover:bg-[#b79b72]/20 dark:hover:bg-[#b79b72]/30 disabled:opacity-50"
 					>
 						<BookOpenIcon className="w-5 h-5" />
 						<span>{isLoading ? "Cargando..." : "Ver pasaje completo"}</span>
@@ -127,7 +131,7 @@ const VerseCard = ({
 
 				{/* Mensaje de error */}
 				{errorMessage && (
-					<div className="mt-3 text-center text-red-500 text-sm">
+					<div className="mt-3 text-center text-red-500 dark:text-red-400 text-sm transition-colors duration-300">
 						{errorMessage}
 					</div>
 				)}
@@ -135,30 +139,30 @@ const VerseCard = ({
 
 			{/* Modal para mostrar el pasaje completo */}
 			{showFullPassage && fullPassage && fullPassage.content && (
-				<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-					<div className="bg-white rounded-lg max-w-3xl w-full max-h-[80vh] overflow-auto p-6">
+				<div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+					<div className="bg-white dark:bg-gray-800 rounded-lg max-w-3xl w-full max-h-[80vh] overflow-auto p-6 shadow-xl dark:shadow-black/30 border dark:border-gray-700 transition-colors duration-300">
 						<div className="flex justify-between items-center mb-4">
-							<h3 className="text-xl font-semibold text-[#314156]">
+							<h3 className="text-xl font-semibold text-[#314156] dark:text-gray-100 transition-colors duration-300">
 								{fullPassage.reference}
 							</h3>
 							<button
 								onClick={closeFullPassage}
-								className="text-gray-600 hover:text-[#314156]"
+								className="text-gray-600 hover:text-[#314156] dark:text-gray-400 dark:hover:text-gray-100 p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300"
 							>
 								✕
 							</button>
 						</div>
 						<div
-							className="prose prose-lg max-w-none prose-headings:text-[#314156] prose-a:text-[#b79b72]"
+							className="prose prose-lg max-w-none dark:prose-invert prose-headings:text-[#314156] dark:prose-headings:text-gray-100 prose-a:text-[#b79b72] dark:prose-a:text-[#b79b72]/90 transition-colors duration-300"
 							dangerouslySetInnerHTML={{ __html: fullPassage.content }}
 						/>
-						<div className="mt-4 text-sm text-[#b79b72]">
+						<div className="mt-4 text-sm text-[#b79b72] dark:text-[#b79b72]/80 transition-colors duration-300">
 							{fullPassage.copyright}
 						</div>
 						<div className="mt-6 flex justify-end">
 							<button
 								onClick={closeFullPassage}
-								className="px-4 py-2 bg-[#314156] text-white rounded hover:bg-[#314156]/90"
+								className="px-4 py-2 bg-[#314156] text-white dark:bg-[#b79b72] dark:text-gray-900 rounded hover:bg-[#314156]/90 dark:hover:bg-[#b79b72]/90 transition-colors duration-300"
 							>
 								Cerrar
 							</button>
