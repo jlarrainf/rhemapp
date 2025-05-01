@@ -16,7 +16,7 @@ export default function Home() {
 					/>
 				</div>
 				<h1 className="text-4xl font-bold text-[#314156] mb-4">Rhemapp</h1>
-				<p className="text-xl text-gray-600 max-w-2xl mb-8">
+				<p className="text-xl text-gray-600 max-w-2xl mx-auto text-left mb-8">
 					El nombre RHEMA viene del griego{" "}
 					<span className="italic font-semibold">ῥῆμα</span> que significa
 					"Palabra". Representa la palabra viva de Dios que habla directamente a
@@ -36,7 +36,7 @@ export default function Home() {
 					</blockquote>
 				</div>
 
-				<p className="text-gray-600 text-lg max-w-3xl mx-auto mb-10">
+				<p className="text-gray-600 text-lg max-w-3xl mx-auto text-left mb-10">
 					Esta aplicación es una herramienta para ayudarte a conectar con la
 					Palabra de Dios todos los días, permitiéndote descubrir versículos,
 					reflexionar sobre la lectura diaria y meditar los misterios del

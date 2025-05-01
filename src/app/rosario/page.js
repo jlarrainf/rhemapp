@@ -264,7 +264,7 @@ export default function RosarioPage() {
 				<p className="text-xl text-[#b79b72] mb-2 font-semibold">
 					{tipoMisterio}
 				</p>
-				
+
 				<div className="flex items-center justify-center mb-4 mt-2">
 					<label htmlFor="dia-select" className="mr-2 text-gray-600">
 						Misterios del día:
