@@ -96,7 +96,7 @@ const VerseCard = ({
 						aria-label="Anterior versículo"
 					>
 						<div className="bg-white rounded-full p-2 shadow-md">
-							<ArrowLeftIcon className="w-5 h-5 text-gray-600" />
+							<ArrowLeftIcon className="w-5 h-5 text-[#314156]" />
 						</div>
 					</div>
 
@@ -107,19 +107,19 @@ const VerseCard = ({
 						aria-label="Siguiente versículo"
 					>
 						<div className="bg-white rounded-full p-2 shadow-md">
-							<ArrowRightIcon className="w-5 h-5 text-gray-600" />
+							<ArrowRightIcon className="w-5 h-5 text-[#314156]" />
 						</div>
 					</div>
 				</>
 			)}
 
 			{/* Tarjeta del versículo */}
-			<div className="p-6 bg-white rounded-lg shadow-lg border border-gray-100">
+			<div className="p-6 bg-white rounded-lg shadow-lg border border-gray-100 hover:border-[#b79b72] transition-colors">
 				<div className="mb-4 text-center">
-					<blockquote className="mb-4 text-xl italic text-gray-700">
+					<blockquote className="mb-4 text-xl italic text-[#314156]">
 						"{verse}"
 					</blockquote>
-					<p className="text-lg font-semibold text-gray-600">— {reference}</p>
+					<p className="text-lg font-semibold text-[#b79b72]">— {reference}</p>
 				</div>
 
 				{/* Botones de acción */}
@@ -141,7 +141,7 @@ const VerseCard = ({
 					<button
 						onClick={getFullPassage}
 						disabled={isLoading}
-						className="flex items-center space-x-1 px-3 py-2 text-blue-600 transition-colors rounded-full hover:bg-blue-100 disabled:opacity-50"
+						className="flex items-center space-x-1 px-3 py-2 text-[#314156] transition-colors rounded-full hover:bg-[#b79b72]/20 disabled:opacity-50"
 					>
 						<BookOpenIcon className="w-5 h-5" />
 						<span>{isLoading ? "Cargando..." : "Ver pasaje completo"}</span>
@@ -161,25 +161,25 @@ const VerseCard = ({
 				<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
 					<div className="bg-white rounded-lg max-w-3xl w-full max-h-[80vh] overflow-auto p-6">
 						<div className="flex justify-between items-center mb-4">
-							<h3 className="text-xl font-semibold">{fullPassage.reference}</h3>
+							<h3 className="text-xl font-semibold text-[#314156]">{fullPassage.reference}</h3>
 							<button
 								onClick={closeFullPassage}
-								className="text-gray-600 hover:text-gray-900"
+								className="text-gray-600 hover:text-[#314156]"
 							>
 								✕
 							</button>
 						</div>
 						<div
-							className="prose prose-lg max-w-none"
+							className="prose prose-lg max-w-none prose-headings:text-[#314156] prose-a:text-[#b79b72]"
 							dangerouslySetInnerHTML={{ __html: fullPassage.content }}
 						/>
-						<div className="mt-4 text-sm text-gray-600">
+						<div className="mt-4 text-sm text-[#b79b72]">
 							{fullPassage.copyright}
 						</div>
 						<div className="mt-6 flex justify-end">
 							<button
 								onClick={closeFullPassage}
-								className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+								className="px-4 py-2 bg-[#314156] text-white rounded hover:bg-[#314156]/90"
 							>
 								Cerrar
 							</button>
