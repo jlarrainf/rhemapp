@@ -7,6 +7,7 @@ export async function GET(request) {
 		const { searchParams } = new URL(request.url);
 		const bibleId = searchParams.get("bibleId") || "592420522e16049f-01"; // Versión en español por defecto (Reina-Valera 1960)
 		const passageId = searchParams.get("passageId");
+		const verseRange = searchParams.get("verseRange"); // Nuevo parámetro para rango de versículos (Ej: "6-14")
 
 		if (!passageId) {
 			return NextResponse.json(
@@ -28,112 +29,196 @@ export async function GET(request) {
 			);
 		}
 
-		const apiUrl = `https://api.scripture.api.bible/v1/bibles/${bibleId}/passages/${passageId}`;
+		let apiUrl;
+		let data;
 
-		const response = await fetch(apiUrl, {
-			headers: {
-				"api-key": apiKey,
-			},
-		});
+		// Si no hay un rango específico de versículos, obtenemos el pasaje completo
+		if (!verseRange) {
+			apiUrl = `https://api.scripture.api.bible/v1/bibles/${bibleId}/passages/${passageId}`;
 
-		if (!response.ok) {
-			const errorData = await response.json();
-			return NextResponse.json(
-				{
-					error: "Error al obtener el pasaje desde la API de Bible",
-					details: errorData,
+			const response = await fetch(apiUrl, {
+				headers: {
+					"api-key": apiKey,
 				},
-				{ status: response.status }
-			);
-		}
-
-		const data = await response.json();
-
-		// Procesar el contenido para formatear los números de versículo
-		let content = data.data.content;
-
-		// Eliminar etiquetas HTML que puedan venir de la API
-		content = content.replace(/<\/?[^>]+(>|$)/g, "");
-
-		// Dividir por números de versículo para procesarlos individualmente
-		const versePattern = /(\d+)([A-Za-záéíóúüñÁÉÍÓÚÜÑ])/g;
-		let matches = [...content.matchAll(versePattern)];
-
-		if (matches.length > 0) {
-			// Estructura para guardar los versículos procesados
-			const verses = [];
-			let lastIndex = 0;
-
-			// Procesar cada coincidencia
-			matches.forEach((match, index) => {
-				const verseNum = match[1];
-				const verseStartChar = match[2];
-				const matchIndex = match.index;
-
-				// Si es el primer versículo y hay texto antes, añadirlo como introducción
-				if (index === 0 && matchIndex > 0) {
-					const intro = content.substring(0, matchIndex).trim();
-					if (intro) verses.push(intro);
-				}
-
-				// Encontrar dónde termina este versículo (inicio del siguiente o fin del texto)
-				const nextMatchIndex =
-					index < matches.length - 1
-						? matches[index + 1].index
-						: content.length;
-
-				// Extraer el texto del versículo (sin el número)
-				const verseText =
-					verseStartChar +
-					content
-						.substring(matchIndex + verseNum.length + 1, nextMatchIndex)
-						.trim();
-
-				// Crear el HTML del versículo con el número como superíndice y estilo visual similar a LaTeX
-				verses.push(
-					`<div class="verse"><span class="verse-number"><sup>${verseNum}</sup></span> ${verseText}</div>`
-				);
-
-				lastIndex = nextMatchIndex;
 			});
 
-			// Si hay texto después del último versículo, añadirlo
-			if (lastIndex < content.length) {
-				const remainingText = content.substring(lastIndex).trim();
-				if (remainingText) verses.push(`<div>${remainingText}</div>`);
+			if (!response.ok) {
+				const errorData = await response.json();
+				return NextResponse.json(
+					{
+						error: "Error al obtener el pasaje desde la API de Bible",
+						details: errorData,
+					},
+					{ status: response.status }
+				);
 			}
 
-			// Unir todos los versículos en un solo HTML
-			content = verses.join("");
+			data = await response.json();
+		} else {
+			// Obtener los versículos específicos del capítulo
+			// Primero obtenemos todos los versículos del capítulo
+			apiUrl = `https://api.scripture.api.bible/v1/bibles/${bibleId}/chapters/${passageId}/verses`;
 
-			// Envolver el contenido en un div con estilos para el formato
-			content = `
-				<div class="passage-content">
-					<style>
-						.passage-content {
-							font-family: inherit;
-							line-height: 1.8;
-							text-align: left;
-						}
-						.verse {
-							margin-bottom: 1rem;
-						}
-						.verse-number {
-							font-weight: bold;
-							color: #666;
-							padding: 0 0.25rem;
-						}
-					</style>
-					${content}
-				</div>
-			`;
+			const response = await fetch(apiUrl, {
+				headers: {
+					"api-key": apiKey,
+				},
+			});
+
+			if (!response.ok) {
+				const errorData = await response.json();
+				return NextResponse.json(
+					{
+						error: "Error al obtener los versículos del capítulo",
+						details: errorData,
+					},
+					{ status: response.status }
+				);
+			}
+
+			const versesData = await response.json();
+
+			// Procesar el rango de versículos
+			const [start, end] = verseRange.split("-").map((v) => parseInt(v, 10));
+			const filteredVerses = versesData.data.filter((verse) => {
+				// Extraer el número de versículo de la referencia
+				const verseNumber = parseInt(verse.id.split(".").pop(), 10);
+				return verseNumber >= start && verseNumber <= end;
+			});
+
+			// Obtener el contenido de cada versículo filtrado
+			const versesPromises = filteredVerses.map((verse) =>
+				fetch(
+					`https://api.scripture.api.bible/v1/bibles/${bibleId}/verses/${verse.id}`,
+					{
+						headers: { "api-key": apiKey },
+					}
+				).then((res) => res.json())
+			);
+
+			const versesContents = await Promise.all(versesPromises);
+
+			// Preparar los datos para procesamiento similar al pasaje completo
+			const versesHtml = versesContents
+				.map((verseData) => {
+					// Extraer número de versículo
+					const verseId = verseData.data.id;
+					const verseNumber = verseId.split(".").pop();
+
+					// Limpiar el HTML del contenido
+					let verseContent = verseData.data.content.replace(
+						/<\/?[^>]+(>|$)/g,
+						""
+					);
+
+					// Eliminar números al inicio del versículo si existen
+					verseContent = verseContent.replace(/^\d+\s*/, "");
+
+					// Crear el HTML del versículo
+					return `<div class="verse"><span class="verse-number"><sup>${verseNumber}</sup></span> ${verseContent}</div>`;
+				})
+				.join("");
+
+			// Crear una estructura similar a la que devuelve el endpoint de passages
+			data = {
+				data: {
+					content: versesHtml,
+					reference: `${
+						versesData.data[0].reference.split(":")[0]
+					}:${start}-${end}`,
+					copyright: versesContents[0]?.data.copyright || "",
+				},
+			};
 		}
+
+		// Procesar el contenido para formatear los números de versículo si es un pasaje completo
+		let content = data.data.content;
+
+		// Si es pasaje completo y no versículos individuales ya formateados
+		if (!verseRange) {
+			// Eliminar etiquetas HTML que puedan venir de la API
+			content = content.replace(/<\/?[^>]+(>|$)/g, "");
+
+			// Dividir por números de versículo para procesarlos individualmente
+			const versePattern = /(\d+)([A-Za-záéíóúüñÁÉÍÓÚÜÑ])/g;
+			let matches = [...content.matchAll(versePattern)];
+
+			if (matches.length > 0) {
+				// Estructura para guardar los versículos procesados
+				const verses = [];
+				let lastIndex = 0;
+
+				// Procesar cada coincidencia
+				matches.forEach((match, index) => {
+					const verseNum = match[1];
+					const verseStartChar = match[2];
+					const matchIndex = match.index;
+
+					// Si es el primer versículo y hay texto antes, añadirlo como introducción
+					if (index === 0 && matchIndex > 0) {
+						const intro = content.substring(0, matchIndex).trim();
+						if (intro) verses.push(intro);
+					}
+
+					// Encontrar dónde termina este versículo (inicio del siguiente o fin del texto)
+					const nextMatchIndex =
+						index < matches.length - 1
+							? matches[index + 1].index
+							: content.length;
+
+					// Extraer el texto del versículo (sin el número)
+					const verseText =
+						verseStartChar +
+						content
+							.substring(matchIndex + verseNum.length + 1, nextMatchIndex)
+							.trim();
+
+					// Crear el HTML del versículo con el número como superíndice y estilo visual similar a LaTeX
+					verses.push(
+						`<div class="verse"><span class="verse-number"><sup>${verseNum}</sup></span> ${verseText}</div>`
+					);
+
+					lastIndex = nextMatchIndex;
+				});
+
+				// Si hay texto después del último versículo, añadirlo
+				if (lastIndex < content.length) {
+					const remainingText = content.substring(lastIndex).trim();
+					if (remainingText) verses.push(`<div>${remainingText}</div>`);
+				}
+
+				// Unir todos los versículos en un solo HTML
+				content = verses.join("");
+			}
+		}
+
+		// Envolver el contenido en un div con estilos para el formato
+		content = `
+			<div class="passage-content">
+				<style>
+					.passage-content {
+						font-family: inherit;
+						line-height: 1.8;
+						text-align: left;
+					}
+					.verse {
+						margin-bottom: 1rem;
+					}
+					.verse-number {
+						font-weight: bold;
+						color: #666;
+						padding: 0 0.25rem;
+					}
+				</style>
+				${content}
+			</div>
+		`;
 
 		// Formateamos la respuesta para nuestra aplicación
 		return NextResponse.json({
 			content: content,
 			reference: data.data.reference,
-			copyright: data.data.copyright,
+			copyright: data.data.copyright || "",
 		});
 	} catch (error) {
 		console.error("Error al procesar la petición:", error);

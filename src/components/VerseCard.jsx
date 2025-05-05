@@ -46,9 +46,23 @@ const VerseCard = ({
 		setIsLoading(true);
 		try {
 			const bibleId = "592420522e16049f-01"; // Usando una versión en español por defecto
-			const response = await fetch(
-				`/api/passage?bibleId=${bibleId}&passageId=${passageId}`
-			);
+
+			// Extraer el rango de versículos si existe en la referencia (e.g., "Juan 14:6-14")
+			let verseRange = null;
+			if (reference) {
+				const match = reference.match(/\d+:(\d+)-(\d+)/);
+				if (match) {
+					verseRange = `${match[1]}-${match[2]}`;
+				}
+			}
+
+			// Construir la URL de la petición con el rango de versículos si existe
+			let apiUrl = `/api/passage?bibleId=${bibleId}&passageId=${passageId}`;
+			if (verseRange) {
+				apiUrl += `&verseRange=${verseRange}`;
+			}
+
+			const response = await fetch(apiUrl);
 
 			const data = await response.json();
 
