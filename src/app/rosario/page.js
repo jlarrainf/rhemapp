@@ -1,7 +1,11 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { ArrowDownCircleIcon } from "@heroicons/react/24/outline";
+import {
+	ArrowDownCircleIcon,
+	ArrowUpCircleIcon,
+	BookOpenIcon,
+} from "@heroicons/react/24/outline";
 import Image from "next/image";
 
 export default function RosarioPage() {
@@ -10,6 +14,9 @@ export default function RosarioPage() {
 	const [loading, setLoading] = useState(true);
 	const [diaActual, setDiaActual] = useState("");
 	const [diaSeleccionado, setDiaSeleccionado] = useState("");
+	const [fullPassage, setFullPassage] = useState(null);
+	const [showFullPassage, setShowFullPassage] = useState(false);
+	const [selectedMisterioIndex, setSelectedMisterioIndex] = useState(null);
 
 	const dias = [
 		"domingo",
@@ -54,6 +61,8 @@ export default function RosarioPage() {
 						"El ángel Gabriel anuncia a María que será la madre del Hijo de Dios.",
 					cita: "Lucas 1:28",
 					versiculo: "«Alégrate, llena de gracia, el Señor está contigo.»",
+					verseId: "LUK.1.28",
+					chapterId: "LUK.1",
 				},
 				{
 					titulo: "La Visita de María a su prima Isabel",
@@ -62,6 +71,8 @@ export default function RosarioPage() {
 					cita: "Lucas 1:42",
 					versiculo:
 						"«¡Bendita tú entre las mujeres y bendito el fruto de tu vientre!»",
+					verseId: "LUK.1.42",
+					chapterId: "LUK.1",
 				},
 				{
 					titulo: "El Nacimiento de Jesús en Belén",
@@ -70,6 +81,8 @@ export default function RosarioPage() {
 					cita: "Lucas 2:7",
 					versiculo:
 						"Y dio a luz a su hijo primogénito, lo envolvió en pañales y lo acostó en un pesebre.",
+					verseId: "LUK.2.7",
+					chapterId: "LUK.2",
 				},
 				{
 					titulo: "La Presentación de Jesús en el Templo",
@@ -78,6 +91,8 @@ export default function RosarioPage() {
 					cita: "Lucas 2:22-23",
 					versiculo:
 						"Llevaron a Jesús a Jerusalén para presentarlo al Señor, como está escrito en la ley del Señor.",
+					verseId: "LUK.2.22-LUK.2.23",
+					chapterId: "LUK.2",
 				},
 				{
 					titulo: "El Niño Jesús perdido y hallado en el Templo",
@@ -86,6 +101,8 @@ export default function RosarioPage() {
 					cita: "Lucas 2:46",
 					versiculo:
 						"Al tercer día lo encontraron en el templo, sentado en medio de los maestros, escuchándolos y haciéndoles preguntas.",
+					verseId: "LUK.2.46",
+					chapterId: "LUK.2",
 				},
 			];
 		} else if (diaIndex === 4) {
@@ -99,6 +116,8 @@ export default function RosarioPage() {
 					cita: "Mateo 3:17",
 					versiculo:
 						"Y una voz que venía de los cielos decía: «Este es mi Hijo amado, en quien me complazco.»",
+					verseId: "MAT.3.17",
+					chapterId: "MAT.3",
 				},
 				{
 					titulo: "Las Bodas de Caná",
@@ -107,6 +126,8 @@ export default function RosarioPage() {
 					cita: "Juan 2:7-8",
 					versiculo:
 						"Jesús les dice: «Llenen las tinajas de agua.» Y las llenaron hasta el borde.",
+					verseId: "JHN.2.7-JHN.2.8",
+					chapterId: "JHN.2",
 				},
 				{
 					titulo: "El Anuncio del Reino de Dios",
@@ -115,6 +136,8 @@ export default function RosarioPage() {
 					cita: "Marcos 1:15",
 					versiculo:
 						"«El tiempo se ha cumplido y el Reino de Dios está cerca; conviértanse y crean en la Buena Nueva.»",
+					verseId: "MRK.1.15",
+					chapterId: "MRK.1",
 				},
 				{
 					titulo: "La Transfiguración de Jesús",
@@ -123,6 +146,8 @@ export default function RosarioPage() {
 					cita: "Mateo 17:2",
 					versiculo:
 						"Y se transfiguró delante de ellos: su rostro se puso brillante como el sol y sus vestidos se volvieron blancos como la luz.",
+					verseId: "MAT.17.2",
+					chapterId: "MAT.17",
 				},
 				{
 					titulo: "La Institución de la Eucaristía",
@@ -131,6 +156,8 @@ export default function RosarioPage() {
 					cita: "Lucas 22:19",
 					versiculo:
 						"Y tomó pan, dio gracias, lo partió y lo dio a sus discípulos, diciendo: «Esto es mi cuerpo, que se entrega por ustedes; hagan esto en memoria mía.»",
+					verseId: "LUK.22.19",
+					chapterId: "LUK.22",
 				},
 			];
 		} else if (diaIndex === 2 || diaIndex === 5) {
@@ -144,12 +171,16 @@ export default function RosarioPage() {
 					cita: "Mateo 26:39",
 					versiculo:
 						"Y adelantándose un poco, cayó rostro en tierra, y suplicaba así: «Padre mío, si es posible, que pase de mí este cáliz, pero no sea como yo quiero, sino como quieres tú.»",
+					verseId: "MAT.26.39",
+					chapterId: "MAT.26",
 				},
 				{
 					titulo: "La Flagelación de Jesús",
 					descripcion: "Jesús es azotado por orden de Pilato.",
 					cita: "Juan 19:1",
 					versiculo: "Pilato entonces tomó a Jesús y mandó azotarle.",
+					verseId: "JHN.19.1",
+					chapterId: "JHN.19",
 				},
 				{
 					titulo: "La Coronación de espinas",
@@ -158,6 +189,8 @@ export default function RosarioPage() {
 					cita: "Mateo 27:29",
 					versiculo:
 						"Y trenzando una corona de espinas, se la pusieron sobre su cabeza, y en su mano derecha una caña; y doblando la rodilla delante de él, le hacían burla diciendo: «¡Salve, Rey de los judíos!»",
+					verseId: "MAT.27.29",
+					chapterId: "MAT.27",
 				},
 				{
 					titulo: "Jesús con la cruz a cuestas",
@@ -165,6 +198,8 @@ export default function RosarioPage() {
 					cita: "Juan 19:17",
 					versiculo:
 						"Y llevando su cruz, salió hacia el lugar llamado Calvario, que en hebreo se llama Gólgota.",
+					verseId: "JHN.19.17",
+					chapterId: "JHN.19",
 				},
 				{
 					titulo: "La Crucifixión y Muerte de Jesús",
@@ -173,6 +208,8 @@ export default function RosarioPage() {
 					cita: "Lucas 23:46",
 					versiculo:
 						"Jesús, dando una gran voz, dijo: «Padre, en tus manos encomiendo mi espíritu» y, dicho esto, expiró.",
+					verseId: "LUK.23.46",
+					chapterId: "LUK.23",
 				},
 			];
 		} else if (diaIndex === 3 || diaIndex === 0) {
@@ -185,6 +222,8 @@ export default function RosarioPage() {
 					cita: "Marcos 16:6",
 					versiculo:
 						"«No se asusten. Ustedes buscan a Jesús de Nazaret, el Crucificado; ha resucitado, no está aquí.»",
+					verseId: "MRK.16.6",
+					chapterId: "MRK.16",
 				},
 				{
 					titulo: "La Ascensión de Jesús al Cielo",
@@ -193,6 +232,8 @@ export default function RosarioPage() {
 					cita: "Hechos 1:9",
 					versiculo:
 						"Dicho esto, fue levantado en presencia de ellos, y una nube le ocultó a sus ojos.",
+					verseId: "ACT.1.9",
+					chapterId: "ACT.1",
 				},
 				{
 					titulo: "La Venida del Espíritu Santo",
@@ -201,6 +242,8 @@ export default function RosarioPage() {
 					cita: "Hechos 2:4",
 					versiculo:
 						"Todos quedaron llenos del Espíritu Santo y comenzaron a hablar en otras lenguas, según el Espíritu les concedía expresarse.",
+					verseId: "ACT.2.4",
+					chapterId: "ACT.2",
 				},
 				{
 					titulo: "La Asunción de María al Cielo",
@@ -208,12 +251,16 @@ export default function RosarioPage() {
 					cita: "Apocalipsis 12:1",
 					versiculo:
 						"Una gran señal apareció en el cielo: una Mujer, vestida del sol, con la luna bajo sus pies, y una corona de doce estrellas sobre su cabeza.",
+					verseId: "REV.12.1",
+					chapterId: "REV.12",
 				},
 				{
 					titulo: "La Coronación de María como Reina del Cielo",
 					descripcion: "María es coronada como Reina del Cielo y de la tierra.",
 					cita: "Salmo 45:9",
 					versiculo: "A tu derecha está la reina, enjoyada con oro de Ofir.",
+					verseId: "PSA.45.9",
+					chapterId: "PSA.45",
 				},
 			];
 		}
@@ -236,6 +283,56 @@ export default function RosarioPage() {
 		const nuevoDia = e.target.value;
 		setDiaSeleccionado(nuevoDia);
 		determinarMisterios(nuevoDia);
+	};
+
+	// Nueva función para abrir el modal con el pasaje completo
+	const verPasajeCompleto = async (reference, index) => {
+		setSelectedMisterioIndex(index);
+		try {
+			// Convertir la referencia (ej. "Lucas 1:28") en un formato de passageId para la API
+			// El formato esperado es como "LUK.1" para "Lucas 1:28"
+			const misterio = misterios[index];
+			let passageId = misterio.chapterId || ""; // Usar el chapterId si está disponible
+
+			// Si no tenemos un chapterId, intentar usar el verseId para inferirlo
+			if (!passageId && misterio.verseId) {
+				const parts = misterio.verseId.split(".");
+				if (parts.length >= 2) {
+					passageId = `${parts[0]}.${parts[1]}`;
+				}
+			}
+
+			// Si no tenemos ninguno de los anteriores, no podemos continuar
+			if (!passageId) {
+				throw new Error("No se pudo determinar el ID del pasaje");
+			}
+
+			const response = await fetch(
+				`/api/passage?passageId=${encodeURIComponent(passageId)}`
+			);
+			if (!response.ok) {
+				throw new Error("Error al obtener el pasaje");
+			}
+
+			const data = await response.json();
+			setFullPassage({
+				content: data.content,
+				reference: data.reference,
+				copyright: data.copyright,
+			});
+			setShowFullPassage(true);
+		} catch (error) {
+			console.error("Error al obtener el pasaje completo:", error);
+			alert(
+				"No se pudo cargar el pasaje completo. Por favor, intenta de nuevo."
+			);
+		}
+	};
+
+	// Cerrar el modal
+	const cerrarPasajeCompleto = () => {
+		setShowFullPassage(false);
+		setFullPassage(null);
 	};
 
 	if (loading) {
@@ -308,10 +405,57 @@ export default function RosarioPage() {
 									— {misterio.cita}
 								</p>
 							</div>
+
+							{/* Botones de acción */}
+							<div className="mt-4 flex justify-center">
+								<button
+									onClick={() => verPasajeCompleto(misterio.cita, index)}
+									className="flex items-center space-x-1 px-4 py-2 text-[#314156] dark:text-gray-200 transition-all duration-300 rounded-full hover:bg-[#b79b72]/20 dark:hover:bg-[#b79b72]/30"
+								>
+									<BookOpenIcon className="w-5 h-5 mr-1" />
+									<span>Ver pasaje completo</span>
+								</button>
+							</div>
 						</div>
 					</div>
 				))}
 			</div>
+
+			{/* Modal para mostrar el pasaje completo */}
+			{showFullPassage && fullPassage && (
+				<div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+					<div className="bg-white dark:bg-gray-800 rounded-lg max-w-3xl w-full max-h-[80vh] overflow-auto p-6 shadow-xl dark:shadow-black/30 border dark:border-gray-700 transition-colors duration-300">
+						<div className="flex justify-between items-center mb-4">
+							<h3 className="text-xl font-semibold text-[#314156] dark:text-gray-100 transition-colors duration-300">
+								{fullPassage.reference ||
+									(selectedMisterioIndex !== null &&
+										misterios[selectedMisterioIndex]?.cita)}
+							</h3>
+							<button
+								onClick={cerrarPasajeCompleto}
+								className="text-gray-600 hover:text-[#314156] dark:text-gray-400 dark:hover:text-gray-100 p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300"
+							>
+								✕
+							</button>
+						</div>
+						<div
+							className="prose prose-lg max-w-none dark:prose-invert prose-headings:text-[#314156] dark:prose-headings:text-gray-100 prose-a:text-[#b79b72] dark:prose-a:text-[#b79b72]/90 transition-colors duration-300"
+							dangerouslySetInnerHTML={{ __html: fullPassage.content }}
+						/>
+						<div className="mt-4 text-sm text-[#b79b72] dark:text-[#b79b72]/80 transition-colors duration-300">
+							{fullPassage.copyright}
+						</div>
+						<div className="mt-6 flex justify-end">
+							<button
+								onClick={cerrarPasajeCompleto}
+								className="px-4 py-2 bg-[#314156] text-white dark:bg-[#b79b72] dark:text-gray-900 rounded hover:bg-[#314156]/90 dark:hover:bg-[#b79b72]/90 transition-colors duration-300"
+							>
+								Cerrar
+							</button>
+						</div>
+					</div>
+				</div>
+			)}
 		</div>
 	);
 }
