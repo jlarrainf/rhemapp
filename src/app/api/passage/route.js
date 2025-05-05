@@ -5,7 +5,7 @@ export async function GET(request) {
 	try {
 		// Obtener los parámetros de la URL
 		const { searchParams } = new URL(request.url);
-		const bibleId = searchParams.get("bibleId") || "592420522e16049f-01"; // Versión en español por defecto (Reina-Valera 1960)
+		const bibleId = searchParams.get("bibleId") || "b32b9d1b64b4ef29-01"; // Versión en español por defecto (Reina-Valera 1960) b32b9d1b64b4ef29-01
 		const passageId = searchParams.get("passageId");
 		const verseRange = searchParams.get("verseRange"); // Nuevo parámetro para rango de versículos (Ej: "6-14")
 

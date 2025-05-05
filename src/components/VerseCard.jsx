@@ -45,7 +45,7 @@ const VerseCard = ({
 	const fetchPassage = async (passageId) => {
 		setIsLoading(true);
 		try {
-			const bibleId = "592420522e16049f-01"; // Usando una versión en español por defecto
+			const bibleId = "b32b9d1b64b4ef29-01"; // Usando una versión en español por defecto
 
 			// Extraer el rango de versículos si existe en la referencia (e.g., "Juan 14:6-14")
 			let verseRange = null;
