@@ -1,6 +1,10 @@
 # Rhemapp - Aplicación Bíblica
 
-![Logo de Rhemapp](/bible-app/public/Rhemapp_isotype.svg)
+<p align="center">
+  <img src="public/Rhemapp_isotype.svg" alt="Logo de Rhemapp" width="150"/>
+</p>
+
+
 
 ## Descripción
 
