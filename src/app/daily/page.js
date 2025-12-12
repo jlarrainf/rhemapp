@@ -79,7 +79,7 @@ export default function DailyVerse() {
 	if (loading) {
 		return (
 			<div className="flex flex-col items-center justify-center min-h-[70vh]">
-				<h1 className="text-2xl font-semibold text-gray-700">
+				<h1 className="text-2xl font-semibold text-gray-700 dark:text-gray-200 transition-colors duration-300">
 					Cargando versículo del día...
 				</h1>
 			</div>
@@ -92,12 +92,12 @@ export default function DailyVerse() {
 				<h1 className="text-2xl font-semibold text-red-600 mb-4">
 					Error al cargar el versículo
 				</h1>
-				<p className="text-gray-600">
+				<p className="text-gray-600 dark:text-gray-300 transition-colors duration-300">
 					{error || "No se pudo cargar el versículo del día"}
 				</p>
 				<button
 					onClick={() => window.location.reload()}
-					className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+					className="mt-4 px-4 py-2 bg-primary text-white rounded hover:bg-primary/90 dark:bg-secondary dark:text-gray-900 dark:hover:bg-secondary/90 transition-colors duration-300"
 				>
 					Reintentar
 				</button>
@@ -108,11 +108,13 @@ export default function DailyVerse() {
 	return (
 		<div className="flex flex-col items-center justify-center min-h-[70vh]">
 			<div className="mb-8 text-center">
-				<CalendarIcon className="w-14 h-14 mx-auto mb-4 text-[#b79b72]" />
-				<h1 className="text-3xl font-bold text-[#314156] mb-2">
+				<CalendarIcon className="w-14 h-14 mx-auto mb-4 text-[#314156] dark:text-gray-100 transition-colors duration-300" />
+				<h1 className="text-3xl font-bold text-[#314156] dark:text-gray-100 mb-2 transition-colors duration-300">
 					Lectura del Día
 				</h1>
-				<p className="text-xl text-[#b79b72] mb-2">{currentDate}</p>
+				<p className="text-xl text-[#b79b72] mb-2 font-semibold transition-colors duration-300">
+					{currentDate}
+				</p>
 			</div>
 
 			<VerseCard
@@ -124,7 +126,7 @@ export default function DailyVerse() {
 			/>
 
 			{verse.isRandom && (
-				<div className="mt-4 text-gray-500 text-sm">
+				<div className="mt-4 text-gray-500 dark:text-gray-400 text-sm transition-colors duration-300">
 					<p>
 						No hay un versículo específico para hoy, mostrando uno aleatorio.
 					</p>

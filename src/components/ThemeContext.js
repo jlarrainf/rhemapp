@@ -7,50 +7,104 @@ const ThemeContext = createContext();
 export function ThemeProvider({ children }) {
 	const [isDarkMode, setIsDarkMode] = useState(false);
 
-	// Cuando el componente se monta, comprueba si hay preferencia guardada
 	useEffect(() => {
-		// Comprobar si el usuario ya ha establecido una preferencia
-		const storedTheme = localStorage.getItem("theme");
+		const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
-		// Si hay una preferencia guardada, úsala
-		if (storedTheme) {
-			setIsDarkMode(storedTheme === "dark");
-			if (storedTheme === "dark") {
+		const applyExplicitTheme = (theme) => {
+			if (theme === "dark") {
 				document.documentElement.classList.add("dark");
+				document.documentElement.classList.remove("light");
+				setIsDarkMode(true);
+				return;
+			}
+
+			if (theme === "light") {
+				document.documentElement.classList.remove("dark");
+				document.documentElement.classList.add("light");
+				setIsDarkMode(false);
+				return;
+			}
+		};
+
+		const applySystemTheme = () => {
+			// En modo sistema no forzamos "light". Sí sincronizamos la clase "dark"
+			// para que Tailwind (darkMode: class) refleje el tema del navegador.
+			document.documentElement.classList.remove("light");
+			if (mediaQuery.matches) {
+				document.documentElement.classList.add("dark");
+				setIsDarkMode(true);
 			} else {
 				document.documentElement.classList.remove("dark");
+				setIsDarkMode(false);
 			}
+		};
+
+		const storedTheme = localStorage.getItem("theme");
+		if (storedTheme === "dark" || storedTheme === "light") {
+			applyExplicitTheme(storedTheme);
+		} else {
+			applySystemTheme();
 		}
-		// Si no hay preferencia guardada, usa la preferencia del sistema
-		else {
-			const prefersDark = window.matchMedia(
-				"(prefers-color-scheme: dark)"
-			).matches;
-			setIsDarkMode(prefersDark);
-			if (prefersDark) {
-				document.documentElement.classList.add("dark");
-				localStorage.setItem("theme", "dark");
-			} else {
-				document.documentElement.classList.remove("dark");
-				localStorage.setItem("theme", "light");
+
+		const handleSystemChange = () => {
+			const currentStoredTheme = localStorage.getItem("theme");
+			if (currentStoredTheme === "dark" || currentStoredTheme === "light") {
+				return;
 			}
+			applySystemTheme();
+		};
+
+		if (typeof mediaQuery.addEventListener === "function") {
+			mediaQuery.addEventListener("change", handleSystemChange);
+			return () => mediaQuery.removeEventListener("change", handleSystemChange);
 		}
+
+		// Fallback para navegadores antiguos
+		mediaQuery.addListener(handleSystemChange);
+		return () => mediaQuery.removeListener(handleSystemChange);
 	}, []);
 
 	const toggleTheme = () => {
-		const newTheme = isDarkMode ? "light" : "dark";
-		setIsDarkMode(!isDarkMode);
-		localStorage.setItem("theme", newTheme);
+		const storedTheme = localStorage.getItem("theme");
+		const systemPrefersDark = window.matchMedia(
+			"(prefers-color-scheme: dark)"
+		).matches;
 
-		if (newTheme === "dark") {
+		const currentlyDark =
+			storedTheme === "dark" || (storedTheme === null && systemPrefersDark);
+		const nextTheme = currentlyDark ? "light" : "dark";
+
+		localStorage.setItem("theme", nextTheme);
+		if (nextTheme === "dark") {
 			document.documentElement.classList.add("dark");
+			document.documentElement.classList.remove("light");
+			setIsDarkMode(true);
 		} else {
 			document.documentElement.classList.remove("dark");
+			document.documentElement.classList.add("light");
+			setIsDarkMode(false);
+		}
+	};
+
+	const resetThemeToSystem = () => {
+		localStorage.removeItem("theme");
+		document.documentElement.classList.remove("light");
+		const systemPrefersDark = window.matchMedia(
+			"(prefers-color-scheme: dark)"
+		).matches;
+		if (systemPrefersDark) {
+			document.documentElement.classList.add("dark");
+			setIsDarkMode(true);
+		} else {
+			document.documentElement.classList.remove("dark");
+			setIsDarkMode(false);
 		}
 	};
 
 	return (
-		<ThemeContext.Provider value={{ isDarkMode, toggleTheme }}>
+		<ThemeContext.Provider
+			value={{ isDarkMode, toggleTheme, resetThemeToSystem }}
+		>
 			{children}
 		</ThemeContext.Provider>
 	);

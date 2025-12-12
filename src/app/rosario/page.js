@@ -6,7 +6,7 @@ import {
 	ArrowUpCircleIcon,
 	BookOpenIcon,
 } from "@heroicons/react/24/outline";
-import Image from "next/image";
+import RosaryIcon from "@/components/RosaryIcon.jsx";
 
 export default function RosarioPage() {
 	const [misterios, setMisterios] = useState([]);
@@ -338,7 +338,7 @@ export default function RosarioPage() {
 	if (loading) {
 		return (
 			<div className="flex flex-col items-center justify-center min-h-[70vh]">
-				<h1 className="text-2xl font-semibold text-[#314156]">
+				<h1 className="text-2xl font-semibold text-[#314156] dark:text-gray-100 transition-colors duration-300">
 					Cargando misterios del día...
 				</h1>
 			</div>
@@ -348,14 +348,8 @@ export default function RosarioPage() {
 	return (
 		<div className="flex flex-col items-center justify-center py-8 px-4">
 			<div className="mb-8 text-center">
-				<Image
-					src="/rosary.svg"
-					alt="Rosario"
-					width={60}
-					height={60}
-					className="w-14 h-14 mx-auto mb-4"
-				/>
-				<h1 className="text-3xl font-bold text-[#314156] mb-2">
+				<RosaryIcon className="w-14 h-14 mx-auto mb-4 text-[#314156] dark:text-gray-100 transition-colors duration-300" />
+				<h1 className="text-3xl font-bold text-[#314156] dark:text-gray-100 transition-colors duration-300 mb-2">
 					Misterios del Rosario
 				</h1>
 				<p className="text-xl text-[#b79b72] mb-2 font-semibold">
@@ -363,14 +357,14 @@ export default function RosarioPage() {
 				</p>
 
 				<div className="flex items-center justify-center mb-4 mt-2">
-					<label htmlFor="dia-select" className="mr-2 text-gray-600">
+					<label htmlFor="dia-select" className="mr-2 text-gray-600 dark:text-gray-300 transition-colors duration-300">
 						Misterios del día:
 					</label>
 					<select
 						id="dia-select"
 						value={diaSeleccionado}
 						onChange={handleDiaChange}
-						className="px-4 py-2 rounded-md border border-gray-300 bg-white text-gray-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#b79b72]/50 focus:border-[#b79b72] capitalize"
+						className="px-4 py-2 rounded-md border border-gray-300 bg-white text-gray-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#b79b72]/50 focus:border-[#b79b72] capitalize dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700 transition-colors duration-300"
 					>
 						{dias.map((dia) => (
 							<option key={dia} value={dia} className="capitalize">
