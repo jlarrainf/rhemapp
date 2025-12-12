@@ -14,7 +14,7 @@
     "firebase": "^11.6.1",
     "firebase-admin": "^13.3.0",
     "firebase-functions": "^6.3.2",
-    "next": "15.3.1",
+    "next": "15.3.8",
     "react": "^19.0.0",
     "react-date-object": "^2.1.9",
     "react-dom": "^19.0.0"
