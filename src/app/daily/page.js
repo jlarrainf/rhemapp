@@ -34,7 +34,11 @@ async function loadVersesJson() {
 	}
 
 	const data = await response.json();
-	if (!data || !Array.isArray(data.verses) || !Array.isArray(data.dailyVerses)) {
+	if (
+		!data ||
+		!Array.isArray(data.verses) ||
+		!Array.isArray(data.dailyVerses)
+	) {
 		throw new Error("El formato del archivo de versículos es incorrecto");
 	}
 
@@ -118,8 +122,9 @@ export default async function DailyVersePage() {
 				</p>
 				{/* SEO: texto estable para que el HTML inicial describa la finalidad de la página. */}
 				<p className="text-gray-600 dark:text-gray-300 transition-colors duration-300 text-left max-w-2xl mx-auto">
-					Lee el versículo bíblico del día para meditar la Palabra de Dios. Cada fecha
-					presenta una lectura breve y accesible, con opción de ver el pasaje completo.
+					Lee el versículo bíblico del día para meditar la Palabra de Dios. Cada
+					fecha presenta una lectura breve y accesible, con opción de ver el
+					pasaje completo.
 				</p>
 			</div>
 
@@ -134,7 +139,8 @@ export default async function DailyVersePage() {
 			{verse.isRandom && (
 				<div className="mt-4 text-gray-500 dark:text-gray-400 text-sm transition-colors duration-300">
 					<p>
-						No hay un versículo específico para hoy, mostrando uno seleccionado por fecha.
+						No hay un versículo específico para hoy, mostrando uno seleccionado
+						por fecha.
 					</p>
 				</div>
 			)}

@@ -14,7 +14,8 @@ export default function NotFound() {
 				Página no encontrada
 			</h1>
 			<p className="text-gray-600 dark:text-gray-300 transition-colors duration-300 mb-6">
-				La ruta que buscas no existe. Puedes volver al inicio y seguir explorando Rhemapp.
+				La ruta que buscas no existe. Puedes volver al inicio y seguir
+				explorando Rhemapp.
 			</p>
 			<Link
 				href="/"

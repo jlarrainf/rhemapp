@@ -31,9 +31,9 @@ export default function RandomVersePage() {
 				</h1>
 				{/* SEO: descripción fija y estable en el HTML inicial (la parte aleatoria queda debajo). */}
 				<p className="text-gray-600 dark:text-gray-300 transition-colors duration-300 text-left">
-					Descubre versículos bíblicos de forma aleatoria para meditar y volver a la
-					Palabra de Dios. Puedes navegar entre versículos y consultar el pasaje
-					completo.
+					Descubre versículos bíblicos de forma aleatoria para meditar y volver
+					a la Palabra de Dios. Puedes navegar entre versículos y consultar el
+					pasaje completo.
 				</p>
 			</div>
 

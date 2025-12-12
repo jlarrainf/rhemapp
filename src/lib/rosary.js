@@ -132,8 +132,7 @@ function dolorosos() {
 		mysteries: [
 			{
 				titulo: "La Oración de Jesús en el Huerto",
-				descripcion:
-					"Jesús ora en el Huerto de Getsemaní antes de su arresto.",
+				descripcion: "Jesús ora en el Huerto de Getsemaní antes de su arresto.",
 				cita: "Mateo 26:39",
 				versiculo:
 					"Y adelantándose un poco, cayó rostro en tierra, y suplicaba así: «Padre mío, si es posible, que pase de mí este cáliz, pero no sea como yo quiero, sino como quieres tú.»",

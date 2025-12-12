@@ -22,9 +22,9 @@ export default function Home() {
 				<p className="text-xl text-gray-600 dark:text-gray-300 transition-colors duration-300 max-w-2xl mx-auto text-left mb-8">
 					El nombre RHEMA viene del griego{" "}
 					<span className="italic font-semibold">ῥῆμα</span> que significa
-					&quot;Palabra&quot;. Representa la palabra viva de Dios que habla directamente a
-					nuestro corazón en el momento presente, trayendo revelación, dirección
-					y propósito a nuestra vida diaria.
+					&quot;Palabra&quot;. Representa la palabra viva de Dios que habla
+					directamente a nuestro corazón en el momento presente, trayendo
+					revelación, dirección y propósito a nuestra vida diaria.
 				</p>
 
 				<div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 max-w-3xl mx-auto border-l-4 border-[#b79b72] dark:border-[#b79b72]/90 mb-6 transition-colors duration-300">

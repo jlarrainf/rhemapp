@@ -73,11 +73,14 @@ export default function RosarioClient({ days, byDayIndex, initialDayIndex }) {
 				<h1 className="text-3xl font-bold text-[#314156] dark:text-gray-100 transition-colors duration-300 mb-2">
 					Misterios del Rosario
 				</h1>
-				<p className="text-xl text-[#b79b72] mb-2 font-semibold">{tipoMisterio}</p>
+				<p className="text-xl text-[#b79b72] mb-2 font-semibold">
+					{tipoMisterio}
+				</p>
 				{/* SEO: texto estable que explica la función de la página. */}
 				<p className="text-gray-600 dark:text-gray-300 transition-colors duration-300 text-left max-w-2xl mx-auto">
-					Medita los misterios del rosario según el día de la semana, con su cita bíblica y
-					versículo correspondiente. Puedes cambiar de día y consultar el pasaje completo.
+					Medita los misterios del rosario según el día de la semana, con su
+					cita bíblica y versículo correspondiente. Puedes cambiar de día y
+					consultar el pasaje completo.
 				</p>
 
 				<div className="flex items-center justify-center mb-4 mt-2">
@@ -122,7 +125,9 @@ export default function RosarioClient({ days, byDayIndex, initialDayIndex }) {
 								<p className="italic text-gray-700 dark:text-gray-200 mb-1">
 									{misterio.versiculo}
 								</p>
-								<p className="text-sm text-[#b79b72] text-right">— {misterio.cita}</p>
+								<p className="text-sm text-[#b79b72] text-right">
+									— {misterio.cita}
+								</p>
 							</div>
 
 							<div className="mt-4 flex justify-center">

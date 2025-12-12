@@ -92,7 +92,11 @@ export default function RootLayout({ children }) {
 	};
 
 	return (
-		<html lang="es" className="transition-colors duration-300" suppressHydrationWarning>
+		<html
+			lang="es"
+			className="transition-colors duration-300"
+			suppressHydrationWarning
+		>
 			<head>
 				<Script
 					id="theme-init"
@@ -164,7 +168,9 @@ export default function RootLayout({ children }) {
 				) : null}
 				<ThemeProvider>
 					<Navbar />
-					<main className="flex-1 w-full max-w-6xl mx-auto px-4 py-8 pt-24">{children}</main>
+					<main className="flex-1 w-full max-w-6xl mx-auto px-4 py-8 pt-24">
+						{children}
+					</main>
 					<footer className="py-6 mt-8 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 transition-colors duration-300">
 						<div className="max-w-6xl mx-auto px-4 text-center text-gray-500 dark:text-gray-400">
 							<p>&copy; {new Date().getFullYear()} Rhemapp</p>
