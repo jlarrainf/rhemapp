@@ -182,6 +182,40 @@ La aplicación utiliza una paleta de colores específica:
    npm run dev
    ```
 
+## SEO, Indexación y Medición
+
+### Variables de entorno (SEO)
+
+- `SITE_URL`
+  - Se usa para construir URLs absolutas en `metadataBase`, `canonical`, `sitemap.xml` y Open Graph.
+  - En producción configura: `SITE_URL=https://www.rhemapp.com`.
+  - En desarrollo puedes usar: `SITE_URL=http://localhost:3000`.
+
+- `GOOGLE_SITE_VERIFICATION`
+  - Token que entrega Google Search Console para verificar la propiedad.
+  - Se inyecta automáticamente como `meta` de verificación via Next.js Metadata.
+
+Ejemplo: ver `.env.example`.
+
+### Sitemap y Robots
+
+- Sitemap: `https://www.rhemapp.com/sitemap.xml`
+- Robots: `https://www.rhemapp.com/robots.txt`
+
+### Google Search Console (pasos recomendados)
+
+1. Añadir/verificar la propiedad del dominio.
+2. Configurar `GOOGLE_SITE_VERIFICATION` en el entorno (y desplegar).
+3. Enviar el sitemap (`/sitemap.xml`).
+4. Revisar: indexación, cobertura, canonicals, y URLs excluidas.
+
+### Medición (opcional)
+
+- GA4: define `NEXT_PUBLIC_GA_ID`.
+- GTM: define `NEXT_PUBLIC_GTM_ID`.
+
+Si no defines estas variables, no se carga ningún script de analítica.
+
 ### Despliegue
 
 1. Conectar tu repositorio con Vercel:

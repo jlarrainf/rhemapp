@@ -97,7 +97,8 @@ const VerseCard = ({
 			{showNavigation && (
 				<>
 					{/* Área para "anterior" (lado izquierdo) */}
-					<div
+					<button
+						type="button"
 						onClick={onPrevious}
 						className="absolute left-0 top-0 bottom-0 w-1/4 z-10 cursor-pointer flex items-center justify-start pl-2 opacity-0 hover:opacity-100 transition-opacity duration-300"
 						aria-label="Anterior versículo"
@@ -105,10 +106,11 @@ const VerseCard = ({
 						<div className="bg-white dark:bg-gray-700 rounded-full p-2 shadow-md backdrop-blur-sm transition-colors duration-300">
 							<ArrowLeftIcon className="w-5 h-5 text-[#314156] dark:text-gray-100" />
 						</div>
-					</div>
+					</button>
 
 					{/* Área para "siguiente" (lado derecho) */}
-					<div
+					<button
+						type="button"
 						onClick={onNext}
 						className="absolute right-0 top-0 bottom-0 w-1/4 z-10 cursor-pointer flex items-center justify-end pr-2 opacity-0 hover:opacity-100 transition-opacity duration-300"
 						aria-label="Siguiente versículo"
@@ -116,7 +118,7 @@ const VerseCard = ({
 						<div className="bg-white dark:bg-gray-700 rounded-full p-2 shadow-md backdrop-blur-sm transition-colors duration-300">
 							<ArrowRightIcon className="w-5 h-5 text-[#314156] dark:text-gray-100" />
 						</div>
-					</div>
+					</button>
 				</>
 			)}
 
@@ -124,7 +126,7 @@ const VerseCard = ({
 			<div className="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-100 dark:border-gray-700 hover:border-[#b79b72] dark:hover:border-[#b79b72]/80 transition-all duration-300">
 				<div className="mb-4 text-center">
 					<blockquote className="mb-4 text-xl italic text-[#314156] dark:text-gray-100 font-medium transition-colors duration-300">
-						"{verse}"
+						&quot;{verse}&quot;
 					</blockquote>
 					<p className="text-lg font-semibold text-[#b79b72] dark:text-[#b79b72]/90 transition-colors duration-300">
 						— {reference}
@@ -154,13 +156,19 @@ const VerseCard = ({
 			{/* Modal para mostrar el pasaje completo */}
 			{showFullPassage && fullPassage && fullPassage.content && (
 				<div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-					<div className="bg-white dark:bg-gray-800 rounded-lg max-w-3xl w-full max-h-[80vh] overflow-auto p-6 shadow-xl dark:shadow-black/30 border dark:border-gray-700 transition-colors duration-300">
+					<div
+						className="bg-white dark:bg-gray-800 rounded-lg max-w-3xl w-full max-h-[80vh] overflow-auto p-6 shadow-xl dark:shadow-black/30 border dark:border-gray-700 transition-colors duration-300"
+						role="dialog"
+						aria-modal="true"
+					>
 						<div className="flex justify-between items-center mb-4">
 							<h3 className="text-xl font-semibold text-[#314156] dark:text-gray-100 transition-colors duration-300">
 								{fullPassage.reference}
 							</h3>
 							<button
+								type="button"
 								onClick={closeFullPassage}
+								aria-label="Cerrar pasaje completo"
 								className="text-gray-600 hover:text-[#314156] dark:text-gray-400 dark:hover:text-gray-100 p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300"
 							>
 								✕
@@ -175,6 +183,7 @@ const VerseCard = ({
 						</div>
 						<div className="mt-6 flex justify-end">
 							<button
+								type="button"
 								onClick={closeFullPassage}
 								className="px-4 py-2 bg-[#314156] text-white dark:bg-[#b79b72] dark:text-gray-900 rounded hover:bg-[#314156]/90 dark:hover:bg-[#b79b72]/90 transition-colors duration-300"
 							>

@@ -215,11 +215,14 @@ export async function GET(request) {
 		`;
 
 		// Formateamos la respuesta para nuestra aplicación
-		return NextResponse.json({
+		const response = NextResponse.json({
 			content: content,
 			reference: data.data.reference,
 			copyright: data.data.copyright || "",
 		});
+		// SEO: evitar que motores indexen endpoints JSON.
+		response.headers.set("X-Robots-Tag", "noindex, nofollow");
+		return response;
 	} catch (error) {
 		console.error("Error al procesar la petición:", error);
 		return NextResponse.json(

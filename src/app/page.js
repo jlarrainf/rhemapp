@@ -22,7 +22,7 @@ export default function Home() {
 				<p className="text-xl text-gray-600 dark:text-gray-300 transition-colors duration-300 max-w-2xl mx-auto text-left mb-8">
 					El nombre RHEMA viene del griego{" "}
 					<span className="italic font-semibold">ῥῆμα</span> que significa
-					"Palabra". Representa la palabra viva de Dios que habla directamente a
+					&quot;Palabra&quot;. Representa la palabra viva de Dios que habla directamente a
 					nuestro corazón en el momento presente, trayendo revelación, dirección
 					y propósito a nuestra vida diaria.
 				</p>
