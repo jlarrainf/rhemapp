@@ -49,7 +49,17 @@ export const metadata = {
 		follow: true,
 	},
 	icons: {
-		icon: "/Rhemapp_isotype.ico",
+		icon: [
+			{ url: "/Rhemapp_isotype.ico" },
+			{ url: "/Rhemapp_isotype.png", type: "image/png" },
+		],
+		apple: [{ url: "/apple-touch-icon.png", type: "image/png" }],
+	},
+	manifest: "/manifest.webmanifest",
+	appleWebApp: {
+		capable: true,
+		statusBarStyle: "default",
+		title: "Rhemapp",
 	},
 	// Medición: verificación opcional de Google Search Console vía env.
 	...(process.env.GOOGLE_SITE_VERIFICATION
