@@ -1,17 +1,24 @@
-import VerseCard from "@/components/VerseCard.jsx";
-import { CalendarIcon } from "@heroicons/react/24/outline";
 import { getSiteUrl } from "@/lib/siteUrl";
+import DailyVerseClient from "./DailyVerseClient";
 
 export const dynamic = "force-dynamic";
 
-function formatDate(date) {
-	const options = { day: "2-digit", month: "long", year: "numeric" };
+const DAILY_TIME_ZONE = "America/Santiago";
+
+function formatDateInTimeZone(date, timeZone) {
+	const options = { day: "2-digit", month: "long", year: "numeric", timeZone };
 	return date.toLocaleDateString("es-ES", options);
 }
 
-function getCurrentDateKey(date) {
-	const month = String(date.getMonth() + 1).padStart(2, "0");
-	const day = String(date.getDate()).padStart(2, "0");
+function getDateKeyInTimeZone(date, timeZone) {
+	const parts = new Intl.DateTimeFormat("en-CA", {
+		timeZone,
+		year: "numeric",
+		month: "2-digit",
+		day: "2-digit",
+	}).formatToParts(date);
+	const month = parts.find((p) => p.type === "month")?.value || "01";
+	const day = parts.find((p) => p.type === "day")?.value || "01";
 	return `${month}-${day}`;
 }
 
@@ -49,8 +56,9 @@ export default async function DailyVersePage() {
 	let verse = null;
 	let error = null;
 	const now = new Date();
-	const currentDate = formatDate(now);
-	const todayKey = getCurrentDateKey(now);
+	// SSR: usamos Chile como base estable. El cliente se sincroniza con el dispositivo tras hidratar.
+	const currentDate = formatDateInTimeZone(now, DAILY_TIME_ZONE);
+	const todayKey = getDateKeyInTimeZone(now, DAILY_TIME_ZONE);
 	const siteUrl = getSiteUrl();
 	const jsonLd = {
 		"@context": "https://schema.org",
@@ -89,61 +97,18 @@ export default async function DailyVersePage() {
 		error = e?.message || "Error desconocido al cargar el versículo";
 	}
 
-	if (error || !verse) {
-		return (
-			<div className="flex flex-col items-center justify-center min-h-[70vh]">
-				<script
-					type="application/ld+json"
-					dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-				/>
-				<h1 className="text-2xl font-semibold text-red-600 mb-4">
-					Error al cargar el versículo
-				</h1>
-				<p className="text-gray-600 dark:text-gray-300 transition-colors duration-300">
-					{error || "No se pudo cargar el versículo del día"}
-				</p>
-			</div>
-		);
-	}
-
 	return (
-		<div className="flex flex-col items-center justify-center min-h-[70vh]">
+		<>
 			<script
 				type="application/ld+json"
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
 			/>
-			<div className="mb-8 text-center">
-				<CalendarIcon className="w-14 h-14 mx-auto mb-4 text-[#314156] dark:text-gray-100 transition-colors duration-300" />
-				<h1 className="text-3xl font-bold text-[#314156] dark:text-gray-100 mb-2 transition-colors duration-300">
-					Lectura del Día
-				</h1>
-				<p className="text-xl text-[#b79b72] mb-2 font-semibold transition-colors duration-300">
-					{currentDate}
-				</p>
-				{/* SEO: texto estable para que el HTML inicial describa la finalidad de la página. */}
-				<p className="text-gray-600 dark:text-gray-300 transition-colors duration-300 text-center max-w-2xl mx-auto">
-					Lee el versículo bíblico del día para meditar la Palabra de Dios. Cada
-					fecha presenta una lectura breve y accesible, con opción de ver el
-					pasaje completo.
-				</p>
-			</div>
-
-			<VerseCard
-				verse={verse.verse || ""}
-				reference={verse.reference || ""}
-				verseId={verse.verseId || ""}
-				chapterId={verse.chapterId || ""}
-				showNavigation={false}
+			<DailyVerseClient
+				initialVerse={verse}
+				initialError={error}
+				initialDateKey={todayKey}
+				initialDateLabel={currentDate}
 			/>
-
-			{verse.isRandom && (
-				<div className="mt-4 text-gray-500 dark:text-gray-400 text-sm transition-colors duration-300 text-center">
-					<p>
-						No hay un versículo específico para hoy, mostrando uno seleccionado
-						por fecha.
-					</p>
-				</div>
-			)}
-		</div>
+		</>
 	);
 }
