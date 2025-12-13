@@ -77,7 +77,7 @@ export default function RosarioClient({ days, byDayIndex, initialDayIndex }) {
 					{tipoMisterio}
 				</p>
 				{/* SEO: texto estable que explica la función de la página. */}
-				<p className="text-gray-600 dark:text-gray-300 transition-colors duration-300 text-left max-w-2xl mx-auto">
+				<p className="text-gray-600 dark:text-gray-300 transition-colors duration-300 text-center max-w-2xl mx-auto">
 					Medita los misterios del rosario según el día de la semana, con su
 					cita bíblica y versículo correspondiente. Puedes cambiar de día y
 					consultar el pasaje completo.
