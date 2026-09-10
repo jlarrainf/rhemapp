@@ -18,14 +18,14 @@ export const metadata = {
 		template: "%s | Rhemapp",
 	},
 	description:
-		"Aplicación para descubrir versículos bíblicos, leer la lectura del día y meditar los misterios del rosario.",
+		"Aplicación para descubrir versículos bíblicos, leer el Evangelio del día y meditar los misterios del rosario.",
 	alternates: {
 		canonical: "/",
 	},
 	openGraph: {
 		title: "Rhemapp",
 		description:
-			"Aplicación para descubrir versículos bíblicos, leer la lectura del día y meditar los misterios del rosario.",
+			"Aplicación para descubrir versículos bíblicos, leer el Evangelio del día y meditar los misterios del rosario.",
 		url: "/",
 		siteName: "Rhemapp",
 		locale: "es_ES",
@@ -41,7 +41,7 @@ export const metadata = {
 		card: "summary",
 		title: "Rhemapp",
 		description:
-			"Aplicación para descubrir versículos bíblicos, leer la lectura del día y meditar los misterios del rosario.",
+			"Aplicación para descubrir versículos bíblicos, leer el Evangelio del día y meditar los misterios del rosario.",
 		images: ["/Rhemapp_isotype.png"],
 	},
 	robots: {
@@ -85,7 +85,7 @@ export default function RootLayout({ children }) {
 				name: "Rhemapp",
 				inLanguage: "es",
 				description:
-					"Aplicación para descubrir versículos bíblicos, leer la lectura del día y meditar los misterios del rosario.",
+					"Aplicación para descubrir versículos bíblicos, leer el Evangelio del día y meditar los misterios del rosario.",
 				publisher: { "@id": `${siteUrl}/#organization` },
 			},
 			{

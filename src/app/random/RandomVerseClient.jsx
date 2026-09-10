@@ -8,6 +8,7 @@ export default function RandomVerseClient() {
 	const [currentVerseIndex, setCurrentVerseIndex] = useState(0);
 	const [history, setHistory] = useState([]);
 	const [historyIndex, setHistoryIndex] = useState(-1);
+	const [hasNavigated, setHasNavigated] = useState(false);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
 
@@ -62,6 +63,7 @@ export default function RandomVerseClient() {
 		} while (randomIndex === currentVerseIndex);
 
 		setCurrentVerseIndex(randomIndex);
+		setHasNavigated(true);
 
 		const newHistory = history.slice(0, historyIndex + 1);
 		newHistory.push(randomIndex);
@@ -71,6 +73,7 @@ export default function RandomVerseClient() {
 
 	const getPreviousVerse = () => {
 		if (historyIndex > 0) {
+			setHasNavigated(true);
 			setHistoryIndex(historyIndex - 1);
 			setCurrentVerseIndex(history[historyIndex - 1]);
 		}
@@ -107,13 +110,18 @@ export default function RandomVerseClient() {
 
 	return (
 		<VerseCard
+			key={currentVerse.verseId || currentVerse.reference || currentVerseIndex}
 			verse={currentVerse.verse || ""}
 			reference={currentVerse.reference || ""}
 			verseId={currentVerse.verseId || ""}
+			passageId={currentVerse.verseId || ""}
 			chapterId={currentVerse.chapterId || ""}
 			onNext={getNextVerse}
 			onPrevious={getPreviousVerse}
+			canGoNext={verses.length > 1}
+			canGoPrevious={historyIndex > 0}
 			showNavigation={true}
+			showNavigationHint={!hasNavigated}
 		/>
 	);
 }

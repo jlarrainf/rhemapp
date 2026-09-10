@@ -1,9 +1,9 @@
 import { getSiteUrl } from "@/lib/siteUrl";
 
 export const metadata = {
-	title: "Lectura del día",
+	title: "Evangelio del día",
 	description:
-		"Lee el versículo bíblico del día y medita la Palabra de Dios con una lectura breve y accesible.",
+		"Lee el Evangelio del día según el calendario litúrgico de Chile y medita la Palabra de Dios.",
 	alternates: {
 		canonical: new URL("/daily", getSiteUrl()).toString(),
 	},

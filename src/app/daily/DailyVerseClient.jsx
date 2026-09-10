@@ -1,178 +1,207 @@
 "use client";
 
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { CalendarIcon } from "@heroicons/react/24/outline";
 import VerseCard from "@/components/VerseCard.jsx";
 
-function formatDateLocal(date) {
-	const options = { day: "2-digit", month: "long", year: "numeric" };
-	return date.toLocaleDateString("es-ES", options);
+const DAILY_TIME_ZONE = "America/Santiago";
+
+function getDateKeyInTimeZone(date, timeZone = DAILY_TIME_ZONE) {
+	const parts = new Intl.DateTimeFormat("en-CA", {
+		timeZone,
+		year: "numeric",
+		month: "2-digit",
+		day: "2-digit",
+	}).formatToParts(date);
+
+	return ["year", "month", "day"]
+		.map((type) => parts.find((part) => part.type === type)?.value || "")
+		.join("-");
 }
 
-function getCurrentDateKeyLocal(date) {
-	const month = String(date.getMonth() + 1).padStart(2, "0");
-	const day = String(date.getDate()).padStart(2, "0");
-	return `${month}-${day}`;
-}
-
-function stableIndex(seed, modulo) {
-	let hash = 0;
-	for (let i = 0; i < seed.length; i += 1) {
-		hash = (hash * 31 + seed.charCodeAt(i)) >>> 0;
-	}
-	return modulo > 0 ? hash % modulo : 0;
+function formatDateInTimeZone(date, timeZone = DAILY_TIME_ZONE) {
+	return new Intl.DateTimeFormat("es-CL", {
+		day: "2-digit",
+		month: "long",
+		year: "numeric",
+		timeZone,
+	}).format(date);
 }
 
 export default function DailyVerseClient({
-	initialVerse,
+	initialReading,
 	initialError,
 	initialDateKey,
 	initialDateLabel,
+	initialNextChangeAt,
 }) {
-	const [verse, setVerse] = useState(initialVerse);
+	const [reading, setReading] = useState(initialReading);
 	const [error, setError] = useState(initialError);
 	const [dateKey, setDateKey] = useState(initialDateKey);
 	const [dateLabel, setDateLabel] = useState(initialDateLabel);
-	const [loading, setLoading] = useState(false);
+	const [loading, setLoading] = useState(!initialReading);
+	const [isRefreshing, setIsRefreshing] = useState(false);
+	const [refreshError, setRefreshError] = useState(null);
+	const [statusMessage, setStatusMessage] = useState("");
+	const readingRef = useRef(initialReading);
+	const loadReadingRef = useRef(null);
+	const timerRef = useRef(null);
+	const retryTimerRef = useRef(null);
 
-	const shouldAttemptClientUpdate = useMemo(() => {
-		// Siempre intentamos sincronizar fecha con el dispositivo.
-		// Solo refetch si cambia el día o si no hay versículo inicial.
-		return true;
+	const scheduleNextChange = useCallback((nextChangeAt) => {
+		if (timerRef.current) window.clearTimeout(timerRef.current);
+		if (!nextChangeAt) return;
+
+		const millisecondsUntilChange = new Date(nextChangeAt).getTime() - Date.now() + 1000;
+		const delay = Math.min(Math.max(millisecondsUntilChange, 1000), 2_147_000_000);
+		timerRef.current = window.setTimeout(() => {
+			void loadReadingRef.current?.(true);
+		}, delay);
 	}, []);
+
+	const loadReading = useCallback(async (isRefresh = false) => {
+		if (retryTimerRef.current) window.clearTimeout(retryTimerRef.current);
+		if (isRefresh) setIsRefreshing(true);
+		else setLoading(true);
+		setRefreshError(null);
+
+		try {
+			const response = await fetch("/api/daily-reading", {
+				cache: "no-store",
+				headers: { Accept: "application/json" },
+			});
+			const data = await response.json();
+			if (!response.ok || data.error || !data.gospel?.excerpt) {
+				throw new Error(data.error || "No se pudo actualizar el Evangelio del día");
+			}
+
+			readingRef.current = data;
+			setReading(data);
+			setDateKey(data.dateKey);
+			setDateLabel(data.dateLabel || formatDateInTimeZone(new Date()));
+			setError(null);
+			setRefreshError(null);
+			setStatusMessage(isRefresh ? `Evangelio actualizado: ${data.dateLabel}.` : "");
+			scheduleNextChange(data.nextChangeAt);
+		} catch (cause) {
+			console.error("Error al actualizar el evangelio diario:", cause);
+			const message = cause?.message || "No se pudo actualizar el Evangelio del día";
+			if (readingRef.current) {
+				setRefreshError(message);
+				setStatusMessage("Se mantiene la lectura anterior mientras se reintenta la actualización.");
+				retryTimerRef.current = window.setTimeout(() => {
+					void loadReading(true);
+				}, 60_000);
+			} else {
+				setError(message);
+			}
+		} finally {
+			setLoading(false);
+			setIsRefreshing(false);
+		}
+	}, [scheduleNextChange]);
+	loadReadingRef.current = loadReading;
 
 	useEffect(() => {
-		if (!shouldAttemptClientUpdate) return;
-
-		const now = new Date();
-		const localDateKey = getCurrentDateKeyLocal(now);
-		const localDateLabel = formatDateLocal(now);
-
-		setDateKey(localDateKey);
-		setDateLabel(localDateLabel);
-
-		const needsFetch = !verse || localDateKey !== initialDateKey;
-		if (!needsFetch) return;
-
-		let cancelled = false;
-
-		const load = async () => {
-			try {
-				setLoading(true);
-				setError(null);
-
-				const response = await fetch("/api/verses?scope=daily");
-				if (!response.ok) {
-					throw new Error("No se pudo cargar el archivo de versículos");
-				}
-
-				const data = await response.json();
-				if (!data || !Array.isArray(data.verses)) {
-					throw new Error("El formato del archivo de versículos es incorrecto");
-				}
-
-				let todayVerse = Array.isArray(data.dailyVerses)
-					? data.dailyVerses.find((item) => item?.date === localDateKey)
-					: null;
-
-				if (!todayVerse && data.verses.length > 0) {
-					const idx = stableIndex(localDateKey, data.verses.length);
-					todayVerse = {
-						...(data.verses[idx] || {}),
-						isRandom: true,
-					};
-				}
-
-				if (!todayVerse || !todayVerse.verse || !todayVerse.reference) {
-					throw new Error("No se pudo obtener un versículo válido para hoy");
-				}
-
-				if (cancelled) return;
-				setVerse(todayVerse);
-			} catch (e) {
-				if (cancelled) return;
-				console.error("Error al cargar el versículo diario (cliente):", e);
-				setError(e?.message || "Error desconocido al cargar el versículo");
-			} finally {
-				if (cancelled) return;
-				setLoading(false);
+		const checkDate = (forceRefresh = false) => {
+			const now = new Date();
+			const currentKey = getDateKeyInTimeZone(now);
+			const knownKey = readingRef.current?.dateKey || dateKey;
+			if (forceRefresh || currentKey !== knownKey || !readingRef.current) {
+				void loadReading(true);
+				return;
 			}
+			scheduleNextChange(readingRef.current.nextChangeAt || initialNextChangeAt);
 		};
 
-		load();
+		const handleVisibilityChange = () => {
+			if (document.visibilityState === "visible") checkDate(true);
+		};
+		const handleFocus = () => checkDate(true);
+
+		checkDate(true);
+		window.addEventListener("focus", handleFocus);
+		document.addEventListener("visibilitychange", handleVisibilityChange);
+
 		return () => {
-			cancelled = true;
+			window.removeEventListener("focus", handleFocus);
+			document.removeEventListener("visibilitychange", handleVisibilityChange);
+			if (timerRef.current) window.clearTimeout(timerRef.current);
+			if (retryTimerRef.current) window.clearTimeout(retryTimerRef.current);
 		};
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	}, [dateKey, initialNextChangeAt, loadReading, scheduleNextChange]);
 
-	if (loading && !verse) {
+	if (loading && !reading) {
 		return (
-			<div className="flex flex-col items-center justify-center min-h-[70vh]">
+			<div className="flex min-h-[70vh] flex-col items-center justify-center">
 				<div className="mb-8 text-center">
-					<CalendarIcon className="w-14 h-14 mx-auto mb-4 text-[#314156] dark:text-gray-100 transition-colors duration-300" />
-					<h1 className="text-3xl font-bold text-[#314156] dark:text-gray-100 mb-2 transition-colors duration-300">
-						Lectura del Día
+					<CalendarIcon className="mx-auto mb-4 h-14 w-14 text-[#314156] transition-colors duration-300 dark:text-gray-100" />
+					<h1 className="mb-2 text-3xl font-bold text-[#314156] transition-colors duration-300 dark:text-gray-100">
+						Evangelio del día
 					</h1>
-					<p className="text-xl text-[#b79b72] mb-2 font-semibold transition-colors duration-300">
-						{dateLabel}
-					</p>
-					<p className="text-gray-600 dark:text-gray-300 transition-colors duration-300 text-center max-w-2xl mx-auto">
-						Cargando versículo…
+					<p className="mb-2 text-xl font-semibold text-[#b79b72]">{dateLabel}</p>
+					<p className="mx-auto max-w-2xl text-center text-gray-600 transition-colors duration-300 dark:text-gray-300">
+						Cargando la lectura correspondiente al calendario litúrgico de Chile…
 					</p>
 				</div>
 			</div>
 		);
 	}
 
-	if (error || !verse) {
+	if (error || !reading) {
 		return (
-			<div className="flex flex-col items-center justify-center min-h-[70vh]">
-				<h1 className="text-2xl font-semibold text-red-600 mb-4">
-					Error al cargar el versículo
+			<div className="flex min-h-[70vh] flex-col items-center justify-center px-4 text-center">
+				<h1 className="mb-4 text-2xl font-semibold text-red-600 dark:text-red-400">
+					No se pudo cargar el Evangelio del día
 				</h1>
-				<p className="text-gray-600 dark:text-gray-300 transition-colors duration-300 text-center max-w-2xl">
-					{error || "No se pudo cargar el versículo del día"}
+				<p className="max-w-2xl text-gray-600 transition-colors duration-300 dark:text-gray-300">
+					{error || "No hay una lectura válida para la fecha actual."}
 				</p>
+				<button
+					type="button"
+					onClick={() => void loadReading()}
+					className="mt-5 rounded-full bg-[#314156] px-5 py-2 text-white transition-colors hover:bg-[#314156]/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79b72] focus-visible:ring-offset-2 dark:bg-[#b79b72] dark:text-gray-900 dark:hover:bg-[#b79b72]/90 dark:focus-visible:ring-offset-gray-900"
+				>
+					Reintentar
+				</button>
 			</div>
 		);
 	}
 
 	return (
-		<div className="flex flex-col items-center justify-center min-h-[70vh]">
-			<div className="mb-8 text-center">
-				<CalendarIcon className="w-14 h-14 mx-auto mb-4 text-[#314156] dark:text-gray-100 transition-colors duration-300" />
-				<h1 className="text-3xl font-bold text-[#314156] dark:text-gray-100 mb-2 transition-colors duration-300">
-					Lectura del Día
+		<div className="flex min-h-[70vh] flex-col items-center justify-center px-4">
+			<div className="mb-8 max-w-2xl text-center">
+				<CalendarIcon className="mx-auto mb-4 h-14 w-14 text-[#314156] transition-colors duration-300 dark:text-gray-100" />
+				<h1 className="mb-2 text-3xl font-bold text-[#314156] transition-colors duration-300 dark:text-gray-100">
+					Evangelio del día
 				</h1>
-				<p className="text-xl text-[#b79b72] mb-2 font-semibold transition-colors duration-300">
-					{dateLabel}
-				</p>
-				<p className="text-gray-600 dark:text-gray-300 transition-colors duration-300 text-center max-w-2xl mx-auto">
-					Lee el versículo bíblico del día para meditar la Palabra de Dios. Cada
-					fecha presenta una lectura breve y accesible, con opción de ver el
-					pasaje completo.
+				<p className="mb-2 text-xl font-semibold capitalize text-[#b79b72]">{dateLabel}</p>
+				{reading.celebration && (
+					<p className="mb-3 text-sm font-medium uppercase tracking-[0.08em] text-[#314156]/70 dark:text-gray-300">
+						{reading.celebration}
+					</p>
+				)}
+				<p className="text-center text-gray-600 transition-colors duration-300 dark:text-gray-300">
+					Lee el Evangelio del día según el calendario litúrgico de Chile. La cita es
+					literal y puedes consultar el pasaje completo.
 				</p>
 			</div>
 
 			<VerseCard
-				verse={verse.verse || ""}
-				reference={verse.reference || ""}
-				verseId={verse.verseId || ""}
-				chapterId={verse.chapterId || ""}
+				key={reading.gospel.passageId || dateKey}
+				verse={reading.gospel.excerpt}
+				reference={reading.gospel.excerptReference || reading.gospel.reference}
+				verseId={reading.gospel.passageId}
+				passageId={reading.gospel.passageId}
+				ranges={reading.gospel.ranges}
 				showNavigation={false}
 			/>
 
-			{verse.isRandom && (
-				<div className="mt-4 text-gray-500 dark:text-gray-400 text-sm transition-colors duration-300 text-center">
-					<p>
-						No hay un versículo específico para hoy, mostrando uno seleccionado
-						por fecha.
-					</p>
-				</div>
-			)}
-
-			{/* Si el día del dispositivo difiere del server/Chile, mantenemos el aviso solo si hubo fallback; no mostramos nada extra. */}
+			<div className="mt-4 min-h-6 text-center text-sm" aria-live="polite">
+				{isRefreshing && <span className="text-gray-500 dark:text-gray-400">Actualizando…</span>}
+				{!isRefreshing && refreshError && <span className="text-amber-700 dark:text-amber-300">{refreshError}</span>}
+			</div>
+			<p className="sr-only" aria-live="polite">{statusMessage}</p>
 		</div>
 	);
 }

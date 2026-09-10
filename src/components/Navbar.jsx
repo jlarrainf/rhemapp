@@ -74,7 +74,7 @@ const Navbar = () => {
 							pathname={pathname}
 							onClick={handleLinkClick}
 						>
-							Lectura del Día
+							Evangelio del Día
 						</NavLink>
 						<NavLink
 							href="/rosario"
@@ -135,7 +135,7 @@ const Navbar = () => {
 						pathname={pathname}
 						onClick={handleLinkClick}
 					>
-						Lectura del Día
+						Evangelio del Día
 					</MobileNavLink>
 					<MobileNavLink
 						href="/rosario"

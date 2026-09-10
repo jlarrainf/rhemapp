@@ -1,76 +1,53 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
 	ArrowLeftIcon,
 	ArrowRightIcon,
 	BookOpenIcon,
 } from "@heroicons/react/24/outline";
-import { useTheme } from "./ThemeContext";
 
 const VerseCard = ({
 	verse,
 	reference,
 	verseId,
+	passageId,
+	ranges = [],
 	chapterId,
 	onNext,
 	onPrevious,
+	canGoNext = true,
+	canGoPrevious = true,
 	showNavigation = false,
+	showNavigationHint = true,
 }) => {
 	const [fullPassage, setFullPassage] = useState(null);
 	const [isLoading, setIsLoading] = useState(false);
 	const [showFullPassage, setShowFullPassage] = useState(false);
 	const [errorMessage, setErrorMessage] = useState(null);
-	const { isDarkMode } = useTheme();
+	const touchStartX = useRef(null);
 
-	const getFullPassage = async () => {
+	useEffect(() => {
+		setFullPassage(null);
+		setShowFullPassage(false);
 		setErrorMessage(null);
-		if (!chapterId) {
-			// Si no tenemos un chapterId, intentamos extraerlo del verseId
-			if (verseId) {
-				const parts = verseId.split(".");
-				if (parts.length >= 2) {
-					const extractedChapterId = `${parts[0]}.${parts[1]}`;
-					fetchPassage(extractedChapterId);
-				} else {
-					setErrorMessage("No se pudo determinar el capítulo de la referencia");
-					console.error("No se pudo determinar el chapterId del versículo");
-				}
-			}
-		} else {
-			fetchPassage(chapterId);
-		}
-	};
+	}, [passageId, verseId, reference]);
 
-	const fetchPassage = async (passageId) => {
+	const fetchPassage = async (requestedPassageId) => {
 		setIsLoading(true);
 		try {
-			const bibleId = "b32b9d1b64b4ef29-01"; // Usando una versión en español por defecto
-
-			// Extraer el rango de versículos si existe en la referencia (e.g., "Juan 14:6-14")
-			let verseRange = null;
-			if (reference) {
-				const match = reference.match(/\d+:(\d+)-(\d+)/);
-				if (match) {
-					verseRange = `${match[1]}-${match[2]}`;
-				}
+			const bibleId = "b32b9d1b64b4ef29-01";
+			const query = new URLSearchParams({ bibleId, passageId: requestedPassageId, reference });
+			if (Array.isArray(ranges) && ranges.length > 0) {
+				query.set("ranges", JSON.stringify(ranges));
 			}
 
-			// Construir la URL de la petición con el rango de versículos si existe
-			let apiUrl = `/api/passage?bibleId=${bibleId}&passageId=${passageId}`;
-			if (verseRange) {
-				apiUrl += `&verseRange=${verseRange}`;
-			}
-
-			const response = await fetch(apiUrl);
-
+			const response = await fetch(`/api/passage?${query.toString()}`);
 			const data = await response.json();
 
 			if (!response.ok || data.error) {
 				throw new Error(data.error || "Error al obtener el pasaje");
 			}
-
-			// Verificar que tenemos todos los campos necesarios
 			if (!data.content || !data.reference) {
 				throw new Error("Los datos del pasaje están incompletos");
 			}
@@ -87,105 +64,187 @@ const VerseCard = ({
 		}
 	};
 
-	const closeFullPassage = () => {
-		setShowFullPassage(false);
+	const getFullPassage = () => {
+		setErrorMessage(null);
+		const requestedPassageId = passageId || verseId;
+
+		if (requestedPassageId) {
+			void fetchPassage(requestedPassageId);
+			return;
+		}
+
+		if (chapterId) {
+			void fetchPassage(chapterId);
+			return;
+		}
+
+		setErrorMessage("No se pudo determinar el pasaje de la referencia");
 	};
 
+	const handleKeyDown = (event) => {
+		if (!showNavigation) return;
+		if (event.key === "ArrowLeft" && canGoPrevious) {
+			event.preventDefault();
+			onPrevious?.();
+		}
+		if (event.key === "ArrowRight" && canGoNext) {
+			event.preventDefault();
+			onNext?.();
+		}
+	};
+
+	const handleTouchStart = (event) => {
+		if (showNavigation) touchStartX.current = event.changedTouches[0]?.clientX ?? null;
+	};
+
+	const handleTouchEnd = (event) => {
+		if (!showNavigation || touchStartX.current === null) return;
+		const endX = event.changedTouches[0]?.clientX ?? touchStartX.current;
+		const deltaX = endX - touchStartX.current;
+		touchStartX.current = null;
+		if (Math.abs(deltaX) < 50) return;
+		if (deltaX > 0 && canGoPrevious) onPrevious?.();
+		if (deltaX < 0 && canGoNext) onNext?.();
+	};
+
+	const closeFullPassage = () => setShowFullPassage(false);
+
+	const navigationButtonClass =
+		"group absolute top-1/2 z-10 hidden -translate-y-1/2 items-center justify-center rounded-full border border-gray-200 bg-white p-3 text-[#314156] shadow-md transition-[transform,background-color,opacity] duration-200 hover:scale-105 hover:bg-[#b79b72]/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79b72] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-35 disabled:hover:scale-100 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-[#b79b72]/25 dark:focus-visible:ring-offset-gray-900 motion-reduce:transition-none md:flex";
+
 	return (
-		<div className="relative w-full max-w-2xl mx-auto">
-			{/* Áreas de navegación a los lados de la tarjeta */}
+		<div
+			className="relative mx-auto w-full max-w-2xl"
+			onKeyDown={handleKeyDown}
+			onTouchStart={handleTouchStart}
+			onTouchEnd={handleTouchEnd}
+			tabIndex={showNavigation ? 0 : undefined}
+			role={showNavigation ? "region" : undefined}
+			aria-label={showNavigation ? "Navegación de versículos" : undefined}
+		>
 			{showNavigation && (
 				<>
-					{/* Área para "anterior" (lado izquierdo) */}
 					<button
 						type="button"
-						onClick={onPrevious}
-						className="absolute left-0 top-0 bottom-0 w-1/4 z-10 cursor-pointer flex items-center justify-start pl-2 opacity-0 hover:opacity-100 transition-opacity duration-300"
-						aria-label="Anterior versículo"
+						onClick={() => onPrevious?.()}
+						disabled={!canGoPrevious}
+						className={`${navigationButtonClass} -left-14`}
+						aria-label="Ver versículo anterior"
+						title="Versículo anterior"
 					>
-						<div className="bg-white dark:bg-gray-700 rounded-full p-2 shadow-md backdrop-blur-sm transition-colors duration-300">
-							<ArrowLeftIcon className="w-5 h-5 text-[#314156] dark:text-gray-100" />
-						</div>
+						<ArrowLeftIcon className="h-5 w-5" aria-hidden="true" />
 					</button>
-
-					{/* Área para "siguiente" (lado derecho) */}
 					<button
 						type="button"
-						onClick={onNext}
-						className="absolute right-0 top-0 bottom-0 w-1/4 z-10 cursor-pointer flex items-center justify-end pr-2 opacity-0 hover:opacity-100 transition-opacity duration-300"
-						aria-label="Siguiente versículo"
+						onClick={() => onNext?.()}
+						disabled={!canGoNext}
+						className={`${navigationButtonClass} -right-14`}
+						aria-label="Ver siguiente versículo"
+						title="Siguiente versículo"
 					>
-						<div className="bg-white dark:bg-gray-700 rounded-full p-2 shadow-md backdrop-blur-sm transition-colors duration-300">
-							<ArrowRightIcon className="w-5 h-5 text-[#314156] dark:text-gray-100" />
-						</div>
+						<ArrowRightIcon className="h-5 w-5" aria-hidden="true" />
 					</button>
 				</>
 			)}
 
-			{/* Tarjeta del versículo */}
-			<div className="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-100 dark:border-gray-700 hover:border-[#b79b72] dark:hover:border-[#b79b72]/80 transition-all duration-300">
+			<div className="rounded-lg border border-gray-100 bg-white p-6 shadow-lg transition-colors duration-300 hover:border-[#b79b72] dark:border-gray-700 dark:bg-gray-800 dark:hover:border-[#b79b72]/80">
 				<div className="mb-4 text-center">
-					<blockquote className="mb-4 text-xl italic text-[#314156] dark:text-gray-100 font-medium transition-colors duration-300">
+					<blockquote className="mb-4 text-xl font-medium italic text-[#314156] transition-colors duration-300 dark:text-gray-100">
 						&quot;{verse}&quot;
 					</blockquote>
-					<p className="text-lg font-semibold text-[#b79b72] dark:text-[#b79b72]/90 transition-colors duration-300">
+					<p className="text-lg font-semibold text-[#b79b72] transition-colors duration-300 dark:text-[#b79b72]/90">
 						— {reference}
 					</p>
 				</div>
 
-				{/* Botones de acción */}
 				<div className="flex justify-center">
 					<button
+						type="button"
 						onClick={getFullPassage}
 						disabled={isLoading}
-						className="flex items-center space-x-1 px-4 py-2 text-[#314156] dark:text-gray-200 transition-all duration-300 rounded-full hover:bg-[#b79b72]/20 dark:hover:bg-[#b79b72]/30 disabled:opacity-50"
+						className="flex items-center space-x-1 rounded-full px-4 py-2 text-[#314156] transition-colors hover:bg-[#b79b72]/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79b72] focus-visible:ring-offset-2 disabled:opacity-50 dark:text-gray-200 dark:focus-visible:ring-offset-gray-800"
 					>
-						<BookOpenIcon className="w-5 h-5" />
-						<span>{isLoading ? "Cargando..." : "Ver pasaje completo"}</span>
+						<BookOpenIcon className="h-5 w-5" aria-hidden="true" />
+						<span>{isLoading ? "Cargando…" : "Ver evangelio completo"}</span>
 					</button>
 				</div>
 
-				{/* Mensaje de error */}
 				{errorMessage && (
-					<div className="mt-3 text-center text-red-500 dark:text-red-400 text-sm transition-colors duration-300">
+					<div className="mt-3 text-center text-sm text-red-500 transition-colors duration-300 dark:text-red-400" role="alert">
 						{errorMessage}
 					</div>
 				)}
 			</div>
 
-			{/* Modal para mostrar el pasaje completo */}
-			{showFullPassage && fullPassage && fullPassage.content && (
-				<div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+			{showNavigation && (
+				<>
+				<div className="mt-4 md:hidden">
+					<div className="flex items-center justify-between gap-4">
+						<button
+							type="button"
+							onClick={() => onPrevious?.()}
+							disabled={!canGoPrevious}
+							className="flex min-h-11 flex-1 items-center justify-center gap-2 rounded-full border border-gray-200 px-4 py-2 text-sm font-medium text-[#314156] transition-colors hover:bg-[#b79b72]/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79b72] disabled:cursor-not-allowed disabled:opacity-40 dark:border-gray-600 dark:text-gray-100 dark:hover:bg-[#b79b72]/25 motion-reduce:transition-none"
+							aria-label="Ver versículo anterior"
+					>
+							<ArrowLeftIcon className="h-4 w-4" aria-hidden="true" />
+							Anterior
+						</button>
+						<button
+							type="button"
+							onClick={() => onNext?.()}
+							disabled={!canGoNext}
+							className="flex min-h-11 flex-1 items-center justify-center gap-2 rounded-full border border-gray-200 px-4 py-2 text-sm font-medium text-[#314156] transition-colors hover:bg-[#b79b72]/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79b72] disabled:cursor-not-allowed disabled:opacity-40 dark:border-gray-600 dark:text-gray-100 dark:hover:bg-[#b79b72]/25 motion-reduce:transition-none"
+							aria-label="Ver siguiente versículo"
+						>
+							Siguiente
+							<ArrowRightIcon className="h-4 w-4" aria-hidden="true" />
+						</button>
+					</div>
+				</div>
+				{showNavigationHint && (
+					<p className="mt-3 text-center text-sm text-gray-600 dark:text-gray-300">
+						Usa las flechas o desliza hacia los lados para descubrir otro versículo.
+					</p>
+				)}
+				</>
+			)}
+
+			<p className="sr-only" aria-live="polite">Mostrando {reference}</p>
+
+			{showFullPassage && fullPassage?.content && (
+				<div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 backdrop-blur-sm">
 					<div
-						className="bg-white dark:bg-gray-800 rounded-lg max-w-3xl w-full max-h-[80vh] overflow-auto p-6 shadow-xl dark:shadow-black/30 border dark:border-gray-700 transition-colors duration-300"
+						className="max-h-[80vh] w-full max-w-3xl overflow-auto rounded-lg border bg-white p-6 shadow-xl transition-colors duration-300 dark:border-gray-700 dark:bg-gray-800 dark:shadow-black/30"
 						role="dialog"
 						aria-modal="true"
+						aria-labelledby="full-passage-title"
 					>
-						<div className="flex justify-between items-center mb-4">
-							<h3 className="text-xl font-semibold text-[#314156] dark:text-gray-100 transition-colors duration-300">
+						<div className="mb-4 flex items-center justify-between gap-4">
+							<h2 id="full-passage-title" className="text-xl font-semibold text-[#314156] transition-colors duration-300 dark:text-gray-100">
 								{fullPassage.reference}
-							</h3>
+							</h2>
 							<button
 								type="button"
 								onClick={closeFullPassage}
 								aria-label="Cerrar pasaje completo"
-								className="text-gray-600 hover:text-[#314156] dark:text-gray-400 dark:hover:text-gray-100 p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300"
+								className="rounded-full p-1 text-gray-600 transition-colors hover:bg-gray-100 hover:text-[#314156] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79b72] dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-100"
 							>
-								✕
+								<span aria-hidden="true">✕</span>
 							</button>
 						</div>
 						<div
-							className="prose prose-lg max-w-none dark:prose-invert prose-headings:text-[#314156] dark:prose-headings:text-gray-100 prose-a:text-[#b79b72] dark:prose-a:text-[#b79b72]/90 transition-colors duration-300"
+							className="prose prose-lg max-w-none transition-colors duration-300 dark:prose-invert prose-headings:text-[#314156] dark:prose-headings:text-gray-100 prose-a:text-[#b79b72]"
 							dangerouslySetInnerHTML={{ __html: fullPassage.content }}
 						/>
-						<div className="mt-4 text-sm text-[#b79b72] dark:text-[#b79b72]/80 transition-colors duration-300">
-							{fullPassage.copyright}
-						</div>
+						{fullPassage.copyright && (
+							<div className="mt-4 text-sm text-[#b79b72] dark:text-[#b79b72]/80">{fullPassage.copyright}</div>
+						)}
 						<div className="mt-6 flex justify-end">
 							<button
 								type="button"
 								onClick={closeFullPassage}
-								className="px-4 py-2 bg-[#314156] text-white dark:bg-[#b79b72] dark:text-gray-900 rounded hover:bg-[#314156]/90 dark:hover:bg-[#b79b72]/90 transition-colors duration-300"
+								className="rounded bg-[#314156] px-4 py-2 text-white transition-colors hover:bg-[#314156]/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79b72] dark:bg-[#b79b72] dark:text-gray-900 dark:hover:bg-[#b79b72]/90"
 							>
 								Cerrar
 							</button>

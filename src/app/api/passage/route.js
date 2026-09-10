@@ -8,6 +8,21 @@ export async function GET(request) {
 		const bibleId = searchParams.get("bibleId") || "b32b9d1b64b4ef29-01"; // Versión en español por defecto (Reina-Valera 1960) b32b9d1b64b4ef29-01
 		const passageId = searchParams.get("passageId");
 		const verseRange = searchParams.get("verseRange"); // Nuevo parámetro para rango de versículos (Ej: "6-14")
+		const requestedReference = searchParams.get("reference");
+		let structuredRanges = null;
+		const rangesParam = searchParams.get("ranges");
+		if (rangesParam) {
+			try {
+				const parsedRanges = JSON.parse(rangesParam);
+				if (Array.isArray(parsedRanges) && parsedRanges.length > 0) {
+					structuredRanges = parsedRanges.filter(
+						(range) => Number.isInteger(Number(range.chapter)) && Number.isInteger(Number(range.start))
+					);
+				}
+			} catch {
+				return NextResponse.json({ error: "Los rangos del pasaje no son válidos" }, { status: 400 });
+			}
+		}
 
 		if (!passageId) {
 			return NextResponse.json(
@@ -32,8 +47,77 @@ export async function GET(request) {
 		let apiUrl;
 		let data;
 
-		// Si no hay un rango específico de versículos, obtenemos el pasaje completo
-		if (!verseRange) {
+		// Los rangos estructurados permiten resolver listas discontinuas y cambios de capítulo.
+		if (structuredRanges) {
+			const bookCode = passageId.split(".")[0];
+			const chapters = [
+				...new Set(
+					structuredRanges.flatMap((range) => {
+						const firstChapter = Number(range.chapter);
+						const lastChapter = Number(range.endChapter || firstChapter);
+						return Array.from({ length: lastChapter - firstChapter + 1 }, (_, index) => firstChapter + index);
+					})
+				),
+			];
+			const chapterResponses = await Promise.all(
+				chapters.map(async (chapter) => {
+					const response = await fetch(
+						`https://api.scripture.api.bible/v1/bibles/${bibleId}/chapters/${bookCode}.${chapter}/verses`,
+						{ headers: { "api-key": apiKey } }
+					);
+					if (!response.ok) throw new Error(`No se pudo obtener el capítulo ${chapter}`);
+					return response.json();
+				})
+			);
+
+			const selectedVerses = chapterResponses
+				.flatMap((chapterData) => chapterData.data || [])
+				.filter((verse) => {
+					const parts = verse.id.split(".");
+					const chapter = Number(parts.at(-2));
+					const verseNumber = Number.parseInt(parts.at(-1), 10);
+					return structuredRanges.some((range) => {
+						const firstChapter = Number(range.chapter);
+						const lastChapter = Number(range.endChapter || firstChapter);
+						if (chapter < firstChapter || chapter > lastChapter) return false;
+						const firstVerse = chapter === firstChapter ? Number(range.start) : 1;
+						const lastVerse = chapter === lastChapter ? Number(range.end || range.start) : Number.MAX_SAFE_INTEGER;
+						return verseNumber >= firstVerse && verseNumber <= lastVerse;
+					});
+				})
+				.sort((left, right) => {
+					const leftParts = left.id.split(".").map(Number);
+					const rightParts = right.id.split(".").map(Number);
+					return leftParts.at(-2) - rightParts.at(-2) || leftParts.at(-1) - rightParts.at(-1);
+				});
+
+			const uniqueVerses = [...new Map(selectedVerses.map((verse) => [verse.id, verse])).values()];
+			const versesContents = await Promise.all(
+				uniqueVerses.map(async (verse) => {
+					const response = await fetch(
+						`https://api.scripture.api.bible/v1/bibles/${bibleId}/verses/${verse.id}`,
+						{ headers: { "api-key": apiKey } }
+					);
+					if (!response.ok) throw new Error(`No se pudo obtener el versículo ${verse.id}`);
+					return response.json();
+				})
+			);
+
+			data = {
+				data: {
+					content: versesContents
+						.map((verseData) => {
+							const verseId = verseData.data.id;
+							const verseNumber = verseId.split(".").pop();
+							const verseContent = verseData.data.content.replace(/<\/?[^>]+(>|$)/g, "").replace(/^\d+\s*/, "");
+							return `<div class="verse"><span class="verse-number"><sup>${verseNumber}</sup></span> ${verseContent}</div>`;
+						})
+						.join(""),
+					reference: requestedReference || passageId,
+					copyright: versesContents[0]?.data.copyright || "",
+				},
+			};
+		} else if (!verseRange) {
 			apiUrl = `https://api.scripture.api.bible/v1/bibles/${bibleId}/passages/${passageId}`;
 
 			const response = await fetch(apiUrl, {
@@ -135,7 +219,7 @@ export async function GET(request) {
 		let content = data.data.content;
 
 		// Si es pasaje completo y no versículos individuales ya formateados
-		if (!verseRange) {
+		if (!verseRange && !structuredRanges) {
 			// Eliminar etiquetas HTML que puedan venir de la API
 			content = content.replace(/<\/?[^>]+(>|$)/g, "");
 

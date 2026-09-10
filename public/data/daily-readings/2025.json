@@ -1,0 +1,4435 @@
+{
+  "calendar": "chile",
+  "year": 2025,
+  "liturgicalYear": "2025",
+  "entries": [
+    {
+      "date": "2025-04-30",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 3:16-21",
+        "passageId": "JHN.3.16-21",
+        "title": "Dios envió a su Hijo para que el mundo se salve por él.",
+        "excerpt": "Dios envió a su Hijo para que el mundo se salve por él.",
+        "excerptReference": "Juan 3:16-21"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-05-01",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 3:31-36",
+        "passageId": "JHN.3.31-36",
+        "title": "El Padre ama al Hijo y todo lo ha puesto en su mano.",
+        "excerpt": "El Padre ama al Hijo y todo lo ha puesto en su mano.",
+        "excerptReference": "Juan 3:31-36"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-05-02",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 6:1-15",
+        "passageId": "JHN.6.1-15",
+        "title": "Repartió a los que estaban sentados todo lo que quisieron.",
+        "excerpt": "Repartió a los que estaban sentados todo lo que quisieron.",
+        "excerptReference": "Juan 6:1-15"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-05-03",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 14:6-14",
+        "passageId": "JHN.14.6-14",
+        "title": "Hace tanto tiempo que estoy con vosotros, ¿y no me conoces?",
+        "excerpt": "Hace tanto tiempo que estoy con vosotros, ¿y no me conoces?",
+        "excerptReference": "Juan 14:6-14"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-05-04",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 21:1-19",
+        "passageId": "JHN.21.1-19",
+        "title": "Jesús se acerca, toma el pan y se lo da, y lo mismo el pescado.",
+        "excerpt": "Jesús se acerca, toma el pan y se lo da, y lo mismo el pescado.",
+        "excerptReference": "Juan 21:1-19"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-05-05",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 6:22-29",
+        "passageId": "JHN.6.22-29",
+        "title": "Trabajad, no por el alimento que perece, sino por el que perdura para la vida eterna.",
+        "excerpt": "Trabajad, no por el alimento que perece, sino por el que perdura para la vida eterna.",
+        "excerptReference": "Juan 6:22-29"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-05-06",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 6:30-35",
+        "passageId": "JHN.6.30-35",
+        "title": "No fue Moisés, sino que es mi Padre el que da el verdadero pan del cielo.",
+        "excerpt": "No fue Moisés, sino que es mi Padre el que da el verdadero pan del cielo.",
+        "excerptReference": "Juan 6:30-35"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-05-07",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 6:35-40",
+        "passageId": "JHN.6.35-40",
+        "title": "Ésta es la voluntad del Padre: que todo el que ve al Hijo tenga vida eterna.",
+        "excerpt": "Ésta es la voluntad del Padre: que todo el que ve al Hijo tenga vida eterna.",
+        "excerptReference": "Juan 6:35-40"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-05-08",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 6:44-51",
+        "passageId": "JHN.6.44-51",
+        "title": "Yo soy el pan vivo que ha bajado del cielo.",
+        "excerpt": "Yo soy el pan vivo que ha bajado del cielo.",
+        "excerptReference": "Juan 6:44-51"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-05-09",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 6:52-59",
+        "passageId": "JHN.6.52-59",
+        "title": "Mi carne es verdadera comida, y mi sangre es verdadera bebida.",
+        "excerpt": "Mi carne es verdadera comida, y mi sangre es verdadera bebida.",
+        "excerptReference": "Juan 6:52-59"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-05-10",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 6:60-69",
+        "passageId": "JHN.6.60-69",
+        "title": "¿A quién vamos a acudir? Tú tienes palabras de vida eterna.",
+        "excerpt": "¿A quién vamos a acudir? Tú tienes palabras de vida eterna.",
+        "excerptReference": "Juan 6:60-69"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-05-11",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 10:27-30",
+        "passageId": "JHN.10.27-30",
+        "title": "Yo doy la vida eterna a mis ovejas.",
+        "excerpt": "Yo doy la vida eterna a mis ovejas.",
+        "excerptReference": "Juan 10:27-30"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-05-12",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 10:1-10",
+        "passageId": "JHN.10.1-10",
+        "title": "Yo soy la puerta de las ovejas.",
+        "excerpt": "Yo soy la puerta de las ovejas.",
+        "excerptReference": "Juan 10:1-10"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-05-13",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 10:22-30",
+        "passageId": "JHN.10.22-30",
+        "title": "Yo y el Padre somos uno.",
+        "excerpt": "Yo y el Padre somos uno.",
+        "excerptReference": "Juan 10:22-30"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-05-14",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 15:9-17",
+        "passageId": "JHN.15.9-17",
+        "title": "No sois vosotros los que me habéis elegido, soy yo quien os he elegido.",
+        "excerpt": "No sois vosotros los que me habéis elegido, soy yo quien os he elegido.",
+        "excerptReference": "Juan 15:9-17"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-05-15",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Marcos 16:15-20",
+        "passageId": "MRK.16.15-20",
+        "title": "Proclamad el Evangelio a toda la creación.",
+        "excerpt": "Proclamad el Evangelio a toda la creación.",
+        "excerptReference": "Marcos 16:15-20"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-05-16",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 5:13-16",
+        "passageId": "MAT.5.13-16",
+        "title": "Vosotros sois la luz del mundo.",
+        "excerpt": "Vosotros sois la luz del mundo.",
+        "excerptReference": "Mateo 5:13-16"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-05-17",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 14:7-14",
+        "passageId": "JHN.14.7-14",
+        "title": "Quien me ha visto a mí ha visto al Padre.",
+        "excerpt": "Quien me ha visto a mí ha visto al Padre.",
+        "excerptReference": "Juan 14:7-14"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-05-18",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 13:31-35",
+        "passageId": "JHN.13.31-35",
+        "title": "Os doy un mandamiento nuevo: que os améis unos a otros.",
+        "excerpt": "Os doy un mandamiento nuevo: que os améis unos a otros.",
+        "excerptReference": "Juan 13:31-35"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-05-19",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 14:21-26",
+        "passageId": "JHN.14.21-26",
+        "title": "El Paráclito, que enviará el Padre, será quien os lo enseñará todo.",
+        "excerpt": "El Paráclito, que enviará el Padre, será quien os lo enseñará todo.",
+        "excerptReference": "Juan 14:21-26"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-05-20",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 14:27-31",
+        "passageId": "JHN.14.27-31",
+        "title": "Mi paz os doy.",
+        "excerpt": "Mi paz os doy.",
+        "excerptReference": "Juan 14:27-31"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-05-21",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 15:1-8",
+        "passageId": "JHN.15.1-8",
+        "title": "El que permanece en mí y yo en él, ése da fruto abundante.",
+        "excerpt": "El que permanece en mí y yo en él, ése da fruto abundante.",
+        "excerptReference": "Juan 15:1-8"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-05-22",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 15:9-11",
+        "passageId": "JHN.15.9-11",
+        "title": "Permaneced en mi amor, para que vuestra alegría llegue a plenitud.",
+        "excerpt": "Permaneced en mi amor, para que vuestra alegría llegue a plenitud.",
+        "excerptReference": "Juan 15:9-11"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-05-23",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 15:12-17",
+        "passageId": "JHN.15.12-17",
+        "title": "Esto os mando: que os améis unos a otros.",
+        "excerpt": "Esto os mando: que os améis unos a otros.",
+        "excerptReference": "Juan 15:12-17"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-05-24",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 15:18-21",
+        "passageId": "JHN.15.18-21",
+        "title": "No sois del mundo, sino que yo os he escogido sacándoos del mundo.",
+        "excerpt": "No sois del mundo, sino que yo os he escogido sacándoos del mundo.",
+        "excerptReference": "Juan 15:18-21"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-05-25",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 14:23-29",
+        "passageId": "JHN.14.23-29",
+        "title": "El Espíritu Santo os irá recordando todo lo que os he dicho.",
+        "excerpt": "El Espíritu Santo os irá recordando todo lo que os he dicho.",
+        "excerptReference": "Juan 14:23-29"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-05-26",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 15:26-16:4",
+        "passageId": "JHN.15.26-16.4",
+        "title": "El Espíritu de la verdad dará testimonio de mí.",
+        "excerpt": "El Espíritu de la verdad dará testimonio de mí.",
+        "excerptReference": "Juan 15:26-16:4"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-05-27",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 16:5-11",
+        "passageId": "JHN.16.5-11",
+        "title": "Si no me voy, no vendrá a vosotros el Paráclito.",
+        "excerpt": "Si no me voy, no vendrá a vosotros el Paráclito.",
+        "excerptReference": "Juan 16:5-11"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-05-28",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 16:12-15",
+        "passageId": "JHN.16.12-15",
+        "title": "El Espíritu de la verdad os guiará hasta la verdad plena.",
+        "excerpt": "El Espíritu de la verdad os guiará hasta la verdad plena.",
+        "excerptReference": "Juan 16:12-15"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-05-29",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 16:16-20",
+        "passageId": "JHN.16.16-20",
+        "title": "Estaréis tristes, pero vuestra tristeza se convertirá en alegría.",
+        "excerpt": "Estaréis tristes, pero vuestra tristeza se convertirá en alegría.",
+        "excerptReference": "Juan 16:16-20"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-05-30",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 16:20-23",
+        "passageId": "JHN.16.20-23",
+        "title": "Nadie os quitará vuestra alegría.",
+        "excerpt": "Nadie os quitará vuestra alegría.",
+        "excerptReference": "Juan 16:20-23"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-05-31",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 1:39-56",
+        "passageId": "LUK.1.39-56",
+        "title": "¿Quién soy yo para que me visite la madre de mi Señor?",
+        "excerpt": "¿Quién soy yo para que me visite la madre de mi Señor?",
+        "excerptReference": "Lucas 1:39-56"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-06-01",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 24:46-53",
+        "passageId": "LUK.24.46-53",
+        "title": "Mientras los bendecía, iba subiendo al cielo.",
+        "excerpt": "Mientras los bendecía, iba subiendo al cielo.",
+        "excerptReference": "Lucas 24:46-53"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-06-02",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 16:29-33",
+        "passageId": "JHN.16.29-33",
+        "title": "Tened valor: yo he vencido al mundo.",
+        "excerpt": "Tened valor: yo he vencido al mundo.",
+        "excerptReference": "Juan 16:29-33"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-06-03",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 17:1-11",
+        "passageId": "JHN.17.1-11",
+        "title": "Padre, glorifica a tu Hijo.",
+        "excerpt": "Padre, glorifica a tu Hijo.",
+        "excerptReference": "Juan 17:1-11"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-06-04",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 17:11-19",
+        "passageId": "JHN.17.11-19",
+        "title": "Que sean uno, como nosotros.",
+        "excerpt": "Que sean uno, como nosotros.",
+        "excerptReference": "Juan 17:11-19"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-06-05",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 17:20-26",
+        "passageId": "JHN.17.20-26",
+        "title": "Que sean completamente uno.",
+        "excerpt": "Que sean completamente uno.",
+        "excerptReference": "Juan 17:20-26"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-06-06",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 21:15-19",
+        "passageId": "JHN.21.15-19",
+        "title": "Apacienta mis corderos, apacienta mis ovejas.",
+        "excerpt": "Apacienta mis corderos, apacienta mis ovejas.",
+        "excerptReference": "Juan 21:15-19"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-06-07",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 21:20-25",
+        "passageId": "JHN.21.20-25",
+        "title": "Éste es el discípulo que ha escrito todo esto, y su testimonio es verdadero.",
+        "excerpt": "Éste es el discípulo que ha escrito todo esto, y su testimonio es verdadero.",
+        "excerptReference": "Juan 21:20-25"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-06-08",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 20:19-23",
+        "passageId": "JHN.20.19-23",
+        "title": "Como el Padre me ha enviado, así también os envío yo. Recibid el Espíritu Santo.",
+        "excerpt": "Como el Padre me ha enviado, así también os envío yo. Recibid el Espíritu Santo.",
+        "excerptReference": "Juan 20:19-23"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-06-09",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Marcos 5:1-12",
+        "passageId": "MRK.5.1-12",
+        "title": "Bienaventurados los pobres en el espíritu.",
+        "excerpt": "Bienaventurados los pobres en el espíritu.",
+        "excerptReference": "Marcos 5:1-12"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-06-10",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 5:13-16",
+        "passageId": "MAT.5.13-16",
+        "title": "Tampoco se enciende una lámpara para meterla debajo del celemín, sino para ponerla en el candelero y que alumbre a todos los de casa.",
+        "excerpt": "Tampoco se enciende una lámpara para meterla debajo del celemín, sino para ponerla en el candelero y que alumbre a todos los de casa.",
+        "excerptReference": "Mateo 5:13-16"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-06-11",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 5:17-19",
+        "passageId": "MAT.5.17-19",
+        "title": "No he venido a abolir, sino a dar plenitud.",
+        "excerpt": "No he venido a abolir, sino a dar plenitud.",
+        "excerptReference": "Mateo 5:17-19"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-06-12",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Marcos 14:12,22-25",
+        "passageId": "MRK.14.12,22-25",
+        "title": "Esto es mi cuerpo. Esta es mi sangre.",
+        "excerpt": "Esto es mi cuerpo. Esta es mi sangre.",
+        "excerptReference": "Marcos 14:12,22-25"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-06-13",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 5:27-32",
+        "passageId": "MAT.5.27-32",
+        "title": "El que mira a una mujer casada deseándola, ya ha sido adúltero.",
+        "excerpt": "El que mira a una mujer casada deseándola, ya ha sido adúltero.",
+        "excerptReference": "Mateo 5:27-32"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-06-14",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 5:33-37",
+        "passageId": "MAT.5.33-37",
+        "title": "Yo os digo que no juréis en absoluto.",
+        "excerpt": "Yo os digo que no juréis en absoluto.",
+        "excerptReference": "Mateo 5:33-37"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-06-15",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 16:12-15",
+        "passageId": "JHN.16.12-15",
+        "title": "Todo lo que tiene el Padre es mío, el Espíritu tomará de lo mío y os lo anunciará.",
+        "excerpt": "Todo lo que tiene el Padre es mío, el Espíritu tomará de lo mío y os lo anunciará.",
+        "excerptReference": "Juan 16:12-15"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-06-16",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 5:38-42",
+        "passageId": "MAT.5.38-42",
+        "title": "Yo os digo: No hagáis frente al que os agravia.",
+        "excerpt": "Yo os digo: No hagáis frente al que os agravia.",
+        "excerptReference": "Mateo 5:38-42"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-06-17",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 5:43-48",
+        "passageId": "MAT.5.43-48",
+        "title": "Amad a vuestros enemigos.",
+        "excerpt": "Amad a vuestros enemigos.",
+        "excerptReference": "Mateo 5:43-48"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-06-18",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 6:1-6,16-18",
+        "passageId": "MAT.6.1-6,16-18",
+        "title": "Tu Padre, que ve en lo escondido, te recompensará.",
+        "excerpt": "Tu Padre, que ve en lo escondido, te recompensará.",
+        "excerptReference": "Mateo 6:1-6,16-18"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-06-19",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 6:7-15",
+        "passageId": "MAT.6.7-15",
+        "title": "Vosotros orad así.",
+        "excerpt": "Vosotros orad así.",
+        "excerptReference": "Mateo 6:7-15"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-06-20",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 6:19-23",
+        "passageId": "MAT.6.19-23",
+        "title": "Donde está tu tesoro, allí está tu corazón.",
+        "excerpt": "Donde está tu tesoro, allí está tu corazón.",
+        "excerptReference": "Mateo 6:19-23"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-06-21",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 6:24-34",
+        "passageId": "MAT.6.24-34",
+        "title": "No os agobiéis por el mañana.",
+        "excerpt": "No os agobiéis por el mañana.",
+        "excerptReference": "Mateo 6:24-34"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-06-22",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 9:11-17",
+        "passageId": "LUK.9.11-17",
+        "title": "Comieron todos y se saciaron.",
+        "excerpt": "Comieron todos y se saciaron.",
+        "excerptReference": "Lucas 9:11-17"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-06-23",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 7:1-5",
+        "passageId": "MAT.7.1-5",
+        "title": "Sácate primero la viga del ojo.",
+        "excerpt": "Sácate primero la viga del ojo.",
+        "excerptReference": "Mateo 7:1-5"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-06-24",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 1:57-66,80",
+        "passageId": "LUK.1.57-66,80",
+        "title": "El nacimiento de Juan Bautista. Juan es su nombre.",
+        "excerpt": "El nacimiento de Juan Bautista. Juan es su nombre.",
+        "excerptReference": "Lucas 1:57-66,80"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-06-25",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 7:15-20",
+        "passageId": "MAT.7.15-20",
+        "title": "Por sus frutos los conoceréis.",
+        "excerpt": "Por sus frutos los conoceréis.",
+        "excerptReference": "Mateo 7:15-20"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-06-26",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 7:21-29",
+        "passageId": "MAT.7.21-29",
+        "title": "La casa edificada sobre roca y la casa edificada sobre arena.",
+        "excerpt": "La casa edificada sobre roca y la casa edificada sobre arena.",
+        "excerptReference": "Mateo 7:21-29"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-06-27",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 19:31-37",
+        "passageId": "JHN.19.31-37",
+        "title": "Le traspasó el costado, y salió sangre y agua.",
+        "excerpt": "Le traspasó el costado, y salió sangre y agua.",
+        "excerptReference": "Juan 19:31-37"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-06-28",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 2:41-51",
+        "passageId": "LUK.2.41-51",
+        "title": "Conservaba todo esto en su corazón.",
+        "excerpt": "Conservaba todo esto en su corazón.",
+        "excerptReference": "Lucas 2:41-51"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-06-29",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 16:13-19",
+        "passageId": "MAT.16.13-19",
+        "title": "Tú eres Pedro, y te daré las llaves del Reino de los cielos.",
+        "excerpt": "Tú eres Pedro, y te daré las llaves del Reino de los cielos.",
+        "excerptReference": "Mateo 16:13-19"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-06-30",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 8:18-22",
+        "passageId": "MAT.8.18-22",
+        "title": "Sígueme.",
+        "excerpt": "Sígueme.",
+        "excerptReference": "Mateo 8:18-22"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-07-01",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 8:23-27",
+        "passageId": "MAT.8.23-27",
+        "title": "Se puso en pie, increpó a los vientos y al lago, y vino una gran calma.",
+        "excerpt": "Se puso en pie, increpó a los vientos y al lago, y vino una gran calma.",
+        "excerptReference": "Mateo 8:23-27"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-07-02",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 13:1-9",
+        "passageId": "MAT.13.1-9",
+        "title": "Cayó en tierra buena y dio grano.",
+        "excerpt": "Cayó en tierra buena y dio grano.",
+        "excerptReference": "Mateo 13:1-9"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-07-03",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 20:24-29",
+        "passageId": "JHN.20.24-29",
+        "title": "Felices los que creen sin haber visto.",
+        "excerpt": "Felices los que creen sin haber visto.",
+        "excerptReference": "Juan 20:24-29"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-07-04",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 9:9-13",
+        "passageId": "MAT.9.9-13",
+        "title": "Aprended lo que significa 'misericordia quiero y no sacrificios'.",
+        "excerpt": "Aprended lo que significa 'misericordia quiero y no sacrificios'.",
+        "excerptReference": "Mateo 9:9-13"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-07-05",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 9:14-17",
+        "passageId": "MAT.9.14-17",
+        "title": "¿Es que pueden guardar luto, mientras el esposo está con ellos?",
+        "excerpt": "¿Es que pueden guardar luto, mientras el esposo está con ellos?",
+        "excerptReference": "Mateo 9:14-17"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-07-06",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 10:1-12,17-20",
+        "passageId": "LUK.10.1-12,17-20",
+        "title": "Descansará sobre ellos vuestra paz.",
+        "excerpt": "Descansará sobre ellos vuestra paz.",
+        "excerptReference": "Lucas 10:1-12,17-20"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-07-07",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 9:18-26",
+        "passageId": "MAT.9.18-26",
+        "title": "Mi hija acaba de morir. Pero ven tú, y vivirá.",
+        "excerpt": "Mi hija acaba de morir. Pero ven tú, y vivirá.",
+        "excerptReference": "Mateo 9:18-26"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-07-08",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 9:32-38",
+        "passageId": "MAT.9.32-38",
+        "title": "La mies es abundante, pero los trabajadores son pocos.",
+        "excerpt": "La mies es abundante, pero los trabajadores son pocos.",
+        "excerptReference": "Mateo 9:32-38"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-07-09",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 10:1-7",
+        "passageId": "MAT.10.1-7",
+        "title": "Id a las ovejas descarriadas de Israel.",
+        "excerpt": "Id a las ovejas descarriadas de Israel.",
+        "excerptReference": "Mateo 10:1-7"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-07-10",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 10:7-15",
+        "passageId": "MAT.10.7-15",
+        "title": "Lo que habéis recibido gratis, dadlo gratis.",
+        "excerpt": "Lo que habéis recibido gratis, dadlo gratis.",
+        "excerptReference": "Mateo 10:7-15"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-07-11",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 19:27-29",
+        "passageId": "MAT.19.27-29",
+        "title": "Vosotros, los que me habéis seguido, recibiréis cien veces más.",
+        "excerpt": "Vosotros, los que me habéis seguido, recibiréis cien veces más.",
+        "excerptReference": "Mateo 19:27-29"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-07-12",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 10:24-33",
+        "passageId": "MAT.10.24-33",
+        "title": "No tengáis miedo a los que matan el cuerpo.",
+        "excerpt": "No tengáis miedo a los que matan el cuerpo.",
+        "excerptReference": "Mateo 10:24-33"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-07-13",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 10:25-37",
+        "passageId": "LUK.10.25-37",
+        "title": "¿Quién es mi prójimo?",
+        "excerpt": "¿Quién es mi prójimo?",
+        "excerptReference": "Lucas 10:25-37"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-07-14",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 10:34-11:1",
+        "passageId": "MAT.10.34-11.1",
+        "title": "No he venido a sembrar paz, sino espadas.",
+        "excerpt": "No he venido a sembrar paz, sino espadas.",
+        "excerptReference": "Mateo 10:34-11:1"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-07-15",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 11:20-24",
+        "passageId": "MAT.11.20-24",
+        "title": "El día del juicio le será más llevadero a Tiro y Sidón y a Sodoma que a vosotras.",
+        "excerpt": "El día del juicio le será más llevadero a Tiro y Sidón y a Sodoma que a vosotras.",
+        "excerptReference": "Mateo 11:20-24"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-07-16",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 11:25-27",
+        "passageId": "MAT.11.25-27",
+        "title": "Has escondido estas cosas a los sabios y se las has revelado a la gente sencilla.",
+        "excerpt": "Has escondido estas cosas a los sabios y se las has revelado a la gente sencilla.",
+        "excerptReference": "Mateo 11:25-27"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-07-17",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 11:28-30",
+        "passageId": "MAT.11.28-30",
+        "title": "Soy manso y humilde de corazón.",
+        "excerpt": "Soy manso y humilde de corazón.",
+        "excerptReference": "Mateo 11:28-30"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-07-18",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 12:1-8",
+        "passageId": "MAT.12.1-8",
+        "title": "El Hijo del hombre es señor del sábado.",
+        "excerpt": "El Hijo del hombre es señor del sábado.",
+        "excerptReference": "Mateo 12:1-8"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-07-19",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 12:14-21",
+        "passageId": "MAT.12.14-21",
+        "title": "Les mandó que no lo descubrieran. Así se cumplió lo que dijo el profeta.",
+        "excerpt": "Les mandó que no lo descubrieran. Así se cumplió lo que dijo el profeta.",
+        "excerptReference": "Mateo 12:14-21"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-07-20",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 10:38-42",
+        "passageId": "LUK.10.38-42",
+        "title": "¿Quién es mi prójimo?",
+        "excerpt": "¿Quién es mi prójimo?",
+        "excerptReference": "Lucas 10:38-42"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-07-21",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 12:38-42",
+        "passageId": "MAT.12.38-42",
+        "title": "Cuando juzguen a esta generación, la reina del Sur se levantará.",
+        "excerpt": "Cuando juzguen a esta generación, la reina del Sur se levantará.",
+        "excerptReference": "Mateo 12:38-42"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-07-22",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 20:1,11-18",
+        "passageId": "JHN.20.1,11-18",
+        "title": "Mujer, ¿por qué lloras?, ¿a quién buscas?",
+        "excerpt": "Mujer, ¿por qué lloras?, ¿a quién buscas?",
+        "excerptReference": "Juan 20:1,11-18"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-07-23",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 15:1-8",
+        "passageId": "JHN.15.1-8",
+        "title": "El que permanece en mí y yo en él, ése da fruto abundante.",
+        "excerpt": "El que permanece en mí y yo en él, ése da fruto abundante.",
+        "excerptReference": "Juan 15:1-8"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-07-24",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 13:10-17",
+        "passageId": "MAT.13.10-17",
+        "title": "A vosotros se os ha concedido conocer los secretos del reino de los cielos y a ellos no.",
+        "excerpt": "A vosotros se os ha concedido conocer los secretos del reino de los cielos y a ellos no.",
+        "excerptReference": "Mateo 13:10-17"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-07-25",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 20:20-28",
+        "passageId": "MAT.20.20-28",
+        "title": "Mi cáliz lo beberéis.",
+        "excerpt": "Mi cáliz lo beberéis.",
+        "excerptReference": "Mateo 20:20-28"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-07-26",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 13:24-30",
+        "passageId": "MAT.13.24-30",
+        "title": "Dejadlos crecer juntos hasta la siega.",
+        "excerpt": "Dejadlos crecer juntos hasta la siega.",
+        "excerptReference": "Mateo 13:24-30"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-07-27",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 11:1-13",
+        "passageId": "LUK.11.1-13",
+        "title": "Pedid y se os dará.",
+        "excerpt": "Pedid y se os dará.",
+        "excerptReference": "Lucas 11:1-13"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-07-28",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 13:31-35",
+        "passageId": "MAT.13.31-35",
+        "title": "El reino de los cielos se parece a un grano de mostaza que uno toma y siembra en su campo.",
+        "excerpt": "El reino de los cielos se parece a un grano de mostaza que uno toma y siembra en su campo.",
+        "excerptReference": "Mateo 13:31-35"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-07-29",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 11:19-27",
+        "passageId": "JHN.11.19-27",
+        "title": "Yo soy la resurrección y la vida: el que cree en mí, aunque haya muerto, vivirá; y el que está vivo y cree en mí, no morirá para siempre. ¿Crees esto?",
+        "excerpt": "Yo soy la resurrección y la vida: el que cree en mí, aunque haya muerto, vivirá; y el que está vivo y cree en mí, no morirá para siempre. ¿Crees esto?",
+        "excerptReference": "Juan 11:19-27"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-07-30",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 13:44-46",
+        "passageId": "MAT.13.44-46",
+        "title": "Vende todo lo que tiene y compra el campo.",
+        "excerpt": "Vende todo lo que tiene y compra el campo.",
+        "excerptReference": "Mateo 13:44-46"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-07-31",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 13:47-53",
+        "passageId": "MAT.13.47-53",
+        "title": "Reúnen los buenos en cestos y los malos los tiran.",
+        "excerpt": "Reúnen los buenos en cestos y los malos los tiran.",
+        "excerptReference": "Mateo 13:47-53"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-08-01",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 13:54-58",
+        "passageId": "MAT.13.54-58",
+        "title": "¿No es el hijo del carpintero? Entonces, ¿de dónde saca todo esto?",
+        "excerpt": "¿No es el hijo del carpintero? Entonces, ¿de dónde saca todo esto?",
+        "excerptReference": "Mateo 13:54-58"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-08-02",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 14:1-12",
+        "passageId": "MAT.14.1-12",
+        "title": "Herodes mandó decapitar a Juan, y sus discípulos fueron a contárselo a Jesús.",
+        "excerpt": "Herodes mandó decapitar a Juan, y sus discípulos fueron a contárselo a Jesús.",
+        "excerptReference": "Mateo 14:1-12"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-08-03",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 12:13-21",
+        "passageId": "LUK.12.13-21",
+        "title": "¿De quién será lo que has preparado?",
+        "excerpt": "¿De quién será lo que has preparado?",
+        "excerptReference": "Lucas 12:13-21"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-08-04",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 14:13-21",
+        "passageId": "MAT.14.13-21",
+        "title": "Alzó la mirada al cielo, pronunció la bendición y dio los panes a los discípulos, los discípulos se los dieron a la gente.",
+        "excerpt": "Alzó la mirada al cielo, pronunció la bendición y dio los panes a los discípulos, los discípulos se los dieron a la gente.",
+        "excerptReference": "Mateo 14:13-21"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-08-05",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 14:22-36",
+        "passageId": "MAT.14.22-36",
+        "title": "Mándame ir hacia ti andando sobre el agua.",
+        "excerpt": "Mándame ir hacia ti andando sobre el agua.",
+        "excerptReference": "Mateo 14:22-36"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-08-06",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 9:28-36",
+        "passageId": "LUK.9.28-36",
+        "title": "Moisés y Elías hablaban de su muerte.",
+        "excerpt": "Moisés y Elías hablaban de su muerte.",
+        "excerptReference": "Lucas 9:28-36"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-08-07",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 16:13-23",
+        "passageId": "MAT.16.13-23",
+        "title": "Tú eres Pedro y te daré las llaves del Reino de los cielos.",
+        "excerpt": "Tú eres Pedro y te daré las llaves del Reino de los cielos.",
+        "excerptReference": "Mateo 16:13-23"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-08-08",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 16:24-28",
+        "passageId": "MAT.16.24-28",
+        "title": "¿Qué podrá dar un hombre para recobrar su vida?",
+        "excerpt": "¿Qué podrá dar un hombre para recobrar su vida?",
+        "excerptReference": "Mateo 16:24-28"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-08-09",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 25:1-13",
+        "passageId": "MAT.25.1-13",
+        "title": "El reino de los cielos se parece a diez vírgenes que tomaron sus lámparas y salieron a encuentro del esposo.",
+        "excerpt": "El reino de los cielos se parece a diez vírgenes que tomaron sus lámparas y salieron a encuentro del esposo.",
+        "excerptReference": "Mateo 25:1-13"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-08-10",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 12:32-48",
+        "passageId": "LUK.12.32-48",
+        "title": "Lo mismo vosotros, estad preparados.",
+        "excerpt": "Lo mismo vosotros, estad preparados.",
+        "excerptReference": "Lucas 12:32-48"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-08-11",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 17:22-27",
+        "passageId": "MAT.17.22-27",
+        "title": "Lo matarán, pero resucitará. Los hijos están exentos de impuestos.",
+        "excerpt": "Lo matarán, pero resucitará. Los hijos están exentos de impuestos.",
+        "excerptReference": "Mateo 17:22-27"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-08-12",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 18:1-5,10,12-14",
+        "passageId": "MAT.18.1-5,10,12-14",
+        "title": "¿Quién es el más importante en el reino de los cielos?",
+        "excerpt": "¿Quién es el más importante en el reino de los cielos?",
+        "excerptReference": "Mateo 18:1-5,10,12-14"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-08-13",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 18:15-20",
+        "passageId": "MAT.18.15-20",
+        "title": "Porque donde dos o tres están reunidos en mi nombre, allí estoy yo en medio de ellos.",
+        "excerpt": "Porque donde dos o tres están reunidos en mi nombre, allí estoy yo en medio de ellos.",
+        "excerptReference": "Mateo 18:15-20"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-08-14",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 18:21-19:1",
+        "passageId": "MAT.18.21-19.1",
+        "title": "Lo mismo hará con vosotros mí Padre del cielo, si cada cual no perdona de corazón a su hermano.",
+        "excerpt": "Lo mismo hará con vosotros mí Padre del cielo, si cada cual no perdona de corazón a su hermano.",
+        "excerptReference": "Mateo 18:21-19:1"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-08-15",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 1:39-56",
+        "passageId": "LUK.1.39-56",
+        "title": "El Poderoso ha hecho obras grandes por mí, enaltece a los humildes.",
+        "excerpt": "El Poderoso ha hecho obras grandes por mí, enaltece a los humildes.",
+        "excerptReference": "Lucas 1:39-56"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-08-16",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 19:13-15",
+        "passageId": "MAT.19.13-15",
+        "title": "Dejadlos, no impidáis a los niños acercarse a mí, de los que son como ellos es el reino de los cielos.",
+        "excerpt": "Dejadlos, no impidáis a los niños acercarse a mí, de los que son como ellos es el reino de los cielos.",
+        "excerptReference": "Mateo 19:13-15"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-08-17",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 12:49-53",
+        "passageId": "LUK.12.49-53",
+        "title": "No he venido a traer paz, sino división.",
+        "excerpt": "No he venido a traer paz, sino división.",
+        "excerptReference": "Lucas 12:49-53"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-08-18",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 19:16-22",
+        "passageId": "MAT.19.16-22",
+        "title": "Vende lo que tienes, da el dinero a los pobres y luego vente conmigo.",
+        "excerpt": "Vende lo que tienes, da el dinero a los pobres y luego vente conmigo.",
+        "excerptReference": "Mateo 19:16-22"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-08-19",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 19:23-30",
+        "passageId": "MAT.19.23-30",
+        "title": "Más fácil le es a un camello pasar por el ojo de una aguja que a un rico entrar en el reino de Dios.",
+        "excerpt": "Más fácil le es a un camello pasar por el ojo de una aguja que a un rico entrar en el reino de Dios.",
+        "excerptReference": "Mateo 19:23-30"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-08-20",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 20:1-16",
+        "passageId": "MAT.20.1-16",
+        "title": "¿Vas a tener tú envidia porque yo soy bueno?",
+        "excerpt": "¿Vas a tener tú envidia porque yo soy bueno?",
+        "excerptReference": "Mateo 20:1-16"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-08-21",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 22:1-14",
+        "passageId": "MAT.22.1-14",
+        "title": "A todos los que encontréis, convidadlos a la boda.",
+        "excerpt": "A todos los que encontréis, convidadlos a la boda.",
+        "excerptReference": "Mateo 22:1-14"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-08-22",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 22:34-40",
+        "passageId": "MAT.22.34-40",
+        "title": "Amarás al Señor, tu Dios, y a tu prójimo como a ti mismo.",
+        "excerpt": "Amarás al Señor, tu Dios, y a tu prójimo como a ti mismo.",
+        "excerptReference": "Mateo 22:34-40"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-08-23",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 23:1-12",
+        "passageId": "MAT.23.1-12",
+        "title": "El que se enaltece será humillado, y el que se humilla será enaltecido.",
+        "excerpt": "El que se enaltece será humillado, y el que se humilla será enaltecido.",
+        "excerptReference": "Mateo 23:1-12"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-08-24",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 13:22-30",
+        "passageId": "LUK.13.22-30",
+        "title": "Vendrán de oriente y occidente, y se sentarán a la mesa en el reino de Dios.",
+        "excerpt": "Vendrán de oriente y occidente, y se sentarán a la mesa en el reino de Dios.",
+        "excerptReference": "Lucas 13:22-30"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-08-25",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 23:13-22",
+        "passageId": "MAT.23.13-22",
+        "title": "¡Ay de vosotros, escribas y fariseos hipócritas, que cerráis a los hombres el reino de los cielos!",
+        "excerpt": "¡Ay de vosotros, escribas y fariseos hipócritas, que cerráis a los hombres el reino de los cielos!",
+        "excerptReference": "Mateo 23:13-22"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-08-26",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 23:23-26",
+        "passageId": "MAT.23.23-26",
+        "title": "Esto es lo que habría que practicar, aunque sin descuidar aquello.",
+        "excerpt": "Esto es lo que habría que practicar, aunque sin descuidar aquello.",
+        "excerptReference": "Mateo 23:23-26"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-08-27",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 23:27-32",
+        "passageId": "MAT.23.27-32",
+        "title": "Sois hijos de los que asesinaron a los profetas.",
+        "excerpt": "Sois hijos de los que asesinaron a los profetas.",
+        "excerptReference": "Mateo 23:27-32"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-08-28",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 24:42-51",
+        "passageId": "MAT.24.42-51",
+        "title": "Estad en vela, porque no sabéis qué día vendrá vuestro Señor.",
+        "excerpt": "Estad en vela, porque no sabéis qué día vendrá vuestro Señor.",
+        "excerptReference": "Mateo 24:42-51"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-08-29",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 25:1-13",
+        "passageId": "MAT.25.1-13",
+        "title": "¡Que llega el esposo, salid a su encuentro!",
+        "excerpt": "¡Que llega el esposo, salid a su encuentro!",
+        "excerptReference": "Mateo 25:1-13"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-08-30",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 25:14-30",
+        "passageId": "MAT.25.14-30",
+        "title": "Has sido fiel en lo poco, entra en el gozo de tu señor.",
+        "excerpt": "Has sido fiel en lo poco, entra en el gozo de tu señor.",
+        "excerptReference": "Mateo 25:14-30"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-08-31",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 14:1,7-14",
+        "passageId": "LUK.14.1,7-14",
+        "title": "El que se enaltece será humillado y el que se humilla será enaltecido.",
+        "excerpt": "El que se enaltece será humillado y el que se humilla será enaltecido.",
+        "excerptReference": "Lucas 14:1,7-14"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-09-01",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 4:16-30",
+        "passageId": "LUK.4.16-30",
+        "title": "Me han enviado a evangelizar a los pobres. Ningún profeta es aceptado en su pueblo.",
+        "excerpt": "Me han enviado a evangelizar a los pobres. Ningún profeta es aceptado en su pueblo.",
+        "excerptReference": "Lucas 4:16-30"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-09-02",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 4:31-37",
+        "passageId": "LUK.4.31-37",
+        "title": "Sé quién eres: el Santo de Dios.",
+        "excerpt": "Sé quién eres: el Santo de Dios.",
+        "excerptReference": "Lucas 4:31-37"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-09-03",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 4:38-44",
+        "passageId": "LUK.4.38-44",
+        "title": "Es necesario que proclame el reino de Dios también a las otras ciudades, pues para esto he sido enviado.",
+        "excerpt": "Es necesario que proclame el reino de Dios también a las otras ciudades, pues para esto he sido enviado.",
+        "excerptReference": "Lucas 4:38-44"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-09-04",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 5:1-11",
+        "passageId": "LUK.5.1-11",
+        "title": "Dejándolo todo, lo siguieron.",
+        "excerpt": "Dejándolo todo, lo siguieron.",
+        "excerptReference": "Lucas 5:1-11"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-09-05",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 5:33-39",
+        "passageId": "LUK.5.33-39",
+        "title": "Llegarán días en que les arrebatarán al esposo, entonces ayunarán.",
+        "excerpt": "Llegarán días en que les arrebatarán al esposo, entonces ayunarán.",
+        "excerptReference": "Lucas 5:33-39"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-09-06",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 6:1-5",
+        "passageId": "LUK.6.1-5",
+        "title": "¿Por qué hacéis en sábado lo que no está permitido?",
+        "excerpt": "¿Por qué hacéis en sábado lo que no está permitido?",
+        "excerptReference": "Lucas 6:1-5"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-09-07",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 14:25-33",
+        "passageId": "LUK.14.25-33",
+        "title": "El que no renuncia a todos sus bienes no puede ser discípulo mío.",
+        "excerpt": "El que no renuncia a todos sus bienes no puede ser discípulo mío.",
+        "excerptReference": "Lucas 14:25-33"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-09-08",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 1:1-16,18-23",
+        "passageId": "MAT.1.1-16,18-23",
+        "title": "La criatura que hay en ella viene del Espíritu Santo.",
+        "excerpt": "La criatura que hay en ella viene del Espíritu Santo.",
+        "excerptReference": "Mateo 1:1-16,18-23"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-09-09",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 6:12-19",
+        "passageId": "LUK.6.12-19",
+        "title": "Pasó la noche orando. Escogió a doce y los nombró apóstoles.",
+        "excerpt": "Pasó la noche orando. Escogió a doce y los nombró apóstoles.",
+        "excerptReference": "Lucas 6:12-19"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-09-10",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 6:20-26",
+        "passageId": "LUK.6.20-26",
+        "title": "Dichosos los pobres, ¡ay de vosotros, los ricos!",
+        "excerpt": "Dichosos los pobres, ¡ay de vosotros, los ricos!",
+        "excerptReference": "Lucas 6:20-26"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-09-11",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 6:27-38",
+        "passageId": "LUK.6.27-38",
+        "title": "Amad a vuestros enemigos, haced el bien a los que os odian.",
+        "excerpt": "Amad a vuestros enemigos, haced el bien a los que os odian.",
+        "excerptReference": "Lucas 6:27-38"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-09-12",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 6:39-42",
+        "passageId": "LUK.6.39-42",
+        "title": "¿Por qué te fijas en la mota que tiene tu hermano en el ojo...",
+        "excerpt": "¿Por qué te fijas en la mota que tiene tu hermano en el ojo...",
+        "excerptReference": "Lucas 6:39-42"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-09-13",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 6:43-49",
+        "passageId": "LUK.6.43-49",
+        "title": "No hay árbol sano que dé fruto dañado, ni árbol dañado que dé fruto sano.",
+        "excerpt": "No hay árbol sano que dé fruto dañado, ni árbol dañado que dé fruto sano.",
+        "excerptReference": "Lucas 6:43-49"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-09-14",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 3:13-17",
+        "passageId": "JHN.3.13-17",
+        "title": "Tiene que ser elevado el Hijo del hombre.",
+        "excerpt": "Tiene que ser elevado el Hijo del hombre.",
+        "excerptReference": "Juan 3:13-17"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-09-15",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 19:25-27",
+        "passageId": "JHN.19.25-27",
+        "title": "Y al volver a casa, los enviados encontraron al siervo sano.",
+        "excerpt": "Y al volver a casa, los enviados encontraron al siervo sano.",
+        "excerptReference": "Juan 19:25-27"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-09-16",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 7:11-17",
+        "passageId": "LUK.7.11-17",
+        "title": "Entonces dijo Jesús: «Joven, yo te lo mando: levántate.»",
+        "excerpt": "Entonces dijo Jesús: «Joven, yo te lo mando: levántate.»",
+        "excerptReference": "Lucas 7:11-17"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-09-17",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 7:31-35",
+        "passageId": "LUK.7.31-35",
+        "title": "Hemos tocado la flauta y no habéis bailado, hemos entonado lamentaciones, y no habéis llorado.",
+        "excerpt": "Hemos tocado la flauta y no habéis bailado, hemos entonado lamentaciones, y no habéis llorado.",
+        "excerptReference": "Lucas 7:31-35"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-09-18",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 7:36-50",
+        "passageId": "LUK.7.36-50",
+        "title": "Sus muchos pecados han quedado perdonados, porque ha amado mucho.",
+        "excerpt": "Sus muchos pecados han quedado perdonados, porque ha amado mucho.",
+        "excerptReference": "Lucas 7:36-50"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-09-19",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 8:1-3",
+        "passageId": "LUK.8.1-3",
+        "title": "Jesús acompañado por algunas mujeres que le servían con sus bienes.",
+        "excerpt": "Jesús acompañado por algunas mujeres que le servían con sus bienes.",
+        "excerptReference": "Lucas 8:1-3"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-09-20",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 8:4-15",
+        "passageId": "LUK.8.4-15",
+        "title": "Él les respondió: «A vosotros se os ha concedido conocer los secretos del reino de Dios.",
+        "excerpt": "Él les respondió: «A vosotros se os ha concedido conocer los secretos del reino de Dios.",
+        "excerptReference": "Lucas 8:4-15"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-09-21",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 16:1-13",
+        "passageId": "LUK.16.1-13",
+        "title": "No podéis servir a Dios y al dinero.",
+        "excerpt": "No podéis servir a Dios y al dinero.",
+        "excerptReference": "Lucas 16:1-13"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-09-22",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 8:16-18",
+        "passageId": "LUK.8.16-18",
+        "title": "Nadie enciende un candil y lo tapa con una vasija o lo mete debajo de la cama.",
+        "excerpt": "Nadie enciende un candil y lo tapa con una vasija o lo mete debajo de la cama.",
+        "excerptReference": "Lucas 8:16-18"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-09-23",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 8:19-21",
+        "passageId": "LUK.8.19-21",
+        "title": "«Mi madre y mis hermanos son éstos: los que escuchan la palabra de Dios y la ponen por obra.»",
+        "excerpt": "«Mi madre y mis hermanos son éstos: los que escuchan la palabra de Dios y la ponen por obra.»",
+        "excerptReference": "Lucas 8:19-21"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-09-24",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 9:1-6",
+        "passageId": "LUK.9.1-6",
+        "title": "Los envió a proclamar el reino de Dios y a curar a los enfermos.",
+        "excerpt": "Los envió a proclamar el reino de Dios y a curar a los enfermos.",
+        "excerptReference": "Lucas 9:1-6"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-09-25",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 9:7-9",
+        "passageId": "LUK.9.7-9",
+        "title": "A Juan lo mandé decapitar yo. ¿Quién es éste de quien oigo semejantes cosas?",
+        "excerpt": "A Juan lo mandé decapitar yo. ¿Quién es éste de quien oigo semejantes cosas?",
+        "excerptReference": "Lucas 9:7-9"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-09-26",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 9:18-22",
+        "passageId": "LUK.9.18-22",
+        "title": "El Mesías de Dios. El Hijo del hombre tiene que padecer mucho.",
+        "excerpt": "El Mesías de Dios. El Hijo del hombre tiene que padecer mucho.",
+        "excerptReference": "Lucas 9:18-22"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-09-27",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 9:43-45",
+        "passageId": "LUK.9.43-45",
+        "title": "Al Hijo del hombre lo van a entregar. Les daba miedo preguntarle sobre el asunto.",
+        "excerpt": "Al Hijo del hombre lo van a entregar. Les daba miedo preguntarle sobre el asunto.",
+        "excerptReference": "Lucas 9:43-45"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-09-28",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 16:19-31",
+        "passageId": "LUK.16.19-31",
+        "title": "Recibiste bienes, y Lázaro males: ahora él es aquí consolado, mientras que tú eres atormentado.",
+        "excerpt": "Recibiste bienes, y Lázaro males: ahora él es aquí consolado, mientras que tú eres atormentado.",
+        "excerptReference": "Lucas 16:19-31"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-09-29",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 1:47-51",
+        "passageId": "JHN.1.47-51",
+        "title": "Veréis a los ángeles de Dios subir y bajar sobre el Hijo del hombre.",
+        "excerpt": "Veréis a los ángeles de Dios subir y bajar sobre el Hijo del hombre.",
+        "excerptReference": "Juan 1:47-51"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-09-30",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 9:51-56",
+        "passageId": "LUK.9.51-56",
+        "title": "Tomó la decisión de ir a Jerusalén.",
+        "excerpt": "Tomó la decisión de ir a Jerusalén.",
+        "excerptReference": "Lucas 9:51-56"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-10-01",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 9:57-62",
+        "passageId": "LUK.9.57-62",
+        "title": "Te seguiré adonde vayas.",
+        "excerpt": "Te seguiré adonde vayas.",
+        "excerptReference": "Lucas 9:57-62"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-10-02",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 10:1-12",
+        "passageId": "LUK.10.1-12",
+        "title": "Descansará sobre ellos vuestra paz.",
+        "excerpt": "Descansará sobre ellos vuestra paz.",
+        "excerptReference": "Lucas 10:1-12"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-10-03",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 10:13-16",
+        "passageId": "LUK.10.13-16",
+        "title": "Quien me rechaza a mí rechaza al que me ha enviado.",
+        "excerpt": "Quien me rechaza a mí rechaza al que me ha enviado.",
+        "excerptReference": "Lucas 10:13-16"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-10-04",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 10:17-24",
+        "passageId": "LUK.10.17-24",
+        "title": "Estad alegres porque vuestros nombres están inscritos en el cielo.",
+        "excerpt": "Estad alegres porque vuestros nombres están inscritos en el cielo.",
+        "excerptReference": "Lucas 10:17-24"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-10-05",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 17:5-10",
+        "passageId": "LUK.17.5-10",
+        "title": "¡Si tuvierais fe ... !",
+        "excerpt": "¡Si tuvierais fe ... !",
+        "excerptReference": "Lucas 17:5-10"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-10-06",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 10:25-37",
+        "passageId": "LUK.10.25-37",
+        "title": "«Maestro, ¿qué tengo que hacer para heredar la vida eterna?»",
+        "excerpt": "«Maestro, ¿qué tengo que hacer para heredar la vida eterna?»",
+        "excerptReference": "Lucas 10:25-37"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-10-07",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 1:26-38",
+        "passageId": "LUK.1.26-38",
+        "title": "María ha escogido la parte mejor y no se la quitarán.",
+        "excerpt": "María ha escogido la parte mejor y no se la quitarán.",
+        "excerptReference": "Lucas 1:26-38"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-10-08",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 11:1-4",
+        "passageId": "LUK.11.1-4",
+        "title": "Cuando oréis decid: \"Padre, santificado sea tu nombre, venga tu reino\".",
+        "excerpt": "Cuando oréis decid: \"Padre, santificado sea tu nombre, venga tu reino\".",
+        "excerptReference": "Lucas 11:1-4"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-10-09",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 11:5-13",
+        "passageId": "LUK.11.5-13",
+        "title": "Pedid y se os dará.",
+        "excerpt": "Pedid y se os dará.",
+        "excerptReference": "Lucas 11:5-13"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-10-10",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 11:15-26",
+        "passageId": "LUK.11.15-26",
+        "title": "Si yo echo los demonios con el dedo de Dios, entonces es que el reino de Dios ha llegado a vosotros.",
+        "excerpt": "Si yo echo los demonios con el dedo de Dios, entonces es que el reino de Dios ha llegado a vosotros.",
+        "excerptReference": "Lucas 11:15-26"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-10-11",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 11:27-28",
+        "passageId": "LUK.11.27-28",
+        "title": "Dichosos los que escuchan la palabra de Dios.",
+        "excerpt": "Dichosos los que escuchan la palabra de Dios.",
+        "excerptReference": "Lucas 11:27-28"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-10-12",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 17:11-19",
+        "passageId": "LUK.17.11-19",
+        "title": "¿No ha vuelto más que este extranjero para dar gloria a Dios?",
+        "excerpt": "¿No ha vuelto más que este extranjero para dar gloria a Dios?",
+        "excerptReference": "Lucas 17:11-19"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-10-13",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 11:29-32",
+        "passageId": "LUK.11.29-32",
+        "title": "A esta generación no se le dará más signo que el signo de Jonás.",
+        "excerpt": "A esta generación no se le dará más signo que el signo de Jonás.",
+        "excerptReference": "Lucas 11:29-32"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-10-14",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 11:37-41",
+        "passageId": "LUK.11.37-41",
+        "title": "Dad limosna, y lo tendréis limpio todo.",
+        "excerpt": "Dad limosna, y lo tendréis limpio todo.",
+        "excerptReference": "Lucas 11:37-41"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-10-15",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 11:42-46",
+        "passageId": "LUK.11.42-46",
+        "title": "¡Ay de vosotros, fariseos! ¡Ay de vosotros también, maestros de la Ley!",
+        "excerpt": "¡Ay de vosotros, fariseos! ¡Ay de vosotros también, maestros de la Ley!",
+        "excerptReference": "Lucas 11:42-46"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-10-16",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 11:47-54",
+        "passageId": "LUK.11.47-54",
+        "title": "Se pedirá cuenta de la sangre de los profetas, desde la sangre de Abel hasta la de Zacarías.",
+        "excerpt": "Se pedirá cuenta de la sangre de los profetas, desde la sangre de Abel hasta la de Zacarías.",
+        "excerptReference": "Lucas 11:47-54"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-10-17",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 12:1-7",
+        "passageId": "LUK.12.1-7",
+        "title": "Hasta los pelos de vuestra cabeza están contados.",
+        "excerpt": "Hasta los pelos de vuestra cabeza están contados.",
+        "excerptReference": "Lucas 12:1-7"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-10-18",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 10:1-9",
+        "passageId": "LUK.10.1-9",
+        "title": "La mies es abundante y los obreros pocos.",
+        "excerpt": "La mies es abundante y los obreros pocos.",
+        "excerptReference": "Lucas 10:1-9"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-10-19",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 18:1-8",
+        "passageId": "LUK.18.1-8",
+        "title": "Dios hará justicia a sus elegidos que claman ante él.",
+        "excerpt": "Dios hará justicia a sus elegidos que claman ante él.",
+        "excerptReference": "Lucas 18:1-8"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-10-20",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 12:13-21",
+        "passageId": "LUK.12.13-21",
+        "title": "Lo que has acumulado, ¿de quién será?",
+        "excerpt": "Lo que has acumulado, ¿de quién será?",
+        "excerptReference": "Lucas 12:13-21"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-10-21",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 13:18-21",
+        "passageId": "LUK.13.18-21",
+        "title": "Creció el grano, se hizo un arbusto.",
+        "excerpt": "Creció el grano, se hizo un arbusto.",
+        "excerptReference": "Lucas 13:18-21"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-10-22",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 12:39-48",
+        "passageId": "LUK.12.39-48",
+        "title": "Al que mucho se le dio, mucho se le exigirá.",
+        "excerpt": "Al que mucho se le dio, mucho se le exigirá.",
+        "excerptReference": "Lucas 12:39-48"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-10-23",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 12:49-53",
+        "passageId": "LUK.12.49-53",
+        "title": "No he venido a traer paz, sino división.",
+        "excerpt": "No he venido a traer paz, sino división.",
+        "excerptReference": "Lucas 12:49-53"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-10-24",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 12:54-59",
+        "passageId": "LUK.12.54-59",
+        "title": "¿Cómo no sabéis interpretar el tiempo presente?",
+        "excerpt": "¿Cómo no sabéis interpretar el tiempo presente?",
+        "excerptReference": "Lucas 12:54-59"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-10-25",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 13:1-9",
+        "passageId": "LUK.13.1-9",
+        "title": "Si no os convertís, todos pereceréis de la misma manera.",
+        "excerpt": "Si no os convertís, todos pereceréis de la misma manera.",
+        "excerptReference": "Lucas 13:1-9"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-10-26",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 18:9-14",
+        "passageId": "LUK.18.9-14",
+        "title": "El publicano bajó a su casa justificado, y el fariseo, no.",
+        "excerpt": "El publicano bajó a su casa justificado, y el fariseo, no.",
+        "excerptReference": "Lucas 18:9-14"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-10-27",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 13:10-17",
+        "passageId": "LUK.13.10-17",
+        "title": "A ésta, que es hija de Abrahán, ¿no había que soltarla en sábado?",
+        "excerpt": "A ésta, que es hija de Abrahán, ¿no había que soltarla en sábado?",
+        "excerptReference": "Lucas 13:10-17"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-10-28",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 6:12-19",
+        "passageId": "LUK.6.12-19",
+        "title": "Escogió a doce de ellos y los nombró apóstoles.",
+        "excerpt": "Escogió a doce de ellos y los nombró apóstoles.",
+        "excerptReference": "Lucas 6:12-19"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-10-29",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 13:22-30",
+        "passageId": "LUK.13.22-30",
+        "title": "Vendrán de oriente y occidente y se sentarán a la mesa en el reino de Dios.",
+        "excerpt": "Vendrán de oriente y occidente y se sentarán a la mesa en el reino de Dios.",
+        "excerptReference": "Lucas 13:22-30"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-10-30",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 13:31-35",
+        "passageId": "LUK.13.31-35",
+        "title": "No cabe que un profeta muera fuera de Jerusalén.",
+        "excerpt": "No cabe que un profeta muera fuera de Jerusalén.",
+        "excerptReference": "Lucas 13:31-35"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-10-31",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 14:1-6",
+        "passageId": "LUK.14.1-6",
+        "title": "«¿A quién de vosotros se le cae al pozo el asno o el buey y no lo saca enseguida en día de sábado?».",
+        "excerpt": "«¿A quién de vosotros se le cae al pozo el asno o el buey y no lo saca enseguida en día de sábado?».",
+        "excerptReference": "Lucas 14:1-6"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-11-01",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 5:1-12",
+        "passageId": "MAT.5.1-12",
+        "title": "Estad alegres y contentos, porque vuestra recompensa será grande en el cielo.",
+        "excerpt": "Estad alegres y contentos, porque vuestra recompensa será grande en el cielo.",
+        "excerptReference": "Mateo 5:1-12"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-11-02",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 19:1-10",
+        "passageId": "LUK.19.1-10",
+        "title": "El Hijo del hombre ha venido a buscar y a salvar lo que estaba perdido.",
+        "excerpt": "El Hijo del hombre ha venido a buscar y a salvar lo que estaba perdido.",
+        "excerptReference": "Lucas 19:1-10"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-11-03",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 14:12-14",
+        "passageId": "LUK.14.12-14",
+        "title": "No invites a tus amigos, sino a pobres y lisiados.",
+        "excerpt": "No invites a tus amigos, sino a pobres y lisiados.",
+        "excerptReference": "Lucas 14:12-14"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-11-04",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 14:15-24",
+        "passageId": "LUK.14.15-24",
+        "title": "«¡Dichoso el que coma en el banquete del reino de Dios!»",
+        "excerpt": "«¡Dichoso el que coma en el banquete del reino de Dios!»",
+        "excerptReference": "Lucas 14:15-24"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-11-05",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 14:25-33",
+        "passageId": "LUK.14.25-33",
+        "title": "El que no renuncia a todos sus bienes no puede ser discípulo mío.",
+        "excerpt": "El que no renuncia a todos sus bienes no puede ser discípulo mío.",
+        "excerptReference": "Lucas 14:25-33"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-11-06",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 15:1-10",
+        "passageId": "LUK.15.1-10",
+        "title": "Habrá alegría en el cielo por un solo pecador que se convierta.",
+        "excerpt": "Habrá alegría en el cielo por un solo pecador que se convierta.",
+        "excerptReference": "Lucas 15:1-10"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-11-07",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 16:1-8",
+        "passageId": "LUK.16.1-8",
+        "title": "Los hijos de este mundo son más astutos con su gente que los hijos de la luz.",
+        "excerpt": "Los hijos de este mundo son más astutos con su gente que los hijos de la luz.",
+        "excerptReference": "Lucas 16:1-8"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-11-08",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 16:9-15",
+        "passageId": "LUK.16.9-15",
+        "title": "Si no fuisteis de fiar en el injusto dinero, ¿quién os confiará lo que vale de veras?",
+        "excerpt": "Si no fuisteis de fiar en el injusto dinero, ¿quién os confiará lo que vale de veras?",
+        "excerptReference": "Lucas 16:9-15"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-11-09",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 2:13-22",
+        "passageId": "JHN.2.13-22",
+        "title": "Hablaba del templo de su cuerpo.",
+        "excerpt": "Hablaba del templo de su cuerpo.",
+        "excerptReference": "Juan 2:13-22"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-11-10",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 17:1-6",
+        "passageId": "LUK.17.1-6",
+        "title": "Si tu hermano te ofende, repréndelo, si se arrepiente, perdónalo.",
+        "excerpt": "Si tu hermano te ofende, repréndelo, si se arrepiente, perdónalo.",
+        "excerptReference": "Lucas 17:1-6"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-11-11",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 17:7-10",
+        "passageId": "LUK.17.7-10",
+        "title": "Somos unos pobres siervos, hemos hecho lo que teníamos que hacer.",
+        "excerpt": "Somos unos pobres siervos, hemos hecho lo que teníamos que hacer.",
+        "excerptReference": "Lucas 17:7-10"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-11-12",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 17:11-19",
+        "passageId": "LUK.17.11-19",
+        "title": "«Levántate, vete; tu fe te ha salvado»",
+        "excerpt": "«Levántate, vete; tu fe te ha salvado»",
+        "excerptReference": "Lucas 17:11-19"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-11-13",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 17:20-25",
+        "passageId": "LUK.17.20-25",
+        "title": "El reino de Dios está dentro de vosotros.",
+        "excerpt": "El reino de Dios está dentro de vosotros.",
+        "excerptReference": "Lucas 17:20-25"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-11-14",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 17:26-37",
+        "passageId": "LUK.17.26-37",
+        "title": "El día que se manifieste el Hijo del hombre.",
+        "excerpt": "El día que se manifieste el Hijo del hombre.",
+        "excerptReference": "Lucas 17:26-37"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-11-15",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 18:1-8",
+        "passageId": "LUK.18.1-8",
+        "title": "Dios hará justicia a sus elegidos que le gritan.",
+        "excerpt": "Dios hará justicia a sus elegidos que le gritan.",
+        "excerptReference": "Lucas 18:1-8"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-11-16",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 21:5-19",
+        "passageId": "LUK.21.5-19",
+        "title": "Con vuestra perseverancia salvaréis vuestras almas.",
+        "excerpt": "Con vuestra perseverancia salvaréis vuestras almas.",
+        "excerptReference": "Lucas 21:5-19"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-11-17",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 18:35-43",
+        "passageId": "LUK.18.35-43",
+        "title": "¿Qué quieres que haga por ti? Señor, que vea otra vez.",
+        "excerpt": "¿Qué quieres que haga por ti? Señor, que vea otra vez.",
+        "excerptReference": "Lucas 18:35-43"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-11-18",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 19:1-10",
+        "passageId": "LUK.19.1-10",
+        "title": "El Hijo del hombre ha venido a buscar y a salvar lo que estaba perdido.",
+        "excerpt": "El Hijo del hombre ha venido a buscar y a salvar lo que estaba perdido.",
+        "excerptReference": "Lucas 19:1-10"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-11-19",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 19:11-28",
+        "passageId": "LUK.19.11-28",
+        "title": "¿Por qué no pusiste mi dinero en el banco?",
+        "excerpt": "¿Por qué no pusiste mi dinero en el banco?",
+        "excerptReference": "Lucas 19:11-28"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-11-20",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 19:41-44",
+        "passageId": "LUK.19.41-44",
+        "title": "¡Si comprendieras lo que conduce a la paz!",
+        "excerpt": "¡Si comprendieras lo que conduce a la paz!",
+        "excerptReference": "Lucas 19:41-44"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-11-21",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 19:45-48",
+        "passageId": "LUK.19.45-48",
+        "title": "Habéis convertido la casa de Dios en una cueva de bandidos.",
+        "excerpt": "Habéis convertido la casa de Dios en una cueva de bandidos.",
+        "excerptReference": "Lucas 19:45-48"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-11-22",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 20:27-40",
+        "passageId": "LUK.20.27-40",
+        "title": "No es Dios de muertos, sino de vivos.",
+        "excerpt": "No es Dios de muertos, sino de vivos.",
+        "excerptReference": "Lucas 20:27-40"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-11-23",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 23:35-43",
+        "passageId": "LUK.23.35-43",
+        "title": "Señor, acuérdate de mí cuando llegues a tu reino.",
+        "excerpt": "Señor, acuérdate de mí cuando llegues a tu reino.",
+        "excerptReference": "Lucas 23:35-43"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-11-24",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 21:1-4",
+        "passageId": "LUK.21.1-4",
+        "title": "Vio una viuda pobre que echaba dos reales.",
+        "excerpt": "Vio una viuda pobre que echaba dos reales.",
+        "excerptReference": "Lucas 21:1-4"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-11-25",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 21:5-11",
+        "passageId": "LUK.21.5-11",
+        "title": "No quedará piedra sobre piedra.",
+        "excerpt": "No quedará piedra sobre piedra.",
+        "excerptReference": "Lucas 21:5-11"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-11-26",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 21:12-19",
+        "passageId": "LUK.21.12-19",
+        "title": "Todos os odiarán por causa mía, pero ni un cabello de vuestra cabeza perecerá.",
+        "excerpt": "Todos os odiarán por causa mía, pero ni un cabello de vuestra cabeza perecerá.",
+        "excerptReference": "Lucas 21:12-19"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-11-27",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 21:20-28",
+        "passageId": "LUK.21.20-28",
+        "title": "Jerusalén será pisoteada por los gentiles, hasta que a los gentiles les llegue su hora.",
+        "excerpt": "Jerusalén será pisoteada por los gentiles, hasta que a los gentiles les llegue su hora.",
+        "excerptReference": "Lucas 21:20-28"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-11-28",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 21:29-33",
+        "passageId": "LUK.21.29-33",
+        "title": "Cuando veáis que suceden estas cosas, sabed que está cerca el reino de Dios.",
+        "excerpt": "Cuando veáis que suceden estas cosas, sabed que está cerca el reino de Dios.",
+        "excerptReference": "Lucas 21:29-33"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-11-29",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 21:34-36",
+        "passageId": "LUK.21.34-36",
+        "title": "Estad siempre despiertos, para escapar de todo lo que está por venir.",
+        "excerpt": "Estad siempre despiertos, para escapar de todo lo que está por venir.",
+        "excerptReference": "Lucas 21:34-36"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-11-30",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 21:25-28,34-36",
+        "passageId": "LUK.21.25-28,34-36",
+        "title": "Se acerca vuestra liberación.",
+        "excerpt": "Se acerca vuestra liberación.",
+        "excerptReference": "Lucas 21:25-28,34-36"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-12-01",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 8:11",
+        "passageId": "MAT.8.11",
+        "title": "Os digo que vendrán muchos de oriente y occidente y se sentarán en el reino de los cielos.",
+        "excerpt": "Os digo que vendrán muchos de oriente y occidente y se sentarán en el reino de los cielos.",
+        "excerptReference": "Mateo 8:11"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-12-02",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 10:21-24",
+        "passageId": "LUK.10.21-24",
+        "title": "Jesús, lleno de alegría en el Espíritu Santo.",
+        "excerpt": "Jesús, lleno de alegría en el Espíritu Santo.",
+        "excerptReference": "Lucas 10:21-24"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-12-03",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 15:29-37",
+        "passageId": "MAT.15.29-37",
+        "title": "Jesús cura a muchos y multiplica los panes.",
+        "excerpt": "Jesús cura a muchos y multiplica los panes.",
+        "excerptReference": "Mateo 15:29-37"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-12-04",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 7:21,24-27",
+        "passageId": "MAT.7.21,24-27",
+        "title": "El que hace la voluntad del Padre entrará en el reino de los cielos.",
+        "excerpt": "El que hace la voluntad del Padre entrará en el reino de los cielos.",
+        "excerptReference": "Mateo 7:21,24-27"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-12-05",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 9:27-31",
+        "passageId": "MAT.9.27-31",
+        "title": "Jesús cura a dos ciegos que creen en él.",
+        "excerpt": "Jesús cura a dos ciegos que creen en él.",
+        "excerptReference": "Mateo 9:27-31"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-12-06",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 9:35-10:1,6-8",
+        "passageId": "MAT.9.35-10.1,6-8",
+        "title": "Al ver a las muchedumbres, se compadecía de ellas.",
+        "excerpt": "Al ver a las muchedumbres, se compadecía de ellas.",
+        "excerptReference": "Mateo 9:35-10:1,6-8"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-12-07",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 3:1-6",
+        "passageId": "LUK.3.1-6",
+        "title": "Todos verán la salvación de Dios.",
+        "excerpt": "Todos verán la salvación de Dios.",
+        "excerptReference": "Lucas 3:1-6"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-12-08",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 1:26-38",
+        "passageId": "LUK.1.26-38",
+        "title": "Alégrate, llena de gracia, el Señor está contigo.",
+        "excerpt": "Alégrate, llena de gracia, el Señor está contigo.",
+        "excerptReference": "Lucas 1:26-38"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-12-09",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 18:12-14",
+        "passageId": "MAT.18.12-14",
+        "title": "Dios no quiere que se pierda ni uno de estos pequeños.",
+        "excerpt": "Dios no quiere que se pierda ni uno de estos pequeños.",
+        "excerptReference": "Mateo 18:12-14"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-12-10",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 11:28-30",
+        "passageId": "MAT.11.28-30",
+        "title": "Venid a mí todos los que estáis cansados.",
+        "excerpt": "Venid a mí todos los que estáis cansados.",
+        "excerptReference": "Mateo 11:28-30"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-12-11",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 11:11-15",
+        "passageId": "MAT.11.11-15",
+        "title": "No ha nacido uno más grande que Juan el Bautista.",
+        "excerpt": "No ha nacido uno más grande que Juan el Bautista.",
+        "excerptReference": "Mateo 11:11-15"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-12-12",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 11:16-19",
+        "passageId": "MAT.11.16-19",
+        "title": "Elías ya ha venido, y no lo reconocieron.",
+        "excerpt": "Elías ya ha venido, y no lo reconocieron.",
+        "excerptReference": "Mateo 11:16-19"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-12-13",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 17:10-13",
+        "passageId": "MAT.17.10-13",
+        "title": "Elías ya ha venido, y no lo reconocieron.",
+        "excerpt": "Elías ya ha venido, y no lo reconocieron.",
+        "excerptReference": "Mateo 17:10-13"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-12-14",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 3:10-18",
+        "passageId": "LUK.3.10-18",
+        "title": "Y nosotros, ¿qué debemos hacer?",
+        "excerpt": "Y nosotros, ¿qué debemos hacer?",
+        "excerptReference": "Lucas 3:10-18"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-12-15",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 21:23-27",
+        "passageId": "MAT.21.23-27",
+        "title": "El bautismo de Juan ¿de dónde venía?",
+        "excerpt": "El bautismo de Juan ¿de dónde venía?",
+        "excerptReference": "Mateo 21:23-27"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-12-16",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 21:28-32",
+        "passageId": "MAT.21.28-32",
+        "title": "Vino Juan y los pecadores le creyeron.",
+        "excerpt": "Vino Juan y los pecadores le creyeron.",
+        "excerptReference": "Mateo 21:28-32"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-12-17",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 1:1-17",
+        "passageId": "MAT.1.1-17",
+        "title": "Genealogía de Jesucristo, hijo de David.",
+        "excerpt": "Genealogía de Jesucristo, hijo de David.",
+        "excerptReference": "Mateo 1:1-17"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-12-18",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 1:18-24",
+        "passageId": "MAT.1.18-24",
+        "title": "Jesús nacerá de María, desposada con José, hijo de David.",
+        "excerpt": "Jesús nacerá de María, desposada con José, hijo de David.",
+        "excerptReference": "Mateo 1:18-24"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-12-19",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 1:5-25",
+        "passageId": "LUK.1.5-25",
+        "title": "Gabriel anuncia el nacimiento de Juan Bautista.",
+        "excerpt": "Gabriel anuncia el nacimiento de Juan Bautista.",
+        "excerptReference": "Lucas 1:5-25"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-12-20",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 1:26-38",
+        "passageId": "LUK.1.26-38",
+        "title": "Concebirás en tu vientre y darás a luz un hijo.",
+        "excerpt": "Concebirás en tu vientre y darás a luz un hijo.",
+        "excerptReference": "Lucas 1:26-38"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-12-21",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 1:46-56",
+        "passageId": "LUK.1.46-56",
+        "title": "El Poderoso ha hecho obras grandes en mí.",
+        "excerpt": "El Poderoso ha hecho obras grandes en mí.",
+        "excerptReference": "Lucas 1:46-56"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-12-22",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 1:46-56",
+        "passageId": "LUK.1.46-56",
+        "title": "El Poderoso ha hecho obras grandes en mí.",
+        "excerpt": "El Poderoso ha hecho obras grandes en mí.",
+        "excerptReference": "Lucas 1:46-56"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-12-23",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 1:57-66",
+        "passageId": "LUK.1.57-66",
+        "title": "Nacimiento de Juan Bautista.",
+        "excerpt": "Nacimiento de Juan Bautista.",
+        "excerptReference": "Lucas 1:57-66"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-12-24",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 1:67-79",
+        "passageId": "LUK.1.67-79",
+        "title": "Nos visitará el sol que nace de lo alto.",
+        "excerpt": "Nos visitará el sol que nace de lo alto.",
+        "excerptReference": "Lucas 1:67-79"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-12-25",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 1:1-18",
+        "passageId": "JHN.1.1-18",
+        "title": "El Verbo se hizo carne y habitó entre nosotros.",
+        "excerpt": "El Verbo se hizo carne y habitó entre nosotros.",
+        "excerptReference": "Juan 1:1-18"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-12-26",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 10:17-22",
+        "passageId": "MAT.10.17-22",
+        "title": "No seréis vosotros los que habléis, sino el Espíritu de vuestro Padre.",
+        "excerpt": "No seréis vosotros los que habléis, sino el Espíritu de vuestro Padre.",
+        "excerptReference": "Mateo 10:17-22"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-12-27",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 20:2-8",
+        "passageId": "JHN.20.2-8",
+        "title": "El otro discípulo corría más que Pedro y llegó primero al sepulcro.",
+        "excerpt": "El otro discípulo corría más que Pedro y llegó primero al sepulcro.",
+        "excerptReference": "Juan 20:2-8"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-12-28",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 2:41-52",
+        "passageId": "LUK.2.41-52",
+        "title": "Los padres de Jesús lo encontraron en medio de los maestros.",
+        "excerpt": "Los padres de Jesús lo encontraron en medio de los maestros.",
+        "excerptReference": "Lucas 2:41-52"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-12-29",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 2:22-35",
+        "passageId": "LUK.2.22-35",
+        "title": "Luz para alumbrar a las naciones.",
+        "excerpt": "Luz para alumbrar a las naciones.",
+        "excerptReference": "Lucas 2:22-35"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-12-30",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 2:36-40",
+        "passageId": "LUK.2.36-40",
+        "title": "El niño iba creciendo y robusteciéndose, y se llenaba de sabiduría; y la gracia de Dios lo acompañaba.",
+        "excerpt": "El niño iba creciendo y robusteciéndose, y se llenaba de sabiduría; y la gracia de Dios lo acompañaba.",
+        "excerptReference": "Lucas 2:36-40"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "calendar": "chile",
+      "liturgicalYear": "2025",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 1:1-18",
+        "passageId": "JHN.1.1-18",
+        "title": "La Palabra se hizo carne.",
+        "excerpt": "La Palabra se hizo carne.",
+        "excerptReference": "Juan 1:1-18"
+      },
+      "source": {
+        "provider": "Rhemapp legacy 2025",
+        "url": "",
+        "verified": false
+      }
+    }
+  ]
+}

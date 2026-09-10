@@ -12,7 +12,7 @@ Sitio: https://www.rhemapp.com
 
 - Inicio con explicación de RHEMA y accesos directos.
 - Versículo aleatorio (`/random`) con navegación e historial.
-- Lectura del día (`/daily`) basada en fecha, con fallback estable.
+- Evangelio del día (`/daily`) según el calendario litúrgico chileno y la zona `America/Santiago`.
 - Misterios del Rosario (`/rosario`) según el día de la semana, con selector.
 - Modal “Ver pasaje completo” para consultar contexto bíblico.
 
@@ -26,6 +26,7 @@ Sitio: https://www.rhemapp.com
 ### Endpoints internos
 
 - `/api/passage` Obtiene un pasaje desde una API externa (requiere API key).
+- `/api/daily-reading` Devuelve el evangelio vigente y el próximo cambio de medianoche en Chile.
 - `/api/verses` Sirve subconjuntos del JSON local (`scope=random|daily|all`).
 
 Nota SEO: los endpoints JSON responden con `X-Robots-Tag: noindex, nofollow`.
@@ -76,6 +77,8 @@ npm run dev
 - `npm run lint` Ejecuta ESLint.
 - `npm run build` Compila para producción.
 - `npm run start` Ejecuta el build.
+- `npm run sync:daily` Sincroniza las lecturas fechadas con Eucaristía Diaria y respaldos provisionales.
+- `npm run validate:daily` Verifica cobertura, formato y campos obligatorios del calendario.
 
 ## Variables de entorno
 
@@ -131,6 +134,12 @@ Además:
 ```
 public/
   data/verses.json
+  data/daily-readings/2025.json
+  data/daily-readings/2026.json
+scripts/
+  migrate-daily-readings.mjs
+  sync-daily-readings.mjs
+  validate-daily-readings.mjs
 src/
   app/
     api/

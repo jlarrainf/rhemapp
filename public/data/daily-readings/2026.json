@@ -1,0 +1,3217 @@
+{
+  "calendar": "chile",
+  "year": 2026,
+  "liturgicalYear": "2026",
+  "entries": [
+    {
+      "date": "2026-09-10",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "JUEVES DE LA XXIII SEMANA DEL TIEMPO ORDINARIO",
+      "gospel": {
+        "reference": "Lucas 6:27-36",
+        "passageId": "LUK.6.27-36",
+        "ranges": [
+          {
+            "chapter": 6,
+            "start": 27,
+            "end": 36
+          }
+        ],
+        "title": "Sean misericordiosos, como el Padre de ustedes es misericordioso",
+        "excerpt": "Sean misericordiosos, como el Padre de ustedes es misericordioso",
+        "excerptReference": "Lucas 6:27-36"
+      },
+      "source": {
+        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-10",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "pageTitle": "Eucaristía del Jueves 10 de Septiembre de 2026",
+        "verified": true,
+        "fetchedAt": "2026-09-10T16:13:30.376Z"
+      }
+    },
+    {
+      "date": "2026-09-11",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "11 de septiembre",
+      "gospel": {
+        "reference": "Lucas 6:37-42",
+        "passageId": "LUK.6.37-42",
+        "ranges": [
+          {
+            "chapter": 6,
+            "start": 37,
+            "end": 42
+          }
+        ],
+        "title": "¿ Puede un ciego guiar a otro ciego?",
+        "excerpt": "¿ Puede un ciego guiar a otro ciego?",
+        "excerptReference": "Lucas 6:37-42"
+      },
+      "source": {
+        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-11",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "pageTitle": "Eucaristía del Viernes 11 de Septiembre de 2026",
+        "verified": true,
+        "fetchedAt": "2026-09-10T16:13:30.571Z"
+      }
+    },
+    {
+      "date": "2026-09-12",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "12 de septiembre",
+      "gospel": {
+        "reference": "Lucas 6:43-49",
+        "passageId": "LUK.6.43-49",
+        "ranges": [
+          {
+            "chapter": 6,
+            "start": 43,
+            "end": 49
+          }
+        ],
+        "title": "No es buen árbol el que da malos frutos, ni árbol malo el que da buen fruto.",
+        "excerpt": "No es buen árbol el que da malos frutos, ni árbol malo el que da buen fruto.",
+        "excerptReference": "Lucas 6:43"
+      },
+      "source": {
+        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-12",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "pageTitle": "Eucaristía del Sábado 12 de Septiembre de 2026",
+        "verified": true,
+        "ordoValidated": true,
+        "fetchedAt": "2026-09-10T16:13:30.777Z"
+      }
+    },
+    {
+      "date": "2026-09-13",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "13 de septiembre",
+      "gospel": {
+        "reference": "Mateo 18:21-35",
+        "passageId": "MAT.18.21-35",
+        "ranges": [
+          {
+            "chapter": 18,
+            "start": 21,
+            "end": 35
+          }
+        ],
+        "title": "No perdones sólo siete veces, sino setenta veces siete",
+        "excerpt": "No perdones sólo siete veces, sino setenta veces siete",
+        "excerptReference": "Mateo 18:21-35"
+      },
+      "source": {
+        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-13",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "pageTitle": "Eucaristía del Domingo 13 de Septiembre de 2026",
+        "verified": true,
+        "fetchedAt": "2026-09-10T16:13:32.318Z"
+      }
+    },
+    {
+      "date": "2026-09-14",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "14 de septiembre",
+      "gospel": {
+        "reference": "Lucas 7:1-10",
+        "passageId": "LUK.7.1-10",
+        "ranges": [
+          {
+            "chapter": 7,
+            "start": 1,
+            "end": 10
+          }
+        ],
+        "title": "Ni siquiera en Israel encontré una fe semejante",
+        "excerpt": "Ni siquiera en Israel encontré una fe semejante",
+        "excerptReference": "Lucas 7:1-10"
+      },
+      "source": {
+        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-14",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "pageTitle": "Eucaristía del Lunes 14 de Septiembre de 2026",
+        "verified": true,
+        "fetchedAt": "2026-09-10T16:13:33.472Z"
+      }
+    },
+    {
+      "date": "2026-09-15",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "15 de septiembre",
+      "gospel": {
+        "reference": "Lucas 7:11-17",
+        "passageId": "LUK.7.11-17",
+        "ranges": [
+          {
+            "chapter": 7,
+            "start": 11,
+            "end": 17
+          }
+        ],
+        "title": "Y cuando el Señor la vio, se compadeció de ella, y le dijo: No llores.",
+        "excerpt": "Y cuando el Señor la vio, se compadeció de ella, y le dijo: No llores.",
+        "excerptReference": "Lucas 7:13"
+      },
+      "source": {
+        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-15",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "pageTitle": "Eucaristía del Martes 15 de Septiembre de 2026",
+        "verified": true,
+        "ordoValidated": true,
+        "fetchedAt": "2026-09-10T16:13:34.037Z"
+      }
+    },
+    {
+      "date": "2026-09-16",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "16 de septiembre",
+      "gospel": {
+        "reference": "Lucas 7:31-35",
+        "passageId": "LUK.7.31-35",
+        "ranges": [
+          {
+            "chapter": 7,
+            "start": 31,
+            "end": 35
+          }
+        ],
+        "title": "¡Les tocamos la flauta, y no bailaron! ¡Entonamos cantos fúnebres, y no lloraron!",
+        "excerpt": "¡Les tocamos la flauta, y no bailaron! ¡Entonamos cantos fúnebres, y no lloraron!",
+        "excerptReference": "Lucas 7:31-35"
+      },
+      "source": {
+        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-16",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "pageTitle": "Eucaristía del Miércoles 16 de Septiembre de 2026",
+        "verified": true,
+        "fetchedAt": "2026-09-10T16:13:34.282Z"
+      }
+    },
+    {
+      "date": "2026-09-17",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "17 de septiembre",
+      "gospel": {
+        "reference": "Lucas 7:36-50",
+        "passageId": "LUK.7.36-50",
+        "ranges": [
+          {
+            "chapter": 7,
+            "start": 36,
+            "end": 50
+          }
+        ],
+        "title": "Sus numerosos pecados le han sido perdonados porque ha demostrado mucho amor",
+        "excerpt": "Sus numerosos pecados le han sido perdonados porque ha demostrado mucho amor",
+        "excerptReference": "Lucas 7:36-50"
+      },
+      "source": {
+        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-17",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "pageTitle": "Eucaristía del Jueves 17 de Septiembre de 2026",
+        "verified": true,
+        "fetchedAt": "2026-09-10T16:13:34.584Z"
+      }
+    },
+    {
+      "date": "2026-09-18",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "18 de septiembre",
+      "gospel": {
+        "reference": "Lucas 8:1-3",
+        "passageId": "LUK.8.1-3",
+        "ranges": [
+          {
+            "chapter": 8,
+            "start": 1,
+            "end": 3
+          }
+        ],
+        "title": "Los apóstoles y algunas mujeres acompañaban a Jesús",
+        "excerpt": "Los apóstoles y algunas mujeres acompañaban a Jesús",
+        "excerptReference": "Lucas 8:1-3"
+      },
+      "source": {
+        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-18",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "pageTitle": "Eucaristía del Viernes 18 de Septiembre de 2026",
+        "verified": true,
+        "fetchedAt": "2026-09-10T16:13:34.866Z"
+      }
+    },
+    {
+      "date": "2026-09-19",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "19 de septiembre",
+      "gospel": {
+        "reference": "Lucas 8:4-15",
+        "passageId": "LUK.8.4-15",
+        "ranges": [
+          {
+            "chapter": 8,
+            "start": 4,
+            "end": 15
+          }
+        ],
+        "title": "Lo que cayó en tierra fértil son los que retienen la palabra, y dan fruto gracias a su constancia",
+        "excerpt": "Lo que cayó en tierra fértil son los que retienen la palabra, y dan fruto gracias a su constancia",
+        "excerptReference": "Lucas 8:4-15"
+      },
+      "source": {
+        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-19",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "pageTitle": "Eucaristía del Sábado 19 de Septiembre de 2026",
+        "verified": true,
+        "fetchedAt": "2026-09-10T16:13:35.126Z"
+      }
+    },
+    {
+      "date": "2026-09-20",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "20 de septiembre",
+      "gospel": {
+        "reference": "Mateo 19:30-20:16",
+        "passageId": "MAT.19.30-20.16",
+        "ranges": [
+          {
+            "chapter": 19,
+            "start": 30,
+            "end": 16,
+            "endChapter": 20
+          }
+        ],
+        "title": "¿Por qué tomas a mal que yo sea bueno?",
+        "excerpt": "¿Por qué tomas a mal que yo sea bueno?",
+        "excerptReference": "Mateo 19:30-20:16"
+      },
+      "source": {
+        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-20",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "pageTitle": "Eucaristía del Domingo 20 de Septiembre de 2026",
+        "verified": true,
+        "fetchedAt": "2026-09-10T16:13:35.333Z"
+      }
+    },
+    {
+      "date": "2026-09-21",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "21 de septiembre",
+      "gospel": {
+        "reference": "Mateo 9:9-13",
+        "passageId": "MAT.9.9-13",
+        "ranges": [
+          {
+            "chapter": 9,
+            "start": 9,
+            "end": 13
+          }
+        ],
+        "title": "Sígueme. Él se levantó y lo siguió",
+        "excerpt": "Sígueme. Él se levantó y lo siguió",
+        "excerptReference": "Mateo 9:9-13"
+      },
+      "source": {
+        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-21",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "pageTitle": "Eucaristía del Lunes 21 de Septiembre de 2026",
+        "verified": true,
+        "fetchedAt": "2026-09-10T16:13:35.716Z"
+      }
+    },
+    {
+      "date": "2026-09-22",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "22 de septiembre",
+      "gospel": {
+        "reference": "Lucas 8:19-21",
+        "passageId": "LUK.8.19-21",
+        "ranges": [
+          {
+            "chapter": 8,
+            "start": 19,
+            "end": 21
+          }
+        ],
+        "title": "Mi madre y mis hermanos son los que escuchan la Palabra de Dios y la practican",
+        "excerpt": "Mi madre y mis hermanos son los que escuchan la Palabra de Dios y la practican",
+        "excerptReference": "Lucas 8:19-21"
+      },
+      "source": {
+        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-22",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "pageTitle": "Eucaristía del Martes 22 de Septiembre de 2026",
+        "verified": true,
+        "fetchedAt": "2026-09-10T16:13:36.343Z"
+      }
+    },
+    {
+      "date": "2026-09-23",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "23 de septiembre",
+      "gospel": {
+        "reference": "Lucas 9:1-6",
+        "passageId": "LUK.9.1-6",
+        "ranges": [
+          {
+            "chapter": 9,
+            "start": 1,
+            "end": 6
+          }
+        ],
+        "title": "Los envió a proclamar el Reino de Dios y a sanar a los enfermos",
+        "excerpt": "Los envió a proclamar el Reino de Dios y a sanar a los enfermos",
+        "excerptReference": "Lucas 9:1-6"
+      },
+      "source": {
+        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-23",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "pageTitle": "Eucaristía del Miércoles 23 de Septiembre de 2026",
+        "verified": true,
+        "fetchedAt": "2026-09-10T16:13:36.683Z"
+      }
+    },
+    {
+      "date": "2026-09-24",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "24 de septiembre",
+      "gospel": {
+        "reference": "Lucas 9:7-9",
+        "passageId": "LUK.9.7-9",
+        "ranges": [
+          {
+            "chapter": 9,
+            "start": 7,
+            "end": 9
+          }
+        ],
+        "title": "A Juan lo hice decapitar. ¿Quién es éste del cual oigo decir semejantes cosas?",
+        "excerpt": "A Juan lo hice decapitar. ¿Quién es éste del cual oigo decir semejantes cosas?",
+        "excerptReference": "Lucas 9:7-9"
+      },
+      "source": {
+        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-24",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "pageTitle": "Eucaristía del Jueves 24 de Septiembre de 2026",
+        "verified": true,
+        "fetchedAt": "2026-09-10T16:13:37.048Z"
+      }
+    },
+    {
+      "date": "2026-09-25",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "25 de septiembre",
+      "gospel": {
+        "reference": "Lucas 9:18-22",
+        "passageId": "LUK.9.18-22",
+        "ranges": [
+          {
+            "chapter": 9,
+            "start": 18,
+            "end": 22
+          }
+        ],
+        "title": "Tú eres el Mesías de Dios. El Hijo del hombre debe sufrir mucho",
+        "excerpt": "Tú eres el Mesías de Dios. El Hijo del hombre debe sufrir mucho",
+        "excerptReference": "Lucas 9:18-22"
+      },
+      "source": {
+        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-25",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "pageTitle": "Eucaristía del Viernes 25 de Septiembre de 2026",
+        "verified": true,
+        "fetchedAt": "2026-09-10T16:13:37.885Z"
+      }
+    },
+    {
+      "date": "2026-09-26",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "26 de septiembre",
+      "gospel": {
+        "reference": "Lucas 9:43-45",
+        "passageId": "LUK.9.43-45",
+        "ranges": [
+          {
+            "chapter": 9,
+            "start": 43,
+            "end": 45
+          }
+        ],
+        "title": "Haced que os penetren bien en los oídos estas palabras; porque acontecerá que el Hijo del Hombre será entregado en manos de hombres.",
+        "excerpt": "Haced que os penetren bien en los oídos estas palabras; porque acontecerá que el Hijo del Hombre será entregado en manos de hombres.",
+        "excerptReference": "Lucas 9:44"
+      },
+      "source": {
+        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-26",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "pageTitle": "Eucaristía del Sábado 26 de Septiembre de 2026",
+        "verified": true,
+        "ordoValidated": true,
+        "fetchedAt": "2026-09-10T16:13:38.379Z"
+      }
+    },
+    {
+      "date": "2026-09-27",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "27 de septiembre",
+      "gospel": {
+        "reference": "Mateo 21:28-32",
+        "passageId": "MAT.21.28-32",
+        "ranges": [
+          {
+            "chapter": 21,
+            "start": 28,
+            "end": 32
+          }
+        ],
+        "title": "Se arrepintió y fue. Los publicanos y las prostitutas llegan antes que ustedes al Reino de Dios",
+        "excerpt": "Se arrepintió y fue. Los publicanos y las prostitutas llegan antes que ustedes al Reino de Dios",
+        "excerptReference": "Mateo 21:28-32"
+      },
+      "source": {
+        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-27",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "pageTitle": "Eucaristía del Domingo 27 de Septiembre de 2026",
+        "verified": true,
+        "fetchedAt": "2026-09-10T16:13:38.691Z"
+      }
+    },
+    {
+      "date": "2026-09-28",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "28 de septiembre",
+      "gospel": {
+        "reference": "Lucas 9:46-50",
+        "passageId": "LUK.9.46-50",
+        "ranges": [
+          {
+            "chapter": 9,
+            "start": 46,
+            "end": 50
+          }
+        ],
+        "title": "El más pequeño de ustedes, ése es el más grande",
+        "excerpt": "El más pequeño de ustedes, ése es el más grande",
+        "excerptReference": "Lucas 9:46-50"
+      },
+      "source": {
+        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-28",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "pageTitle": "Eucaristía del Lunes 28 de Septiembre de 2026",
+        "verified": true,
+        "fetchedAt": "2026-09-10T16:13:38.970Z"
+      }
+    },
+    {
+      "date": "2026-09-29",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "29 de septiembre",
+      "gospel": {
+        "reference": "Juan 1:47-51",
+        "passageId": "JHN.1.47-51",
+        "ranges": [
+          {
+            "chapter": 1,
+            "start": 47,
+            "end": 51
+          }
+        ],
+        "title": "Ustedes verán a los ángeles de Dios subir y bajar sobre el Hijo del hombre",
+        "excerpt": "Ustedes verán a los ángeles de Dios subir y bajar sobre el Hijo del hombre",
+        "excerptReference": "Juan 1:47-51"
+      },
+      "source": {
+        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-29",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "pageTitle": "Eucaristía del Martes 29 de Septiembre de 2026",
+        "verified": true,
+        "fetchedAt": "2026-09-10T16:13:39.289Z"
+      }
+    },
+    {
+      "date": "2026-09-30",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "30 de septiembre",
+      "gospel": {
+        "reference": "Lucas 9:57-62",
+        "passageId": "LUK.9.57-62",
+        "ranges": [
+          {
+            "chapter": 9,
+            "start": 57,
+            "end": 62
+          }
+        ],
+        "title": "Te seguiré adonde vayas",
+        "excerpt": "Te seguiré adonde vayas",
+        "excerptReference": "Lucas 9:57-62"
+      },
+      "source": {
+        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-30",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "pageTitle": "Eucaristía del Miércoles 30 de Septiembre de 2026",
+        "verified": true,
+        "fetchedAt": "2026-09-10T16:13:39.579Z"
+      }
+    },
+    {
+      "date": "2026-10-01",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 10:1-12",
+        "passageId": "LUK.10.1-12",
+        "ranges": [
+          {
+            "chapter": 10,
+            "start": 1,
+            "end": 12
+          }
+        ],
+        "title": "Sanen a los enfermos que haya en ella y díganles: ‘El Reino de Dios se ha acercado a ustedes’.",
+        "excerpt": "Sanen a los enfermos que haya en ella y díganles: ‘El Reino de Dios se ha acercado a ustedes’.",
+        "excerptReference": "Lucas 10:1-12"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-10-01",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:13:43.044Z"
+      }
+    },
+    {
+      "date": "2026-10-02",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 18:1-5,10",
+        "passageId": "MAT.18.1-5,10",
+        "ranges": [
+          {
+            "chapter": 18,
+            "start": 1,
+            "end": 5
+          },
+          {
+            "chapter": 18,
+            "start": 10,
+            "end": 10
+          }
+        ],
+        "title": "En ese momento, los discípulos se acercaron a Jesús y le preguntaron: “¿Quién es el más importante en el Reino de los Cielos?",
+        "excerpt": "En ese momento, los discípulos se acercaron a Jesús y le preguntaron: “¿Quién es el más importante en el Reino de los Cielos?",
+        "excerptReference": "Mateo 18:1-5,10"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-10-02",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:13:44.207Z"
+      }
+    },
+    {
+      "date": "2026-10-03",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 10:17-24",
+        "passageId": "LUK.10.17-24",
+        "ranges": [
+          {
+            "chapter": 10,
+            "start": 17,
+            "end": 24
+          }
+        ],
+        "title": "Los setenta volvieron con alegría, diciendo: “¡Señor, hasta los demonios se nos sujetan en tu nombre!",
+        "excerpt": "Los setenta volvieron con alegría, diciendo: “¡Señor, hasta los demonios se nos sujetan en tu nombre!",
+        "excerptReference": "Lucas 10:17-24"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-10-03",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:13:44.742Z"
+      }
+    },
+    {
+      "date": "2026-10-04",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "XXVII Domingo del Tiempo Ordinario",
+      "gospel": {
+        "reference": "Mateo 21:33-46",
+        "passageId": "MAT.21.33-46",
+        "ranges": [
+          {
+            "chapter": 21,
+            "start": 33,
+            "end": 46
+          }
+        ],
+        "title": "Por tanto os digo, que el reino de Dios será quitado de vosotros, y será dado a gente que produzca los frutos de él.",
+        "excerpt": "Por tanto os digo, que el reino de Dios será quitado de vosotros, y será dado a gente que produzca los frutos de él.",
+        "excerptReference": "Mateo 21:43"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-10-04",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "ordoValidated": true,
+        "fetchedAt": "2026-09-10T16:13:45.424Z"
+      }
+    },
+    {
+      "date": "2026-10-05",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 10:25-37",
+        "passageId": "LUK.10.25-37",
+        "ranges": [
+          {
+            "chapter": 10,
+            "start": 25,
+            "end": 37
+          }
+        ],
+        "title": "He aquí que un intérprete de la ley se levantó y le puso a prueba, diciendo: “Maestro, ¿haciendo qué heredaré la vida eterna?",
+        "excerpt": "He aquí que un intérprete de la ley se levantó y le puso a prueba, diciendo: “Maestro, ¿haciendo qué heredaré la vida eterna?",
+        "excerptReference": "Lucas 10:25-37"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-10-05",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:13:46.139Z"
+      }
+    },
+    {
+      "date": "2026-10-06",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 10:38-42",
+        "passageId": "LUK.10.38-42",
+        "ranges": [
+          {
+            "chapter": 10,
+            "start": 38,
+            "end": 42
+          }
+        ],
+        "title": "Pero Marta se preocupaba con muchos quehaceres, y acercándose, dijo: “Señor, ¿no te da cuidado que mi hermana me deje servir sola?",
+        "excerpt": "Pero Marta se preocupaba con muchos quehaceres, y acercándose, dijo: “Señor, ¿no te da cuidado que mi hermana me deje servir sola?",
+        "excerptReference": "Lucas 10:38-42"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-10-06",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:13:46.888Z"
+      }
+    },
+    {
+      "date": "2026-10-07",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 11:1-4",
+        "passageId": "LUK.11.1-4",
+        "ranges": [
+          {
+            "chapter": 11,
+            "start": 1,
+            "end": 4
+          }
+        ],
+        "title": "1 Y perdónanos nuestros pecados, 2 porque también nosotros perdonamos a todos los que nos deben.",
+        "excerpt": "1 Y perdónanos nuestros pecados, 2 porque también nosotros perdonamos a todos los que nos deben.",
+        "excerptReference": "Lucas 11:1-4"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-10-07",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:13:47.572Z"
+      }
+    },
+    {
+      "date": "2026-10-08",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 11:5-13",
+        "passageId": "LUK.11.5-13",
+        "ranges": [
+          {
+            "chapter": 11,
+            "start": 5,
+            "end": 13
+          }
+        ],
+        "title": "“¿Qué padre de ustedes, si su hijo le pide pan, le dará una piedra?",
+        "excerpt": "“¿Qué padre de ustedes, si su hijo le pide pan, le dará una piedra?",
+        "excerptReference": "Lucas 11:5-13"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-10-08",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:13:48.141Z"
+      }
+    },
+    {
+      "date": "2026-10-09",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 11:15-26",
+        "passageId": "LUK.11.15-26",
+        "ranges": [
+          {
+            "chapter": 11,
+            "start": 15,
+            "end": 26
+          }
+        ],
+        "title": "Mas si por el dedo de Dios echo yo fuera los demonios, ciertamente el Reino de Dios ha llegado a ustedes.",
+        "excerpt": "Mas si por el dedo de Dios echo yo fuera los demonios, ciertamente el Reino de Dios ha llegado a ustedes.",
+        "excerptReference": "Lucas 11:15-26"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-10-09",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:13:48.767Z"
+      }
+    },
+    {
+      "date": "2026-10-10",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 11:27-28",
+        "passageId": "LUK.11.27-28",
+        "ranges": [
+          {
+            "chapter": 11,
+            "start": 27,
+            "end": 28
+          }
+        ],
+        "title": "” Y él dijo: “Antes bienaventurados los que oyen la palabra de Dios, y la guardan”.",
+        "excerpt": "” Y él dijo: “Antes bienaventurados los que oyen la palabra de Dios, y la guardan”.",
+        "excerptReference": "Lucas 11:27-28"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-10-10",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:13:49.843Z"
+      }
+    },
+    {
+      "date": "2026-10-11",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 22:1-14",
+        "passageId": "MAT.22.1-14",
+        "ranges": [
+          {
+            "chapter": 22,
+            "start": 1,
+            "end": 14
+          }
+        ],
+        "title": "Volvió a mandar otros criados encargándoles que dijeran a los convidados: “Tengo preparado el banquete, he matado terneros y reses cebadas y todo está a punto.",
+        "excerpt": "Volvió a mandar otros criados encargándoles que dijeran a los convidados: “Tengo preparado el banquete, he matado terneros y reses cebadas y todo está a punto.",
+        "excerptReference": "Mateo 22:1-14"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-10-11",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:13:50.428Z"
+      }
+    },
+    {
+      "date": "2026-10-12",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "Nuestra Señora del Pilar (memoria)",
+      "gospel": {
+        "reference": "Lucas 11:29-32",
+        "passageId": "LUK.11.29-32",
+        "ranges": [
+          {
+            "chapter": 11,
+            "start": 29,
+            "end": 32
+          }
+        ],
+        "title": "Y apiñándose las multitudes, comenzó a decir: Esta generación es mala; demanda señal, pero señal no le será dada, sino la señal de Jonás.",
+        "excerpt": "Y apiñándose las multitudes, comenzó a decir: Esta generación es mala; demanda señal, pero señal no le será dada, sino la señal de Jonás.",
+        "excerptReference": "Lucas 11:29"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-10-12",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "ordoValidated": true,
+        "fetchedAt": "2026-09-10T16:13:51.038Z"
+      }
+    },
+    {
+      "date": "2026-10-13",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 11:37-41",
+        "passageId": "LUK.11.37-41",
+        "ranges": [
+          {
+            "chapter": 11,
+            "start": 37,
+            "end": 41
+          }
+        ],
+        "title": "Luego que hubo hablado, le rogó un fariseo que comiese con él; y entrando Jesús en la casa, se sentó a la mesa.",
+        "excerpt": "Luego que hubo hablado, le rogó un fariseo que comiese con él; y entrando Jesús en la casa, se sentó a la mesa.",
+        "excerptReference": "Lucas 11:37-41"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-10-13",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:13:51.742Z"
+      }
+    },
+    {
+      "date": "2026-10-14",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 11:42-46",
+        "passageId": "LUK.11.42-46",
+        "ranges": [
+          {
+            "chapter": 11,
+            "start": 42,
+            "end": 46
+          }
+        ],
+        "title": "Que diezman la menta, y la ruda, y toda hortaliza, y pasan por alto la justicia y el amor de Dios.",
+        "excerpt": "Que diezman la menta, y la ruda, y toda hortaliza, y pasan por alto la justicia y el amor de Dios.",
+        "excerptReference": "Lucas 11:42-46"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-10-14",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:13:52.281Z"
+      }
+    },
+    {
+      "date": "2026-10-15",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "Santa Teresa de Jesús, virgen y doctora de la Iglesia (memoria)",
+      "gospel": {
+        "reference": "Lucas 11:47-54",
+        "passageId": "LUK.11.47-54",
+        "ranges": [
+          {
+            "chapter": 11,
+            "start": 47,
+            "end": 54
+          }
+        ],
+        "title": "¡Ay de vosotros, que edificáis los sepulcros de los profetas a quienes mataron vuestros padres!",
+        "excerpt": "¡Ay de vosotros, que edificáis los sepulcros de los profetas a quienes mataron vuestros padres!",
+        "excerptReference": "Lucas 11:47"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-10-15",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "ordoValidated": true,
+        "fetchedAt": "2026-09-10T16:13:53.100Z"
+      }
+    },
+    {
+      "date": "2026-10-16",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 12:1-7",
+        "passageId": "LUK.12.1-7",
+        "ranges": [
+          {
+            "chapter": 12,
+            "start": 1,
+            "end": 7
+          }
+        ],
+        "title": "Con todo, ni uno de ellos está olvidado delante de Dios.",
+        "excerpt": "Con todo, ni uno de ellos está olvidado delante de Dios.",
+        "excerptReference": "Lucas 12:1-7"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-10-16",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:13:55.478Z"
+      }
+    },
+    {
+      "date": "2026-10-17",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 12:8-12",
+        "passageId": "LUK.12.8-12",
+        "ranges": [
+          {
+            "chapter": 12,
+            "start": 8,
+            "end": 12
+          }
+        ],
+        "title": "A todo aquel que dijere alguna palabra contra el Hijo del Hombre, le será perdonado; pero al que blasfemare contra el Espíritu Santo, no le será perdonado.",
+        "excerpt": "A todo aquel que dijere alguna palabra contra el Hijo del Hombre, le será perdonado; pero al que blasfemare contra el Espíritu Santo, no le será perdonado.",
+        "excerptReference": "Lucas 12:8-12"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-10-17",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:13:56.159Z"
+      }
+    },
+    {
+      "date": "2026-10-18",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 22:15-21",
+        "passageId": "MAT.22.15-21",
+        "ranges": [
+          {
+            "chapter": 22,
+            "start": 15,
+            "end": 21
+          }
+        ],
+        "title": "Entonces les replicó: «Pues dad al César lo que es del César y a Dios lo que es de Dios».",
+        "excerpt": "Entonces les replicó: «Pues dad al César lo que es del César y a Dios lo que es de Dios».",
+        "excerptReference": "Mateo 22:15-21"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-10-18",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:13:58.720Z"
+      }
+    },
+    {
+      "date": "2026-10-19",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 12:13-21",
+        "passageId": "LUK.12.13-21",
+        "ranges": [
+          {
+            "chapter": 12,
+            "start": 13,
+            "end": 21
+          }
+        ],
+        "title": "” Y les dijo: “Miren, y guárdense de toda avaricia; porque la vida del hombre no consiste en la abundancia de los bienes que posee.",
+        "excerpt": "” Y les dijo: “Miren, y guárdense de toda avaricia; porque la vida del hombre no consiste en la abundancia de los bienes que posee.",
+        "excerptReference": "Lucas 12:13-21"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-10-19",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:13:59.887Z"
+      }
+    },
+    {
+      "date": "2026-10-20",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 12:35-38",
+        "passageId": "LUK.12.35-38",
+        "ranges": [
+          {
+            "chapter": 12,
+            "start": 35,
+            "end": 38
+          }
+        ],
+        "title": "Y aunque venga a la segunda vigilia, y aunque venga a la tercera vigilia, si los hallare así, bienaventurados son aquellos siervos.",
+        "excerpt": "Y aunque venga a la segunda vigilia, y aunque venga a la tercera vigilia, si los hallare así, bienaventurados son aquellos siervos.",
+        "excerptReference": "Lucas 12:35-38"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-10-20",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:00.541Z"
+      }
+    },
+    {
+      "date": "2026-10-21",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 12:39-48",
+        "passageId": "LUK.12.39-48",
+        "ranges": [
+          {
+            "chapter": 12,
+            "start": 39,
+            "end": 48
+          }
+        ],
+        "title": "Ustedes, pues, también, estén preparados, porque a la hora que no piensen, el Hijo del Hombre vendrá.",
+        "excerpt": "Ustedes, pues, también, estén preparados, porque a la hora que no piensen, el Hijo del Hombre vendrá.",
+        "excerptReference": "Lucas 12:39-48"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-10-21",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:01.394Z"
+      }
+    },
+    {
+      "date": "2026-10-22",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 12:49-53",
+        "passageId": "LUK.12.49-53",
+        "ranges": [
+          {
+            "chapter": 12,
+            "start": 49,
+            "end": 53
+          }
+        ],
+        "title": "¿Piensan que he venido para dar paz en la tierra?",
+        "excerpt": "¿Piensan que he venido para dar paz en la tierra?",
+        "excerptReference": "Lucas 12:49-53"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-10-22",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:02.331Z"
+      }
+    },
+    {
+      "date": "2026-10-23",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 12:54-59",
+        "passageId": "LUK.12.54-59",
+        "ranges": [
+          {
+            "chapter": 12,
+            "start": 54,
+            "end": 59
+          }
+        ],
+        "title": "Decía también a la multitud: “Cuando ven la nube que sale del poniente, luego dicen: ‘Agua viene’; y así sucede.",
+        "excerpt": "Decía también a la multitud: “Cuando ven la nube que sale del poniente, luego dicen: ‘Agua viene’; y así sucede.",
+        "excerptReference": "Lucas 12:54-59"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-10-23",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:03.078Z"
+      }
+    },
+    {
+      "date": "2026-10-24",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 13:1-9",
+        "passageId": "LUK.13.1-9",
+        "ranges": [
+          {
+            "chapter": 13,
+            "start": 1,
+            "end": 9
+          }
+        ],
+        "title": "’ El viñador respondió: ‘Señor, déjala también este año, hasta que cave alrededor y la abone.",
+        "excerpt": "’ El viñador respondió: ‘Señor, déjala también este año, hasta que cave alrededor y la abone.",
+        "excerptReference": "Lucas 13:1-9"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-10-24",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:03.948Z"
+      }
+    },
+    {
+      "date": "2026-10-25",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 22:34-40",
+        "passageId": "MAT.22.34-40",
+        "ranges": [
+          {
+            "chapter": 22,
+            "start": 34,
+            "end": 40
+          }
+        ],
+        "title": "Él le dijo: «“Amarás al Señor tu Dios con todo tu corazón, con toda tu alma, con toda tu mente”.",
+        "excerpt": "Él le dijo: «“Amarás al Señor tu Dios con todo tu corazón, con toda tu alma, con toda tu mente”.",
+        "excerptReference": "Mateo 22:34-40"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-10-25",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:04.828Z"
+      }
+    },
+    {
+      "date": "2026-10-26",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 13:10-17",
+        "passageId": "LUK.13.10-17",
+        "ranges": [
+          {
+            "chapter": 13,
+            "start": 10,
+            "end": 17
+          }
+        ],
+        "title": "He aquí que había una mujer que tenía un espíritu de enfermedad desde hacía dieciocho años.",
+        "excerpt": "He aquí que había una mujer que tenía un espíritu de enfermedad desde hacía dieciocho años.",
+        "excerptReference": "Lucas 13:10-17"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-10-26",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:05.739Z"
+      }
+    },
+    {
+      "date": "2026-10-27",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "Martes de la XXX semana del tiempo ordinario",
+      "gospel": {
+        "reference": "Lucas 13:18-21",
+        "passageId": "LUK.13.18-21",
+        "ranges": [
+          {
+            "chapter": 13,
+            "start": 18,
+            "end": 21
+          }
+        ],
+        "title": "¿A qué es semejante el reino de Dios, y con qué lo compararé?",
+        "excerpt": "¿A qué es semejante el reino de Dios, y con qué lo compararé?",
+        "excerptReference": "Lucas 13:18"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-10-27",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "ordoValidated": true,
+        "fetchedAt": "2026-09-10T16:14:06.378Z"
+      }
+    },
+    {
+      "date": "2026-10-28",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 6:12-19",
+        "passageId": "LUK.6.12-19",
+        "ranges": [
+          {
+            "chapter": 6,
+            "start": 12,
+            "end": 19
+          }
+        ],
+        "title": "En esos días, salió al monte a orar, y pasó toda la noche orando a Dios.",
+        "excerpt": "En esos días, salió al monte a orar, y pasó toda la noche orando a Dios.",
+        "excerptReference": "Lucas 6:12-19"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-10-28",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:07.157Z"
+      }
+    },
+    {
+      "date": "2026-10-29",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 13:31-35",
+        "passageId": "LUK.13.31-35",
+        "ranges": [
+          {
+            "chapter": 13,
+            "start": 31,
+            "end": 35
+          }
+        ],
+        "title": "Sin embargo, debo seguir mi camino hoy, mañana y al día siguiente, pues no puede ser que un profeta perezca fuera de Jerusalén.",
+        "excerpt": "Sin embargo, debo seguir mi camino hoy, mañana y al día siguiente, pues no puede ser que un profeta perezca fuera de Jerusalén.",
+        "excerptReference": "Lucas 13:31-35"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-10-29",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:10.548Z"
+      }
+    },
+    {
+      "date": "2026-10-30",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 14:1-6",
+        "passageId": "LUK.14.1-6",
+        "ranges": [
+          {
+            "chapter": 14,
+            "start": 1,
+            "end": 6
+          }
+        ],
+        "title": "Aconteció un sábado, al entrar él en casa de uno de los jefes de los fariseos para comer pan, que ellos le acechaban.",
+        "excerpt": "Aconteció un sábado, al entrar él en casa de uno de los jefes de los fariseos para comer pan, que ellos le acechaban.",
+        "excerptReference": "Lucas 14:1-6"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-10-30",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:11.551Z"
+      }
+    },
+    {
+      "date": "2026-10-31",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 14:1,7-11",
+        "passageId": "LUK.14.1,7-11",
+        "ranges": [
+          {
+            "chapter": 14,
+            "start": 1,
+            "end": 1
+          },
+          {
+            "chapter": 14,
+            "start": 7,
+            "end": 11
+          }
+        ],
+        "title": "Aconteció un sábado, al entrar él en casa de uno de los jefes de los fariseos para comer pan, que ellos le acechaban.",
+        "excerpt": "Aconteció un sábado, al entrar él en casa de uno de los jefes de los fariseos para comer pan, que ellos le acechaban.",
+        "excerptReference": "Lucas 14:1,7-11"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-10-31",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:12.296Z"
+      }
+    },
+    {
+      "date": "2026-11-01",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "Todos los Santos (solemnidad)",
+      "gospel": {
+        "reference": "Mateo 4:25-5:12",
+        "passageId": "MAT.4.25-5.12",
+        "ranges": [
+          {
+            "chapter": 4,
+            "start": 25,
+            "end": 12,
+            "endChapter": 5
+          }
+        ],
+        "title": "Bienaventurados los misericordiosos, porque ellos alcanzarán misericordia.",
+        "excerpt": "Bienaventurados los misericordiosos, porque ellos alcanzarán misericordia.",
+        "excerptReference": "Mateo 5:7"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-11-01",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "ordoValidated": true,
+        "fetchedAt": "2026-09-10T16:14:13.541Z"
+      }
+    },
+    {
+      "date": "2026-11-02",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "Conmemoración de todos los fieles difuntos",
+      "gospel": {
+        "reference": "Juan 11:17-27",
+        "passageId": "JHN.11.17-27",
+        "ranges": [
+          {
+            "chapter": 11,
+            "start": 17,
+            "end": 27
+          }
+        ],
+        "title": "Jesús le dijo: Yo soy la resurrección y la vida; el que cree en mí, aunque esté muerto, vivirá.",
+        "excerpt": "Jesús le dijo: Yo soy la resurrección y la vida; el que cree en mí, aunque esté muerto, vivirá.",
+        "excerptReference": "Juan 11:25"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-11-02",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "ordoValidated": true,
+        "fetchedAt": "2026-09-10T16:14:14.539Z"
+      }
+    },
+    {
+      "date": "2026-11-03",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 14:15-24",
+        "passageId": "LUK.14.15-24",
+        "ranges": [
+          {
+            "chapter": 14,
+            "start": 15,
+            "end": 24
+          }
+        ],
+        "title": "Oyendo esto uno de los que estaban sentados con él a la mesa, le dijo: “¡Bienaventurado el que coma pan en el Reino de Dios!",
+        "excerpt": "Oyendo esto uno de los que estaban sentados con él a la mesa, le dijo: “¡Bienaventurado el que coma pan en el Reino de Dios!",
+        "excerptReference": "Lucas 14:15-24"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-11-03",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:15.643Z"
+      }
+    },
+    {
+      "date": "2026-11-04",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 14:25-33",
+        "passageId": "LUK.14.25-33",
+        "ranges": [
+          {
+            "chapter": 14,
+            "start": 25,
+            "end": 33
+          }
+        ],
+        "title": "Y si no puede, cuando el otro está todavía lejos, le envía una embajada y le pide condiciones de paz.",
+        "excerpt": "Y si no puede, cuando el otro está todavía lejos, le envía una embajada y le pide condiciones de paz.",
+        "excerptReference": "Lucas 14:25-33"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-11-04",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:18.030Z"
+      }
+    },
+    {
+      "date": "2026-11-05",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 15:1-10",
+        "passageId": "LUK.15.1-10",
+        "ranges": [
+          {
+            "chapter": 15,
+            "start": 1,
+            "end": 10
+          }
+        ],
+        "title": "Así les digo que hay gozo delante de los ángeles de Dios por un pecador que se arrepiente.",
+        "excerpt": "Así les digo que hay gozo delante de los ángeles de Dios por un pecador que se arrepiente.",
+        "excerptReference": "Lucas 15:1-10"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-11-05",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:18.993Z"
+      }
+    },
+    {
+      "date": "2026-11-06",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 16:1-8",
+        "passageId": "LUK.16.1-8",
+        "ranges": [
+          {
+            "chapter": 16,
+            "start": 1,
+            "end": 8
+          }
+        ],
+        "title": "Porque mi señor me quita la mayordomía.",
+        "excerpt": "Porque mi señor me quita la mayordomía.",
+        "excerptReference": "Lucas 16:1-8"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-11-06",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:20.030Z"
+      }
+    },
+    {
+      "date": "2026-11-07",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 16:9-15",
+        "passageId": "LUK.16.9-15",
+        "ranges": [
+          {
+            "chapter": 16,
+            "start": 9,
+            "end": 15
+          }
+        ],
+        "title": "Ningún siervo puede servir a dos señores; porque o aborrecerá al uno y amará al otro, o estimará al uno y menospreciará al otro.",
+        "excerpt": "Ningún siervo puede servir a dos señores; porque o aborrecerá al uno y amará al otro, o estimará al uno y menospreciará al otro.",
+        "excerptReference": "Lucas 16:9-15"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-11-07",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:21.079Z"
+      }
+    },
+    {
+      "date": "2026-11-08",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 25:1-13",
+        "passageId": "MAT.25.1-13",
+        "ranges": [
+          {
+            "chapter": 25,
+            "start": 1,
+            "end": 13
+          }
+        ],
+        "title": "Más tarde llegaron también las otras vírgenes, diciendo: “Señor, señor, ábrenos”.",
+        "excerpt": "Más tarde llegaron también las otras vírgenes, diciendo: “Señor, señor, ábrenos”.",
+        "excerptReference": "Mateo 25:1-13"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-11-08",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:21.625Z"
+      }
+    },
+    {
+      "date": "2026-11-09",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 2:13-22",
+        "passageId": "JHN.2.13-22",
+        "ranges": [
+          {
+            "chapter": 2,
+            "start": 13,
+            "end": 22
+          }
+        ],
+        "title": "No hagan de la casa de mi Padre un mercado”.",
+        "excerpt": "No hagan de la casa de mi Padre un mercado”.",
+        "excerptReference": "Juan 2:13-22"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-11-09",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:22.465Z"
+      }
+    },
+    {
+      "date": "2026-11-10",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 17:7-10",
+        "passageId": "LUK.17.7-10",
+        "ranges": [
+          {
+            "chapter": 17,
+            "start": 7,
+            "end": 10
+          }
+        ],
+        "title": "Pero, ¿quién de ustedes que tenga un siervo arando o guardando ovejas, le dirá al llegar del campo: ‘Ven enseguida y siéntate a la mesa’?",
+        "excerpt": "Pero, ¿quién de ustedes que tenga un siervo arando o guardando ovejas, le dirá al llegar del campo: ‘Ven enseguida y siéntate a la mesa’?",
+        "excerptReference": "Lucas 17:7-10"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-11-10",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:23.764Z"
+      }
+    },
+    {
+      "date": "2026-11-11",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 17:11-19",
+        "passageId": "LUK.17.11-19",
+        "ranges": [
+          {
+            "chapter": 17,
+            "start": 11,
+            "end": 19
+          }
+        ],
+        "title": "Uno de ellos, al ver que estaba sanado, se volvió glorificando a Dios a gran voz.",
+        "excerpt": "Uno de ellos, al ver que estaba sanado, se volvió glorificando a Dios a gran voz.",
+        "excerptReference": "Lucas 17:11-19"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-11-11",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:24.338Z"
+      }
+    },
+    {
+      "date": "2026-11-12",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 17:20-25",
+        "passageId": "LUK.17.20-25",
+        "ranges": [
+          {
+            "chapter": 17,
+            "start": 20,
+            "end": 25
+          }
+        ],
+        "title": "Cuando los fariseos le preguntaron cuándo vendría el Reino de Dios, les contestó: “El Reino de Dios no viene con advertencia; ni dirán: ‘¡Miren, aquí!",
+        "excerpt": "Cuando los fariseos le preguntaron cuándo vendría el Reino de Dios, les contestó: “El Reino de Dios no viene con advertencia; ni dirán: ‘¡Miren, aquí!",
+        "excerptReference": "Lucas 17:20-25"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-11-12",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:24.990Z"
+      }
+    },
+    {
+      "date": "2026-11-13",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 17:26-37",
+        "passageId": "LUK.17.26-37",
+        "ranges": [
+          {
+            "chapter": 17,
+            "start": 26,
+            "end": 37
+          }
+        ],
+        "title": "Todo el que procure salvar su vida, la perderá; y todo el que la pierda, la salvará.",
+        "excerpt": "Todo el que procure salvar su vida, la perderá; y todo el que la pierda, la salvará.",
+        "excerptReference": "Lucas 17:26-37"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-11-13",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:26.787Z"
+      }
+    },
+    {
+      "date": "2026-11-14",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 18:1-8",
+        "passageId": "LUK.18.1-8",
+        "ranges": [
+          {
+            "chapter": 18,
+            "start": 1,
+            "end": 8
+          }
+        ],
+        "title": "’” Y dijo el Señor: “Escuchen lo que dijo el juez injusto.",
+        "excerpt": "’” Y dijo el Señor: “Escuchen lo que dijo el juez injusto.",
+        "excerptReference": "Lucas 18:1-8"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-11-14",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:27.670Z"
+      }
+    },
+    {
+      "date": "2026-11-15",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 25:14-30",
+        "passageId": "MAT.25.14-30",
+        "ranges": [
+          {
+            "chapter": 25,
+            "start": 14,
+            "end": 30
+          }
+        ],
+        "title": "El que recibió dos hizo lo mismo y ganó otros dos.",
+        "excerpt": "El que recibió dos hizo lo mismo y ganó otros dos.",
+        "excerptReference": "Mateo 25:14-30"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-11-15",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:28.432Z"
+      }
+    },
+    {
+      "date": "2026-11-16",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 18:35-43",
+        "passageId": "LUK.18.35-43",
+        "ranges": [
+          {
+            "chapter": 18,
+            "start": 35,
+            "end": 43
+          }
+        ],
+        "title": "Y él dijo: “Señor, que reciba la vista”.",
+        "excerpt": "Y él dijo: “Señor, que reciba la vista”.",
+        "excerptReference": "Lucas 18:35-43"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-11-16",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:29.176Z"
+      }
+    },
+    {
+      "date": "2026-11-17",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 19:1-10",
+        "passageId": "LUK.19.1-10",
+        "ranges": [
+          {
+            "chapter": 19,
+            "start": 1,
+            "end": 10
+          }
+        ],
+        "title": "” Entonces él bajó aprisa, y lo recibió con alegría.",
+        "excerpt": "” Entonces él bajó aprisa, y lo recibió con alegría.",
+        "excerptReference": "Lucas 19:1-10"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-11-17",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:29.723Z"
+      }
+    },
+    {
+      "date": "2026-11-18",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 19:11-28",
+        "passageId": "LUK.19.11-28",
+        "ranges": [
+          {
+            "chapter": 19,
+            "start": 11,
+            "end": 28
+          }
+        ],
+        "title": "Al oír ellos estas cosas, prosiguió Jesús y contó una parábola, porque estaba cerca de Jerusalén, y ellos pensaban que el Reino de Dios se manifestaría inmediatamente.",
+        "excerpt": "Al oír ellos estas cosas, prosiguió Jesús y contó una parábola, porque estaba cerca de Jerusalén, y ellos pensaban que el Reino de Dios se manifestaría inmediatamente.",
+        "excerptReference": "Lucas 19:11-28"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-11-18",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:30.249Z"
+      }
+    },
+    {
+      "date": "2026-11-19",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 19:41-44",
+        "passageId": "LUK.19.41-44",
+        "ranges": [
+          {
+            "chapter": 19,
+            "start": 41,
+            "end": 44
+          }
+        ],
+        "title": "Pero ahora está oculto a tus ojos.",
+        "excerpt": "Pero ahora está oculto a tus ojos.",
+        "excerptReference": "Lucas 19:41-44"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-11-19",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:30.789Z"
+      }
+    },
+    {
+      "date": "2026-11-20",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 19:45-48",
+        "passageId": "LUK.19.45-48",
+        "ranges": [
+          {
+            "chapter": 19,
+            "start": 45,
+            "end": 48
+          }
+        ],
+        "title": "Y no encontraban cómo hacerlo, porque todo el pueblo estaba aferrado a él, escuchando cada palabra suya.",
+        "excerpt": "Y no encontraban cómo hacerlo, porque todo el pueblo estaba aferrado a él, escuchando cada palabra suya.",
+        "excerptReference": "Lucas 19:45-48"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-11-20",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:31.307Z"
+      }
+    },
+    {
+      "date": "2026-11-21",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 20:27-40",
+        "passageId": "LUK.20.27-40",
+        "ranges": [
+          {
+            "chapter": 20,
+            "start": 27,
+            "end": 40
+          }
+        ],
+        "title": "Porque ya no pueden morir, pues son como los ángeles y son hijos de Dios, al ser hijos de la resurrección.",
+        "excerpt": "Porque ya no pueden morir, pues son como los ángeles y son hijos de Dios, al ser hijos de la resurrección.",
+        "excerptReference": "Lucas 20:27-40"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-11-21",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:31.887Z"
+      }
+    },
+    {
+      "date": "2026-11-22",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 25:31-46",
+        "passageId": "MAT.25.31-46",
+        "ranges": [
+          {
+            "chapter": 25,
+            "start": 31,
+            "end": 46
+          }
+        ],
+        "title": "Entonces dirá el rey a los de su derecha: “Venid vosotros, benditos de mi padre; heredad el reino preparado para vosotros desde la creación del mundo.",
+        "excerpt": "Entonces dirá el rey a los de su derecha: “Venid vosotros, benditos de mi padre; heredad el reino preparado para vosotros desde la creación del mundo.",
+        "excerptReference": "Mateo 25:31-46"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-11-22",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:34.185Z"
+      }
+    },
+    {
+      "date": "2026-11-23",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 21:1-4",
+        "passageId": "LUK.21.1-4",
+        "ranges": [
+          {
+            "chapter": 21,
+            "start": 1,
+            "end": 4
+          }
+        ],
+        "title": "Levantó la vista y vio a los ricos que echaban sus donativos en el tesoro.",
+        "excerpt": "Levantó la vista y vio a los ricos que echaban sus donativos en el tesoro.",
+        "excerptReference": "Lucas 21:1-4"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-11-23",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:34.846Z"
+      }
+    },
+    {
+      "date": "2026-11-24",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "Santos Andrés Dung-Lac y compañeros, mártires (memoria)",
+      "gospel": {
+        "reference": "Lucas 21:5-9",
+        "passageId": "LUK.21.5-9",
+        "ranges": [
+          {
+            "chapter": 21,
+            "start": 5,
+            "end": 9
+          }
+        ],
+        "title": "Mirad que no seáis engañados; porque vendrán muchos en mi nombre, diciendo: Yo soy el Cristo, y: El tiempo está cerca. Mas no vayáis en pos de ellos.",
+        "excerpt": "Mirad que no seáis engañados; porque vendrán muchos en mi nombre, diciendo: Yo soy el Cristo, y: El tiempo está cerca. Mas no vayáis en pos de ellos.",
+        "excerptReference": "Lucas 21:8"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-11-24",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "ordoValidated": true,
+        "fetchedAt": "2026-09-10T16:14:35.425Z"
+      }
+    },
+    {
+      "date": "2026-11-25",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 21:12-19",
+        "passageId": "LUK.21.12-19",
+        "ranges": [
+          {
+            "chapter": 21,
+            "start": 12,
+            "end": 19
+          }
+        ],
+        "title": "Serán entregados incluso por padres, hermanos, parientes y amigos.",
+        "excerpt": "Serán entregados incluso por padres, hermanos, parientes y amigos.",
+        "excerptReference": "Lucas 21:12-19"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-11-25",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:36.374Z"
+      }
+    },
+    {
+      "date": "2026-11-26",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 21:20-28",
+        "passageId": "LUK.21.20-28",
+        "ranges": [
+          {
+            "chapter": 21,
+            "start": 20,
+            "end": 28
+          }
+        ],
+        "title": "“Pero cuando vean a Jerusalén rodeada de ejércitos, sepan que su desolación está cerca.",
+        "excerpt": "“Pero cuando vean a Jerusalén rodeada de ejércitos, sepan que su desolación está cerca.",
+        "excerptReference": "Lucas 21:20-28"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-11-26",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:36.940Z"
+      }
+    },
+    {
+      "date": "2026-11-27",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 21:29-33",
+        "passageId": "LUK.21.29-33",
+        "ranges": [
+          {
+            "chapter": 21,
+            "start": 29,
+            "end": 33
+          }
+        ],
+        "title": "Así también ustedes, cuando vean que suceden estas cosas, sepan que el Reino de Dios está cerca.",
+        "excerpt": "Así también ustedes, cuando vean que suceden estas cosas, sepan que el Reino de Dios está cerca.",
+        "excerptReference": "Lucas 21:29-33"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-11-27",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:37.513Z"
+      }
+    },
+    {
+      "date": "2026-11-28",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 21:34-36",
+        "passageId": "LUK.21.34-36",
+        "ranges": [
+          {
+            "chapter": 21,
+            "start": 34,
+            "end": 36
+          }
+        ],
+        "title": "Porque vendrá como un lazo sobre todos los que habitan sobre la faz de toda la tierra.",
+        "excerpt": "Porque vendrá como un lazo sobre todos los que habitan sobre la faz de toda la tierra.",
+        "excerptReference": "Lucas 21:34-36"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-11-28",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:38.378Z"
+      }
+    },
+    {
+      "date": "2026-11-29",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Marcos 13:33-37",
+        "passageId": "MRK.13.33-37",
+        "ranges": [
+          {
+            "chapter": 13,
+            "start": 33,
+            "end": 37
+          }
+        ],
+        "title": "En aquel tiempo, dijo Jesús a sus discípulos: «Estad atentos, vigilad: pues no sabéis cuándo es el momento.",
+        "excerpt": "En aquel tiempo, dijo Jesús a sus discípulos: «Estad atentos, vigilad: pues no sabéis cuándo es el momento.",
+        "excerptReference": "Marcos 13:33-37"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-11-29",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:39.206Z"
+      }
+    },
+    {
+      "date": "2026-11-30",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 4:18-22",
+        "passageId": "MAT.4.18-22",
+        "ranges": [
+          {
+            "chapter": 4,
+            "start": 18,
+            "end": 22
+          }
+        ],
+        "title": "Al salir de allí, vio a otros dos hermanos, Santiago, hijo de Zebedeo, y Juan, su hermano, en la barca con el padre de Zebedeo, remendando las redes.",
+        "excerpt": "Al salir de allí, vio a otros dos hermanos, Santiago, hijo de Zebedeo, y Juan, su hermano, en la barca con el padre de Zebedeo, remendando las redes.",
+        "excerptReference": "Mateo 4:18-22"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-11-30",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:39.992Z"
+      }
+    },
+    {
+      "date": "2026-12-01",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 10:21-24",
+        "passageId": "LUK.10.21-24",
+        "ranges": [
+          {
+            "chapter": 10,
+            "start": 21,
+            "end": 24
+          }
+        ],
+        "title": "Sí, Padre, porque así te agradó”.",
+        "excerpt": "Sí, Padre, porque así te agradó”.",
+        "excerptReference": "Lucas 10:21-24"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-12-01",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:40.559Z"
+      }
+    },
+    {
+      "date": "2026-12-02",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 15:29-37",
+        "passageId": "MAT.15.29-37",
+        "ranges": [
+          {
+            "chapter": 15,
+            "start": 29,
+            "end": 37
+          }
+        ],
+        "title": "Grandes multitudes se le acercaron, llevando cojos, ciegos, lisiados, mudos y muchos otros enfermos.",
+        "excerpt": "Grandes multitudes se le acercaron, llevando cojos, ciegos, lisiados, mudos y muchos otros enfermos.",
+        "excerptReference": "Mateo 15:29-37"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-12-02",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:41.113Z"
+      }
+    },
+    {
+      "date": "2026-12-03",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 7:21,24-27",
+        "passageId": "MAT.7.21,24-27",
+        "ranges": [
+          {
+            "chapter": 7,
+            "start": 21,
+            "end": 21
+          },
+          {
+            "chapter": 7,
+            "start": 24,
+            "end": 27
+          }
+        ],
+        "title": "“Por lo tanto, a cualquiera que escucha estas palabras mías y las pone en práctica, lo compararé con un hombre sabio que construyó su casa sobre la roca.",
+        "excerpt": "“Por lo tanto, a cualquiera que escucha estas palabras mías y las pone en práctica, lo compararé con un hombre sabio que construyó su casa sobre la roca.",
+        "excerptReference": "Mateo 7:21,24-27"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-12-03",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:42.374Z"
+      }
+    },
+    {
+      "date": "2026-12-04",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 9:27-31",
+        "passageId": "MAT.9.27-31",
+        "ranges": [
+          {
+            "chapter": 9,
+            "start": 27,
+            "end": 31
+          }
+        ],
+        "title": "Jesús les dijo: “¿Creen que soy capaz de hacer esto?",
+        "excerpt": "Jesús les dijo: “¿Creen que soy capaz de hacer esto?",
+        "excerptReference": "Mateo 9:27-31"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-12-04",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:43.773Z"
+      }
+    },
+    {
+      "date": "2026-12-05",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 9:35-10:1,5a,6-8",
+        "passageId": "MAT.9.35-10.1,5a,6-8",
+        "ranges": [
+          {
+            "chapter": 9,
+            "start": 35,
+            "end": 1,
+            "endChapter": 10
+          },
+          {
+            "chapter": 10,
+            "start": 5,
+            "startSuffix": "a",
+            "end": 5,
+            "endSuffix": "a"
+          },
+          {
+            "chapter": 10,
+            "start": 6,
+            "end": 8
+          }
+        ],
+        "title": "Y al ver las multitudes, tuvo compasión de ellas; porque estaban desamparadas y dispersas como ovejas que no tienen pastor.",
+        "excerpt": "Y al ver las multitudes, tuvo compasión de ellas; porque estaban desamparadas y dispersas como ovejas que no tienen pastor.",
+        "excerptReference": "Mateo 9:36"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-12-05",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:44.363Z"
+      }
+    },
+    {
+      "date": "2026-12-06",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Marcos 1:1-8",
+        "passageId": "MRK.1.1-8",
+        "ranges": [
+          {
+            "chapter": 1,
+            "start": 1,
+            "end": 8
+          }
+        ],
+        "title": "Comienza el Evangelio de Jesucristo, Hijo de Dios.",
+        "excerpt": "Comienza el Evangelio de Jesucristo, Hijo de Dios.",
+        "excerptReference": "Marcos 1:1-8"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-12-06",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:45.222Z"
+      }
+    },
+    {
+      "date": "2026-12-07",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 5:17-26",
+        "passageId": "LUK.5.17-26",
+        "ranges": [
+          {
+            "chapter": 5,
+            "start": 17,
+            "end": 26
+          }
+        ],
+        "title": "Al ver su fe, le dijo: “Hombre, tus pecados te son perdonados”.",
+        "excerpt": "Al ver su fe, le dijo: “Hombre, tus pecados te son perdonados”.",
+        "excerptReference": "Lucas 5:17-26"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-12-07",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:45.757Z"
+      }
+    },
+    {
+      "date": "2026-12-08",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 1:26-38",
+        "passageId": "LUK.1.26-38",
+        "ranges": [
+          {
+            "chapter": 1,
+            "start": 26,
+            "end": 38
+          }
+        ],
+        "title": "El ángel, entrando en su presencia, dijo: Alégrate, llena de gracias, el Señor está contigo; bendita tú eres entre todas las mujeres.",
+        "excerpt": "El ángel, entrando en su presencia, dijo: Alégrate, llena de gracias, el Señor está contigo; bendita tú eres entre todas las mujeres.",
+        "excerptReference": "Lucas 1:26-38"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-12-08",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:46.481Z"
+      }
+    },
+    {
+      "date": "2026-12-09",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 11:28-30",
+        "passageId": "MAT.11.28-30",
+        "ranges": [
+          {
+            "chapter": 11,
+            "start": 28,
+            "end": 30
+          }
+        ],
+        "title": "“Vengan a mí todos los que están cansados y llevan cargas pesadas, y yo les daré descanso.",
+        "excerpt": "“Vengan a mí todos los que están cansados y llevan cargas pesadas, y yo les daré descanso.",
+        "excerptReference": "Mateo 11:28-30"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-12-09",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:47.189Z"
+      }
+    },
+    {
+      "date": "2026-12-10",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 11:11-15",
+        "passageId": "MAT.11.11-15",
+        "ranges": [
+          {
+            "chapter": 11,
+            "start": 11,
+            "end": 15
+          }
+        ],
+        "title": "El que tenga oídos para oír, que oiga.",
+        "excerpt": "El que tenga oídos para oír, que oiga.",
+        "excerptReference": "Mateo 11:11-15"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-12-10",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:48.040Z"
+      }
+    },
+    {
+      "date": "2026-12-11",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 11:16-19",
+        "passageId": "MAT.11.16-19",
+        "ranges": [
+          {
+            "chapter": 11,
+            "start": 16,
+            "end": 19
+          }
+        ],
+        "title": "“¿Pero con qué compararé a esta generación?",
+        "excerpt": "“¿Pero con qué compararé a esta generación?",
+        "excerptReference": "Mateo 11:16-19"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-12-11",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:48.969Z"
+      }
+    },
+    {
+      "date": "2026-12-12",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 17:10-13",
+        "passageId": "MAT.17.10-13",
+        "ranges": [
+          {
+            "chapter": 17,
+            "start": 10,
+            "end": 13
+          }
+        ],
+        "title": "Sus discípulos le preguntaron: “Entonces, ¿por qué dicen los maestros de la ley que Elías debe venir primero?",
+        "excerpt": "Sus discípulos le preguntaron: “Entonces, ¿por qué dicen los maestros de la ley que Elías debe venir primero?",
+        "excerptReference": "Mateo 17:10-13"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-12-12",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:51.092Z"
+      }
+    },
+    {
+      "date": "2026-12-13",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 1:6-8,19-28",
+        "passageId": "JHN.1.6-8,19-28",
+        "ranges": [
+          {
+            "chapter": 1,
+            "start": 6,
+            "end": 8
+          },
+          {
+            "chapter": 1,
+            "start": 19,
+            "end": 28
+          }
+        ],
+        "title": "Surgió un hombre enviado por Dios, que se llamaba Juan: este venía como testigo, para dar testimonio de la luz, para que todos creyeran por medio de él.",
+        "excerpt": "Surgió un hombre enviado por Dios, que se llamaba Juan: este venía como testigo, para dar testimonio de la luz, para que todos creyeran por medio de él.",
+        "excerptReference": "Juan 1:6-8,19-28"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-12-13",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:51.646Z"
+      }
+    },
+    {
+      "date": "2026-12-14",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 21:23-27",
+        "passageId": "MAT.21.23-27",
+        "ranges": [
+          {
+            "chapter": 21,
+            "start": 23,
+            "end": 27
+          }
+        ],
+        "title": "Y si decimos: “De los hombres”, le tenemos miedo a la gente, porque todos creen que Juan era un profeta”.",
+        "excerpt": "Y si decimos: “De los hombres”, le tenemos miedo a la gente, porque todos creen que Juan era un profeta”.",
+        "excerptReference": "Mateo 21:23-27"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-12-14",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:52.659Z"
+      }
+    },
+    {
+      "date": "2026-12-15",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 21:28-32",
+        "passageId": "MAT.21.28-32",
+        "ranges": [
+          {
+            "chapter": 21,
+            "start": 28,
+            "end": 32
+          }
+        ],
+        "title": "Jesús les dijo: “Les aseguro que los cobradores de impuestos y las prostitutas van a entrar en el Reino de Dios antes que ustedes.",
+        "excerpt": "Jesús les dijo: “Les aseguro que los cobradores de impuestos y las prostitutas van a entrar en el Reino de Dios antes que ustedes.",
+        "excerptReference": "Mateo 21:28-32"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-12-15",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:53.528Z"
+      }
+    },
+    {
+      "date": "2026-12-16",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 7:19-23",
+        "passageId": "LUK.7.19-23",
+        "ranges": [
+          {
+            "chapter": 7,
+            "start": 19,
+            "end": 23
+          }
+        ],
+        "title": "’” En aquella misma hora curó a muchos de enfermedades, de plagas y de espíritus malignos; y a muchos ciegos les dio la vista.",
+        "excerpt": "’” En aquella misma hora curó a muchos de enfermedades, de plagas y de espíritus malignos; y a muchos ciegos les dio la vista.",
+        "excerptReference": "Lucas 7:19-23"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-12-16",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:54.154Z"
+      }
+    },
+    {
+      "date": "2026-12-17",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 1:1-17",
+        "passageId": "MAT.1.1-17",
+        "ranges": [
+          {
+            "chapter": 1,
+            "start": 1,
+            "end": 17
+          }
+        ],
+        "title": "Abraham fue el padre de Isaac.",
+        "excerpt": "Abraham fue el padre de Isaac.",
+        "excerptReference": "Mateo 1:1-17"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-12-17",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:54.774Z"
+      }
+    },
+    {
+      "date": "2026-12-18",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 1:18-24",
+        "passageId": "MAT.1.18-24",
+        "ranges": [
+          {
+            "chapter": 1,
+            "start": 18,
+            "end": 24
+          }
+        ],
+        "title": "Ella dará a luz un hijo.",
+        "excerpt": "Ella dará a luz un hijo.",
+        "excerptReference": "Mateo 1:18-24"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-12-18",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:55.371Z"
+      }
+    },
+    {
+      "date": "2026-12-19",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 1:5-25",
+        "passageId": "LUK.1.5-25",
+        "ranges": [
+          {
+            "chapter": 1,
+            "start": 5,
+            "end": 25
+          }
+        ],
+        "title": "Ambos eran justos ante Dios, y andaban irreprochablemente en todos los mandamientos y ordenanzas del Señor.",
+        "excerpt": "Ambos eran justos ante Dios, y andaban irreprochablemente en todos los mandamientos y ordenanzas del Señor.",
+        "excerptReference": "Lucas 1:5-25"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-12-19",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:14:58.644Z"
+      }
+    },
+    {
+      "date": "2026-12-20",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 1:26-38",
+        "passageId": "LUK.1.26-38",
+        "ranges": [
+          {
+            "chapter": 1,
+            "start": 26,
+            "end": 38
+          }
+        ],
+        "title": "El ángel, entrando en su presencia, dijo: «Alégrate, llena de gracia, el Señor está contigo».",
+        "excerpt": "El ángel, entrando en su presencia, dijo: «Alégrate, llena de gracia, el Señor está contigo».",
+        "excerptReference": "Lucas 1:26-38"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-12-20",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:15:00.452Z"
+      }
+    },
+    {
+      "date": "2026-12-21",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 1:39-45",
+        "passageId": "LUK.1.39-45",
+        "ranges": [
+          {
+            "chapter": 1,
+            "start": 39,
+            "end": 45
+          }
+        ],
+        "title": "¿Por qué soy tan favorecida, para que la madre de mi Señor venga a mí?",
+        "excerpt": "¿Por qué soy tan favorecida, para que la madre de mi Señor venga a mí?",
+        "excerptReference": "Lucas 1:39-45"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-12-21",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:15:01.107Z"
+      }
+    },
+    {
+      "date": "2026-12-22",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 1:46-56",
+        "passageId": "LUK.1.46-56",
+        "ranges": [
+          {
+            "chapter": 1,
+            "start": 46,
+            "end": 56
+          }
+        ],
+        "title": "Ha dado ayuda a Israel, su siervo, para que se acuerde de la misericordia, como habló con nuestros padres, a Abraham y a su descendencia para siempre”.",
+        "excerpt": "Ha dado ayuda a Israel, su siervo, para que se acuerde de la misericordia, como habló con nuestros padres, a Abraham y a su descendencia para siempre”.",
+        "excerptReference": "Lucas 1:46-56"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-12-22",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:15:01.888Z"
+      }
+    },
+    {
+      "date": "2026-12-23",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 1:57-66",
+        "passageId": "LUK.1.57-66",
+        "ranges": [
+          {
+            "chapter": 1,
+            "start": 57,
+            "end": 66
+          }
+        ],
+        "title": "Sus vecinos y sus parientes oyeron que el Señor había engrandecido su misericordia con ella, y se alegraron con ella.",
+        "excerpt": "Sus vecinos y sus parientes oyeron que el Señor había engrandecido su misericordia con ella, y se alegraron con ella.",
+        "excerptReference": "Lucas 1:57-66"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-12-23",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:15:02.637Z"
+      }
+    },
+    {
+      "date": "2026-12-24",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 1:67-79",
+        "passageId": "LUK.1.67-79",
+        "ranges": [
+          {
+            "chapter": 1,
+            "start": 67,
+            "end": 79
+          }
+        ],
+        "title": "Su padre Zacarías fue lleno del Espíritu Santo y profetizó diciendo, “Bendito sea el Señor, el Dios de Israel, porque ha visitado y redimido a su pueblo; y nos ha levantado un cuerno de salvación en la casa de su siervo David (como habló por boca de sus santos profetas que han sido desde la antigüedad), salvación de nuestros enemigos y de la mano de todos los que nos odian; para mostrar misericordia hacia nuestros padres, para recordar su santa alianza, el juramento que hizo a Abraham, nuestro padre, que nos conceda que, siendo liberados de la mano de nuestros enemigos, debe servirle sin miedo, en santidad y justicia ante él todos los días de nuestra vida.",
+        "excerpt": "Su padre Zacarías fue lleno del Espíritu Santo y profetizó diciendo, “Bendito sea el Señor, el Dios de Israel, porque ha visitado y redimido a su pueblo; y nos ha levantado un cuerno de salvación en la casa de su siervo David (como habló por boca de sus santos profetas que han sido desde la antigüedad), salvación de nuestros enemigos y de la mano de todos los que nos odian; para mostrar misericordia hacia nuestros padres, para recordar su santa alianza, el juramento que hizo a Abraham, nuestro padre, que nos conceda que, siendo liberados de la mano de nuestros enemigos, debe servirle sin miedo, en santidad y justicia ante él todos los días de nuestra vida.",
+        "excerptReference": "Lucas 1:67-79"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-12-24",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:15:03.345Z"
+      }
+    },
+    {
+      "date": "2026-12-25",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 1:1-18",
+        "passageId": "JHN.1.1-18",
+        "ranges": [
+          {
+            "chapter": 1,
+            "start": 1,
+            "end": 18
+          }
+        ],
+        "title": "En él estaba la vida, y la vida era la luz de los hombres.",
+        "excerpt": "En él estaba la vida, y la vida era la luz de los hombres.",
+        "excerptReference": "Juan 1:1-18"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-12-25",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:15:04.022Z"
+      }
+    },
+    {
+      "date": "2026-12-26",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 10:17-22",
+        "passageId": "MAT.10.17-22",
+        "ranges": [
+          {
+            "chapter": 10,
+            "start": 17,
+            "end": 22
+          }
+        ],
+        "title": "Porque no serán ustedes los que hablen, sino el Espíritu de su Padre hablando a través de ustedes.",
+        "excerpt": "Porque no serán ustedes los que hablen, sino el Espíritu de su Padre hablando a través de ustedes.",
+        "excerptReference": "Mateo 10:17-22"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-12-26",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:15:04.593Z"
+      }
+    },
+    {
+      "date": "2026-12-27",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 2:22-40",
+        "passageId": "LUK.2.22-40",
+        "ranges": [
+          {
+            "chapter": 2,
+            "start": 22,
+            "end": 40
+          }
+        ],
+        "title": "Y, cuando cumplieron todo lo que prescribía la ley del Señor, Jesús y sus padres volvieron a Galilea, a su ciudad de Nazaret.",
+        "excerpt": "Y, cuando cumplieron todo lo que prescribía la ley del Señor, Jesús y sus padres volvieron a Galilea, a su ciudad de Nazaret.",
+        "excerptReference": "Lucas 2:22-40"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-12-27",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:15:05.367Z"
+      }
+    },
+    {
+      "date": "2026-12-28",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Mateo 2:13-18",
+        "passageId": "MAT.2.13-18",
+        "ranges": [
+          {
+            "chapter": 2,
+            "start": 13,
+            "end": 18
+          }
+        ],
+        "title": "Cuando se fueron, un ángel del Señor se le apareció a José en sueños, diciendo: “Levántate y toma al niño y a su madre, y huye a Egipto, y quédate allí hasta que yo te diga, porque Herodes buscará al niño para destruirlo.",
+        "excerpt": "Cuando se fueron, un ángel del Señor se le apareció a José en sueños, diciendo: “Levántate y toma al niño y a su madre, y huye a Egipto, y quédate allí hasta que yo te diga, porque Herodes buscará al niño para destruirlo.",
+        "excerptReference": "Mateo 2:13-18"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-12-28",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:15:07.209Z"
+      }
+    },
+    {
+      "date": "2026-12-29",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 2:22-35",
+        "passageId": "LUK.2.22-35",
+        "ranges": [
+          {
+            "chapter": 2,
+            "start": 22,
+            "end": 35
+          }
+        ],
+        "title": "Le había sido revelado por el Espíritu Santo que no vería la muerte antes de ver al Cristo del Señor.",
+        "excerpt": "Le había sido revelado por el Espíritu Santo que no vería la muerte antes de ver al Cristo del Señor.",
+        "excerptReference": "Lucas 2:22-35"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-12-29",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:15:08.669Z"
+      }
+    },
+    {
+      "date": "2026-12-30",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Lucas 2:36-40",
+        "passageId": "LUK.2.36-40",
+        "ranges": [
+          {
+            "chapter": 2,
+            "start": 36,
+            "end": 40
+          }
+        ],
+        "title": "Subiendo a esa misma hora, dio gracias al Señor y habló de él a todos los que buscaban la redención en Jerusalén.",
+        "excerpt": "Subiendo a esa misma hora, dio gracias al Señor y habló de él a todos los que buscaban la redención en Jerusalén.",
+        "excerptReference": "Lucas 2:36-40"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-12-30",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:15:09.226Z"
+      }
+    },
+    {
+      "date": "2026-12-31",
+      "calendar": "chile",
+      "liturgicalYear": "2026",
+      "celebration": "",
+      "gospel": {
+        "reference": "Juan 1:1-18",
+        "passageId": "JHN.1.1-18",
+        "ranges": [
+          {
+            "chapter": 1,
+            "start": 1,
+            "end": 18
+          }
+        ],
+        "title": "En él estaba la vida, y la vida era la luz de los hombres.",
+        "excerpt": "En él estaba la vida, y la vida era la luz de los hombres.",
+        "excerptReference": "Juan 1:1-18"
+      },
+      "source": {
+        "provider": "Audiobiblia (respaldo provisional)",
+        "url": "https://es.audiobiblia.net/misal/2026-12-31",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "verified": true,
+        "provisional": true,
+        "fetchedAt": "2026-09-10T16:15:09.835Z"
+      }
+    }
+  ],
+  "syncedAt": "2026-09-10T16:34:33.628Z"
+}

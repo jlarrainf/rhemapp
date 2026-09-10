@@ -65,7 +65,7 @@ export default function Home() {
 					<div className="flex flex-col items-center p-8 bg-white dark:bg-gray-800 rounded-lg shadow-md border border-gray-100 dark:border-gray-700 transition-transform hover:transform hover:scale-105 hover:shadow-lg h-full hover:border-[#b79b72] dark:hover:border-[#b79b72]/80 transition-colors duration-300">
 						<CalendarIcon className="w-16 h-16 text-[#b79b72] mb-4" />
 						<h2 className="text-2xl font-semibold text-[#314156] dark:text-gray-100 transition-colors duration-300 mb-2">
-							Lectura del Día
+							Evangelio del Día
 						</h2>
 						<p className="text-gray-600 dark:text-gray-300 transition-colors duration-300 text-center">
 							Descubre el versículo seleccionado especialmente para hoy
