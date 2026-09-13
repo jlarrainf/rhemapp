@@ -1,6 +1,7 @@
 import RandomVerseClient from "./RandomVerseClient";
 import { BookOpenIcon } from "@heroicons/react/24/outline";
 import { getSiteUrl } from "@/lib/siteUrl";
+import BibleTranslationNotice from "@/components/BibleTranslationNotice.jsx";
 
 export default function RandomVersePage() {
 	const siteUrl = getSiteUrl();
@@ -38,6 +39,7 @@ export default function RandomVersePage() {
 			</div>
 
 			<RandomVerseClient />
+			<BibleTranslationNotice />
 		</div>
 	);
 }

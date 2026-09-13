@@ -6,6 +6,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useTheme } from "./ThemeContext";
 import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
+import AuthActions from "./AuthActions";
 
 const Navbar = () => {
 	const pathname = usePathname();
@@ -74,7 +75,7 @@ const Navbar = () => {
 							pathname={pathname}
 							onClick={handleLinkClick}
 						>
-							Evangelio del Día
+							Lecturas del Día
 						</NavLink>
 						<NavLink
 							href="/rosario"
@@ -83,6 +84,7 @@ const Navbar = () => {
 						>
 							Misterios del Rosario
 						</NavLink>
+						<AuthActions />
 					</div>
 
 					{/* Botón del menú móvil y tema (versión móvil) */}
@@ -135,7 +137,7 @@ const Navbar = () => {
 						pathname={pathname}
 						onClick={handleLinkClick}
 					>
-						Evangelio del Día
+						Lecturas del Día
 					</MobileNavLink>
 					<MobileNavLink
 						href="/rosario"
@@ -144,6 +146,9 @@ const Navbar = () => {
 					>
 						Misterios del Rosario
 					</MobileNavLink>
+						<div className="border-t border-gray-200 pt-2 dark:border-gray-700">
+							<AuthActions />
+						</div>
 				</div>
 			</div>
 		</nav>

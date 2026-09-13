@@ -1,37 +1,86 @@
 import { getSiteUrl } from "@/lib/siteUrl";
 import {
 	DAILY_TIME_ZONE,
+	ReadingRequestError,
+	ReadingUnavailableError,
 	formatDailyDate,
-	getDailyReading,
+	formatDateKey,
 	getDateKeyInTimeZone,
+	getPublishedReading,
 } from "@/lib/dailyReading";
 import DailyVerseClient from "./DailyVerseClient";
 
 export const dynamic = "force-dynamic";
 
-export default function DailyVersePage() {
+function getQueryValue(value, name) {
+	if (Array.isArray(value)) {
+		if (value.length !== 1) throw new ReadingRequestError(`El parámetro ${name} solo puede aparecer una vez`);
+		return value[0];
+	}
+	return value;
+}
+
+export default async function DailyVersePage({ searchParams }) {
 	const now = new Date();
 	const todayKey = getDateKeyInTimeZone(now, DAILY_TIME_ZONE);
 	const currentDate = formatDailyDate(now, DAILY_TIME_ZONE);
 	const siteUrl = getSiteUrl();
+	const query = await searchParams;
+	let requestedDateKey;
+	let requestedMode;
 	let reading = null;
 	let error = null;
+	let initialMode = "today";
 
 	try {
-		reading = getDailyReading({ date: now, timeZone: DAILY_TIME_ZONE });
+		requestedDateKey = getQueryValue(query?.date, "date");
+		requestedMode = getQueryValue(query?.mode, "mode");
+		if (requestedDateKey !== undefined && requestedMode !== undefined) {
+			throw new ReadingRequestError("No se pueden combinar date y mode");
+		}
+		initialMode = requestedDateKey ? "date" : requestedMode || "today";
+		if (requestedDateKey !== undefined) {
+			reading = getPublishedReading({
+				dateKey: requestedDateKey,
+				mode: "date",
+				now,
+				timeZone: DAILY_TIME_ZONE,
+			});
+		} else {
+			const mode = requestedMode || "today";
+			if (!["today", "sunday"].includes(mode)) {
+				throw new ReadingRequestError("El modo de lectura seleccionado no es válido");
+			}
+			reading = getPublishedReading({ mode, now, timeZone: DAILY_TIME_ZONE });
+		}
+		initialMode = reading.mode;
 	} catch (cause) {
-		console.error("Error al cargar el evangelio diario:", cause);
-		error = cause?.message || "No se pudo cargar el evangelio del día";
+		if (!(cause instanceof ReadingRequestError) && !(cause instanceof ReadingUnavailableError)) {
+			console.error("Error al cargar las lecturas diarias:", cause);
+		}
+		error = cause?.message || "No se pudieron cargar las lecturas del día";
 	}
+
+	const fallbackDateLabel = requestedDateKey && /^\d{4}-\d{2}-\d{2}$/.test(requestedDateKey)
+		? (() => {
+			try {
+				return formatDateKey(requestedDateKey);
+			} catch {
+				return currentDate;
+			}
+		})()
+		: currentDate;
+	const initialInputDateKey = reading?.dateKey
+		|| (requestedDateKey && /^\d{4}-\d{2}-\d{2}$/.test(requestedDateKey) ? requestedDateKey : todayKey);
 
 	const jsonLd = {
 		"@context": "https://schema.org",
 		"@type": "WebPage",
 		"@id": `${siteUrl}/daily/#webpage`,
 		url: `${siteUrl}/daily`,
-		name: "Evangelio del día | Rhemapp",
+		name: "Lecturas del día | Rhemapp",
 		description:
-			"Lee el Evangelio del día según el calendario litúrgico de Chile y medita la Palabra de Dios.",
+			"Lee las lecturas del día según el calendario litúrgico de Chile y medita la Palabra de Dios.",
 		isPartOf: { "@id": `${siteUrl}/#website` },
 		inLanguage: "es",
 	};
@@ -45,9 +94,10 @@ export default function DailyVersePage() {
 			<DailyVerseClient
 				initialReading={reading}
 				initialError={error}
-				initialDateKey={reading?.dateKey || todayKey}
-				initialDateLabel={currentDate}
+				initialDateKey={initialInputDateKey}
+				initialDateLabel={reading?.dateLabel || fallbackDateLabel}
 				initialNextChangeAt={reading?.nextChangeAt || null}
+				initialMode={initialMode}
 			/>
 		</>
 	);

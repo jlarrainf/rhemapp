@@ -12,9 +12,10 @@ Sitio: https://www.rhemapp.com
 
 - Inicio con explicación de RHEMA y accesos directos.
 - Versículo aleatorio (`/random`) con navegación e historial.
-- Evangelio del día (`/daily`) según el calendario litúrgico chileno y la zona `America/Santiago`.
+- Lecturas del día (`/daily`) según el calendario litúrgico chileno y la zona `America/Santiago`.
 - Misterios del Rosario (`/rosario`) según el día de la semana, con selector.
 - Modal “Ver pasaje completo” para consultar contexto bíblico.
+- Autenticación con Google y correo/contraseña (`/login`), perfil privado (`/perfil`) y administración (`/admin`).
 
 ## Rutas
 
@@ -22,11 +23,17 @@ Sitio: https://www.rhemapp.com
 - `/random` Versículo aleatorio
 - `/daily` Lectura del día
 - `/rosario` Misterios del rosario
+- `/login` Iniciar sesión o crear una cuenta
+- `/perfil` Perfil privado
+- `/admin` Administración protegida por rol
+
+La configuración reproducible de autenticación, OAuth y entornos está en [`docs/authentication-operation.md`](docs/authentication-operation.md).
 
 ### Endpoints internos
 
 - `/api/passage` Obtiene un pasaje desde una API externa (requiere API key).
-- `/api/daily-reading` Devuelve el evangelio vigente y el próximo cambio de medianoche en Chile.
+- `/api/readings` Devuelve las lecturas genéricas de hoy, una fecha explícita o el domingo vigente.
+- `/api/daily-reading` Mantiene el contrato compatible del evangelio vigente y el próximo cambio de medianoche en Chile.
 - `/api/verses` Sirve subconjuntos del JSON local (`scope=random|daily|all`).
 
 Nota SEO: los endpoints JSON responden con `X-Robots-Tag: noindex, nofollow`.
@@ -60,9 +67,11 @@ Variables mínimas recomendadas:
 # Base URL del sitio (para canonicals/sitemap/metadata)
 SITE_URL=http://localhost:3000
 
-# API Key para https://api.scripture.api.bible
+# API.Bible
 # Recomendado: usarla como server-only (NO pública)
 BIBLE_API_KEY=tu_api_key
+# Endpoint server-side; no necesita una clave pública
+BIBLE_API_BASE_URL=https://rest.api.bible
 ```
 
 3) Levantar el proyecto
@@ -89,8 +98,15 @@ Rhemapp soporta estas variables (ver `.env.example`):
   - Dev: `http://localhost:3000`
 - `BIBLE_API_KEY` (recomendada)
   - API key server-side usada por `/api/passage`.
-- `NEXT_PUBLIC_BIBLE_API_KEY` (alternativa, no recomendada)
-  - Funciona, pero queda expuesta al cliente (evitar si es posible).
+- `BIBLE_API_BASE_URL` (opcional)
+  - Endpoint server-side de API.Bible. Por defecto: `https://rest.api.bible`.
+- `NEXT_PUBLIC_SUPABASE_URL` y `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`
+  - Configuración publishable para Supabase Auth SSR; pueden llegar al navegador.
+- `SUPABASE_SERVICE_ROLE_KEY`
+  - Clave administrativa server-side para operaciones protegidas de bootstrap, roles, límites de autenticación y eliminación. Nunca la prefijes con `NEXT_PUBLIC_`.
+- `RHEMAPP_INITIAL_ADMIN_EMAIL`
+  - Allowlist privada server-side para provisionar la cuenta administradora inicial. No guardes un correo real en el repositorio ni en logs.
+- No configures la clave como `NEXT_PUBLIC_BIBLE_API_KEY`: expondría la credencial al cliente y no es compatible con la configuración segura del proyecto.
 - `NEXT_PUBLIC_GA_ID` (opcional)
   - Habilita Google Analytics 4 (ej: `G-XXXXXXXXXX`).
 - `NEXT_PUBLIC_GTM_ID` (opcional)

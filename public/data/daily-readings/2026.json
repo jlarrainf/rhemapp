@@ -8,6 +8,110 @@
       "calendar": "chile",
       "liturgicalYear": "2026",
       "celebration": "JUEVES DE LA XXIII SEMANA DEL TIEMPO ORDINARIO",
+      "readings": [
+        {
+          "type": "first-reading",
+          "order": 1,
+          "reference": "1 Corintios 8:1,4b-13b",
+          "passageId": "1CO.8.1,4b-13b",
+          "ranges": [
+            {
+              "chapter": 8,
+              "start": 1,
+              "end": 1
+            },
+            {
+              "chapter": 8,
+              "start": 4,
+              "startSuffix": "b",
+              "end": 13,
+              "endSuffix": "b"
+            }
+          ],
+          "title": "Hiriendo la conciencia del que es débil, ustedes pecan contra Cristo",
+          "excerpt": "Hiriendo la conciencia del que es débil, ustedes pecan contra Cristo",
+          "excerptReference": "1 Corintios 8:1,4b-13b",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-10",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Jueves 10 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:34.552Z",
+            "syncStatus": "fresh"
+          }
+        },
+        {
+          "type": "psalm",
+          "order": 2,
+          "reference": "Salmos 138:1-3,13-14b,23-24",
+          "passageId": "PSA.138.1-3,13-14b,23-24",
+          "ranges": [
+            {
+              "chapter": 138,
+              "start": 1,
+              "end": 3
+            },
+            {
+              "chapter": 138,
+              "start": 13,
+              "end": 14,
+              "endSuffix": "b"
+            },
+            {
+              "chapter": 138,
+              "start": 23,
+              "end": 24
+            }
+          ],
+          "title": "¡Llévame por el camino eterno, Señor!",
+          "excerpt": "¡Llévame por el camino eterno, Señor!",
+          "excerptReference": "Salmos 138:1-3,13-14b,23-24",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-10",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Jueves 10 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:34.552Z",
+            "syncStatus": "fresh"
+          }
+        },
+        {
+          "type": "gospel",
+          "order": 4,
+          "reference": "Lucas 6:27-36",
+          "passageId": "LUK.6.27-36",
+          "ranges": [
+            {
+              "chapter": 6,
+              "start": 27,
+              "end": 36
+            }
+          ],
+          "title": "Sean misericordiosos, como el Padre de ustedes es misericordioso",
+          "excerpt": "Sean misericordiosos, como el Padre de ustedes es misericordioso",
+          "excerptReference": "Lucas 6:27-36",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-10",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Jueves 10 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:34.552Z",
+            "syncStatus": "fresh"
+          }
+        }
+      ],
+      "source": {
+        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-10",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "pageTitle": "Eucaristía del Jueves 10 de Septiembre de 2026",
+        "verified": true,
+        "fetchedAt": "2026-09-13T17:46:34.552Z",
+        "syncStatus": "fresh"
+      },
       "gospel": {
         "reference": "Lucas 6:27-36",
         "passageId": "LUK.6.27-36",
@@ -21,14 +125,6 @@
         "title": "Sean misericordiosos, como el Padre de ustedes es misericordioso",
         "excerpt": "Sean misericordiosos, como el Padre de ustedes es misericordioso",
         "excerptReference": "Lucas 6:27-36"
-      },
-      "source": {
-        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
-        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-10",
-        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
-        "pageTitle": "Eucaristía del Jueves 10 de Septiembre de 2026",
-        "verified": true,
-        "fetchedAt": "2026-09-10T16:13:30.376Z"
       }
     },
     {
@@ -36,6 +132,104 @@
       "calendar": "chile",
       "liturgicalYear": "2026",
       "celebration": "11 de septiembre",
+      "readings": [
+        {
+          "type": "first-reading",
+          "order": 1,
+          "reference": "1 Corintios 9:16-19,22b-27b",
+          "passageId": "1CO.9.16-19,22b-27b",
+          "ranges": [
+            {
+              "chapter": 9,
+              "start": 16,
+              "end": 19
+            },
+            {
+              "chapter": 9,
+              "start": 22,
+              "startSuffix": "b",
+              "end": 27,
+              "endSuffix": "b"
+            }
+          ],
+          "title": "Me hice todo para todos, para ganar por lo menos a algunos",
+          "excerpt": "Me hice todo para todos, para ganar por lo menos a algunos",
+          "excerptReference": "1 Corintios 9:16-19,22b-27b",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-11",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Viernes 11 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:35.041Z",
+            "syncStatus": "fresh"
+          }
+        },
+        {
+          "type": "psalm",
+          "order": 2,
+          "reference": "Salmos 83:3-6,12",
+          "passageId": "PSA.83.3-6,12",
+          "ranges": [
+            {
+              "chapter": 83,
+              "start": 3,
+              "end": 6
+            },
+            {
+              "chapter": 83,
+              "start": 12,
+              "end": 12
+            }
+          ],
+          "title": "¡Qué amable es tu Casa, Señor del universo!",
+          "excerpt": "¡Qué amable es tu Casa, Señor del universo!",
+          "excerptReference": "Salmos 83:3-6,12",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-11",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Viernes 11 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:35.041Z",
+            "syncStatus": "fresh"
+          }
+        },
+        {
+          "type": "gospel",
+          "order": 4,
+          "reference": "Lucas 6:37-42",
+          "passageId": "LUK.6.37-42",
+          "ranges": [
+            {
+              "chapter": 6,
+              "start": 37,
+              "end": 42
+            }
+          ],
+          "title": "¿ Puede un ciego guiar a otro ciego?",
+          "excerpt": "¿ Puede un ciego guiar a otro ciego?",
+          "excerptReference": "Lucas 6:37-42",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-11",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Viernes 11 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:35.041Z",
+            "syncStatus": "fresh"
+          }
+        }
+      ],
+      "source": {
+        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-11",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "pageTitle": "Eucaristía del Viernes 11 de Septiembre de 2026",
+        "verified": true,
+        "fetchedAt": "2026-09-13T17:46:35.041Z",
+        "syncStatus": "fresh"
+      },
       "gospel": {
         "reference": "Lucas 6:37-42",
         "passageId": "LUK.6.37-42",
@@ -49,14 +243,6 @@
         "title": "¿ Puede un ciego guiar a otro ciego?",
         "excerpt": "¿ Puede un ciego guiar a otro ciego?",
         "excerptReference": "Lucas 6:37-42"
-      },
-      "source": {
-        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
-        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-11",
-        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
-        "pageTitle": "Eucaristía del Viernes 11 de Septiembre de 2026",
-        "verified": true,
-        "fetchedAt": "2026-09-10T16:13:30.571Z"
       }
     },
     {
@@ -64,6 +250,94 @@
       "calendar": "chile",
       "liturgicalYear": "2026",
       "celebration": "12 de septiembre",
+      "readings": [
+        {
+          "type": "first-reading",
+          "order": 1,
+          "reference": "Gálatas 4:4-7",
+          "passageId": "GAL.4.4-7",
+          "ranges": [
+            {
+              "chapter": 4,
+              "start": 4,
+              "end": 7
+            }
+          ],
+          "title": "Dios envió a su Hijo, nacido de una mujer",
+          "excerpt": "Dios envió a su Hijo, nacido de una mujer",
+          "excerptReference": "Gálatas 4:4-7",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-12",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Sábado 12 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:35.344Z",
+            "syncStatus": "fresh"
+          }
+        },
+        {
+          "type": "psalm",
+          "order": 2,
+          "reference": "Lucas 1:46-55",
+          "passageId": "LUK.1.46-55",
+          "ranges": [
+            {
+              "chapter": 1,
+              "start": 46,
+              "end": 55
+            }
+          ],
+          "title": "El Señor hizo en mí maravillas: ¡gloria al Señor!",
+          "excerpt": "El Señor hizo en mí maravillas: ¡gloria al Señor!",
+          "excerptReference": "Lucas 1:46-55",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-12",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Sábado 12 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:35.344Z",
+            "syncStatus": "fresh"
+          }
+        },
+        {
+          "type": "gospel",
+          "order": 4,
+          "reference": "Lucas 6:43-49",
+          "passageId": "LUK.6.43-49",
+          "ranges": [
+            {
+              "chapter": 6,
+              "start": 43,
+              "end": 49
+            }
+          ],
+          "title": "No es buen árbol el que da malos frutos, ni árbol malo el que da buen fruto.",
+          "excerpt": "No es buen árbol el que da malos frutos, ni árbol malo el que da buen fruto.",
+          "excerptReference": "Lucas 6:43",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-12",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Sábado 12 de Septiembre de 2026",
+            "verified": true,
+            "ordoValidated": true,
+            "fetchedAt": "2026-09-13T17:46:35.344Z",
+            "syncStatus": "fresh"
+          }
+        }
+      ],
+      "source": {
+        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-12",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "pageTitle": "Eucaristía del Sábado 12 de Septiembre de 2026",
+        "verified": true,
+        "ordoValidated": true,
+        "fetchedAt": "2026-09-13T17:46:35.344Z",
+        "syncStatus": "fresh"
+      },
       "gospel": {
         "reference": "Lucas 6:43-49",
         "passageId": "LUK.6.43-49",
@@ -77,15 +351,6 @@
         "title": "No es buen árbol el que da malos frutos, ni árbol malo el que da buen fruto.",
         "excerpt": "No es buen árbol el que da malos frutos, ni árbol malo el que da buen fruto.",
         "excerptReference": "Lucas 6:43"
-      },
-      "source": {
-        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
-        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-12",
-        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
-        "pageTitle": "Eucaristía del Sábado 12 de Septiembre de 2026",
-        "verified": true,
-        "ordoValidated": true,
-        "fetchedAt": "2026-09-10T16:13:30.777Z"
       }
     },
     {
@@ -93,6 +358,123 @@
       "calendar": "chile",
       "liturgicalYear": "2026",
       "celebration": "13 de septiembre",
+      "readings": [
+        {
+          "type": "first-reading",
+          "order": 1,
+          "reference": "Eclesiástico 27:30-28:7",
+          "passageId": "SIR.27.30-28.7",
+          "ranges": [
+            {
+              "chapter": 27,
+              "start": 30,
+              "end": 7,
+              "endChapter": 28
+            }
+          ],
+          "title": "Perdona el agravio a tu prójimo y entonces, cuando ores, serán absueltos tus pecados",
+          "excerpt": "Perdona el agravio a tu prójimo y entonces, cuando ores, serán absueltos tus pecados",
+          "excerptReference": "Eclesiástico 27:30-28:7",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-13",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Domingo 13 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:35.649Z",
+            "syncStatus": "fresh"
+          }
+        },
+        {
+          "type": "psalm",
+          "order": 2,
+          "reference": "Salmos 102:1-4,9-12",
+          "passageId": "PSA.102.1-4,9-12",
+          "ranges": [
+            {
+              "chapter": 102,
+              "start": 1,
+              "end": 4
+            },
+            {
+              "chapter": 102,
+              "start": 9,
+              "end": 12
+            }
+          ],
+          "title": "El Señor es bondadoso y compasivo.",
+          "excerpt": "El Señor es bondadoso y compasivo.",
+          "excerptReference": "Salmos 102:1-4,9-12",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-13",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Domingo 13 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:35.649Z",
+            "syncStatus": "fresh"
+          }
+        },
+        {
+          "type": "second-reading",
+          "order": 3,
+          "reference": "Romanos 14:7-9",
+          "passageId": "ROM.14.7-9",
+          "ranges": [
+            {
+              "chapter": 14,
+              "start": 7,
+              "end": 9
+            }
+          ],
+          "title": "Tanto en la vida como en la muerte, pertenecemos al Señor",
+          "excerpt": "Tanto en la vida como en la muerte, pertenecemos al Señor",
+          "excerptReference": "Romanos 14:7-9",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-13",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Domingo 13 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:35.649Z",
+            "syncStatus": "fresh"
+          }
+        },
+        {
+          "type": "gospel",
+          "order": 4,
+          "reference": "Mateo 18:21-35",
+          "passageId": "MAT.18.21-35",
+          "ranges": [
+            {
+              "chapter": 18,
+              "start": 21,
+              "end": 35
+            }
+          ],
+          "title": "No perdones sólo siete veces, sino setenta veces siete",
+          "excerpt": "No perdones sólo siete veces, sino setenta veces siete",
+          "excerptReference": "Mateo 18:21-35",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-13",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Domingo 13 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:35.649Z",
+            "syncStatus": "fresh"
+          }
+        }
+      ],
+      "source": {
+        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-13",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "pageTitle": "Eucaristía del Domingo 13 de Septiembre de 2026",
+        "verified": true,
+        "fetchedAt": "2026-09-13T17:46:35.649Z",
+        "syncStatus": "fresh"
+      },
       "gospel": {
         "reference": "Mateo 18:21-35",
         "passageId": "MAT.18.21-35",
@@ -106,14 +488,6 @@
         "title": "No perdones sólo siete veces, sino setenta veces siete",
         "excerpt": "No perdones sólo siete veces, sino setenta veces siete",
         "excerptReference": "Mateo 18:21-35"
-      },
-      "source": {
-        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
-        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-13",
-        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
-        "pageTitle": "Eucaristía del Domingo 13 de Septiembre de 2026",
-        "verified": true,
-        "fetchedAt": "2026-09-10T16:13:32.318Z"
       }
     },
     {
@@ -121,6 +495,102 @@
       "calendar": "chile",
       "liturgicalYear": "2026",
       "celebration": "14 de septiembre",
+      "readings": [
+        {
+          "type": "first-reading",
+          "order": 1,
+          "reference": "1 Corintios 11:17-26,33",
+          "passageId": "1CO.11.17-26,33",
+          "ranges": [
+            {
+              "chapter": 11,
+              "start": 17,
+              "end": 26
+            },
+            {
+              "chapter": 11,
+              "start": 33,
+              "end": 33
+            }
+          ],
+          "title": "Si hay divisiones entre ustedes, lo que menos hacen es comer la Cena del Señor",
+          "excerpt": "Si hay divisiones entre ustedes, lo que menos hacen es comer la Cena del Señor",
+          "excerptReference": "1 Corintios 11:17-26,33",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-14",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Lunes 14 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:35.864Z",
+            "syncStatus": "fresh"
+          }
+        },
+        {
+          "type": "psalm",
+          "order": 2,
+          "reference": "Salmos 39:7-10,17",
+          "passageId": "PSA.39.7-10,17",
+          "ranges": [
+            {
+              "chapter": 39,
+              "start": 7,
+              "end": 10
+            },
+            {
+              "chapter": 39,
+              "start": 17,
+              "end": 17
+            }
+          ],
+          "title": "¡Proclamen la muerte del Señor, hasta que vuelva!",
+          "excerpt": "¡Proclamen la muerte del Señor, hasta que vuelva!",
+          "excerptReference": "Salmos 39:7-10,17",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-14",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Lunes 14 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:35.864Z",
+            "syncStatus": "fresh"
+          }
+        },
+        {
+          "type": "gospel",
+          "order": 4,
+          "reference": "Lucas 7:1-10",
+          "passageId": "LUK.7.1-10",
+          "ranges": [
+            {
+              "chapter": 7,
+              "start": 1,
+              "end": 10
+            }
+          ],
+          "title": "Ni siquiera en Israel encontré una fe semejante",
+          "excerpt": "Ni siquiera en Israel encontré una fe semejante",
+          "excerptReference": "Lucas 7:1-10",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-14",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Lunes 14 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:35.864Z",
+            "syncStatus": "fresh"
+          }
+        }
+      ],
+      "source": {
+        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-14",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "pageTitle": "Eucaristía del Lunes 14 de Septiembre de 2026",
+        "verified": true,
+        "fetchedAt": "2026-09-13T17:46:35.864Z",
+        "syncStatus": "fresh"
+      },
       "gospel": {
         "reference": "Lucas 7:1-10",
         "passageId": "LUK.7.1-10",
@@ -134,14 +604,6 @@
         "title": "Ni siquiera en Israel encontré una fe semejante",
         "excerpt": "Ni siquiera en Israel encontré una fe semejante",
         "excerptReference": "Lucas 7:1-10"
-      },
-      "source": {
-        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
-        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-14",
-        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
-        "pageTitle": "Eucaristía del Lunes 14 de Septiembre de 2026",
-        "verified": true,
-        "fetchedAt": "2026-09-10T16:13:33.472Z"
       }
     },
     {
@@ -149,6 +611,104 @@
       "calendar": "chile",
       "liturgicalYear": "2026",
       "celebration": "15 de septiembre",
+      "readings": [
+        {
+          "type": "first-reading",
+          "order": 1,
+          "reference": "Hebreos 5:7-9",
+          "passageId": "HEB.5.7-9",
+          "ranges": [
+            {
+              "chapter": 5,
+              "start": 7,
+              "end": 9
+            }
+          ],
+          "title": "Aprendió qué significa obedecer y llegó a ser causa de salvación eterna",
+          "excerpt": "Aprendió qué significa obedecer y llegó a ser causa de salvación eterna",
+          "excerptReference": "Hebreos 5:7-9",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-15",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Martes 15 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:36.310Z",
+            "syncStatus": "fresh"
+          }
+        },
+        {
+          "type": "psalm",
+          "order": 2,
+          "reference": "Salmos 30:2-6,15-16,20",
+          "passageId": "PSA.30.2-6,15-16,20",
+          "ranges": [
+            {
+              "chapter": 30,
+              "start": 2,
+              "end": 6
+            },
+            {
+              "chapter": 30,
+              "start": 15,
+              "end": 16
+            },
+            {
+              "chapter": 30,
+              "start": 20,
+              "end": 20
+            }
+          ],
+          "title": "¡Sálvame, Señor, por tu misericordia!",
+          "excerpt": "¡Sálvame, Señor, por tu misericordia!",
+          "excerptReference": "Salmos 30:2-6,15-16,20",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-15",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Martes 15 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:36.310Z",
+            "syncStatus": "fresh"
+          }
+        },
+        {
+          "type": "gospel",
+          "order": 4,
+          "reference": "Lucas 7:11-17",
+          "passageId": "LUK.7.11-17",
+          "ranges": [
+            {
+              "chapter": 7,
+              "start": 11,
+              "end": 17
+            }
+          ],
+          "title": "Y cuando el Señor la vio, se compadeció de ella, y le dijo: No llores.",
+          "excerpt": "Y cuando el Señor la vio, se compadeció de ella, y le dijo: No llores.",
+          "excerptReference": "Lucas 7:13",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-15",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Martes 15 de Septiembre de 2026",
+            "verified": true,
+            "ordoValidated": true,
+            "fetchedAt": "2026-09-13T17:46:36.310Z",
+            "syncStatus": "fresh"
+          }
+        }
+      ],
+      "source": {
+        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-15",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "pageTitle": "Eucaristía del Martes 15 de Septiembre de 2026",
+        "verified": true,
+        "ordoValidated": true,
+        "fetchedAt": "2026-09-13T17:46:36.310Z",
+        "syncStatus": "fresh"
+      },
       "gospel": {
         "reference": "Lucas 7:11-17",
         "passageId": "LUK.7.11-17",
@@ -162,15 +722,6 @@
         "title": "Y cuando el Señor la vio, se compadeció de ella, y le dijo: No llores.",
         "excerpt": "Y cuando el Señor la vio, se compadeció de ella, y le dijo: No llores.",
         "excerptReference": "Lucas 7:13"
-      },
-      "source": {
-        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
-        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-15",
-        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
-        "pageTitle": "Eucaristía del Martes 15 de Septiembre de 2026",
-        "verified": true,
-        "ordoValidated": true,
-        "fetchedAt": "2026-09-10T16:13:34.037Z"
       }
     },
     {
@@ -178,6 +729,103 @@
       "calendar": "chile",
       "liturgicalYear": "2026",
       "celebration": "16 de septiembre",
+      "readings": [
+        {
+          "type": "first-reading",
+          "order": 1,
+          "reference": "1 Corintios 12:31-13:13",
+          "passageId": "1CO.12.31-13.13",
+          "ranges": [
+            {
+              "chapter": 12,
+              "start": 31,
+              "end": 13,
+              "endChapter": 13
+            }
+          ],
+          "title": "Ahora existen tres cosas: la fe, la esperanza y el amor; pero la más grande de todas es el amor",
+          "excerpt": "Ahora existen tres cosas: la fe, la esperanza y el amor; pero la más grande de todas es el amor",
+          "excerptReference": "1 Corintios 12:31-13:13",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-16",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Miércoles 16 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:36.564Z",
+            "syncStatus": "fresh"
+          }
+        },
+        {
+          "type": "psalm",
+          "order": 2,
+          "reference": "Salmos 32:2-5,12,22",
+          "passageId": "PSA.32.2-5,12,22",
+          "ranges": [
+            {
+              "chapter": 32,
+              "start": 2,
+              "end": 5
+            },
+            {
+              "chapter": 32,
+              "start": 12,
+              "end": 12
+            },
+            {
+              "chapter": 32,
+              "start": 22,
+              "end": 22
+            }
+          ],
+          "title": "¡Feliz el pueblo que el Señor se eligió como herencia!",
+          "excerpt": "¡Feliz el pueblo que el Señor se eligió como herencia!",
+          "excerptReference": "Salmos 32:2-5,12,22",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-16",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Miércoles 16 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:36.564Z",
+            "syncStatus": "fresh"
+          }
+        },
+        {
+          "type": "gospel",
+          "order": 4,
+          "reference": "Lucas 7:31-35",
+          "passageId": "LUK.7.31-35",
+          "ranges": [
+            {
+              "chapter": 7,
+              "start": 31,
+              "end": 35
+            }
+          ],
+          "title": "¡Les tocamos la flauta, y no bailaron! ¡Entonamos cantos fúnebres, y no lloraron!",
+          "excerpt": "¡Les tocamos la flauta, y no bailaron! ¡Entonamos cantos fúnebres, y no lloraron!",
+          "excerptReference": "Lucas 7:31-35",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-16",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Miércoles 16 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:36.564Z",
+            "syncStatus": "fresh"
+          }
+        }
+      ],
+      "source": {
+        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-16",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "pageTitle": "Eucaristía del Miércoles 16 de Septiembre de 2026",
+        "verified": true,
+        "fetchedAt": "2026-09-13T17:46:36.564Z",
+        "syncStatus": "fresh"
+      },
       "gospel": {
         "reference": "Lucas 7:31-35",
         "passageId": "LUK.7.31-35",
@@ -191,14 +839,6 @@
         "title": "¡Les tocamos la flauta, y no bailaron! ¡Entonamos cantos fúnebres, y no lloraron!",
         "excerpt": "¡Les tocamos la flauta, y no bailaron! ¡Entonamos cantos fúnebres, y no lloraron!",
         "excerptReference": "Lucas 7:31-35"
-      },
-      "source": {
-        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
-        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-16",
-        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
-        "pageTitle": "Eucaristía del Miércoles 16 de Septiembre de 2026",
-        "verified": true,
-        "fetchedAt": "2026-09-10T16:13:34.282Z"
       }
     },
     {
@@ -206,6 +846,102 @@
       "calendar": "chile",
       "liturgicalYear": "2026",
       "celebration": "17 de septiembre",
+      "readings": [
+        {
+          "type": "first-reading",
+          "order": 1,
+          "reference": "1 Corintios 15:1-11",
+          "passageId": "1CO.15.1-11",
+          "ranges": [
+            {
+              "chapter": 15,
+              "start": 1,
+              "end": 11
+            }
+          ],
+          "title": "Esto es lo que predicamos, y esto es lo que ustedes han creído",
+          "excerpt": "Esto es lo que predicamos, y esto es lo que ustedes han creído",
+          "excerptReference": "1 Corintios 15:1-11",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-17",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Jueves 17 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:36.776Z",
+            "syncStatus": "fresh"
+          }
+        },
+        {
+          "type": "psalm",
+          "order": 2,
+          "reference": "Salmos 117:1-2,16-17,28",
+          "passageId": "PSA.117.1-2,16-17,28",
+          "ranges": [
+            {
+              "chapter": 117,
+              "start": 1,
+              "end": 2
+            },
+            {
+              "chapter": 117,
+              "start": 16,
+              "end": 17
+            },
+            {
+              "chapter": 117,
+              "start": 28,
+              "end": 28
+            }
+          ],
+          "title": "¡Den gracias al Señor, porque es bueno!",
+          "excerpt": "¡Den gracias al Señor, porque es bueno!",
+          "excerptReference": "Salmos 117:1-2,16-17,28",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-17",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Jueves 17 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:36.776Z",
+            "syncStatus": "fresh"
+          }
+        },
+        {
+          "type": "gospel",
+          "order": 4,
+          "reference": "Lucas 7:36-50",
+          "passageId": "LUK.7.36-50",
+          "ranges": [
+            {
+              "chapter": 7,
+              "start": 36,
+              "end": 50
+            }
+          ],
+          "title": "Sus numerosos pecados le han sido perdonados porque ha demostrado mucho amor",
+          "excerpt": "Sus numerosos pecados le han sido perdonados porque ha demostrado mucho amor",
+          "excerptReference": "Lucas 7:36-50",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-17",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Jueves 17 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:36.776Z",
+            "syncStatus": "fresh"
+          }
+        }
+      ],
+      "source": {
+        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-17",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "pageTitle": "Eucaristía del Jueves 17 de Septiembre de 2026",
+        "verified": true,
+        "fetchedAt": "2026-09-13T17:46:36.776Z",
+        "syncStatus": "fresh"
+      },
       "gospel": {
         "reference": "Lucas 7:36-50",
         "passageId": "LUK.7.36-50",
@@ -219,14 +955,6 @@
         "title": "Sus numerosos pecados le han sido perdonados porque ha demostrado mucho amor",
         "excerpt": "Sus numerosos pecados le han sido perdonados porque ha demostrado mucho amor",
         "excerptReference": "Lucas 7:36-50"
-      },
-      "source": {
-        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
-        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-17",
-        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
-        "pageTitle": "Eucaristía del Jueves 17 de Septiembre de 2026",
-        "verified": true,
-        "fetchedAt": "2026-09-10T16:13:34.584Z"
       }
     },
     {
@@ -234,6 +962,109 @@
       "calendar": "chile",
       "liturgicalYear": "2026",
       "celebration": "18 de septiembre",
+      "readings": [
+        {
+          "type": "first-reading",
+          "order": 1,
+          "reference": "1 Corintios 15:12-20",
+          "passageId": "1CO.15.12-20",
+          "ranges": [
+            {
+              "chapter": 15,
+              "start": 12,
+              "end": 20
+            }
+          ],
+          "title": "Si Cristo no resucitó, la fe de ustedes es inútil",
+          "excerpt": "Si Cristo no resucitó, la fe de ustedes es inútil",
+          "excerptReference": "1 Corintios 15:12-20",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-18",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Viernes 18 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:36.979Z",
+            "syncStatus": "fresh"
+          }
+        },
+        {
+          "type": "psalm",
+          "order": 2,
+          "reference": "Salmos 16:1,6-7,8b,15",
+          "passageId": "PSA.16.1,6-7,8b,15",
+          "ranges": [
+            {
+              "chapter": 16,
+              "start": 1,
+              "end": 1
+            },
+            {
+              "chapter": 16,
+              "start": 6,
+              "end": 7
+            },
+            {
+              "chapter": 16,
+              "start": 8,
+              "startSuffix": "b",
+              "end": 8,
+              "endSuffix": "b"
+            },
+            {
+              "chapter": 16,
+              "start": 15,
+              "end": 15
+            }
+          ],
+          "title": "¡Me saciaré de tu presencia, Señor!",
+          "excerpt": "¡Me saciaré de tu presencia, Señor!",
+          "excerptReference": "Salmos 16:1,6-7,8b,15",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-18",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Viernes 18 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:36.979Z",
+            "syncStatus": "fresh"
+          }
+        },
+        {
+          "type": "gospel",
+          "order": 4,
+          "reference": "Lucas 8:1-3",
+          "passageId": "LUK.8.1-3",
+          "ranges": [
+            {
+              "chapter": 8,
+              "start": 1,
+              "end": 3
+            }
+          ],
+          "title": "Los apóstoles y algunas mujeres acompañaban a Jesús",
+          "excerpt": "Los apóstoles y algunas mujeres acompañaban a Jesús",
+          "excerptReference": "Lucas 8:1-3",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-18",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Viernes 18 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:36.979Z",
+            "syncStatus": "fresh"
+          }
+        }
+      ],
+      "source": {
+        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-18",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "pageTitle": "Eucaristía del Viernes 18 de Septiembre de 2026",
+        "verified": true,
+        "fetchedAt": "2026-09-13T17:46:36.979Z",
+        "syncStatus": "fresh"
+      },
       "gospel": {
         "reference": "Lucas 8:1-3",
         "passageId": "LUK.8.1-3",
@@ -247,14 +1078,6 @@
         "title": "Los apóstoles y algunas mujeres acompañaban a Jesús",
         "excerpt": "Los apóstoles y algunas mujeres acompañaban a Jesús",
         "excerptReference": "Lucas 8:1-3"
-      },
-      "source": {
-        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
-        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-18",
-        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
-        "pageTitle": "Eucaristía del Viernes 18 de Septiembre de 2026",
-        "verified": true,
-        "fetchedAt": "2026-09-10T16:13:34.866Z"
       }
     },
     {
@@ -262,6 +1085,97 @@
       "calendar": "chile",
       "liturgicalYear": "2026",
       "celebration": "19 de septiembre",
+      "readings": [
+        {
+          "type": "first-reading",
+          "order": 1,
+          "reference": "1 Corintios 15:35-38,42-49",
+          "passageId": "1CO.15.35-38,42-49",
+          "ranges": [
+            {
+              "chapter": 15,
+              "start": 35,
+              "end": 38
+            },
+            {
+              "chapter": 15,
+              "start": 42,
+              "end": 49
+            }
+          ],
+          "title": "Se siembran cuerpos corruptibles y resucitarán incorruptibles",
+          "excerpt": "Se siembran cuerpos corruptibles y resucitarán incorruptibles",
+          "excerptReference": "1 Corintios 15:35-38,42-49",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-19",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Sábado 19 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:37.188Z",
+            "syncStatus": "fresh"
+          }
+        },
+        {
+          "type": "psalm",
+          "order": 2,
+          "reference": "Salmos 55:10-14",
+          "passageId": "PSA.55.10-14",
+          "ranges": [
+            {
+              "chapter": 55,
+              "start": 10,
+              "end": 14
+            }
+          ],
+          "title": "¡Caminaré delante de Dios en la luz de la vida!",
+          "excerpt": "¡Caminaré delante de Dios en la luz de la vida!",
+          "excerptReference": "Salmos 55:10-14",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-19",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Sábado 19 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:37.188Z",
+            "syncStatus": "fresh"
+          }
+        },
+        {
+          "type": "gospel",
+          "order": 4,
+          "reference": "Lucas 8:4-15",
+          "passageId": "LUK.8.4-15",
+          "ranges": [
+            {
+              "chapter": 8,
+              "start": 4,
+              "end": 15
+            }
+          ],
+          "title": "Lo que cayó en tierra fértil son los que retienen la palabra, y dan fruto gracias a su constancia",
+          "excerpt": "Lo que cayó en tierra fértil son los que retienen la palabra, y dan fruto gracias a su constancia",
+          "excerptReference": "Lucas 8:4-15",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-19",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Sábado 19 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:37.188Z",
+            "syncStatus": "fresh"
+          }
+        }
+      ],
+      "source": {
+        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-19",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "pageTitle": "Eucaristía del Sábado 19 de Septiembre de 2026",
+        "verified": true,
+        "fetchedAt": "2026-09-13T17:46:37.188Z",
+        "syncStatus": "fresh"
+      },
       "gospel": {
         "reference": "Lucas 8:4-15",
         "passageId": "LUK.8.4-15",
@@ -275,14 +1189,6 @@
         "title": "Lo que cayó en tierra fértil son los que retienen la palabra, y dan fruto gracias a su constancia",
         "excerpt": "Lo que cayó en tierra fértil son los que retienen la palabra, y dan fruto gracias a su constancia",
         "excerptReference": "Lucas 8:4-15"
-      },
-      "source": {
-        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
-        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-19",
-        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
-        "pageTitle": "Eucaristía del Sábado 19 de Septiembre de 2026",
-        "verified": true,
-        "fetchedAt": "2026-09-10T16:13:35.126Z"
       }
     },
     {
@@ -290,6 +1196,130 @@
       "calendar": "chile",
       "liturgicalYear": "2026",
       "celebration": "20 de septiembre",
+      "readings": [
+        {
+          "type": "first-reading",
+          "order": 1,
+          "reference": "Isaías 55:6-9",
+          "passageId": "ISA.55.6-9",
+          "ranges": [
+            {
+              "chapter": 55,
+              "start": 6,
+              "end": 9
+            }
+          ],
+          "title": "Los pensamientos de ustedes no son los míos",
+          "excerpt": "Los pensamientos de ustedes no son los míos",
+          "excerptReference": "Isaías 55:6-9",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-20",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Domingo 20 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:37.386Z",
+            "syncStatus": "fresh"
+          }
+        },
+        {
+          "type": "psalm",
+          "order": 2,
+          "reference": "Salmos 144:2-3,8-9,17-18",
+          "passageId": "PSA.144.2-3,8-9,17-18",
+          "ranges": [
+            {
+              "chapter": 144,
+              "start": 2,
+              "end": 3
+            },
+            {
+              "chapter": 144,
+              "start": 8,
+              "end": 9
+            },
+            {
+              "chapter": 144,
+              "start": 17,
+              "end": 18
+            }
+          ],
+          "title": "El Señor está cerca de aquellos que lo invocan.",
+          "excerpt": "El Señor está cerca de aquellos que lo invocan.",
+          "excerptReference": "Salmos 144:2-3,8-9,17-18",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-20",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Domingo 20 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:37.386Z",
+            "syncStatus": "fresh"
+          }
+        },
+        {
+          "type": "second-reading",
+          "order": 3,
+          "reference": "Filipenses 1:20b-26b",
+          "passageId": "PHP.1.20b-26b",
+          "ranges": [
+            {
+              "chapter": 1,
+              "start": 20,
+              "startSuffix": "b",
+              "end": 26,
+              "endSuffix": "b"
+            }
+          ],
+          "title": "Para mí la vida es Cristo",
+          "excerpt": "Para mí la vida es Cristo",
+          "excerptReference": "Filipenses 1:20b-26b",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-20",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Domingo 20 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:37.386Z",
+            "syncStatus": "fresh"
+          }
+        },
+        {
+          "type": "gospel",
+          "order": 4,
+          "reference": "Mateo 19:30-20:16",
+          "passageId": "MAT.19.30-20.16",
+          "ranges": [
+            {
+              "chapter": 19,
+              "start": 30,
+              "end": 16,
+              "endChapter": 20
+            }
+          ],
+          "title": "¿Por qué tomas a mal que yo sea bueno?",
+          "excerpt": "¿Por qué tomas a mal que yo sea bueno?",
+          "excerptReference": "Mateo 19:30-20:16",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-20",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Domingo 20 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:37.386Z",
+            "syncStatus": "fresh"
+          }
+        }
+      ],
+      "source": {
+        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-20",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "pageTitle": "Eucaristía del Domingo 20 de Septiembre de 2026",
+        "verified": true,
+        "fetchedAt": "2026-09-13T17:46:37.386Z",
+        "syncStatus": "fresh"
+      },
       "gospel": {
         "reference": "Mateo 19:30-20:16",
         "passageId": "MAT.19.30-20.16",
@@ -304,14 +1334,6 @@
         "title": "¿Por qué tomas a mal que yo sea bueno?",
         "excerpt": "¿Por qué tomas a mal que yo sea bueno?",
         "excerptReference": "Mateo 19:30-20:16"
-      },
-      "source": {
-        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
-        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-20",
-        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
-        "pageTitle": "Eucaristía del Domingo 20 de Septiembre de 2026",
-        "verified": true,
-        "fetchedAt": "2026-09-10T16:13:35.333Z"
       }
     },
     {
@@ -319,6 +1341,97 @@
       "calendar": "chile",
       "liturgicalYear": "2026",
       "celebration": "21 de septiembre",
+      "readings": [
+        {
+          "type": "first-reading",
+          "order": 1,
+          "reference": "Efesios 4:1-7,11-13",
+          "passageId": "EPH.4.1-7,11-13",
+          "ranges": [
+            {
+              "chapter": 4,
+              "start": 1,
+              "end": 7
+            },
+            {
+              "chapter": 4,
+              "start": 11,
+              "end": 13
+            }
+          ],
+          "title": "Él comunicó a unos el don de ser apóstoles, a otros predicadores del Evangelio",
+          "excerpt": "Él comunicó a unos el don de ser apóstoles, a otros predicadores del Evangelio",
+          "excerptReference": "Efesios 4:1-7,11-13",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-21",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Lunes 21 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:37.591Z",
+            "syncStatus": "fresh"
+          }
+        },
+        {
+          "type": "psalm",
+          "order": 2,
+          "reference": "Salmos 18:2-5",
+          "passageId": "PSA.18.2-5",
+          "ranges": [
+            {
+              "chapter": 18,
+              "start": 2,
+              "end": 5
+            }
+          ],
+          "title": "Resuena su eco por toda la tierra.",
+          "excerpt": "Resuena su eco por toda la tierra.",
+          "excerptReference": "Salmos 18:2-5",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-21",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Lunes 21 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:37.591Z",
+            "syncStatus": "fresh"
+          }
+        },
+        {
+          "type": "gospel",
+          "order": 4,
+          "reference": "Mateo 9:9-13",
+          "passageId": "MAT.9.9-13",
+          "ranges": [
+            {
+              "chapter": 9,
+              "start": 9,
+              "end": 13
+            }
+          ],
+          "title": "Sígueme. Él se levantó y lo siguió",
+          "excerpt": "Sígueme. Él se levantó y lo siguió",
+          "excerptReference": "Mateo 9:9-13",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-21",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Lunes 21 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:37.591Z",
+            "syncStatus": "fresh"
+          }
+        }
+      ],
+      "source": {
+        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-21",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "pageTitle": "Eucaristía del Lunes 21 de Septiembre de 2026",
+        "verified": true,
+        "fetchedAt": "2026-09-13T17:46:37.591Z",
+        "syncStatus": "fresh"
+      },
       "gospel": {
         "reference": "Mateo 9:9-13",
         "passageId": "MAT.9.9-13",
@@ -332,14 +1445,6 @@
         "title": "Sígueme. Él se levantó y lo siguió",
         "excerpt": "Sígueme. Él se levantó y lo siguió",
         "excerptReference": "Mateo 9:9-13"
-      },
-      "source": {
-        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
-        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-21",
-        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
-        "pageTitle": "Eucaristía del Lunes 21 de Septiembre de 2026",
-        "verified": true,
-        "fetchedAt": "2026-09-10T16:13:35.716Z"
       }
     },
     {
@@ -347,6 +1452,117 @@
       "calendar": "chile",
       "liturgicalYear": "2026",
       "celebration": "22 de septiembre",
+      "readings": [
+        {
+          "type": "first-reading",
+          "order": 1,
+          "reference": "Proverbios 21:1-6,10-13",
+          "passageId": "PRO.21.1-6,10-13",
+          "ranges": [
+            {
+              "chapter": 21,
+              "start": 1,
+              "end": 6
+            },
+            {
+              "chapter": 21,
+              "start": 10,
+              "end": 13
+            }
+          ],
+          "title": "Diversas sentencias",
+          "excerpt": "Diversas sentencias",
+          "excerptReference": "Proverbios 21:1-6,10-13",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-22",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Martes 22 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:37.797Z",
+            "syncStatus": "fresh"
+          }
+        },
+        {
+          "type": "psalm",
+          "order": 2,
+          "reference": "Salmos 118:1,27,30,34-35,44",
+          "passageId": "PSA.118.1,27,30,34-35,44",
+          "ranges": [
+            {
+              "chapter": 118,
+              "start": 1,
+              "end": 1
+            },
+            {
+              "chapter": 118,
+              "start": 27,
+              "end": 27
+            },
+            {
+              "chapter": 118,
+              "start": 30,
+              "end": 30
+            },
+            {
+              "chapter": 118,
+              "start": 34,
+              "end": 35
+            },
+            {
+              "chapter": 118,
+              "start": 44,
+              "end": 44
+            }
+          ],
+          "title": "¡Condúceme por la senda de tus mandamientos, Señor!",
+          "excerpt": "¡Condúceme por la senda de tus mandamientos, Señor!",
+          "excerptReference": "Salmos 118:1,27,30,34-35,44",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-22",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Martes 22 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:37.797Z",
+            "syncStatus": "fresh"
+          }
+        },
+        {
+          "type": "gospel",
+          "order": 4,
+          "reference": "Lucas 8:19-21",
+          "passageId": "LUK.8.19-21",
+          "ranges": [
+            {
+              "chapter": 8,
+              "start": 19,
+              "end": 21
+            }
+          ],
+          "title": "Mi madre y mis hermanos son los que escuchan la Palabra de Dios y la practican",
+          "excerpt": "Mi madre y mis hermanos son los que escuchan la Palabra de Dios y la practican",
+          "excerptReference": "Lucas 8:19-21",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-22",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Martes 22 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:37.797Z",
+            "syncStatus": "fresh"
+          }
+        }
+      ],
+      "source": {
+        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-22",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "pageTitle": "Eucaristía del Martes 22 de Septiembre de 2026",
+        "verified": true,
+        "fetchedAt": "2026-09-13T17:46:37.797Z",
+        "syncStatus": "fresh"
+      },
       "gospel": {
         "reference": "Lucas 8:19-21",
         "passageId": "LUK.8.19-21",
@@ -360,14 +1576,6 @@
         "title": "Mi madre y mis hermanos son los que escuchan la Palabra de Dios y la practican",
         "excerpt": "Mi madre y mis hermanos son los que escuchan la Palabra de Dios y la practican",
         "excerptReference": "Lucas 8:19-21"
-      },
-      "source": {
-        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
-        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-22",
-        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
-        "pageTitle": "Eucaristía del Martes 22 de Septiembre de 2026",
-        "verified": true,
-        "fetchedAt": "2026-09-10T16:13:36.343Z"
       }
     },
     {
@@ -375,6 +1583,117 @@
       "calendar": "chile",
       "liturgicalYear": "2026",
       "celebration": "23 de septiembre",
+      "readings": [
+        {
+          "type": "first-reading",
+          "order": 1,
+          "reference": "Proverbios 30:5-9",
+          "passageId": "PRO.30.5-9",
+          "ranges": [
+            {
+              "chapter": 30,
+              "start": 5,
+              "end": 9
+            }
+          ],
+          "title": "No me des pobreza ni riqueza, dame la ración necesaria",
+          "excerpt": "No me des pobreza ni riqueza, dame la ración necesaria",
+          "excerptReference": "Proverbios 30:5-9",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-23",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Miércoles 23 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:38.108Z",
+            "syncStatus": "fresh"
+          }
+        },
+        {
+          "type": "psalm",
+          "order": 2,
+          "reference": "Salmos 118:29,72,89,101,104,163",
+          "passageId": "PSA.118.29,72,89,101,104,163",
+          "ranges": [
+            {
+              "chapter": 118,
+              "start": 29,
+              "end": 29
+            },
+            {
+              "chapter": 118,
+              "start": 72,
+              "end": 72
+            },
+            {
+              "chapter": 118,
+              "start": 89,
+              "end": 89
+            },
+            {
+              "chapter": 118,
+              "start": 101,
+              "end": 101
+            },
+            {
+              "chapter": 118,
+              "start": 104,
+              "end": 104
+            },
+            {
+              "chapter": 118,
+              "start": 163,
+              "end": 163
+            }
+          ],
+          "title": "¡Tu palabra es una lámpara para mis pasos, Señor!",
+          "excerpt": "¡Tu palabra es una lámpara para mis pasos, Señor!",
+          "excerptReference": "Salmos 118:29,72,89,101,104,163",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-23",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Miércoles 23 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:38.108Z",
+            "syncStatus": "fresh"
+          }
+        },
+        {
+          "type": "gospel",
+          "order": 4,
+          "reference": "Lucas 9:1-6",
+          "passageId": "LUK.9.1-6",
+          "ranges": [
+            {
+              "chapter": 9,
+              "start": 1,
+              "end": 6
+            }
+          ],
+          "title": "Los envió a proclamar el Reino de Dios y a sanar a los enfermos",
+          "excerpt": "Los envió a proclamar el Reino de Dios y a sanar a los enfermos",
+          "excerptReference": "Lucas 9:1-6",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-23",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Miércoles 23 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:38.108Z",
+            "syncStatus": "fresh"
+          }
+        }
+      ],
+      "source": {
+        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-23",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "pageTitle": "Eucaristía del Miércoles 23 de Septiembre de 2026",
+        "verified": true,
+        "fetchedAt": "2026-09-13T17:46:38.108Z",
+        "syncStatus": "fresh"
+      },
       "gospel": {
         "reference": "Lucas 9:1-6",
         "passageId": "LUK.9.1-6",
@@ -388,14 +1707,6 @@
         "title": "Los envió a proclamar el Reino de Dios y a sanar a los enfermos",
         "excerpt": "Los envió a proclamar el Reino de Dios y a sanar a los enfermos",
         "excerptReference": "Lucas 9:1-6"
-      },
-      "source": {
-        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
-        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-23",
-        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
-        "pageTitle": "Eucaristía del Miércoles 23 de Septiembre de 2026",
-        "verified": true,
-        "fetchedAt": "2026-09-10T16:13:36.683Z"
       }
     },
     {
@@ -403,6 +1714,102 @@
       "calendar": "chile",
       "liturgicalYear": "2026",
       "celebration": "24 de septiembre",
+      "readings": [
+        {
+          "type": "first-reading",
+          "order": 1,
+          "reference": "Eclesiastés 1:2-11",
+          "passageId": "ECC.1.2-11",
+          "ranges": [
+            {
+              "chapter": 1,
+              "start": 2,
+              "end": 11
+            }
+          ],
+          "title": "No hay nada nuevo bajo el sol",
+          "excerpt": "No hay nada nuevo bajo el sol",
+          "excerptReference": "Eclesiastés 1:2-11",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-24",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Jueves 24 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:38.418Z",
+            "syncStatus": "fresh"
+          }
+        },
+        {
+          "type": "psalm",
+          "order": 2,
+          "reference": "Salmos 89:3-6,12-14,17",
+          "passageId": "PSA.89.3-6,12-14,17",
+          "ranges": [
+            {
+              "chapter": 89,
+              "start": 3,
+              "end": 6
+            },
+            {
+              "chapter": 89,
+              "start": 12,
+              "end": 14
+            },
+            {
+              "chapter": 89,
+              "start": 17,
+              "end": 17
+            }
+          ],
+          "title": "¡Tú eres nuestro refugio, Señor!",
+          "excerpt": "¡Tú eres nuestro refugio, Señor!",
+          "excerptReference": "Salmos 89:3-6,12-14,17",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-24",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Jueves 24 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:38.418Z",
+            "syncStatus": "fresh"
+          }
+        },
+        {
+          "type": "gospel",
+          "order": 4,
+          "reference": "Lucas 9:7-9",
+          "passageId": "LUK.9.7-9",
+          "ranges": [
+            {
+              "chapter": 9,
+              "start": 7,
+              "end": 9
+            }
+          ],
+          "title": "A Juan lo hice decapitar. ¿Quién es éste del cual oigo decir semejantes cosas?",
+          "excerpt": "A Juan lo hice decapitar. ¿Quién es éste del cual oigo decir semejantes cosas?",
+          "excerptReference": "Lucas 9:7-9",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-24",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Jueves 24 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:38.418Z",
+            "syncStatus": "fresh"
+          }
+        }
+      ],
+      "source": {
+        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-24",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "pageTitle": "Eucaristía del Jueves 24 de Septiembre de 2026",
+        "verified": true,
+        "fetchedAt": "2026-09-13T17:46:38.418Z",
+        "syncStatus": "fresh"
+      },
       "gospel": {
         "reference": "Lucas 9:7-9",
         "passageId": "LUK.9.7-9",
@@ -416,14 +1823,6 @@
         "title": "A Juan lo hice decapitar. ¿Quién es éste del cual oigo decir semejantes cosas?",
         "excerpt": "A Juan lo hice decapitar. ¿Quién es éste del cual oigo decir semejantes cosas?",
         "excerptReference": "Lucas 9:7-9"
-      },
-      "source": {
-        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
-        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-24",
-        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
-        "pageTitle": "Eucaristía del Jueves 24 de Septiembre de 2026",
-        "verified": true,
-        "fetchedAt": "2026-09-10T16:13:37.048Z"
       }
     },
     {
@@ -431,6 +1830,99 @@
       "calendar": "chile",
       "liturgicalYear": "2026",
       "celebration": "25 de septiembre",
+      "readings": [
+        {
+          "type": "first-reading",
+          "order": 1,
+          "reference": "Eclesiastés 3:1-11",
+          "passageId": "ECC.3.1-11",
+          "ranges": [
+            {
+              "chapter": 3,
+              "start": 1,
+              "end": 11
+            }
+          ],
+          "title": "Hay un tiempo para cada cosa bajo el sol",
+          "excerpt": "Hay un tiempo para cada cosa bajo el sol",
+          "excerptReference": "Eclesiastés 3:1-11",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-25",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Viernes 25 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:38.821Z",
+            "syncStatus": "fresh"
+          }
+        },
+        {
+          "type": "psalm",
+          "order": 2,
+          "reference": "Salmos 143:1a,2-4",
+          "passageId": "PSA.143.1a,2-4",
+          "ranges": [
+            {
+              "chapter": 143,
+              "start": 1,
+              "startSuffix": "a",
+              "end": 1,
+              "endSuffix": "a"
+            },
+            {
+              "chapter": 143,
+              "start": 2,
+              "end": 4
+            }
+          ],
+          "title": "¡Bendito sea el Señor, mi Roca!",
+          "excerpt": "¡Bendito sea el Señor, mi Roca!",
+          "excerptReference": "Salmos 143:1a,2-4",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-25",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Viernes 25 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:38.821Z",
+            "syncStatus": "fresh"
+          }
+        },
+        {
+          "type": "gospel",
+          "order": 4,
+          "reference": "Lucas 9:18-22",
+          "passageId": "LUK.9.18-22",
+          "ranges": [
+            {
+              "chapter": 9,
+              "start": 18,
+              "end": 22
+            }
+          ],
+          "title": "Tú eres el Mesías de Dios. El Hijo del hombre debe sufrir mucho",
+          "excerpt": "Tú eres el Mesías de Dios. El Hijo del hombre debe sufrir mucho",
+          "excerptReference": "Lucas 9:18-22",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-25",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Viernes 25 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:38.821Z",
+            "syncStatus": "fresh"
+          }
+        }
+      ],
+      "source": {
+        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-25",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "pageTitle": "Eucaristía del Viernes 25 de Septiembre de 2026",
+        "verified": true,
+        "fetchedAt": "2026-09-13T17:46:38.821Z",
+        "syncStatus": "fresh"
+      },
       "gospel": {
         "reference": "Lucas 9:18-22",
         "passageId": "LUK.9.18-22",
@@ -444,14 +1936,6 @@
         "title": "Tú eres el Mesías de Dios. El Hijo del hombre debe sufrir mucho",
         "excerpt": "Tú eres el Mesías de Dios. El Hijo del hombre debe sufrir mucho",
         "excerptReference": "Lucas 9:18-22"
-      },
-      "source": {
-        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
-        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-25",
-        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
-        "pageTitle": "Eucaristía del Viernes 25 de Septiembre de 2026",
-        "verified": true,
-        "fetchedAt": "2026-09-10T16:13:37.885Z"
       }
     },
     {
@@ -459,6 +1943,105 @@
       "calendar": "chile",
       "liturgicalYear": "2026",
       "celebration": "26 de septiembre",
+      "readings": [
+        {
+          "type": "first-reading",
+          "order": 1,
+          "reference": "Eclesiastés 11:9-12:8",
+          "passageId": "ECC.11.9-12.8",
+          "ranges": [
+            {
+              "chapter": 11,
+              "start": 9,
+              "end": 8,
+              "endChapter": 12
+            }
+          ],
+          "title": "Acuérdate de tu Creador en los días de tu juventud, antes que el polvo vuelva a la tierra y el aliento vuelva a Dios",
+          "excerpt": "Acuérdate de tu Creador en los días de tu juventud, antes que el polvo vuelva a la tierra y el aliento vuelva a Dios",
+          "excerptReference": "Eclesiastés 11:9-12:8",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-26",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Sábado 26 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:39.150Z",
+            "syncStatus": "fresh"
+          }
+        },
+        {
+          "type": "psalm",
+          "order": 2,
+          "reference": "Salmos 89:3-6,12-14,17",
+          "passageId": "PSA.89.3-6,12-14,17",
+          "ranges": [
+            {
+              "chapter": 89,
+              "start": 3,
+              "end": 6
+            },
+            {
+              "chapter": 89,
+              "start": 12,
+              "end": 14
+            },
+            {
+              "chapter": 89,
+              "start": 17,
+              "end": 17
+            }
+          ],
+          "title": "¡Tú has sido nuestro refugio, Señor!",
+          "excerpt": "¡Tú has sido nuestro refugio, Señor!",
+          "excerptReference": "Salmos 89:3-6,12-14,17",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-26",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Sábado 26 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:39.150Z",
+            "syncStatus": "fresh"
+          }
+        },
+        {
+          "type": "gospel",
+          "order": 4,
+          "reference": "Lucas 9:43-45",
+          "passageId": "LUK.9.43-45",
+          "ranges": [
+            {
+              "chapter": 9,
+              "start": 43,
+              "end": 45
+            }
+          ],
+          "title": "Haced que os penetren bien en los oídos estas palabras; porque acontecerá que el Hijo del Hombre será entregado en manos de hombres.",
+          "excerpt": "Haced que os penetren bien en los oídos estas palabras; porque acontecerá que el Hijo del Hombre será entregado en manos de hombres.",
+          "excerptReference": "Lucas 9:44",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-26",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Sábado 26 de Septiembre de 2026",
+            "verified": true,
+            "ordoValidated": true,
+            "fetchedAt": "2026-09-13T17:46:39.150Z",
+            "syncStatus": "fresh"
+          }
+        }
+      ],
+      "source": {
+        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-26",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "pageTitle": "Eucaristía del Sábado 26 de Septiembre de 2026",
+        "verified": true,
+        "ordoValidated": true,
+        "fetchedAt": "2026-09-13T17:46:39.150Z",
+        "syncStatus": "fresh"
+      },
       "gospel": {
         "reference": "Lucas 9:43-45",
         "passageId": "LUK.9.43-45",
@@ -472,15 +2055,6 @@
         "title": "Haced que os penetren bien en los oídos estas palabras; porque acontecerá que el Hijo del Hombre será entregado en manos de hombres.",
         "excerpt": "Haced que os penetren bien en los oídos estas palabras; porque acontecerá que el Hijo del Hombre será entregado en manos de hombres.",
         "excerptReference": "Lucas 9:44"
-      },
-      "source": {
-        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
-        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-26",
-        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
-        "pageTitle": "Eucaristía del Sábado 26 de Septiembre de 2026",
-        "verified": true,
-        "ordoValidated": true,
-        "fetchedAt": "2026-09-10T16:13:38.379Z"
       }
     },
     {
@@ -488,6 +2062,117 @@
       "calendar": "chile",
       "liturgicalYear": "2026",
       "celebration": "27 de septiembre",
+      "readings": [
+        {
+          "type": "first-reading",
+          "order": 1,
+          "reference": "Ezequiel 18:24-28",
+          "passageId": "EZK.18.24-28",
+          "ranges": [
+            {
+              "chapter": 18,
+              "start": 24,
+              "end": 28
+            }
+          ],
+          "title": "Cuando el malvado se aparta del mal él mismo preserva su vida",
+          "excerpt": "Cuando el malvado se aparta del mal él mismo preserva su vida",
+          "excerptReference": "Ezequiel 18:24-28",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-27",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Domingo 27 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:39.442Z",
+            "syncStatus": "fresh"
+          }
+        },
+        {
+          "type": "psalm",
+          "order": 2,
+          "reference": "Salmos 24:4-9",
+          "passageId": "PSA.24.4-9",
+          "ranges": [
+            {
+              "chapter": 24,
+              "start": 4,
+              "end": 9
+            }
+          ],
+          "title": "Acuérdate, Señor, de tu compasión.",
+          "excerpt": "Acuérdate, Señor, de tu compasión.",
+          "excerptReference": "Salmos 24:4-9",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-27",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Domingo 27 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:39.442Z",
+            "syncStatus": "fresh"
+          }
+        },
+        {
+          "type": "second-reading",
+          "order": 3,
+          "reference": "Filipenses 2:1-11",
+          "passageId": "PHP.2.1-11",
+          "ranges": [
+            {
+              "chapter": 2,
+              "start": 1,
+              "end": 11
+            }
+          ],
+          "title": "Vivan con los mismos sentimientos que hay en Cristo Jesús",
+          "excerpt": "Vivan con los mismos sentimientos que hay en Cristo Jesús",
+          "excerptReference": "Filipenses 2:1-11",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-27",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Domingo 27 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:39.442Z",
+            "syncStatus": "fresh"
+          }
+        },
+        {
+          "type": "gospel",
+          "order": 4,
+          "reference": "Mateo 21:28-32",
+          "passageId": "MAT.21.28-32",
+          "ranges": [
+            {
+              "chapter": 21,
+              "start": 28,
+              "end": 32
+            }
+          ],
+          "title": "Se arrepintió y fue. Los publicanos y las prostitutas llegan antes que ustedes al Reino de Dios",
+          "excerpt": "Se arrepintió y fue. Los publicanos y las prostitutas llegan antes que ustedes al Reino de Dios",
+          "excerptReference": "Mateo 21:28-32",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-27",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Domingo 27 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:39.442Z",
+            "syncStatus": "fresh"
+          }
+        }
+      ],
+      "source": {
+        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-27",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "pageTitle": "Eucaristía del Domingo 27 de Septiembre de 2026",
+        "verified": true,
+        "fetchedAt": "2026-09-13T17:46:39.442Z",
+        "syncStatus": "fresh"
+      },
       "gospel": {
         "reference": "Mateo 21:28-32",
         "passageId": "MAT.21.28-32",
@@ -501,14 +2186,6 @@
         "title": "Se arrepintió y fue. Los publicanos y las prostitutas llegan antes que ustedes al Reino de Dios",
         "excerpt": "Se arrepintió y fue. Los publicanos y las prostitutas llegan antes que ustedes al Reino de Dios",
         "excerptReference": "Mateo 21:28-32"
-      },
-      "source": {
-        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
-        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-27",
-        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
-        "pageTitle": "Eucaristía del Domingo 27 de Septiembre de 2026",
-        "verified": true,
-        "fetchedAt": "2026-09-10T16:13:38.691Z"
       }
     },
     {
@@ -516,6 +2193,98 @@
       "calendar": "chile",
       "liturgicalYear": "2026",
       "celebration": "28 de septiembre",
+      "readings": [
+        {
+          "type": "first-reading",
+          "order": 1,
+          "reference": "Job 1:6-22",
+          "passageId": "JOB.1.6-22",
+          "ranges": [
+            {
+              "chapter": 1,
+              "start": 6,
+              "end": 22
+            }
+          ],
+          "title": "El Señor me lo dio y el Señor me lo quitó: ¡bendito sea el Nombre del Señor!",
+          "excerpt": "El Señor me lo dio y el Señor me lo quitó: ¡bendito sea el Nombre del Señor!",
+          "excerptReference": "Job 1:6-22",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-28",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Lunes 28 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:39.693Z",
+            "syncStatus": "fresh"
+          }
+        },
+        {
+          "type": "psalm",
+          "order": 2,
+          "reference": "Salmos 16:1-3d,6-7",
+          "passageId": "PSA.16.1-3d,6-7",
+          "ranges": [
+            {
+              "chapter": 16,
+              "start": 1,
+              "end": 3,
+              "endSuffix": "d"
+            },
+            {
+              "chapter": 16,
+              "start": 6,
+              "end": 7
+            }
+          ],
+          "title": "¡Inclina tu oído hacia mí y escucha mis palabras!",
+          "excerpt": "¡Inclina tu oído hacia mí y escucha mis palabras!",
+          "excerptReference": "Salmos 16:1-3d,6-7",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-28",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Lunes 28 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:39.693Z",
+            "syncStatus": "fresh"
+          }
+        },
+        {
+          "type": "gospel",
+          "order": 4,
+          "reference": "Lucas 9:46-50",
+          "passageId": "LUK.9.46-50",
+          "ranges": [
+            {
+              "chapter": 9,
+              "start": 46,
+              "end": 50
+            }
+          ],
+          "title": "El más pequeño de ustedes, ése es el más grande",
+          "excerpt": "El más pequeño de ustedes, ése es el más grande",
+          "excerptReference": "Lucas 9:46-50",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-28",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Lunes 28 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:39.693Z",
+            "syncStatus": "fresh"
+          }
+        }
+      ],
+      "source": {
+        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-28",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "pageTitle": "Eucaristía del Lunes 28 de Septiembre de 2026",
+        "verified": true,
+        "fetchedAt": "2026-09-13T17:46:39.693Z",
+        "syncStatus": "fresh"
+      },
       "gospel": {
         "reference": "Lucas 9:46-50",
         "passageId": "LUK.9.46-50",
@@ -529,14 +2298,6 @@
         "title": "El más pequeño de ustedes, ése es el más grande",
         "excerpt": "El más pequeño de ustedes, ése es el más grande",
         "excerptReference": "Lucas 9:46-50"
-      },
-      "source": {
-        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
-        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-28",
-        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
-        "pageTitle": "Eucaristía del Lunes 28 de Septiembre de 2026",
-        "verified": true,
-        "fetchedAt": "2026-09-10T16:13:38.970Z"
       }
     },
     {
@@ -544,6 +2305,97 @@
       "calendar": "chile",
       "liturgicalYear": "2026",
       "celebration": "29 de septiembre",
+      "readings": [
+        {
+          "type": "first-reading",
+          "order": 1,
+          "reference": "Daniel 7:9-10,13-14",
+          "passageId": "DAN.7.9-10,13-14",
+          "ranges": [
+            {
+              "chapter": 7,
+              "start": 9,
+              "end": 10
+            },
+            {
+              "chapter": 7,
+              "start": 13,
+              "end": 14
+            }
+          ],
+          "title": "Miles de millares lo servían",
+          "excerpt": "Miles de millares lo servían",
+          "excerptReference": "Daniel 7:9-10,13-14",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-29",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Martes 29 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:39.943Z",
+            "syncStatus": "fresh"
+          }
+        },
+        {
+          "type": "psalm",
+          "order": 2,
+          "reference": "Salmos 137:1-5",
+          "passageId": "PSA.137.1-5",
+          "ranges": [
+            {
+              "chapter": 137,
+              "start": 1,
+              "end": 5
+            }
+          ],
+          "title": "¡Te cantaré en presencia de los ángeles, Señor!",
+          "excerpt": "¡Te cantaré en presencia de los ángeles, Señor!",
+          "excerptReference": "Salmos 137:1-5",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-29",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Martes 29 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:39.943Z",
+            "syncStatus": "fresh"
+          }
+        },
+        {
+          "type": "gospel",
+          "order": 4,
+          "reference": "Juan 1:47-51",
+          "passageId": "JHN.1.47-51",
+          "ranges": [
+            {
+              "chapter": 1,
+              "start": 47,
+              "end": 51
+            }
+          ],
+          "title": "Ustedes verán a los ángeles de Dios subir y bajar sobre el Hijo del hombre",
+          "excerpt": "Ustedes verán a los ángeles de Dios subir y bajar sobre el Hijo del hombre",
+          "excerptReference": "Juan 1:47-51",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-29",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Martes 29 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:39.943Z",
+            "syncStatus": "fresh"
+          }
+        }
+      ],
+      "source": {
+        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-29",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "pageTitle": "Eucaristía del Martes 29 de Septiembre de 2026",
+        "verified": true,
+        "fetchedAt": "2026-09-13T17:46:39.943Z",
+        "syncStatus": "fresh"
+      },
       "gospel": {
         "reference": "Juan 1:47-51",
         "passageId": "JHN.1.47-51",
@@ -557,14 +2409,6 @@
         "title": "Ustedes verán a los ángeles de Dios subir y bajar sobre el Hijo del hombre",
         "excerpt": "Ustedes verán a los ángeles de Dios subir y bajar sobre el Hijo del hombre",
         "excerptReference": "Juan 1:47-51"
-      },
-      "source": {
-        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
-        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-29",
-        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
-        "pageTitle": "Eucaristía del Martes 29 de Septiembre de 2026",
-        "verified": true,
-        "fetchedAt": "2026-09-10T16:13:39.289Z"
       }
     },
     {
@@ -572,6 +2416,99 @@
       "calendar": "chile",
       "liturgicalYear": "2026",
       "celebration": "30 de septiembre",
+      "readings": [
+        {
+          "type": "first-reading",
+          "order": 1,
+          "reference": "Job 9:1-12,14-16",
+          "passageId": "JOB.9.1-12,14-16",
+          "ranges": [
+            {
+              "chapter": 9,
+              "start": 1,
+              "end": 12
+            },
+            {
+              "chapter": 9,
+              "start": 14,
+              "end": 16
+            }
+          ],
+          "title": "¿Cómo un mortal podría tener razón contra Dios?",
+          "excerpt": "¿Cómo un mortal podría tener razón contra Dios?",
+          "excerptReference": "Job 9:1-12,14-16",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-30",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Miércoles 30 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:40.261Z",
+            "syncStatus": "fresh"
+          }
+        },
+        {
+          "type": "psalm",
+          "order": 2,
+          "reference": "Salmos 87:10b-15b",
+          "passageId": "PSA.87.10b-15b",
+          "ranges": [
+            {
+              "chapter": 87,
+              "start": 10,
+              "startSuffix": "b",
+              "end": 15,
+              "endSuffix": "b"
+            }
+          ],
+          "title": "¡Que mi plegaria llegue a tu presencia, Señor!",
+          "excerpt": "¡Que mi plegaria llegue a tu presencia, Señor!",
+          "excerptReference": "Salmos 87:10b-15b",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-30",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Miércoles 30 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:40.261Z",
+            "syncStatus": "fresh"
+          }
+        },
+        {
+          "type": "gospel",
+          "order": 4,
+          "reference": "Lucas 9:57-62",
+          "passageId": "LUK.9.57-62",
+          "ranges": [
+            {
+              "chapter": 9,
+              "start": 57,
+              "end": 62
+            }
+          ],
+          "title": "Te seguiré adonde vayas",
+          "excerpt": "Te seguiré adonde vayas",
+          "excerptReference": "Lucas 9:57-62",
+          "source": {
+            "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+            "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-30",
+            "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "pageTitle": "Eucaristía del Miércoles 30 de Septiembre de 2026",
+            "verified": true,
+            "fetchedAt": "2026-09-13T17:46:40.261Z",
+            "syncStatus": "fresh"
+          }
+        }
+      ],
+      "source": {
+        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-30",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "pageTitle": "Eucaristía del Miércoles 30 de Septiembre de 2026",
+        "verified": true,
+        "fetchedAt": "2026-09-13T17:46:40.261Z",
+        "syncStatus": "fresh"
+      },
       "gospel": {
         "reference": "Lucas 9:57-62",
         "passageId": "LUK.9.57-62",
@@ -585,14 +2522,6 @@
         "title": "Te seguiré adonde vayas",
         "excerpt": "Te seguiré adonde vayas",
         "excerptReference": "Lucas 9:57-62"
-      },
-      "source": {
-        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
-        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-30",
-        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
-        "pageTitle": "Eucaristía del Miércoles 30 de Septiembre de 2026",
-        "verified": true,
-        "fetchedAt": "2026-09-10T16:13:39.579Z"
       }
     },
     {
@@ -3213,5 +5142,5 @@
       }
     }
   ],
-  "syncedAt": "2026-09-10T16:34:33.628Z"
+  "syncedAt": "2026-09-13T17:46:40.272Z"
 }

@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "authenticated": true,
+  "user": {
+    "id": "00000000-0000-4000-8000-000000000001",
+    "displayName": "Usuario de prueba",
+    "email": "usuario@example.com",
+    "avatarUrl": null,
+    "locale": "es-CL",
+    "timezone": "America/Santiago"
+  },
+  "role": "user",
+  "expiresAt": "2026-09-13T20:00:00.000Z"
+}

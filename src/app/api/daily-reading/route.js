@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import {
 	DAILY_TIME_ZONE,
+	ReadingUnavailableError,
 	formatDailyDate,
 	getDailyReading,
 } from "@/lib/dailyReading";
@@ -23,10 +24,10 @@ export async function GET() {
 		response.headers.set("X-Robots-Tag", "noindex, nofollow");
 		return response;
 	} catch (error) {
-		console.error("Error al cargar el evangelio diario:", error);
+		if ((error?.status || 503) >= 500) console.error("Error al cargar las lecturas diarias:", error);
 		return NextResponse.json(
-			{ error: error?.message || "No se pudo cargar el evangelio del día" },
-			{ status: 503 }
+			{ error: error?.message || "No se pudieron cargar las lecturas del día" },
+			{ status: error?.status || (error instanceof ReadingUnavailableError ? 404 : 503) }
 		);
 	}
 }

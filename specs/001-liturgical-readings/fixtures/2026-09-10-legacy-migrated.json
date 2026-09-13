@@ -1,0 +1,54 @@
+{
+  "date": "2026-09-10",
+  "calendar": "chile",
+  "liturgicalYear": "2026",
+  "celebration": "JUEVES DE LA XXIII SEMANA DEL TIEMPO ORDINARIO",
+  "gospel": {
+    "reference": "Lucas 6:27-36",
+    "passageId": "LUK.6.27-36",
+    "ranges": [
+      {
+        "chapter": 6,
+        "start": 27,
+        "end": 36
+      }
+    ],
+    "title": "Sean misericordiosos, como el Padre de ustedes es misericordioso",
+    "excerpt": "Sean misericordiosos, como el Padre de ustedes es misericordioso",
+    "excerptReference": "Lucas 6:27-36"
+  },
+  "readings": [
+    {
+      "type": "gospel",
+      "order": 4,
+      "reference": "Lucas 6:27-36",
+      "passageId": "LUK.6.27-36",
+      "ranges": [
+        {
+          "chapter": 6,
+          "start": 27,
+          "end": 36
+        }
+      ],
+      "title": "Sean misericordiosos, como el Padre de ustedes es misericordioso",
+      "excerpt": "Sean misericordiosos, como el Padre de ustedes es misericordioso",
+      "excerptReference": "Lucas 6:27-36",
+      "source": {
+        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-10",
+        "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+        "pageTitle": "Eucaristía del Jueves 10 de Septiembre de 2026",
+        "verified": true,
+        "fetchedAt": "2026-09-10T16:13:30.376Z"
+      }
+    }
+  ],
+  "source": {
+    "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+    "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-10",
+    "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+    "pageTitle": "Eucaristía del Jueves 10 de Septiembre de 2026",
+    "verified": true,
+    "fetchedAt": "2026-09-10T16:13:30.376Z"
+  }
+}

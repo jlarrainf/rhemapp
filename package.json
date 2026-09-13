@@ -7,11 +7,15 @@
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
-		"sync:daily": "node scripts/sync-daily-readings.mjs",
-		"validate:daily": "node scripts/validate-daily-readings.mjs"
+		"test:readings": "node --experimental-default-type=module --test scripts/test-reading-validator.mjs scripts/test-reading-migration.mjs scripts/test-daily-validation.mjs scripts/test-sync-merge.mjs scripts/test-liturgical-schedule.mjs scripts/test-daily-reading.mjs",
+		"test:auth": "node --experimental-default-type=module --test scripts/test-auth-contract.mjs scripts/test-auth-migration.mjs scripts/test-auth-oauth.mjs scripts/test-auth-session.mjs scripts/test-auth-ui.mjs scripts/test-auth-guards.mjs scripts/test-auth-profile.mjs scripts/test-auth-roles.mjs scripts/test-auth-audit.mjs scripts/test-auth-deletion.mjs scripts/test-auth-operations-doc.mjs scripts/test-auth-recovery.mjs scripts/test-auth-rate-limits.mjs",
+		"sync:daily": "node --experimental-default-type=module scripts/sync-daily-readings.mjs",
+		"validate:daily": "node --experimental-default-type=module scripts/validate-daily-readings.mjs"
 	},
 	"dependencies": {
 		"@heroicons/react": "^2.2.0",
+		"@supabase/ssr": "^0.12.7",
+		"@supabase/supabase-js": "^2.116.0",
 		"axios": "^1.9.0",
 		"next": "15.3.8",
 		"react": "^19.0.0",

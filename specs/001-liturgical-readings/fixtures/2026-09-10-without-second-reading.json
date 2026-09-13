@@ -1,0 +1,93 @@
+{
+  "date": "2026-09-10",
+  "calendar": "chile",
+  "liturgicalYear": "2026",
+  "celebration": "JUEVES DE LA XXIII SEMANA DEL TIEMPO ORDINARIO",
+  "readings": [
+    {
+      "type": "first-reading",
+      "order": 1,
+      "reference": "1 Corintios 8, 1. 4b-13",
+      "passageId": "1CO.8.1,4b-13",
+      "ranges": [
+        {
+          "chapter": 8,
+          "start": 1,
+          "end": 1
+        },
+        {
+          "chapter": 8,
+          "start": 4,
+          "startSuffix": "b",
+          "end": 13
+        }
+      ],
+      "title": "Hiriendo la conciencia del que es débil, ustedes pecan contra Cristo",
+      "excerpt": "Hiriendo la conciencia del que es débil, ustedes pecan contra Cristo",
+      "excerptReference": "1 Corintios 8, 1. 4b-13",
+      "source": {
+        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-10",
+        "verified": true
+      }
+    },
+    {
+      "type": "psalm",
+      "order": 2,
+      "reference": "Salmo 138, 1-3. 13-14b. 23-24",
+      "passageId": "PSA.138.1-3,13-14b,23-24",
+      "ranges": [
+        {
+          "chapter": 138,
+          "start": 1,
+          "end": 3
+        },
+        {
+          "chapter": 138,
+          "start": 13,
+          "end": 14,
+          "endSuffix": "b"
+        },
+        {
+          "chapter": 138,
+          "start": 23,
+          "end": 24
+        }
+      ],
+      "title": "¡Llévame por el camino eterno, Señor!",
+      "excerpt": "¡Llévame por el camino eterno, Señor!",
+      "excerptReference": "Salmo 138, 1-3. 13-14b. 23-24",
+      "source": {
+        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-10",
+        "verified": true
+      }
+    },
+    {
+      "type": "gospel",
+      "order": 4,
+      "reference": "Lucas 6, 27-36",
+      "passageId": "LUK.6.27-36",
+      "ranges": [
+        {
+          "chapter": 6,
+          "start": 27,
+          "end": 36
+        }
+      ],
+      "title": "Sean misericordiosos, como el Padre de ustedes es misericordioso",
+      "excerpt": "Sean misericordiosos, como el Padre de ustedes es misericordioso",
+      "excerptReference": "Lucas 6, 27-36",
+      "source": {
+        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-10",
+        "verified": true
+      }
+    }
+  ],
+  "source": {
+    "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+    "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-10",
+    "verified": true
+  }
+}

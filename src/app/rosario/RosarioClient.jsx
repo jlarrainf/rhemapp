@@ -3,6 +3,7 @@
 import React, { useMemo, useState } from "react";
 import { BookOpenIcon } from "@heroicons/react/24/outline";
 import RosaryIcon from "@/components/RosaryIcon.jsx";
+import BibleTranslationNotice from "@/components/BibleTranslationNotice.jsx";
 
 export default function RosarioClient({ days, byDayIndex, initialDayIndex }) {
 	const [dayIndex, setDayIndex] = useState(initialDayIndex);
@@ -104,6 +105,7 @@ export default function RosarioClient({ days, byDayIndex, initialDayIndex }) {
 					</select>
 				</div>
 			</div>
+			<BibleTranslationNotice />
 
 			<div className="w-full max-w-3xl">
 				{misterios.map((misterio, index) => (

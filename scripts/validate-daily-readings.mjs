@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { validateDailyDataset } from "../src/lib/readings/validateDailyDataset.js";
 
 const args = Object.fromEntries(
 	process.argv.slice(2).flatMap((argument, index, values) => {
@@ -29,40 +30,13 @@ const expectedReferences = {
 
 if (!fs.existsSync(filePath)) throw new Error(`No existe ${filePath}`);
 const data = JSON.parse(fs.readFileSync(filePath, "utf8"));
-const entries = Array.isArray(data.entries) ? data.entries : [];
-const byDate = new Map();
-const errors = [];
+const result = validateDailyDataset(data, { year, start, end, expectedReferences });
 
-for (const entry of entries) {
-	if (byDate.has(entry.date)) errors.push(`Fecha duplicada: ${entry.date}`);
-	byDate.set(entry.date, entry);
-	if (!/^\d{4}-\d{2}-\d{2}$/.test(entry.date)) errors.push(`Fecha inválida: ${entry.date}`);
-	if (entry.calendar !== "chile") errors.push(`${entry.date}: el calendario debe ser chile`);
-	if (String(entry.liturgicalYear) !== year) errors.push(`${entry.date}: año litúrgico incorrecto`);
-	if (!entry.gospel?.reference) errors.push(`${entry.date}: falta gospel.reference`);
-	if (!entry.gospel?.passageId) errors.push(`${entry.date}: falta gospel.passageId`);
-	if (!entry.gospel?.excerpt) errors.push(`${entry.date}: falta gospel.excerpt`);
-	if (!entry.gospel?.excerptReference) errors.push(`${entry.date}: falta gospel.excerptReference`);
-	if (!Array.isArray(entry.gospel?.ranges) || entry.gospel.ranges.length === 0) errors.push(`${entry.date}: faltan rangos estructurados`);
-	if (!entry.source?.url || !entry.source?.ordoUrl) errors.push(`${entry.date}: falta la trazabilidad de la fuente`);
-	if (!entry.source?.verified) errors.push(`${entry.date}: la cita no está marcada como verificada`);
-	if (expectedReferences[entry.date] && entry.gospel.reference !== expectedReferences[entry.date]) {
-		errors.push(`${entry.date}: se esperaba ${expectedReferences[entry.date]} y se encontró ${entry.gospel.reference}`);
-	}
-	if (expectedReferences[entry.date] && entry.date !== "2026-09-10" && entry.date !== "2026-09-13" && entry.source?.ordoValidated !== true) {
-		errors.push(`${entry.date}: la selección debe estar validada contra el Ordo chileno`);
-	}
-	if (/[…]|\.\.\./.test(entry.gospel.excerpt)) errors.push(`${entry.date}: la frase parece truncada`);
-}
-
-for (let cursor = new Date(`${start}T12:00:00Z`); cursor <= new Date(`${end}T12:00:00Z`); cursor.setUTCDate(cursor.getUTCDate() + 1)) {
-	const date = cursor.toISOString().slice(0, 10);
-	if (!byDate.has(date)) errors.push(`Falta lectura para ${date}`);
-}
-
-if (errors.length) {
-	console.error(errors.join("\n"));
+if (!result.valid) {
+	console.error(result.errors.join("\n"));
 	process.exit(1);
 }
 
-console.log(`OK: ${entries.length} entradas válidas en ${filePath}`);
+const genericEntryCount = data.entries.filter((entry) => Array.isArray(entry.readings)).length;
+const legacyEntryCount = data.entries.length - genericEntryCount;
+console.log(`OK: ${result.entryCount} entradas válidas en ${filePath} (${genericEntryCount} genéricas, ${legacyEntryCount} de compatibilidad legacy)`);

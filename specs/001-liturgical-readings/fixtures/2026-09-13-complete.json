@@ -1,0 +1,103 @@
+{
+  "date": "2026-09-13",
+  "calendar": "chile",
+  "liturgicalYear": "2026",
+  "celebration": "XXIV DOMINGO DEL TIEMPO ORDINARIO",
+  "readings": [
+    {
+      "type": "first-reading",
+      "order": 1,
+      "reference": "Eclesiástico 27, 30—28,7",
+      "passageId": "SIR.27.30-28.7",
+      "ranges": [
+        {
+          "chapter": 27,
+          "start": 30,
+          "end": 7,
+          "endChapter": 28
+        }
+      ],
+      "title": "Perdona el agravio a tu prójimo y entonces, cuando ores, serán absueltos tus pecados",
+      "excerpt": "Perdona el agravio a tu prójimo y entonces, cuando ores, serán absueltos tus pecados",
+      "excerptReference": "Eclesiástico 27, 30—28,7",
+      "source": {
+        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-13",
+        "verified": true
+      }
+    },
+    {
+      "type": "psalm",
+      "order": 2,
+      "reference": "Salmo 102, 1-4. 9-12",
+      "passageId": "PSA.102.1-4,9-12",
+      "ranges": [
+        {
+          "chapter": 102,
+          "start": 1,
+          "end": 4
+        },
+        {
+          "chapter": 102,
+          "start": 9,
+          "end": 12
+        }
+      ],
+      "title": "El Señor es bondadoso y compasivo",
+      "excerpt": "El Señor es bondadoso y compasivo",
+      "excerptReference": "Salmo 102, 1-4. 9-12",
+      "source": {
+        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-13",
+        "verified": true
+      }
+    },
+    {
+      "type": "second-reading",
+      "order": 3,
+      "reference": "Romanos 14, 7-9",
+      "passageId": "ROM.14.7-9",
+      "ranges": [
+        {
+          "chapter": 14,
+          "start": 7,
+          "end": 9
+        }
+      ],
+      "title": "Tanto en la vida como en la muerte, pertenecemos al Señor",
+      "excerpt": "Tanto en la vida como en la muerte, pertenecemos al Señor",
+      "excerptReference": "Romanos 14, 7-9",
+      "source": {
+        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-13",
+        "verified": true
+      }
+    },
+    {
+      "type": "gospel",
+      "order": 4,
+      "reference": "Mateo 18, 21-35",
+      "passageId": "MAT.18.21-35",
+      "ranges": [
+        {
+          "chapter": 18,
+          "start": 21,
+          "end": 35
+        }
+      ],
+      "title": "No perdones sólo siete veces, sino setenta veces siete",
+      "excerpt": "No perdones sólo siete veces, sino setenta veces siete",
+      "excerptReference": "Mateo 18, 21-35",
+      "source": {
+        "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+        "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-13",
+        "verified": true
+      }
+    }
+  ],
+  "source": {
+    "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+    "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-13",
+    "verified": true
+  }
+}

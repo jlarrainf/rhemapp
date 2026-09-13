@@ -1,20 +1,147 @@
 import fs from "node:fs";
 import path from "node:path";
+import { mergeValidatedReading } from "../src/lib/readings/mergeSyncedReading.js";
+import { markReadingFresh, markReadingStale } from "../src/lib/readings/syncState.js";
+import { validateDailyDataset } from "../src/lib/readings/validateDailyDataset.js";
 
 const ROOT = process.cwd();
 const DAILY_DIR = path.join(ROOT, "public", "data", "daily-readings");
 const PRIMARY_URL = "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=";
 const FALLBACK_URL = "https://www.ewtn.com/es/lecturas/";
 const SPANISH_FALLBACK_URL = "https://es.audiobiblia.net/misal/";
-const BIBLE_API_URL = "https://api.scripture.api.bible/v1/bibles/b32b9d1b64b4ef29-01/passages/";
+const BIBLE_ID = "b32b9d1b64b4ef29-01";
+const BIBLE_API_BASE_URL = process.env.BIBLE_API_BASE_URL || "https://rest.api.bible";
+const BIBLE_API_URL = `${BIBLE_API_BASE_URL}/v1/bibles/${BIBLE_ID}/passages/`;
 const ORDO_URL = "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf";
 
 const BOOK_CODES = {
+	Génesis: "GEN",
+	Éxodo: "EXO",
+	Levítico: "LEV",
+	Números: "NUM",
+	Deuteronomio: "DEU",
+	Josué: "JOS",
+	Jueces: "JDG",
+	Rut: "RUT",
+	"1 Samuel": "1SA",
+	"2 Samuel": "2SA",
+	"1 Reyes": "1KI",
+	"2 Reyes": "2KI",
+	"1 Crónicas": "1CH",
+	"2 Crónicas": "2CH",
+	Esdras: "EZR",
+	Nehemías: "NEH",
+	Ester: "EST",
+	Job: "JOB",
+	Salmos: "PSA",
+	Proverbios: "PRO",
+	Eclesiastés: "ECC",
+	"Cantar de los Cantares": "SNG",
+	Isaías: "ISA",
+	Jeremías: "JER",
+	Lamentaciones: "LAM",
+	Ezequiel: "EZK",
+	Daniel: "DAN",
+	Oseas: "HOS",
+	Joel: "JOL",
+	Amós: "AMO",
+	Abdías: "OBA",
+	Jonás: "JON",
+	Miqueas: "MIC",
+	Nahúm: "NAH",
+	Habacuc: "HAB",
+	Sofonías: "ZEP",
+	Ageo: "HAG",
+	Zacarías: "ZEC",
+	Malaquías: "MAL",
+	Tobías: "TOB",
+	Judit: "JDT",
+	"1 Macabeos": "1MA",
+	"2 Macabeos": "2MA",
+	Baruc: "BAR",
+	Sabiduría: "WIS",
+	Eclesiástico: "SIR",
 	Mateo: "MAT",
 	Marcos: "MRK",
 	Lucas: "LUK",
 	Juan: "JHN",
+	Romanos: "ROM",
+	"1 Corintios": "1CO",
+	"2 Corintios": "2CO",
+	Gálatas: "GAL",
+	Efesios: "EPH",
+	Filipenses: "PHP",
+	Colosenses: "COL",
+	"1 Tesalonicenses": "1TH",
+	"2 Tesalonicenses": "2TH",
+	"1 Timoteo": "1TI",
+	"2 Timoteo": "2TI",
+	Tito: "TIT",
+	Filemón: "PHM",
+	Hebreos: "HEB",
+	Santiago: "JAS",
+	"1 Pedro": "1PE",
+	"2 Pedro": "2PE",
+	"1 Juan": "1JN",
+	"2 Juan": "2JN",
+	"3 Juan": "3JN",
+	Judas: "JUD",
+	Apocalipsis: "REV",
 };
+
+const READING_BOOK_ALIASES = [
+	["1 Corintios", /corint(?:io|ios|o)/i],
+	["1 Tesalonicenses", /tesal(?:ó|o)nica|tesalonicenses/i],
+	["1 Timoteo", /timoteo/i],
+	["1 Pedro", /pedro/i],
+	["1 Juan", /juan/i],
+	["Romanos", /romanos|roma/i],
+	["Gálatas", /g(?:á|a)latas|galacia/i],
+	["Efesios", /efesios|(?:f|ph)eso/i],
+	["Filipenses", /filipenses|filipos/i],
+	["Colosenses", /colosenses|colosas/i],
+	["Filemón", /filem(?:ó|o)n/i],
+	["Hebreos", /hebreos/i],
+	["Santiago", /santiago/i],
+	["Tito", /tito/i],
+	["Eclesiástico", /eclesi(?:á|a)stico|sir(?:á|a)cide/i],
+	["Sabiduría", /sabidur(?:í|i)a/i],
+	["Isaías", /isa(?:í|i)as/i],
+	["Jeremías", /jerem(?:í|i)as/i],
+	["Ezequiel", /ezequiel/i],
+	["Daniel", /daniel/i],
+	["Baruc", /baruc/i],
+	["Génesis", /g(?:é|e)nesis/i],
+	["Éxodo", /(e|é)xodo/i],
+	["Levítico", /lev(?:í|i)tico/i],
+	["Números", /n(?:ú|u)meros/i],
+	["Deuteronomio", /deuteronomio/i],
+	["Josué", /jos(?:é|e)/i],
+	["Jueces", /jueces/i],
+	["Rut", /\brut\b/i],
+	["Job", /\bjob\b/i],
+	["Proverbios", /proverbios/i],
+	["Eclesiastés", /eclesiast(?:é|e)s/i],
+	["Cantar de los Cantares", /cantar de los cantares/i],
+	["Lamentaciones", /lamentaciones/i],
+	["Oseas", /oseas/i],
+	["Joel", /\bjoel\b/i],
+	["Amós", /am(?:ó|o)s/i],
+	["Abdías", /abd(?:í|i)as/i],
+	["Jonás", /jon(?:á|a)s/i],
+	["Miqueas", /miqueas/i],
+	["Nahúm", /nah(?:ú|u)m/i],
+	["Habacuc", /habacuc/i],
+	["Sofonías", /sofon(?:í|i)as/i],
+	["Ageo", /ageo/i],
+	["Zacarías", /zacar(?:í|i)as/i],
+	["Malaquías", /malaqu(?:í|i)as/i],
+	["Tobías", /tob(?:í|i)as/i],
+	["Judit", /judit/i],
+	["1 Macabeos", /macabeos/i],
+	["Judas", /\bjudas\b/i],
+	["Apocalipsis", /apocalipsis/i],
+];
 
 const ABBREVIATED_BOOKS = {
 	Mt: "Mateo",
@@ -194,6 +321,99 @@ function stripHtml(value) {
 		.join("\n");
 }
 
+function extractNamedAnchorSection(html, startName, endName) {
+	const startPattern = new RegExp(`<a\\s+name=["']${startName}["'][^>]*>`, "i");
+	const startMatch = html.match(startPattern);
+	if (!startMatch || startMatch.index === undefined) return null;
+
+	const startIndex = startMatch.index;
+	const endPattern = new RegExp(`<a\\s+name=["']${endName}["'][^>]*>`, "i");
+	const endMatch = html.slice(startIndex + startMatch[0].length).match(endPattern);
+	const endIndex = endMatch?.index === undefined
+		? html.length
+		: startIndex + startMatch[0].length + endMatch.index;
+
+	return html.slice(startIndex, endIndex);
+}
+
+function getTextLines(html) {
+	return stripHtml(html)
+		.split(/\r?\n/)
+		.map((line) => line.trim())
+		.filter(Boolean);
+}
+
+function resolveNumberedBook(prefix, basePattern, firstBook, secondBook, thirdBook = null) {
+	if (!basePattern.test(prefix)) return null;
+	if (/segunda|2(?:a|ª)?/i.test(prefix)) return secondBook;
+	if (thirdBook && /tercera|3(?:a|ª)?/i.test(prefix)) return thirdBook;
+	return firstBook;
+}
+
+function resolveReadingBook(prefix) {
+	const numberedBooks = [
+		resolveNumberedBook(prefix, /corint(?:io|ios|o)/i, "1 Corintios", "2 Corintios"),
+		resolveNumberedBook(prefix, /tesal(?:ó|o)nica|tesalonicenses/i, "1 Tesalonicenses", "2 Tesalonicenses"),
+		resolveNumberedBook(prefix, /timoteo/i, "1 Timoteo", "2 Timoteo"),
+		resolveNumberedBook(prefix, /pedro/i, "1 Pedro", "2 Pedro"),
+		resolveNumberedBook(prefix, /juan/i, "1 Juan", "2 Juan", "3 Juan"),
+	].find(Boolean);
+	if (numberedBooks) return numberedBooks;
+
+	return READING_BOOK_ALIASES.find(([, pattern]) => pattern.test(prefix))?.[0] || null;
+}
+
+function parseReadingReferenceLine(line) {
+	if (!/^Lectura\b/i.test(line)) return null;
+
+	const citationMatch = line.match(/\s([0-9][0-9a-z ,.;:—–-]*)$/i);
+	if (!citationMatch || citationMatch.index === undefined) return null;
+
+	const prefix = line.slice(0, citationMatch.index).trim();
+	const book = resolveReadingBook(prefix);
+	if (!book) return null;
+
+	const citation = citationMatch[1].trim();
+	return { book, citation, ...normalizeCitation(book, citation) };
+}
+
+function parsePsalmReferenceLine(line) {
+	const match = line.match(/^SALMO(?:\s+RESPONSORIAL)?\s+(.+)$/i);
+	if (!match) return null;
+
+	const rawReference = match[1].trim();
+	const canticleMatch = rawReference.match(/^(LC|LUCAS)\s+(.+)$/i);
+	const book = canticleMatch ? "Lucas" : "Salmos";
+	const citation = canticleMatch?.[2] || rawReference;
+	return { book, citation, ...normalizeCitation(book, citation) };
+}
+
+function titleBeforeLine(lines, index) {
+	for (let cursor = index - 1; cursor >= 0; cursor -= 1) {
+		const candidate = lines[cursor].trim();
+		if (!candidate || /^O bien:$/i.test(candidate)) continue;
+		if (/^(?:LITURGIA|SALMO|EVANGELIO|\(Ver Ordinario)/i.test(candidate)) continue;
+		return candidate;
+	}
+	return "";
+}
+
+function createReading({ type, order, referenceData, title, source }) {
+	if (!referenceData || !title) return null;
+
+	return {
+		type,
+		order,
+		reference: referenceData.reference,
+		passageId: referenceData.passageId,
+		ranges: referenceData.ranges,
+		title,
+		excerpt: title,
+		excerptReference: referenceData.reference,
+		source: { ...source },
+	};
+}
+
 function normalizeCitation(book, citation) {
 	const code = BOOK_CODES[book];
 	if (!code) throw new Error(`Libro evangélico no soportado: ${book}`);
@@ -262,7 +482,7 @@ function normalizeCitation(book, citation) {
 		const segmentTexts = [first[2], ...segments];
 		for (const segmentText of segmentTexts) {
 			const crossChapter = segmentText.match(/^(\d+)-(\d+),(\d+)$/);
-			if (crossChapter && Number(crossChapter[2]) < Number(crossChapter[1])) {
+			if (crossChapter && Number(crossChapter[2]) !== chapter) {
 				crossReference = `${book} ${chapter}:${crossChapter[1]}-${crossChapter[2]}:${crossChapter[3]}`;
 				ranges.push({
 					chapter,
@@ -314,8 +534,8 @@ function extractSourceDate(html, date) {
 	return { title, celebration };
 }
 
-function parseEucaristia(html, date) {
-	const section = html.match(/<a\s+name=["']evangelio["'][\s\S]*?(?=<a\s+name=["']eucaristia["']|$)/i)?.[0];
+function parseEucaristiaGospel(html) {
+	const section = extractNamedAnchorSection(html, "evangelio", "eucaristia");
 	if (!section) return null;
 
 	const plain = stripHtml(section);
@@ -332,29 +552,77 @@ function parseEucaristia(html, date) {
 		.map((line) => line.trim())
 		.filter((line) => line && !/^ACLAMACIÓN/i.test(line) && !/^Aleluya/i.test(line));
 	const title = titleCandidates.at(-1) || "";
-	const { reference, passageId, ranges } = normalizeCitation(referenceMatch[1], referenceMatch[2]);
-	const { title: pageTitle, celebration } = extractSourceDate(html, date);
+	return createReading({
+		type: "gospel",
+		order: 4,
+		referenceData: normalizeCitation(referenceMatch[1], referenceMatch[2]),
+		title,
+		source: {},
+	});
+}
+
+function parseEucaristia(html, date) {
+	const liturgySection = extractNamedAnchorSection(html, "liturgia", "evangelio");
+	const gospelSection = extractNamedAnchorSection(html, "evangelio", "eucaristia");
+	if (!liturgySection || !gospelSection) return null;
+
+	const lines = getTextLines(liturgySection);
+	const sourceInfo = extractSourceDate(html, date);
+	const source = {
+		provider: "Eucaristía Diaria / Conferencia Episcopal de Chile",
+		url: `${PRIMARY_URL}${date}`,
+		ordoUrl: ORDO_URL,
+		pageTitle: sourceInfo.title,
+		verified: true,
+	};
+	const readingReferenceLines = lines
+		.map((line, index) => ({ index, parsed: parseReadingReferenceLine(line) }))
+		.filter((item) => item.parsed);
+	const psalmItem = lines
+		.map((line, index) => ({ index, parsed: parsePsalmReferenceLine(line) }))
+		.find((item) => item.parsed);
+	const firstItem = readingReferenceLines.find((item) => !psalmItem || item.index < psalmItem.index);
+	const secondItem = readingReferenceLines.find((item) => psalmItem && item.index > psalmItem.index);
+	const gospel = parseEucaristiaGospel(html);
+	const gospelReading = gospel ? { ...gospel, source: { ...source } } : null;
+	const readings = [
+		createReading({
+			type: "first-reading",
+			order: 1,
+			referenceData: firstItem?.parsed,
+			title: firstItem ? titleBeforeLine(lines, firstItem.index) : "",
+			source,
+		}),
+		createReading({
+			type: "psalm",
+			order: 2,
+			referenceData: psalmItem?.parsed,
+			title: psalmItem ? lines.slice(psalmItem.index + 1).find((line) => /^R\.\s*/i.test(line))?.replace(/^R\.\s*/i, "").trim() || "" : "",
+			source,
+		}),
+		secondItem
+			? createReading({
+				type: "second-reading",
+				order: 3,
+				referenceData: secondItem.parsed,
+				title: titleBeforeLine(lines, secondItem.index),
+				source,
+			})
+			: null,
+		gospelReading,
+	].filter(Boolean);
+
+	if (!readings.some((reading) => reading.type === "first-reading")
+		|| !readings.some((reading) => reading.type === "psalm")
+		|| !readings.some((reading) => reading.type === "gospel")) return null;
 
 	return {
 		date,
 		calendar: "chile",
-		liturgicalYear: "2026",
-		celebration,
-		gospel: {
-			reference,
-			passageId,
-			ranges,
-			title,
-			excerpt: title,
-			excerptReference: reference,
-		},
-		source: {
-			provider: "Eucaristía Diaria / Conferencia Episcopal de Chile",
-			url: `${PRIMARY_URL}${date}`,
-			ordoUrl: ORDO_URL,
-			pageTitle,
-			verified: true,
-		},
+		liturgicalYear: date.slice(0, 4),
+		celebration: sourceInfo.celebration,
+		readings,
+		source,
 	};
 }
 
@@ -475,6 +743,52 @@ function parseAudioBiblia(html, date) {
 	};
 }
 
+function createLegacyGospelAlias(reading) {
+	if (!reading) return null;
+
+	return {
+		reference: reading.reference,
+		passageId: reading.passageId,
+		ranges: Array.isArray(reading.ranges) ? reading.ranges.map((range) => ({ ...range })) : [],
+		title: reading.title,
+		excerpt: reading.excerpt,
+		excerptReference: reading.excerptReference,
+	};
+}
+
+function withLegacyGospelAlias(entry) {
+	const gospelReading = entry?.readings?.find((reading) => reading?.type === "gospel");
+	if (!gospelReading) return entry;
+
+	return {
+		...entry,
+		gospel: createLegacyGospelAlias(gospelReading),
+	};
+}
+
+function toGenericEntry(entry) {
+	if (!entry) return null;
+	if (Array.isArray(entry.readings)) return withLegacyGospelAlias(entry);
+	if (!entry.gospel) return null;
+
+	return withLegacyGospelAlias({
+		...entry,
+		readings: [{
+			type: "gospel",
+			order: 4,
+			reference: entry.gospel.reference,
+			passageId: entry.gospel.passageId,
+			ranges: Array.isArray(entry.gospel.ranges)
+				? entry.gospel.ranges.map((range) => ({ ...range }))
+				: [],
+			title: entry.gospel.title || entry.gospel.excerpt || "",
+			excerpt: entry.gospel.excerpt || "",
+			excerptReference: entry.gospel.excerptReference || entry.gospel.reference,
+			source: entry.source ? { ...entry.source } : entry.source,
+		}],
+	});
+}
+
 async function request(url) {
 	const response = await fetch(url, {
 		headers: { "user-agent": "Rhemapp daily-reading-sync/1.0" },
@@ -483,21 +797,20 @@ async function request(url) {
 	return response.text();
 }
 
-async function enrichExcerptFromBibleApi(entry) {
-	const apiKey = process.env.BIBLE_API_KEY || process.env.NEXT_PUBLIC_BIBLE_API_KEY;
-	if (!apiKey || !entry?.gospel?.passageId) return entry;
+async function enrichReadingExcerptFromBibleApi(reading, apiKey) {
+	if (!apiKey || !reading?.passageId) return reading;
 
 	try {
 		const response = await fetch(
-			`${BIBLE_API_URL}${encodeURIComponent(entry.gospel.passageId)}?content-type=text&include-verse-numbers=false`,
+			`${BIBLE_API_URL}${encodeURIComponent(reading.passageId)}?content-type=text&include-verse-numbers=false`,
 			{ headers: { "api-key": apiKey } }
 		);
-		if (!response.ok) return entry;
+		if (!response.ok) return reading;
 		const payload = await response.json();
 		const text = payload?.data?.content?.trim();
-		if (!text) return entry;
+		if (!text) return reading;
 
-		const sourceTitle = entry.gospel.title?.trim();
+		const sourceTitle = reading.title?.trim();
 		const normalizedText = text.toLocaleLowerCase("es");
 		const normalizedTitle = sourceTitle?.toLocaleLowerCase("es");
 		const excerpt = normalizedTitle && normalizedText.includes(normalizedTitle)
@@ -505,60 +818,77 @@ async function enrichExcerptFromBibleApi(entry) {
 			: chooseExcerpt(text);
 
 		return {
-			...entry,
-			gospel: {
-				...entry.gospel,
-				excerpt,
-				excerptReference: entry.gospel.reference,
-			},
+			...reading,
+			excerpt,
+			excerptReference: reading.reference,
 			source: {
-				...entry.source,
+				...reading.source,
 				bibleApiVerified: true,
-				bibleApiVersion: "b32b9d1b64b4ef29-01",
+				bibleApiVersion: BIBLE_ID,
 			},
 		};
 	} catch {
-		return entry;
+		return reading;
 	}
+}
+
+async function enrichExcerptFromBibleApi(entry) {
+	const apiKey = process.env.BIBLE_API_KEY;
+	if (!apiKey || !Array.isArray(entry?.readings)) return entry;
+
+	const readings = await Promise.all(
+		entry.readings.map((reading) => enrichReadingExcerptFromBibleApi(reading, apiKey)),
+	);
+	return withLegacyGospelAlias({ ...entry, readings });
 }
 
 function applyOrdoOverride(entry, date) {
 	const override = ORDO_GOSPEL_OVERRIDES[date];
-	if (!entry || !override) return entry;
+	if (!entry || !override || !Array.isArray(entry.readings)) return entry;
 
 	const { reference, passageId, ranges } = normalizeCitation(override.book, override.citation);
-	return {
+	const source = {
+		...entry.source,
+		ordoUrl: ORDO_URL,
+		ordoValidated: true,
+	};
+	return withLegacyGospelAlias({
 		...entry,
 		celebration: entry.celebration || override.celebration,
-		gospel: {
-			...entry.gospel,
-			reference,
-			passageId,
-			ranges,
-			title: override.excerpt || entry.gospel.title,
-			excerpt: override.excerpt || entry.gospel.excerpt,
-			excerptReference: override.excerptReference || reference,
-		},
-		source: {
-			...entry.source,
-			ordoUrl: ORDO_URL,
-			ordoValidated: true,
-		},
-	};
+		source,
+		readings: entry.readings.map((reading) => reading.type !== "gospel"
+			? reading
+			: {
+				...reading,
+				reference,
+				passageId,
+				ranges,
+				title: override.excerpt || reading.title,
+				excerpt: override.excerpt || reading.excerpt,
+				excerptReference: override.excerptReference || reference,
+				source,
+			}),
+	});
 }
 
 async function fetchEntry(date) {
 	const primaryHtml = await request(`${PRIMARY_URL}${date}`);
 	const primaryEntry = primaryHtml ? parseEucaristia(primaryHtml, date) : null;
-	if (primaryEntry?.gospel?.excerpt) return enrichExcerptFromBibleApi(applyOrdoOverride(primaryEntry, date));
+	if (primaryEntry?.readings?.length) {
+		return enrichExcerptFromBibleApi(applyOrdoOverride(toGenericEntry(primaryEntry), date));
+	}
 
 	const spanishFallbackHtml = await request(`${SPANISH_FALLBACK_URL}${date}`);
 	const spanishFallbackEntry = spanishFallbackHtml ? parseAudioBiblia(spanishFallbackHtml, date) : null;
-	if (spanishFallbackEntry?.gospel?.excerpt) return enrichExcerptFromBibleApi(applyOrdoOverride(spanishFallbackEntry, date));
+	if (spanishFallbackEntry?.gospel?.excerpt) {
+		return enrichExcerptFromBibleApi(applyOrdoOverride(toGenericEntry(spanishFallbackEntry), date));
+	}
 
 	const fallbackHtml = await request(`${FALLBACK_URL}${date}`);
 	const fallbackEntry = fallbackHtml ? parseEwtn(fallbackHtml, date) : null;
-	return fallbackEntry ? enrichExcerptFromBibleApi(applyOrdoOverride(fallbackEntry, date)) : null;
+	return fallbackEntry
+		? enrichExcerptFromBibleApi(applyOrdoOverride(toGenericEntry(fallbackEntry), date))
+		: null;
 }
 
 function dateRange(start, end) {
@@ -569,9 +899,35 @@ function dateRange(start, end) {
 	return dates;
 }
 
+function replaceJsonAtomically(filePath, content) {
+	const temporaryPath = `${filePath}.tmp-${process.pid}-${Date.now()}`;
+	fs.writeFileSync(temporaryPath, content, "utf8");
+
+	try {
+		if (process.platform !== "win32" || !fs.existsSync(filePath)) {
+			fs.renameSync(temporaryPath, filePath);
+			return;
+		}
+
+		const backupPath = `${filePath}.bak-${process.pid}-${Date.now()}`;
+		fs.renameSync(filePath, backupPath);
+		try {
+			fs.renameSync(temporaryPath, filePath);
+			fs.rmSync(backupPath, { force: true });
+		} catch (error) {
+			if (!fs.existsSync(filePath) && fs.existsSync(backupPath)) fs.renameSync(backupPath, filePath);
+			throw error;
+		}
+	} catch (error) {
+		if (fs.existsSync(temporaryPath)) fs.rmSync(temporaryPath, { force: true });
+		throw error;
+	}
+}
+
 const args = parseArgs();
 const start = args.start || process.env.DAILY_SYNC_START || "2026-09-10";
 const end = args.end || process.env.DAILY_SYNC_END || "2026-12-31";
+const dryRun = Boolean(args["dry-run"]);
 const year = start.slice(0, 4);
 const outputPath = path.join(DAILY_DIR, `${year}.json`);
 const existing = fs.existsSync(outputPath) ? JSON.parse(fs.readFileSync(outputPath, "utf8")) : { calendar: "chile", year: Number(year), liturgicalYear: year, entries: [] };
@@ -589,17 +945,23 @@ const entriesByDate = new Map(
 );
 
 for (const date of dateRange(start, end)) {
+	const previousEntry = entriesByDate.get(date);
 	try {
 		const entry = await fetchEntry(date);
 		if (entry) {
-			const previousEntry = entriesByDate.get(date);
-			entry.source.fetchedAt = previousEntry?.source?.fetchedAt || new Date().toISOString();
-			entriesByDate.set(date, entry);
-			console.log(`${date}: ${entry.gospel.reference} (${entry.source.provider})`);
+			const merged = mergeValidatedReading(previousEntry, entry);
+			if (!merged.updated) {
+				throw new Error(`${date}: la publicación se descartó porque está incompleta o es inválida: ${merged.errors.join(" | ")}`);
+			}
+			const nextEntry = markReadingFresh(merged.entry);
+			entriesByDate.set(date, nextEntry);
+			const readingTypes = nextEntry.readings.map((reading) => reading.type).join(" → ");
+			console.log(`${date}: ${nextEntry.gospel.reference} (${readingTypes}, ${nextEntry.source.provider})`);
 		} else {
-			console.warn(`${date}: sin publicación disponible; se conservará el dato anterior si existe`);
+			throw new Error(`${date}: sin publicación disponible`);
 		}
 	} catch (error) {
+		if (previousEntry) entriesByDate.set(date, markReadingStale(previousEntry, error));
 		console.warn(`${date}: ${error.message}`);
 	}
 }
@@ -610,11 +972,29 @@ const nextEntries = JSON.stringify(entries);
 const syncedAt = previousEntries === nextEntries && existing.syncedAt
 	? existing.syncedAt
 	: new Date().toISOString();
-fs.mkdirSync(DAILY_DIR, { recursive: true });
-fs.writeFileSync(
-	outputPath,
-	`${JSON.stringify({ ...existing, calendar: "chile", year: Number(year), liturgicalYear: year, syncedAt, entries }, null, 2)}\n`,
-	"utf8"
-);
+const candidateDocument = {
+	...existing,
+	calendar: "chile",
+	year: Number(year),
+	liturgicalYear: year,
+	syncedAt,
+	entries,
+};
+const datasetValidation = validateDailyDataset(candidateDocument, { year });
+if (!datasetValidation.valid) {
+	console.error("La sincronización se detuvo porque el documento candidato no es válido:");
+	console.error(datasetValidation.errors.join("\n"));
+	process.exit(1);
+}
 
-console.log(`Guardadas ${entries.length} lecturas en ${outputPath}`);
+fs.mkdirSync(DAILY_DIR, { recursive: true });
+const nextDocument = `${JSON.stringify(candidateDocument, null, 2)}\n`;
+
+if (dryRun) {
+	console.log(`Simulación completada: ${entries.length} entradas calculadas para ${outputPath}`);
+} else if (previousEntries === nextEntries) {
+	console.log(`Sin cambios: ${entries.length} entradas válidas en ${outputPath}`);
+} else {
+	replaceJsonAtomically(outputPath, nextDocument);
+	console.log(`Guardadas atómicamente ${entries.length} entradas en ${outputPath}`);
+}

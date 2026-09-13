@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useId, useRef, useState } from "react";
 import {
 	ArrowLeftIcon,
 	ArrowRightIcon,
@@ -14,6 +14,7 @@ const VerseCard = ({
 	passageId,
 	ranges = [],
 	chapterId,
+	passageLabel = "pasaje",
 	onNext,
 	onPrevious,
 	canGoNext = true,
@@ -26,12 +27,58 @@ const VerseCard = ({
 	const [showFullPassage, setShowFullPassage] = useState(false);
 	const [errorMessage, setErrorMessage] = useState(null);
 	const touchStartX = useRef(null);
+	const dialogRef = useRef(null);
+	const closeButtonRef = useRef(null);
+	const triggerButtonRef = useRef(null);
+	const previousFocusRef = useRef(null);
+	const dialogTitleId = useId().replace(/:/g, "");
 
 	useEffect(() => {
 		setFullPassage(null);
 		setShowFullPassage(false);
 		setErrorMessage(null);
 	}, [passageId, verseId, reference]);
+
+	useEffect(() => {
+		if (!showFullPassage) return undefined;
+
+		previousFocusRef.current = document.activeElement === document.body
+			? triggerButtonRef.current
+			: document.activeElement;
+		const dialog = dialogRef.current;
+		const focusableElements = dialog?.querySelectorAll(
+			"button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex=\"-1\"])"
+		);
+		const focusable = Array.from(focusableElements || []);
+		const firstFocusable = focusable[0];
+		const lastFocusable = focusable[focusable.length - 1];
+
+		firstFocusable?.focus();
+		document.body.style.overflow = "hidden";
+
+		const handleDialogKeyDown = (event) => {
+			if (event.key === "Escape") {
+				event.preventDefault();
+				setShowFullPassage(false);
+				return;
+			}
+			if (event.key !== "Tab" || focusable.length === 0) return;
+			if (event.shiftKey && document.activeElement === firstFocusable) {
+				event.preventDefault();
+				lastFocusable.focus();
+			} else if (!event.shiftKey && document.activeElement === lastFocusable) {
+				event.preventDefault();
+				firstFocusable.focus();
+			}
+		};
+
+		dialog?.addEventListener("keydown", handleDialogKeyDown);
+		return () => {
+			dialog?.removeEventListener("keydown", handleDialogKeyDown);
+			document.body.style.overflow = "";
+			if (previousFocusRef.current instanceof HTMLElement) previousFocusRef.current.focus();
+		};
+	}, [showFullPassage]);
 
 	const fetchPassage = async (requestedPassageId) => {
 		setIsLoading(true);
@@ -66,6 +113,9 @@ const VerseCard = ({
 
 	const getFullPassage = () => {
 		setErrorMessage(null);
+		previousFocusRef.current = document.activeElement === document.body
+			? triggerButtonRef.current
+			: document.activeElement;
 		const requestedPassageId = passageId || verseId;
 
 		if (requestedPassageId) {
@@ -161,11 +211,12 @@ const VerseCard = ({
 					<button
 						type="button"
 						onClick={getFullPassage}
+						ref={triggerButtonRef}
 						disabled={isLoading}
 						className="flex items-center space-x-1 rounded-full px-4 py-2 text-[#314156] transition-colors hover:bg-[#b79b72]/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79b72] focus-visible:ring-offset-2 disabled:opacity-50 dark:text-gray-200 dark:focus-visible:ring-offset-gray-800"
 					>
 						<BookOpenIcon className="h-5 w-5" aria-hidden="true" />
-						<span>{isLoading ? "Cargando…" : "Ver evangelio completo"}</span>
+						<span>{isLoading ? "Cargando…" : `Ver ${passageLabel.toLocaleLowerCase("es-CL")} completo`}</span>
 					</button>
 				</div>
 
@@ -215,18 +266,20 @@ const VerseCard = ({
 			{showFullPassage && fullPassage?.content && (
 				<div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 backdrop-blur-sm">
 					<div
+						ref={dialogRef}
 						className="max-h-[80vh] w-full max-w-3xl overflow-auto rounded-lg border bg-white p-6 shadow-xl transition-colors duration-300 dark:border-gray-700 dark:bg-gray-800 dark:shadow-black/30"
 						role="dialog"
 						aria-modal="true"
-						aria-labelledby="full-passage-title"
+						aria-labelledby={dialogTitleId}
 					>
 						<div className="mb-4 flex items-center justify-between gap-4">
-							<h2 id="full-passage-title" className="text-xl font-semibold text-[#314156] transition-colors duration-300 dark:text-gray-100">
+							<h2 id={dialogTitleId} className="text-xl font-semibold text-[#314156] transition-colors duration-300 dark:text-gray-100">
 								{fullPassage.reference}
 							</h2>
 							<button
 								type="button"
 								onClick={closeFullPassage}
+								ref={closeButtonRef}
 								aria-label="Cerrar pasaje completo"
 								className="rounded-full p-1 text-gray-600 transition-colors hover:bg-gray-100 hover:text-[#314156] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79b72] dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-100"
 							>
