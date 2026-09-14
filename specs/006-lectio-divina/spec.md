@@ -1,6 +1,6 @@
 # Spec 006 — Lectio divina asistida por IA
 
-Estado: Planned — clarificaciones resueltas; pendiente implementación
+Estado: Implementación técnica completada; pendiente revisión humana y verificación de entorno
 Prioridad: P2
 
 ## Contexto y objetivo

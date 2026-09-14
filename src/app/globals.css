@@ -18,4 +18,18 @@ html {
 body {
 	font-family: Arial, Helvetica, sans-serif;
 	transition: background-color 0.3s ease, color 0.3s ease;
+	overflow-x: hidden;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+	touch-action: manipulation;
+}
+
+img,
+svg {
+	max-width: 100%;
 }

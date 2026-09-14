@@ -6,6 +6,8 @@ import {
 	ArrowRightIcon,
 	BookOpenIcon,
 } from "@heroicons/react/24/outline";
+import SaveReadingButton from "@/components/SaveReadingButton.jsx";
+import ShareReadingButton from "@/components/ShareReadingButton.jsx";
 
 const VerseCard = ({
 	verse,
@@ -21,10 +23,13 @@ const VerseCard = ({
 	canGoPrevious = true,
 	showNavigation = false,
 	showNavigationHint = true,
+	saveContent = null,
+	shareContent = null,
 }) => {
 	const [fullPassage, setFullPassage] = useState(null);
 	const [isLoading, setIsLoading] = useState(false);
 	const [showFullPassage, setShowFullPassage] = useState(false);
+	const [fullPassageId, setFullPassageId] = useState(null);
 	const [errorMessage, setErrorMessage] = useState(null);
 	const touchStartX = useRef(null);
 	const dialogRef = useRef(null);
@@ -35,6 +40,7 @@ const VerseCard = ({
 
 	useEffect(() => {
 		setFullPassage(null);
+		setFullPassageId(null);
 		setShowFullPassage(false);
 		setErrorMessage(null);
 	}, [passageId, verseId, reference]);
@@ -100,6 +106,7 @@ const VerseCard = ({
 			}
 
 			setFullPassage(data);
+			setFullPassageId(requestedPassageId);
 			setShowFullPassage(true);
 		} catch (error) {
 			console.error("Error al obtener el pasaje completo:", error);
@@ -197,9 +204,9 @@ const VerseCard = ({
 				</>
 			)}
 
-			<div className="rounded-lg border border-gray-100 bg-white p-6 shadow-lg transition-colors duration-300 hover:border-[#b79b72] dark:border-gray-700 dark:bg-gray-800 dark:hover:border-[#b79b72]/80">
+			<div className="rounded-lg border border-gray-100 bg-white p-4 shadow-lg transition-colors duration-300 hover:border-[#b79b72] dark:border-gray-700 dark:bg-gray-800 dark:hover:border-[#b79b72]/80 sm:p-6">
 				<div className="mb-4 text-center">
-					<blockquote className="mb-4 text-xl font-medium italic text-[#314156] transition-colors duration-300 dark:text-gray-100">
+					<blockquote className="mb-4 break-words text-xl font-medium italic text-[#314156] transition-colors duration-300 dark:text-gray-100">
 						&quot;{verse}&quot;
 					</blockquote>
 					<p className="text-lg font-semibold text-[#b79b72] transition-colors duration-300 dark:text-[#b79b72]/90">
@@ -207,7 +214,7 @@ const VerseCard = ({
 					</p>
 				</div>
 
-				<div className="flex justify-center">
+				<div className="flex flex-wrap items-start justify-center gap-2">
 					<button
 						type="button"
 						onClick={getFullPassage}
@@ -218,6 +225,8 @@ const VerseCard = ({
 						<BookOpenIcon className="h-5 w-5" aria-hidden="true" />
 						<span>{isLoading ? "Cargando…" : `Ver ${passageLabel.toLocaleLowerCase("es-CL")} completo`}</span>
 					</button>
+					{saveContent && <SaveReadingButton content={saveContent} />}
+					{shareContent && <ShareReadingButton content={shareContent} />}
 				</div>
 
 				{errorMessage && (
@@ -293,7 +302,33 @@ const VerseCard = ({
 						{fullPassage.copyright && (
 							<div className="mt-4 text-sm text-[#b79b72] dark:text-[#b79b72]/80">{fullPassage.copyright}</div>
 						)}
-						<div className="mt-6 flex justify-end">
+						<div className="mt-6 flex flex-wrap justify-end gap-2">
+							{fullPassageId && (
+								<ShareReadingButton
+									content={{
+										contentType: "bible-passage",
+										bibleId: "b32b9d1b64b4ef29-01",
+										passageId: fullPassageId,
+										ranges,
+										title: fullPassage.reference || reference,
+										reference: fullPassage.reference || reference,
+									}}
+								/>
+							)}
+							{saveContent && fullPassageId && (
+								<SaveReadingButton
+									content={{
+										contentType: "bible-passage",
+										bibleId: "b32b9d1b64b4ef29-01",
+										passageId: fullPassageId,
+										ranges,
+										title: fullPassage.reference || reference,
+										reference: fullPassage.reference || reference,
+										excerpt: verse,
+										source: { provider: "API.Bible" },
+									}}
+								/>
+							)}
 							<button
 								type="button"
 								onClick={closeFullPassage}

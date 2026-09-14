@@ -1,0 +1,20 @@
+{
+	"contentType": "liturgical-reading",
+	"date": "2026-09-13",
+	"calendar": "chile",
+	"readingType": "gospel",
+	"reading": {
+		"type": "gospel",
+		"reference": "Mateo 18:21-35",
+		"passageId": "MAT.18.21-35",
+		"ranges": [
+			{
+				"chapter": 18,
+				"start": 21,
+				"end": 35
+			}
+		],
+		"title": "No perdones sólo siete veces, sino setenta veces siete",
+		"excerpt": "No perdones sólo siete veces, sino setenta veces siete"
+	}
+}

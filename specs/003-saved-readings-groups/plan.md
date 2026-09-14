@@ -1,6 +1,6 @@
 # Plan técnico — Spec 003
 
-Estado: Planned — clarificaciones resueltas; pendiente implementación
+Estado: Implemented — extensión de experiencia de guardado
 
 ## Alcance técnico
 
@@ -11,7 +11,7 @@ Agregar persistencia de contenido guardado y una relación muchos-a-muchos entre
 - `src/lib/savedReadings/`: claves canónicas, normalización e idempotencia.
 - `src/lib/readingGroups/`: validación de nombres y membresías.
 - `src/app/api/saved-readings/` y `src/app/api/reading-groups/`.
-- Componentes de botón guardar, selector de grupos, lista y estados vacíos.
+- Componentes de marcador guardar/quitar, organizador modal de colecciones, lista y estados vacíos.
 - Migraciones y políticas por usuario.
 
 Las tablas de aplicación de Supabase estarán en un esquema expuesto solo con RLS habilitado. Las operaciones desde la web usarán la clave publishable y la sesión del usuario; nunca una service key en el cliente.
@@ -31,6 +31,7 @@ Restricciones sugeridas:
 - `unique(saved_item_id, group_id)` en la unión.
 - `unique(user_id, normalized_name)` en grupos.
 - El grupo `is_default` “Mis lecturas” no podrá eliminarse, podrá renombrarse y se conservará aunque no tenga membresías. Todo nuevo guardado tendrá inicialmente una membresía con ese grupo.
+- “Mis lecturas” será la bandeja base: una membresía a un grupo predeterminado no podrá eliminarse mientras exista el guardado. Las colecciones no predeterminadas sí podrán alternarse desde el organizador.
 - Toda consulta filtra por `user_id` antes de resolver el recurso.
 - Las políticas RLS aplican el mismo aislamiento y las mutaciones incluyen `USING` y `WITH CHECK`.
 
@@ -42,6 +43,7 @@ Restricciones sugeridas:
 - `PATCH/DELETE /api/reading-groups/:id`.
 - `POST/DELETE /api/saved-readings/:id/groups/:groupId`.
 - Las mutaciones devuelven estado idempotente y errores `401`, `403`, `404` o `422` según corresponda.
+- El contrato de borrado existente se reutiliza para el segundo toque del marcador; no se crea un endpoint paralelo. La API de membresías rechaza eliminar la relación con el grupo predeterminado.
 
 ## Decisiones técnicas
 
@@ -51,6 +53,7 @@ Restricciones sugeridas:
 | Clave canónica más snapshot | Permite detectar duplicados y conservar contexto | Guardar solo texto libre |
 | Grupo por usuario | Evita nombres y relaciones globales no solicitadas | Grupos públicos desde el inicio |
 | Restricciones en datos más validación API | Protege concurrencia y clientes futuros | Confiar solo en UI |
+| Bandeja base protegida en servicio y base de datos | Mantiene el equivalente de “Todos los guardados” aunque un cliente futuro intente quitar una colección | Confiar en que la UI deshabilite el checkbox |
 
 ## Trazabilidad hacia RF
 
@@ -59,7 +62,7 @@ Restricciones sugeridas:
 | `saved_items` | RF-1, RF-2, RF-8 |
 | Grupos y unión | RF-3, RF-4, RF-5, RF-6 |
 | Políticas y autorización | RF-7 |
-| Componentes y estados | RF-1 a RF-6 |
+| Componentes y estados | RF-1 a RF-6, RF-9, RF-10 |
 
 ## Estrategia de tests
 
@@ -68,6 +71,8 @@ Restricciones sugeridas:
 - Tests de aislamiento entre usuario A y usuario B.
 - Test concurrente o repetido para idempotencia.
 - Verificación manual desde móvil y desktop.
+- Verificación manual de toque, pulsación prolongada, teclado, cierre de diálogo y estados de error.
+- pgTAP para protección de la membresía de la bandeja base.
 
 ## Riesgos, migración y rollback
 

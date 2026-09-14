@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AUTH_UI_MESSAGES } from "@/lib/auth/messages";
 
-export default function AuthActions() {
+export default function AuthActions({ menu = false }) {
 	const pathname = usePathname();
 	const [status, setStatus] = useState("loading");
 	const [session, setSession] = useState(null);
@@ -49,7 +49,7 @@ export default function AuthActions() {
 
 	if (status === "loading") {
 		return (
-			<span className="px-3 py-2 text-sm text-gray-500 dark:text-gray-400" role="status">
+			<span className={`${menu ? "block px-3" : "px-3"} py-2 text-sm text-gray-500 dark:text-gray-400`} role="status">
 				Comprobando sesión…
 			</span>
 		);
@@ -60,7 +60,7 @@ export default function AuthActions() {
 		return (
 			<Link
 				href={loginPath}
-				className="inline-flex min-h-10 items-center justify-center rounded-md px-3 py-2 text-sm font-semibold text-[#314156] transition hover:bg-[#b79b72]/10 focus:outline-none focus:ring-2 focus:ring-[#b79b72] dark:text-gray-100 dark:hover:bg-[#b79b72]/20"
+				className={`${menu ? "flex w-full justify-start" : "inline-flex justify-center"} min-h-10 items-center rounded-md px-3 py-2 text-sm font-semibold text-[#314156] transition hover:bg-[#b79b72]/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79b72] dark:text-gray-100 dark:hover:bg-[#b79b72]/20`}
 			>
 				Iniciar sesión
 			</Link>
@@ -70,19 +70,19 @@ export default function AuthActions() {
 	const displayName = session.user?.displayName || session.user?.email || "Mi cuenta";
 
 	return (
-		<div className="flex flex-col items-start gap-1 md:flex-row md:items-center md:gap-2">
-			<span className="max-w-40 truncate px-3 py-2 text-sm text-gray-600 dark:text-gray-300" title={displayName}>
+		<div className={`${menu ? "space-y-1" : "flex flex-col items-start gap-1 md:flex-row md:items-center md:gap-2"}`}>
+			<span className={`${menu ? "block px-3" : "max-w-40 px-3"} truncate py-2 text-sm text-gray-600 dark:text-gray-300`} title={displayName}>
 				{displayName}
 			</span>
 			<button
 				type="button"
 				onClick={handleLogout}
-				className="inline-flex min-h-10 items-center justify-center rounded-md px-3 py-2 text-sm font-semibold text-[#314156] transition hover:bg-[#b79b72]/10 focus:outline-none focus:ring-2 focus:ring-[#b79b72] dark:text-gray-100 dark:hover:bg-[#b79b72]/20"
+				className={`${menu ? "flex w-full justify-start" : "inline-flex justify-center"} min-h-10 items-center rounded-md px-3 py-2 text-sm font-semibold text-[#314156] transition hover:bg-[#b79b72]/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79b72] dark:text-gray-100 dark:hover:bg-[#b79b72]/20`}
 			>
 				Cerrar sesión
 			</button>
 			{error ? (
-				<span className="max-w-48 text-xs text-red-700 dark:text-red-300" role="alert">
+				<span className={`${menu ? "block px-3" : ""} max-w-48 text-xs text-red-700 dark:text-red-300`} role="alert">
 					{error}
 				</span>
 			) : null}

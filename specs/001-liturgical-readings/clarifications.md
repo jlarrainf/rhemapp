@@ -1,6 +1,6 @@
 # Clarificaciones — Spec 001
 
-Estado: Resolved — T1 completada; pendiente de implementación
+Estado: Resolved — T1 completada; ajustes de regla dominical y presentación aprobados el 2026-09-14
 
 ## Hallazgos de QA
 
@@ -12,7 +12,8 @@ Estado: Resolved — T1 completada; pendiente de implementación
 
 ## Decisiones aprobadas
 
-- **Regla dominical:** de lunes a viernes se muestra el próximo domingo; el sábado antes de las 15:00 se muestra el domingo anterior; desde el sábado a las 15:00 se muestra el próximo domingo; el domingo se muestra el domingo actual.
+- **Regla dominical actualizada:** de lunes a sábado antes de las 15:00 se muestra el domingo anterior; desde el sábado a las 15:00 se muestra el próximo domingo; el domingo se muestra el domingo actual. Así, el lunes 14 de septiembre de 2026 se muestra la celebración del domingo 13.
+- **Presentación sin duplicación:** la tarjeta de cada lectura conserva su extracto, referencia y acciones; el encabezado con `title` solo se muestra cuando aporta texto distinto del extracto. Cuando ambos son iguales, se omite el encabezado redundante y se conserva el título en los metadatos internos de guardado y compartir.
 - **Traducción provisional:** se mantiene la traducción actualmente configurada en API.Bible: Bible ID `b32b9d1b64b4ef29-01`, `The Holy Bible in Simple Spanish` (`spabes`), español, dominio público CC0. El ID configurado no es Reina-Valera 1960.
 - **Fechas consultables:** se permite cualquier fecha desde `2025-01-01` en adelante que tenga una lectura publicada, incluyendo fechas futuras.
 - **Fecha seleccionada:** permanece fija al pasar medianoche. Solo el modo “Hoy” se actualiza automáticamente.
@@ -20,7 +21,7 @@ Estado: Resolved — T1 completada; pendiente de implementación
 - **Fechas futuras incompletas:** no se publica ninguna lectura de una fecha futura mientras falte una lectura o verificación; la interfaz muestra “Lectura aún no disponible”.
 - **Traducción provisional:** `b32b9d1b64b4ef29-01` se aplica temporalmente a todas las clases de lectura, sujeto a la verificación editorial de cada entrada.
 - **Fuente no disponible:** se conserva y se muestra la última versión verificada; no se sobrescriben datos válidos con datos incompletos, se marca la posible desactualización y se registra un error accionable para revisión administrativa.
-- **Aviso de traducción:** mientras se use la traducción provisional configurada, la interfaz mostrará un aviso visible pero discreto y la atribución de API.Bible y de la fuente bíblica cuando corresponda.
+- **Presentación de atribución:** mientras se use la traducción provisional configurada, la interfaz conservará una entrada compacta y accesible de “Fuente y traducción”, cerrada por defecto, con la atribución de API.Bible y de la fuente bíblica cuando corresponda. No se mostrará como una tarjeta de aviso prominente ni repetirá el contenido de la lectura.
 - **Resultado de T1:** los metadatos consultados mediante `https://rest.api.bible` confirman la identidad, abreviación, idioma y copyright CC0 del Bible ID configurado. La consulta usó la credencial local sin incorporarla a ningún archivo rastreable, interfaz o log.
 - **Plan verificado:** el panel de la aplicación muestra `LEGACY DEFAULT PLAN` a `$0 / month`; la tabla indica que el uso comercial está permitido en planes Pro. El alcance actual no incluye monetización; monetizar requerirá revisar y actualizar el plan/licencia antes de publicar ese cambio.
 - **Requisito de licencia:** antes de usar o ampliar el contenido se debe registrar la traducción exacta, el copyright, el plan/licencia aplicable, el texto de atribución, las reglas de caché y cualquier requisito del titular.

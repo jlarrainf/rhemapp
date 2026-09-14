@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Rhemapp</string>
+    <string name="app_description">Lecturas bíblicas, oración y reflexión diaria.</string>
+    <string name="default_notification_channel">Lectura del día</string>
+</resources>

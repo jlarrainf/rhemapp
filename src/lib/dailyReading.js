@@ -64,6 +64,12 @@ function findEntryByDateKey(dateKey) {
 	return data.entries.find((item) => item?.date === dateKey) || null;
 }
 
+export function getPublishedEntryForDate(dateKey) {
+	const entry = findEntryByDateKey(dateKey);
+	if (!entry) throw new ReadingUnavailableError(`Lectura aún no disponible para ${dateKey}`);
+	return entry;
+}
+
 export function getPublishedReading({
 	dateKey,
 	mode = "today",

@@ -5,6 +5,8 @@ import test from "node:test";
 const loginForm = await readFile(new URL("../src/app/login/LoginForm.jsx", import.meta.url), "utf8");
 const logoutRoute = await readFile(new URL("../src/app/api/auth/logout/route.js", import.meta.url), "utf8");
 const authActions = await readFile(new URL("../src/components/AuthActions.jsx", import.meta.url), "utf8");
+const navbar = await readFile(new URL("../src/components/Navbar.jsx", import.meta.url), "utf8");
+const profileMenu = await readFile(new URL("../src/components/ProfileMenu.jsx", import.meta.url), "utf8");
 
 test("login UI exposes accessible Spanish states and auth methods", () => {
 	for (const text of [
@@ -35,4 +37,19 @@ test("navigation offers login and logout without exposing raw auth errors", () =
 	assert.match(authActions, /Iniciar sesión/);
 	assert.match(authActions, /AUTH_UI_MESSAGES\.logout/);
 	assert.doesNotMatch(authActions, /error\.message/);
+});
+
+test("header prioritizes the three reading routes and groups secondary options", () => {
+	for (const label of ["Versículos aleatorios", "Lectura del día", "Misterios del Rosario"]) {
+		assert.match(navbar, new RegExp(label));
+	}
+	assert.match(navbar, /aria-label="Ir al inicio de Rhemapp"/);
+	assert.doesNotMatch(navbar, /<NavLink href="\/"/);
+	assert.doesNotMatch(navbar, /<MobileNavLink href="\/"/);
+	for (const label of ["Mi biblioteca", "Sugerencias", "Mi perfil", "Perfil y más"]) {
+		assert.match(navbar + profileMenu, new RegExp(label));
+	}
+	assert.match(profileMenu, /aria-expanded=\{isOpen\}/);
+	assert.match(profileMenu, /event\.key === "Escape"/);
+	assert.match(profileMenu, /document\.addEventListener\("pointerdown"/);
 });

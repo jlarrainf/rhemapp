@@ -2,7 +2,7 @@ import { createServerClient } from "@supabase/ssr";
 import { NextResponse } from "next/server";
 import { getSafeNextPath } from "@/lib/auth/oauth";
 
-const PRIVATE_PAGE_PREFIXES = ["/perfil", "/admin"];
+const PRIVATE_PAGE_PREFIXES = ["/perfil", "/admin", "/biblioteca"];
 
 function isPrivatePage(pathname) {
 	return PRIVATE_PAGE_PREFIXES.some(
@@ -50,5 +50,5 @@ export async function middleware(request) {
 }
 
 export const config = {
-	matcher: ["/auth/:path*", "/api/auth/:path*", "/perfil/:path*", "/admin/:path*"],
+	matcher: ["/auth/:path*", "/api/auth/:path*", "/perfil/:path*", "/admin/:path*", "/biblioteca/:path*"],
 };

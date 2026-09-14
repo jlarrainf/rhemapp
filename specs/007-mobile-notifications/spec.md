@@ -1,6 +1,6 @@
 # Spec 007 — Mobile, PWA y notificaciones
 
-Estado: Planned — clarificaciones resueltas; pendiente implementación
+Estado: Implementing — T4 completada; resto de fases pendiente
 Prioridad: P2
 
 ## Contexto y objetivo
@@ -24,8 +24,8 @@ Rhemapp debe poder usarse cómodamente desde un teléfono con las mismas funcion
 
 ## Requisitos funcionales
 
-- RF-1: CUANDO un usuario abre Rhemapp desde un teléfono, EL SISTEMA ofrece una interfaz responsive/PWA con las funciones aprobadas de las Specs 001–006; las notificaciones quedan reservadas para la fase Android.
-- RF-2: CUANDO un usuario instala la PWA compatible, EL SISTEMA conserva nombre, icono, tema y navegación coherentes con la web; la PWA será la primera entrega móvil y la app nativa queda fuera de esta fase.
+- RF-1: CUANDO un usuario abre Rhemapp desde un teléfono, EL SISTEMA ofrece una interfaz responsive/PWA con las funciones aprobadas de las Specs 001–006; las notificaciones quedan reservadas para la fase Android y la navegación mantiene las tres rutas principales separadas de las opciones secundarias.
+- RF-2: CUANDO un usuario instala la PWA compatible, EL SISTEMA conserva nombre, icono, tema y navegación coherentes con la web; el logo de Rhemapp conduce al inicio, las rutas visibles son Versículos aleatorios, Lectura del día y Misterios del Rosario, y biblioteca, sugerencias, perfil, autenticación y tema se agrupan bajo Perfil y más.
 - RF-3: CUANDO un usuario de la app Android concede permiso para notificaciones, EL SISTEMA registra el dispositivo de forma segura y permite configurar una hora local; la PWA no registra dispositivos push en esta fase.
 - RF-4: CUANDO un usuario de Android guarda una hora válida, EL SISTEMA persiste la hora, la zona horaria IANA y el estado habilitado.
 - RF-5: CUANDO llega la hora configurada, EL SISTEMA envía desde la app Android como máximo un aviso diario para la lectura diaria vigente y lo enlaza con Daily.
@@ -80,3 +80,6 @@ Rhemapp debe poder usarse cómodamente desde un teléfono con las mismas funcion
 - Todos los dispositivos Android activos de un usuario recibirán el aviso usando la misma hora y zona horaria configuradas en su perfil.
 - Un cambio de zona horaria se aplicará inmediatamente a los próximos avisos y recalculará la programación pendiente.
 - La versión mínima soportada será Android 10 (API 29).
+- El logo de Rhemapp es el único acceso persistente al inicio; no se repite “Inicio” como enlace principal.
+- En escritorio, el menú de perfil agrupa biblioteca, sugerencias, perfil, autenticación y cambio de tema. En móvil, el menú hamburguesa mantiene la misma jerarquía bajo “Perfil y más”.
+- El menú de perfil se puede abrir y cerrar con teclado, se cierra con Escape o al pulsar fuera y mantiene foco visible en todos sus controles.

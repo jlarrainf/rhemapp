@@ -1,6 +1,6 @@
 # Spec 001 — Lecturas litúrgicas y Daily completo
 
-Estado: Implemented and validated — T1–T17 completadas
+Estado: Implemented and validated — T1–T18 completadas
 Prioridad: P0
 
 ## Contexto y objetivo
@@ -26,7 +26,7 @@ La sección Daily actualmente muestra solo un extracto del Evangelio del día y 
 
 - RF-1: CUANDO un visitante abre Daily sin fecha ni modo, EL SISTEMA muestra la celebración correspondiente a la fecha actual en `America/Santiago`.
 - RF-2: CUANDO un visitante selecciona una fecha válida, EL SISTEMA actualiza la URL con `YYYY-MM-DD` y muestra la celebración de esa fecha sin desplazarla por la zona horaria del dispositivo.
-- RF-3: CUANDO existe una celebración publicada, EL SISTEMA muestra sus lecturas en este orden: primera lectura, salmo, segunda lectura si existe y Evangelio.
+- RF-3: CUANDO existe una celebración publicada, EL SISTEMA muestra sus lecturas en este orden: primera lectura, salmo, segunda lectura si existe y Evangelio. Cada lectura se presenta en una única tarjeta; si su título coincide con el extracto visible, no se repite como encabezado separado.
 - RF-4: SI una celebración no tiene segunda lectura, ENTONCES EL SISTEMA no muestra una tarjeta vacía ni inventa contenido.
 - RF-5: CUANDO una lectura tiene `passageId` y rangos válidos, EL SISTEMA permite abrir el pasaje completo conservando la referencia y la atribución correspondiente.
 - RF-6: CUANDO el visitante activa el modo domingo, EL SISTEMA resuelve una única celebración dominical mediante una regla centralizada de calendario.
@@ -34,7 +34,7 @@ La sección Daily actualmente muestra solo un extracto del Evangelio del día y 
 - RF-8: SI falta una lectura obligatoria, una referencia, un identificador, un rango o una fuente verificada, ENTONCES la entrada no se publica como completa y el sistema registra un error accionable.
 - RF-9: EL SISTEMA conserva la compatibilidad temporal del endpoint existente mientras migran sus consumidores al contrato genérico de lecturas.
 - RF-10: CUANDO la sincronización obtiene datos nuevos, EL SISTEMA guarda la fuente, el momento de obtención y el estado de verificación sin sobrescribir datos válidos con datos incompletos; SI la fuente no está disponible, conserva la última versión verificada, marca el estado operativo y registra un error accionable.
-- RF-11: MIENTRAS se utilice la traducción configurada como solución provisional, EL SISTEMA muestra un aviso visible pero discreto y la atribución correspondiente de la fuente bíblica cuando aplique.
+- RF-11: MIENTRAS se utilice la traducción configurada como solución provisional, EL SISTEMA conserva la atribución correspondiente de la fuente bíblica en un disclosure compacto y accesible, sin interrumpir ni competir visualmente con la lectura.
 
 ## Requisitos no funcionales
 
@@ -43,7 +43,7 @@ La sección Daily actualmente muestra solo un extracto del Evangelio del día y 
 - Las cadenas visibles, errores y estados de carga deben estar en español.
 - Las API no deben exponer claves ni datos internos.
 - Las rutas públicas deben conservar metadata y canonicales coherentes.
-- El aviso de traducción provisional debe aparecer de forma consistente en las vistas que muestran texto bíblico, sin ocultar ni reemplazar el contenido.
+- La atribución de la traducción provisional debe aparecer de forma consistente en las vistas que muestran texto bíblico, sin ocultar ni reemplazar el contenido ni presentarse como una tarjeta de aviso prominente.
 - La validación debe ejecutarse en CI antes de publicar cambios de contenido.
 
 ## Casos límite
@@ -78,7 +78,7 @@ La sección Daily actualmente muestra solo un extracto del Evangelio del día y 
 
 ## Decisiones confirmadas
 
-- El modo domingo muestra el próximo domingo de lunes a viernes, el domingo anterior el sábado antes de las 15:00, el próximo domingo desde el sábado a las 15:00 y el domingo actual durante el domingo.
+- El modo domingo muestra el domingo anterior de lunes a sábado antes de las 15:00, el próximo domingo desde el sábado a las 15:00 y el domingo actual durante el domingo.
 - Se mantiene temporalmente la traducción configurada actualmente en API.Bible: Bible ID `b32b9d1b64b4ef29-01`, identificada por sus metadatos como `The Holy Bible in Simple Spanish` (`spabes`), idioma español y dominio público CC0.
 - El Bible ID configurado no es Reina-Valera 1960. La selección futura de una traducción católica o de Reina-Valera 1960 requiere otro Bible ID autorizado y una nueva revisión editorial y de licencia.
 - Se pueden consultar fechas desde `2025-01-01` en adelante, incluidas fechas futuras, siempre que tengan una lectura publicada.
@@ -87,7 +87,7 @@ La sección Daily actualmente muestra solo un extracto del Evangelio del día y 
 - Una fecha futura solo muestra contenido cuando todas sus lecturas están completas y verificadas; de lo contrario muestra “Lectura aún no disponible”.
 - Mientras la traducción sea provisional, `b32b9d1b64b4ef29-01` se usará para primera lectura, salmo, segunda lectura y Evangelio, sujeto a las verificaciones de contenido de cada publicación.
 - Si la fuente editorial externa no está disponible, se conserva y se muestra la última lectura verificada, sin publicar datos incompletos; el sistema marca la información como posiblemente desactualizada y registra el error para revisión administrativa.
-- Mientras se use la traducción configurada provisionalmente, se mostrará un aviso discreto y la atribución correspondiente de API.Bible y de la fuente bíblica cuando aplique.
+- Mientras se use la traducción configurada provisionalmente, se conservará una entrada compacta de “Fuente y traducción” cerrada por defecto; al abrirla, mostrará la atribución correspondiente de API.Bible y de la fuente bíblica cuando aplique.
 
 ## Resultado de verificación de T1
 

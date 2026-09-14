@@ -1,10 +1,21 @@
 import assert from "node:assert/strict";
+import fs from "node:fs";
+import path from "node:path";
 import test from "node:test";
 import {
 	ReadingUnavailableError,
 	getDailyReading,
 	getPublishedReading,
 } from "../src/lib/dailyReading.js";
+
+const dailyClient = fs.readFileSync(
+	path.join(process.cwd(), "src", "app", "daily", "DailyVerseClient.jsx"),
+	"utf8",
+);
+const translationNotice = fs.readFileSync(
+	path.join(process.cwd(), "src", "components", "BibleTranslationNotice.jsx"),
+	"utf8",
+);
 
 test("publishes a generic entry for an explicit date", () => {
 	const result = getPublishedReading({ dateKey: "2026-09-10", mode: "date" });
@@ -48,4 +59,17 @@ test("keeps the compatible daily contract while exposing readings", () => {
 	assert.equal(result.dateKey, "2026-09-10");
 	assert.equal(result.readings[0].type, "first-reading");
 	assert.equal(result.gospel.reference, "Lucas 6:27-36");
+});
+
+test("does not render a reading title when it duplicates the excerpt", () => {
+	assert.match(dailyClient, /const showDistinctTitle = Boolean\(title && title !== excerpt\)/);
+	assert.match(dailyClient, /showDistinctTitle && \(/);
+});
+
+test("keeps translation attribution available without a prominent notice", () => {
+	assert.match(translationNotice, /<details className=/);
+	assert.match(translationNotice, /Fuente y traducción/);
+	assert.match(translationNotice, /API\.Bible/);
+	assert.match(translationNotice, /CC0/);
+	assert.doesNotMatch(translationNotice, /rounded-lg border/);
 });

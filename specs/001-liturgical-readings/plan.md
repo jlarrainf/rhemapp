@@ -25,6 +25,10 @@ migrados. La sincronización marca como posiblemente desactualizada la última e
 cuando una consulta falla o devuelve datos incompletos, y valida el documento candidato
 completo antes del reemplazo atómico.
 
+La tarjeta diaria no repite visualmente un título que sea idéntico al extracto: mantiene
+la etiqueta de tipo, el extracto, la referencia y las acciones, y solo muestra el título
+como encabezado adicional cuando aporta información diferente.
+
 ## Modelo de datos de esta fase
 
 ```json
@@ -61,10 +65,10 @@ La migración conservará temporalmente `gospel` como alias de compatibilidad si
 - Los errores de parámetros responden `400`; ausencia de contenido publicado responde `404` o el código acordado en clarificaciones.
 - `/api/daily-reading` seguirá devolviendo una forma compatible durante la migración.
 
-La resolución temporal del modo domingo será exactamente:
+La resolución temporal del modo domingo es exactamente:
 
 ```text
-Monday–Friday       → next Sunday
+Monday–Friday       → previous Sunday
 Saturday < 15:00    → previous Sunday
 Saturday >= 15:00   → next Sunday
 Sunday              → current Sunday
@@ -72,7 +76,7 @@ Sunday              → current Sunday
 
 Las consultas explícitas aceptan fechas desde `2025-01-01`, incluidas futuras, pero solo devuelven contenido publicado y validado. El modo de fecha seleccionada no se reemplaza al cambiar el día; el modo “Hoy” sí sigue `America/Santiago`.
 
-La sincronización debe tratar Eucaristía Diaria y el Ordo chileno como fuentes editoriales confirmadas. Una entrada futura con cualquier lectura faltante o no verificada permanece fuera de la respuesta pública y se representa como no disponible. Cada sincronización debe validar completamente el nuevo conjunto antes de reemplazar el anterior; si la fuente falla o el conjunto es incompleto, se conserva la última versión verificada, se marca como posiblemente desactualizada y se registra un error accionable. Mientras se use la traducción provisional configurada, los componentes que rendericen texto bíblico deben mostrar un aviso discreto y la atribución de API.Bible y de la fuente bíblica cuando corresponda.
+La sincronización debe tratar Eucaristía Diaria y el Ordo chileno como fuentes editoriales confirmadas. Una entrada futura con cualquier lectura faltante o no verificada permanece fuera de la respuesta pública y se representa como no disponible. Cada sincronización debe validar completamente el nuevo conjunto antes de reemplazar el anterior; si la fuente falla o el conjunto es incompleto, se conserva la última versión verificada, se marca como posiblemente desactualizada y se registra un error accionable. Mientras se use la traducción provisional configurada, los componentes que rendericen texto bíblico deben mostrar una entrada compacta “Fuente y traducción”, cerrada por defecto, con la atribución de API.Bible y de la fuente bíblica cuando corresponda.
 
 La sincronización puede usar el Bible ID configurado después de la verificación documentada en T1, pero no debe cambiarlo ni publicar otro texto completo sin repetir esa revisión. El plan debe conservar la integridad del texto, incluir atribución contextual y una página de copyright enlazada, y actualizar cualquier contenido cacheado como máximo dentro de 30 días. Si la aplicación se monetiza, se debe confirmar un plan/licencia comercial compatible antes de habilitar ese uso.
 

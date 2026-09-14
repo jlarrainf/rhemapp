@@ -1,6 +1,6 @@
 # Tareas — Spec 002
 
-Las tareas de implementación dependen de las decisiones de `clarifications.md`; T1, T2 y T6–T14 ya están cerradas localmente. T3–T5 y T9–T14 mantienen validación externa pendiente contra un entorno Supabase real.
+Las tareas de implementación dependen de las decisiones de `clarifications.md`; T1, T2, T4 y T6–T14 ya están cerradas en código y/o entorno. T3, T5, T9–T14 mantienen validación funcional pendiente contra un entorno Supabase real.
 
 ## Fase 0 — Decisiones y base
 
@@ -19,10 +19,10 @@ Las tareas de implementación dependen de las decisiones de `clarifications.md`;
 
 ## Fase 1 — Sesión
 
-- [ ] T4 — Configurar el adaptador server-side de Google OAuth.
+- [x] T4 — Configurar el adaptador server-side de Google OAuth.
   - RF: RF-1
   - Hecho cuando: un callback válido crea o recupera un usuario de prueba.
-  - Estado actual: PARCIAL. Se añadieron clientes Supabase browser/server con `@supabase/ssr`, callback PKCE en `/auth/callback`, destino `next` protegido contra open redirects, variables publishable y pruebas de construcción de URLs/errores. Falta probar un callback válido contra un proyecto Supabase de Rhemapp con Google configurado.
+  - Estado actual: COMPLETADA. Se añadieron clientes Supabase browser/server con `@supabase/ssr`, callback PKCE en `/auth/callback`, destino `next` protegido contra open redirects, variables publishable y pruebas de construcción de URLs/errores. El usuario completó el inicio con Google en producción; Supabase registra una identidad `google`, el usuario, su perfil, el rol inicial `admin` y la auditoría de provisión.
 - [ ] T5 — Implementar resolución y expiración de sesión.
   - RF: RF-2, RF-3
   - Hecho cuando: las API distinguen visitante, sesión válida y sesión expirada.
@@ -61,12 +61,12 @@ Las tareas de implementación dependen de las decisiones de `clarifications.md`;
 - [x] T12 — Documentar variables, OAuth callbacks y operación por entorno.
   - RF: RF-1, RF-2
   - Hecho cuando: desarrollo, preview y producción tienen instrucciones reproducibles.
-  - Estado actual: COMPLETADA. `docs/authentication-operation.md` documenta las cinco variables de autenticación, la separación entre las URLs de Google, Supabase y Next.js, los callbacks PKCE, retornos seguros, configuración de desarrollo local, Preview de Vercel y producción, migraciones con `--dry-run`, smoke tests, rotación de secretos y rollback. `README.md` enlaza el runbook y resume las variables sin valores sensibles. `test-auth-operations-doc.mjs` verifica las variables, entornos, callbacks y comandos; `npm run test:auth`, lint y build pasan. La ejecución contra un proyecto Supabase real se mantiene pendiente por el bloqueo de entorno descrito en `validation.md`.
+  - Estado actual: COMPLETADA. `docs/authentication-operation.md` documenta las cinco variables de autenticación, la separación entre las URLs de Google, Supabase y Next.js, los callbacks PKCE, retornos seguros, configuración de desarrollo local, Preview de Vercel y producción, migraciones con `--dry-run`, smoke tests, rotación de secretos y rollback. `README.md` enlaza el runbook y resume las variables sin valores sensibles. `test-auth-operations-doc.mjs` verifica las variables, entornos, callbacks y comandos; `npm run test:auth`, lint y build pasan. La configuración externa local y Production de Vercel está completa; se hizo redeploy y el smoke test HTTP de producción ya no devuelve `503`. Queda ejecutar los flujos autenticados reales.
 
 - [x] T13 — Implementar recuperación y cambio seguro de contraseña.
   - RF: RF-5
   - Hecho cuando: una persona puede solicitar recuperación sin enumeración, volver por el callback permitido y cambiar su contraseña con una sesión verificada.
-  - Estado actual: COMPLETADA. `/recuperar` y `POST /api/auth/recovery` validan el formato sin aceptar campos de enumeración y siempre usan una respuesta genérica; el enlace vuelve por `/auth/callback?next=/restablecer`; `/restablecer` exige sesión verificada, valida contraseñas coincidentes, llama `updateUser` y cierra las sesiones globales después del cambio. `test-auth-recovery.mjs`, lint, build y la comprobación visual local pasan. Falta probar el correo y el intercambio real contra Supabase; la persistencia y el bloqueo real de los límites se validan junto con la migración de T14.
+  - Estado actual: COMPLETADA. `/recuperar` y `POST /api/auth/recovery` validan el formato sin aceptar campos de enumeración y siempre usan una respuesta genérica; el enlace vuelve por `/auth/callback?next=/restablecer`; `/restablecer` exige sesión verificada, valida contraseñas coincidentes, llama `updateUser` y cierra las sesiones globales después del cambio. `test-auth-recovery.mjs`, lint, build y la comprobación visual local pasan. SMTP de Resend ya está configurado en Supabase; falta probar el correo y el intercambio real contra Supabase. La persistencia y el bloqueo real de los límites se validan junto con la migración de T14.
 
 - [x] T14 — Aplicar límites server-side de login y recuperación.
   - RF: RF-5; NFR de abuso
@@ -78,4 +78,4 @@ Las tareas de implementación dependen de las decisiones de `clarifications.md`;
 - [ ] T15 — Ejecutar pruebas de autorización y completar `validation.md`.
   - RF: RF-1 a RF-8
   - Hecho cuando: pasan tests, lint, build y no quedan RF sin evidencia.
-  - Estado actual: PARCIAL. Se actualizó `validation.md` con evidencia individual para RF-1 a RF-8 y se ejecutaron `npm run test:auth` (54/54), `npm run test:readings` (30/30), `npm run validate:daily` (113 entradas válidas), `npm run lint`, `npm run build` y `git diff --check`. La migración ya está aplicada en el proyecto remoto, pero faltan las pruebas reales de OAuth, sesión, persistencia, roles, recuperación, eliminación y límites porque `.env.local` aún necesita la clave administrativa, el correo administrador y la configuración de proveedores.
+  - Estado actual: PARCIAL. Se actualizó `validation.md` con evidencia individual para RF-1 a RF-8 y se ejecutaron `npm run test:auth` (54/54), `npm run test:readings` (30/30), `npm run validate:daily` (113 entradas válidas), `npm run lint`, `npm run build` y `git diff --check`. La migración ya está aplicada en el proyecto remoto; Google, SMTP, URLs, `.env.local` y las variables Production de Vercel están configurados. El redeploy final quedó `READY`; `/api/auth/session` responde 200 como visitante y `/api/auth/login` responde 401 ante credenciales con formato válido pero incorrectas, sin el 503 original. Faltan las pruebas reales de OAuth, sesión autenticada, persistencia, roles, recuperación, eliminación y límites.

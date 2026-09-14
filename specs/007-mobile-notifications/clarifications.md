@@ -8,6 +8,7 @@ Estado: Resolved — decisiones registradas
 - “App de teléfono” puede significar PWA instalable o aplicación nativa; las tareas y costos son distintos.
 - Una notificación confiable requiere guardar zona horaria, manejar tokens inválidos y evitar duplicados.
 - La hora personalizada debe definirse con una zona horaria IANA para no depender del offset fijo.
+- La navegación actual presenta demasiadas opciones al mismo nivel y necesita una jerarquía más clara sin ocultar funciones existentes.
 
 ## Decisiones aprobadas
 
@@ -20,8 +21,10 @@ Estado: Resolved — decisiones registradas
 - Todos los dispositivos Android activos usarán la misma hora y zona horaria del perfil del usuario.
 - Los cambios de zona horaria se aplicarán inmediatamente a los próximos avisos y recalcularán la programación pendiente.
 - La versión mínima de Android será Android 10 (API 29).
+- **Jerarquía del header:** el logo de Rhemapp conduce al inicio; en escritorio solo quedan visibles Versículos aleatorios, Lectura del día y Misterios del Rosario. Biblioteca, sugerencias, perfil, autenticación y tema se agrupan en un menú de Perfil y más. En móvil, el menú hamburguesa conserva esa separación.
+- **Accesibilidad del menú:** el control de perfil expone su estado con `aria-expanded`, tiene foco visible, cierra con Escape y al pulsar fuera, y permite recorrer enlaces y acciones con teclado.
 
 ## Impacto
 
 - Plan: construir primero paridad móvil como PWA y contratos API; después crear la app Android y el push. No se crearán credenciales de tiendas nativas durante la fase PWA.
-- Tareas: plataforma, hora, periodicidad, zona horaria, activación, contenido del aviso, tecnología Android, dispositivos y compatibilidad mínima quedan definidos.
+- Tareas: plataforma, hora, periodicidad, zona horaria, activación, contenido del aviso, tecnología Android, dispositivos, compatibilidad mínima y jerarquía responsive del header quedan definidos.

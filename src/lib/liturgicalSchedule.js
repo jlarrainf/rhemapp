@@ -48,6 +48,10 @@ function getWeekdayInTimeZone(date, timeZone = DAILY_TIME_ZONE) {
 	return { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 }[weekday];
 }
 
+export function getWeekdayIndexInTimeZone(date = new Date(), timeZone = DAILY_TIME_ZONE) {
+	return getWeekdayInTimeZone(date, timeZone);
+}
+
 export function isValidDateKey(value) {
 	if (typeof value !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
 
@@ -98,7 +102,7 @@ export function resolveSundayDateKey({ now = new Date(), timeZone = DAILY_TIME_Z
 		return addCalendarDays(dateKey, isBeforeCutoff ? -6 : 1);
 	}
 
-	return addCalendarDays(dateKey, 7 - weekday);
+	return addCalendarDays(dateKey, -weekday);
 }
 
 export function formatDailyDate(date = new Date(), timeZone = DAILY_TIME_ZONE) {

@@ -14,9 +14,13 @@
 
 ## Fase 1 — Paridad móvil
 
-- [ ] T4 — Auditar y corregir layout responsive de las rutas existentes.
+- [x] T4 — Auditar y corregir layout responsive de las rutas existentes y jerarquía del header.
   - RF: RF-1
-  - Hecho cuando: Daily, Random, Rosario y navegación funcionan en viewport móvil.
+  - Hecho cuando: Daily, Random, Rosario y navegación funcionan en viewport móvil; el logo conduce al inicio, solo se muestran las tres rutas principales en escritorio y las opciones secundarias están agrupadas bajo Perfil y más con cierre accesible.
+  - Estado actual: COMPLETADA. `Navbar` y `ProfileMenu` implementan la jerarquía aprobada; el test de auth UI cubre los enlaces, el logo, el agrupamiento y el cierre con Escape/fuera del menú.
+  - Archivos: `src/components/Navbar.jsx`, `src/components/ProfileMenu.jsx`, `src/components/AuthActions.jsx`, `scripts/test-auth-ui.mjs`.
+  - Evidencia: `npm run test:auth` (55/55), `npm run lint`, `npm run build` y verificación manual en `http://127.0.0.1:3001/daily`.
+  - Cómo probarlo: abrir `/daily`, confirmar las tres rutas visibles, abrir `Perfil`, comprobar sus opciones y pulsar Escape; el foco vuelve al botón `Perfil`.
 - [ ] T5 — Completar manifest, iconos y metadata de instalación.
   - RF: RF-2
   - Hecho cuando: PWA instalable muestra identidad y tema correctos.

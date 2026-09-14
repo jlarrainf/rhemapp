@@ -4,16 +4,13 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useTheme } from "./ThemeContext";
-import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
 import AuthActions from "./AuthActions";
+import ProfileMenu, { ThemeToggleButton } from "./ProfileMenu";
 
 const Navbar = () => {
 	const pathname = usePathname();
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const [scrolled, setScrolled] = useState(false);
-	const { isDarkMode, toggleTheme } = useTheme();
-
 	// Efecto para detectar scroll y añadir sombra
 	useEffect(() => {
 		const handleScroll = () => {
@@ -28,6 +25,10 @@ const Navbar = () => {
 		return () => window.removeEventListener("scroll", handleScroll);
 	}, []);
 
+	useEffect(() => {
+		setIsMenuOpen(false);
+	}, [pathname]);
+
 	// Cerrar menú al hacer clic en un enlace
 	const handleLinkClick = () => {
 		setIsMenuOpen(false);
@@ -39,13 +40,14 @@ const Navbar = () => {
 				scrolled ? "shadow-md dark:shadow-lg dark:shadow-black/20" : ""
 			}`}
 		>
-			<div className="max-w-6xl mx-auto px-4">
-				<div className="flex justify-between items-center py-3">
+			<div className="mx-auto max-w-6xl px-3 sm:px-4">
+				<div className="flex min-h-14 items-center justify-between py-2">
 					{/* Logo */}
-					<div className="flex space-x-4">
+					<div className="flex shrink-0">
 						<Link
 							href="/"
-							className="flex items-center space-x-2 text-xl font-bold text-[#314156] dark:text-[#b79b72]"
+							className="flex items-center gap-2 text-xl font-bold text-[#314156] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79b72] dark:text-[#b79b72]"
+							aria-label="Ir al inicio de Rhemapp"
 						>
 							<Image
 								src="/Rhemapp_isotype.svg"
@@ -59,23 +61,20 @@ const Navbar = () => {
 					</div>
 
 					{/* Menú de escritorio */}
-					<div className="hidden md:flex md:items-center md:space-x-4">
-						<NavLink href="/" pathname={pathname} onClick={handleLinkClick}>
-							Inicio
-						</NavLink>
+					<div className="hidden items-center gap-1 md:flex lg:gap-2">
 						<NavLink
 							href="/random"
 							pathname={pathname}
 							onClick={handleLinkClick}
 						>
-							Versículo Aleatorio
+							Versículos aleatorios
 						</NavLink>
 						<NavLink
 							href="/daily"
 							pathname={pathname}
 							onClick={handleLinkClick}
 						>
-							Lecturas del Día
+							Lectura del día
 						</NavLink>
 						<NavLink
 							href="/rosario"
@@ -84,14 +83,14 @@ const Navbar = () => {
 						>
 							Misterios del Rosario
 						</NavLink>
-						<AuthActions />
+						<ProfileMenu />
 					</div>
 
 					{/* Botón del menú móvil y tema (versión móvil) */}
 					<div className="md:hidden flex items-center">
 						<button
 							onClick={() => setIsMenuOpen(!isMenuOpen)}
-							className="flex flex-col items-center justify-center p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-[#b79b72]/50"
+							className="flex min-h-11 min-w-11 flex-col items-center justify-center rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[#b79b72]/50"
 							aria-expanded={isMenuOpen}
 							aria-label="Menú principal"
 						>
@@ -121,23 +120,20 @@ const Navbar = () => {
 					isMenuOpen ? "max-h-screen py-3 opacity-100" : "max-h-0 opacity-0"
 				}`}
 			>
-				<div className="flex flex-col space-y-2 px-4 pb-4">
-					<MobileNavLink href="/" pathname={pathname} onClick={handleLinkClick}>
-						Inicio
-					</MobileNavLink>
+				<div className="flex flex-col gap-2 px-4 pb-4">
 					<MobileNavLink
 						href="/random"
 						pathname={pathname}
 						onClick={handleLinkClick}
 					>
-						Versículo Aleatorio
+						Versículos aleatorios
 					</MobileNavLink>
 					<MobileNavLink
 						href="/daily"
 						pathname={pathname}
 						onClick={handleLinkClick}
 					>
-						Lecturas del Día
+						Lectura del día
 					</MobileNavLink>
 					<MobileNavLink
 						href="/rosario"
@@ -146,9 +142,22 @@ const Navbar = () => {
 					>
 						Misterios del Rosario
 					</MobileNavLink>
-						<div className="border-t border-gray-200 pt-2 dark:border-gray-700">
-							<AuthActions />
-						</div>
+					<div className="mt-2 border-t border-gray-200 pt-3 dark:border-gray-700">
+						<p className="px-4 pb-1 text-xs font-semibold uppercase tracking-[0.12em] text-gray-500 dark:text-gray-400">
+							Perfil y más
+						</p>
+						<MobileNavLink href="/biblioteca" pathname={pathname} onClick={handleLinkClick}>
+							Mi biblioteca
+						</MobileNavLink>
+						<MobileNavLink href="/sugerencias" pathname={pathname} onClick={handleLinkClick}>
+							Sugerencias
+						</MobileNavLink>
+						<MobileNavLink href="/perfil" pathname={pathname} onClick={handleLinkClick}>
+							Mi perfil
+						</MobileNavLink>
+						<ThemeToggleButton className="mt-1" />
+						<AuthActions menu />
+					</div>
 				</div>
 			</div>
 		</nav>

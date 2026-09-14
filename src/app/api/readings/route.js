@@ -3,8 +3,9 @@ import {
 	DAILY_TIME_ZONE,
 	ReadingRequestError,
 	ReadingUnavailableError,
-	getPublishedReading,
 } from "../../../lib/dailyReading.js";
+import { getPublishedReadingWithOverrides } from "@/lib/editorial/publishedReadings";
+import { NOTIFICATION_READING_TYPES } from "@/lib/mobile/constants";
 
 export const dynamic = "force-dynamic";
 
@@ -13,11 +14,13 @@ export async function GET(request) {
 		const { searchParams } = new URL(request.url);
 		const dateValues = searchParams.getAll("date");
 		const modeValues = searchParams.getAll("mode");
-		if (dateValues.length > 1 || modeValues.length > 1) {
+		const readingValues = searchParams.getAll("reading");
+		if (dateValues.length > 1 || modeValues.length > 1 || readingValues.length > 1) {
 			throw new ReadingRequestError("Cada parámetro solo puede aparecer una vez");
 		}
 		const date = dateValues[0] ?? null;
 		const requestedMode = modeValues[0] ?? null;
+		const requestedReading = readingValues[0] ?? null;
 
 		if (date !== null && requestedMode !== null) {
 			throw new ReadingRequestError("No se pueden combinar date y mode");
@@ -27,13 +30,16 @@ export async function GET(request) {
 		if (requestedMode !== null && !["today", "sunday"].includes(requestedMode)) {
 			throw new ReadingRequestError("El modo debe ser today o sunday");
 		}
+		if (requestedReading !== null && !NOTIFICATION_READING_TYPES.includes(requestedReading)) {
+			throw new ReadingRequestError("El tipo de lectura no es válido");
+		}
 
-		const reading = getPublishedReading({
+		const reading = await getPublishedReadingWithOverrides({
 			dateKey: date || undefined,
 			mode: date !== null ? "date" : requestedMode || "today",
 			timeZone: DAILY_TIME_ZONE,
 		});
-		const response = NextResponse.json(reading);
+		const response = NextResponse.json({ ...reading, selectedReadingType: requestedReading });
 
 		response.headers.set("Cache-Control", "no-store, max-age=0");
 		response.headers.set("X-Robots-Tag", "noindex, nofollow");

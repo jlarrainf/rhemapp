@@ -1,0 +1,9 @@
+<resources>
+    <style name="Theme.Rhemapp" parent="android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:colorAccent">@color/rhemapp_gold</item>
+        <item name="android:navigationBarColor">@color/rhemapp_navy</item>
+        <item name="android:statusBarColor">@color/rhemapp_navy</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>

@@ -35,10 +35,10 @@ Las tareas no marcadas siguen pendientes. No implementar una tarea cuyo requisit
   - RF: RF-1, RF-2
   - Hecho cuando: devuelve claves ISO estables independientemente de la zona horaria del cliente.
   - Estado actual: COMPLETADA. `liturgicalSchedule.js` centraliza `America/Santiago`, valida fechas ISO desde `2025-01-01`, conserva la fecha seleccionada como string y resuelve “Hoy” con la fecha local de Chile. Sus pruebas cubren cambio de día por zona horaria, selección fija y fechas inválidas.
-- [x] T8 — Crear el resolvedor del domingo y sus pruebas de frontera.
+- [x] T8 — Ajustar el resolvedor del domingo y sus pruebas de frontera.
   - RF: RF-6, RF-7
   - Hecho cuando: existen tests para 14:59:59, 15:00:00 y domingo actual.
-  - Estado actual: COMPLETADA. `resolveSundayDateKey` aplica lunes–viernes → próximo domingo, sábado antes de las 15:00 → domingo anterior, sábado desde las 15:00 → próximo domingo y domingo → domingo actual. Las pruebas cubren exactamente 14:59:59, 15:00:00 y domingo.
+  - Estado actual: COMPLETADA. `resolveSundayDateKey` usa lunes–sábado antes de las 15:00 → domingo anterior, sábado desde las 15:00 → próximo domingo y domingo → domingo actual. Las pruebas cubren 14:59:59, 15:00:00, domingo actual y el lunes 14 de septiembre de 2026.
 - [x] T9 — Crear la ruta genérica `/api/readings`.
   - RF: RF-1, RF-2, RF-5, RF-6
   - Hecho cuando: responde modo diario, fecha explícita, modo domingo y errores de entrada.
@@ -58,10 +58,10 @@ Las tareas no marcadas siguen pendientes. No implementar una tarea cuyo requisit
   - RF: RF-1, RF-6, RF-7
   - Hecho cuando: el modo activo es visible, persistible en URL y se actualiza al cambiar el periodo.
   - Estado actual: COMPLETADA. El control accesible expone `Lectura diaria` y `Lectura dominical`, usa `aria-pressed`, persiste `?mode=today|sunday`, elimina la fecha explícita al cambiar de modo y consulta la ruta genérica correspondiente. La verificación visual confirmó el cambio a `?mode=sunday` y el estado activo.
-- [x] T13 — Renderizar la lista ordenada de lecturas y omitir la segunda lectura ausente.
+- [x] T13 — Renderizar la lista ordenada de lecturas sin encabezados redundantes y omitir la segunda lectura ausente.
   - RF: RF-3, RF-4
-  - Hecho cuando: cada tipo aparece con título, referencia, extracto y control de pasaje completo.
-  - Estado actual: COMPLETADA. La página consume `readings[]`, renderiza primera lectura, salmo, segunda lectura opcional y Evangelio en el orden validado, con etiquetas/títulos/referencias/extractos y controles contextuales. La verificación visual confirmó las cuatro lecturas del 13 de septiembre y la ausencia de `SEGUNDA LECTURA` el 10 de septiembre.
+  - Hecho cuando: cada tipo aparece con referencia, extracto y control de pasaje completo; el título solo aparece si no duplica el extracto.
+  - Estado actual: COMPLETADA. La página consume `readings[]`, mantiene la etiqueta, el extracto, la referencia y las acciones, y oculta el encabezado solo cuando `title` coincide con `excerpt`; si son distintos, conserva el título visible. La regresión de Daily confirma la regla.
 - [x] T14 — Reutilizar el modal de pasaje completo para todos los tipos compatibles.
   - RF: RF-5
   - Hecho cuando: el modal conserva rangos, copyright, foco y cierre accesible.
@@ -80,4 +80,9 @@ Las tareas no marcadas siguen pendientes. No implementar una tarea cuyo requisit
 - [x] T17 — Ejecutar validación completa y documentar evidencia RF por RF.
     - RF: RF-1 a RF-11
     - Hecho cuando: pasan `npm run validate:daily`, `npm run lint`, `npm run build` y se completa `validation.md`.
-  - Estado actual: COMPLETADA. Se ejecutaron `npm run test:readings` (30/30), `npm run validate:daily -- --year 2026` (113 entradas), `npm run lint`, `npm run build` y `git diff --check`. `validation.md` documenta evidencia RF por RF, verificación HTTP, verificación manual y limitaciones conocidas.
+  - Estado actual: COMPLETADA. Se ejecutaron `npm run test:readings` (33/33), `npm run validate:daily -- --year 2026` (113 entradas), `npm run lint`, `npm run build` y `git diff --check`. `validation.md` documenta evidencia RF por RF, verificación HTTP, verificación manual y limitaciones conocidas.
+
+- [x] T18 — Reducir la prominencia visual de la atribución de la traducción provisional.
+  - RF: RF-11
+  - Hecho cuando: Daily, Random y Rosario conservan la atribución completa en un disclosure accesible, cerrado por defecto, sin mostrar una tarjeta de aviso prominente; lint, pruebas de lecturas y build pasan.
+  - Estado actual: COMPLETADA. `BibleTranslationNotice` reemplaza el panel visible por un `<details>` compacto, accesible por teclado y cerrado por defecto; conserva la atribución completa y se reutiliza en Daily, Random y Rosario. La verificación visual confirmó el estado cerrado y expandido.

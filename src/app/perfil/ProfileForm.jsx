@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import AccountDeletionForm from "./AccountDeletionForm";
+import NotificationPreferencesForm from "./NotificationPreferencesForm";
 
 const EDITABLE_FIELDS = ["displayName", "avatarUrl", "locale", "timezone"];
 const PROFILE_UPDATE_ERROR = "No se pudo actualizar el perfil. Inténtalo nuevamente.";
@@ -178,6 +179,7 @@ export default function ProfileForm({ initialProfile }) {
 					</button>
 				</div>
 			</form>
+			<NotificationPreferencesForm />
 			<AccountDeletionForm />
 		</div>
 	);

@@ -8,7 +8,7 @@ Rhemapp usa un cliente publishable para navegador/SSR y un cliente administrativ
 
 | Variable | Desarrollo | Preview | Producción | Exposición |
 |---|---|---|---|---|
-| `SITE_URL` | `http://localhost:3000` | URL canónica definida para el preview | `https://www.rhemapp.com` | Se usa en metadata; no contiene secretos |
+| `SITE_URL` | `http://localhost:3000` | URL canónica definida para el preview | `https://rhemapp.com` | Se usa en metadata; no contiene secretos |
 | `NEXT_PUBLIC_SUPABASE_URL` | URL del proyecto Supabase de desarrollo | URL del proyecto Supabase de preview/staging | URL del proyecto Supabase de producción | Pública; llega al navegador |
 | `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` | Clave publishable del proyecto de desarrollo | Clave publishable del proyecto de preview/staging | Clave publishable del proyecto de producción | Pública; llega al navegador |
 | `SUPABASE_SERVICE_ROLE_KEY` | Clave administrativa de desarrollo para bootstrap, roles, eliminación y límites de autenticación | Clave administrativa del proyecto de preview/staging | Clave administrativa del proyecto de producción | Solo servidor; nunca `NEXT_PUBLIC_` |
@@ -32,7 +32,7 @@ Se recomienda un proyecto Supabase y un cliente OAuth de Google separados para d
 
 En Google Cloud crea un cliente OAuth de tipo aplicación web por entorno:
 
-- En **Authorized JavaScript origins**, agrega el origen de la aplicación correspondiente, por ejemplo `http://localhost:3000` y `https://www.rhemapp.com`.
+- En **Authorized JavaScript origins**, agrega el origen de la aplicación correspondiente, por ejemplo `http://localhost:3000` y `https://rhemapp.com`.
 - En **Authorized redirect URIs**, agrega el callback del proyecto Supabase, no el callback de Next.js:
 
 ```text
@@ -47,12 +47,12 @@ En el Dashboard de Supabase, habilita **Authentication → Providers → Google*
 
 En **Authentication → URL Configuration** configura:
 
-- **Site URL**: `https://www.rhemapp.com` en producción.
+- **Site URL**: `https://rhemapp.com` en producción.
 - **Redirect URLs** exactas para desarrollo y producción:
 
 ```text
 http://localhost:3000/auth/callback
-https://www.rhemapp.com/auth/callback
+https://rhemapp.com/auth/callback
 ```
 
 Para previews, agrega la URL completa del deployment con el mismo path, por ejemplo:
@@ -120,8 +120,8 @@ npx supabase db push
 
 ### Producción
 
-1. Configura las variables con alcance **Production** en Vercel y verifica que `SITE_URL=https://www.rhemapp.com`.
-2. Usa el proyecto Supabase y el cliente Google de producción; registra únicamente `https://www.rhemapp.com` y `https://www.rhemapp.com/auth/callback` como valores productivos.
+1. Configura las variables con alcance **Production** en Vercel y verifica que `SITE_URL=https://rhemapp.com`.
+2. Usa el proyecto Supabase y el cliente Google de producción; registra únicamente `https://rhemapp.com` y `https://rhemapp.com/auth/callback` como valores productivos.
 3. Ejecuta `npx supabase db lint --linked --fail-on error`, previsualiza con `npx supabase db push --dry-run`, aplica la migración revisada al proyecto correcto y confirma que las políticas RLS están activas antes de publicar.
 4. Ejecuta un redeploy después de cambiar variables de entorno.
 5. Realiza el smoke test con una cuenta de prueba. La provisionación inicial usa `RHEMAPP_INITIAL_ADMIN_EMAIL`; retira o vacía esa configuración después de crear y auditar el administrador inicial si el procedimiento operativo ya no la necesita.

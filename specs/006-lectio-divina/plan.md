@@ -1,6 +1,6 @@
 # Plan técnico — Spec 006
 
-Estado: Planned — clarificaciones resueltas; pendiente implementación
+Estado: Implementación técnica completada; pendiente revisión humana y verificación de entorno
 
 ## Alcance técnico
 
@@ -24,10 +24,10 @@ El contrato interno debe incluir `anchors` con elementos concretos detectados en
 ```json
 {
   "questions": [
-    { "category": "observe", "text": "..." },
-    { "category": "meditate", "text": "..." },
-    { "category": "pray", "text": "..." },
-    { "category": "act", "text": "..." }
+    { "category": "observe", "text": "...", "anchorIds": ["anchor_..."] },
+    { "category": "meditate", "text": "...", "anchorIds": ["anchor_..."] },
+    { "category": "pray", "text": "...", "anchorIds": ["anchor_..."] },
+    { "category": "act", "text": "...", "anchorIds": ["anchor_..."] }
   ]
 }
 ```

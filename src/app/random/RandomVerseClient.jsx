@@ -116,6 +116,22 @@ export default function RandomVerseClient() {
 			verseId={currentVerse.verseId || ""}
 			passageId={currentVerse.verseId || ""}
 			chapterId={currentVerse.chapterId || ""}
+			saveContent={{
+				contentType: "random-verse",
+				verseId: currentVerse.verseId || "",
+				title: "Versículo aleatorio",
+				reference: currentVerse.reference || "",
+				excerpt: currentVerse.verse || "",
+				verse: currentVerse.verse || "",
+				source: { provider: "Rhemapp" },
+			}}
+			shareContent={{
+				contentType: "random-verse",
+				mode: "random",
+				verseId: currentVerse.verseId || "",
+				title: "Versículo aleatorio",
+				reference: currentVerse.reference || "",
+			}}
 			onNext={getNextVerse}
 			onPrevious={getPreviousVerse}
 			canGoNext={verses.length > 1}

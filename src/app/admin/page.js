@@ -23,8 +23,14 @@ export default async function AdminPage() {
 				<div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
 					<p className="text-gray-700 dark:text-gray-200">Las acciones administrativas requieren el rol correspondiente y se ejecutarán en el servidor.</p>
 					<Link
+						href="/admin/sugerencias"
+						className="mt-5 inline-flex min-h-10 items-center rounded-md border border-[#b79b72] px-4 py-2 text-sm font-semibold text-[#314156] focus:outline-none focus:ring-2 focus:ring-[#b79b72] dark:text-gray-100"
+					>
+						Abrir cola editorial
+					</Link>
+					<Link
 						href="/"
-						className="mt-5 inline-flex min-h-10 items-center rounded-md bg-[#314156] px-4 py-2 text-sm font-semibold text-white focus:outline-none focus:ring-2 focus:ring-[#b79b72] dark:bg-[#b79b72] dark:text-[#253449]"
+						className="ml-2 mt-5 inline-flex min-h-10 items-center rounded-md bg-[#314156] px-4 py-2 text-sm font-semibold text-white focus:outline-none focus:ring-2 focus:ring-[#b79b72] dark:bg-[#b79b72] dark:text-[#253449]"
 					>
 						Volver al inicio
 					</Link>

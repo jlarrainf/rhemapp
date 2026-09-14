@@ -1,11 +1,12 @@
 import RosarioClient from "./RosarioClient";
 import { buildRosaryByDayIndex, DAYS } from "@/lib/rosary";
 import { getSiteUrl } from "@/lib/siteUrl";
+import { DAILY_TIME_ZONE, getWeekdayIndexInTimeZone } from "@/lib/liturgicalSchedule";
 
 export const dynamic = "force-dynamic";
 
 export default function RosarioPage() {
-	const initialDayIndex = new Date().getDay();
+	const initialDayIndex = getWeekdayIndexInTimeZone(new Date(), DAILY_TIME_ZONE);
 	const byDayIndex = buildRosaryByDayIndex();
 	const siteUrl = getSiteUrl();
 	const jsonLd = {

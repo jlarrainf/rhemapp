@@ -3,14 +3,14 @@ import {
 	DAILY_TIME_ZONE,
 	ReadingUnavailableError,
 	formatDailyDate,
-	getDailyReading,
 } from "@/lib/dailyReading";
+import { getDailyReadingWithOverrides } from "@/lib/editorial/publishedReadings";
 
 export const dynamic = "force-dynamic";
 
 export async function GET() {
 	try {
-		const reading = getDailyReading();
+		const reading = await getDailyReadingWithOverrides();
 		const response = NextResponse.json({
 			...reading,
 			dateLabel: formatDailyDate(new Date(), DAILY_TIME_ZONE),

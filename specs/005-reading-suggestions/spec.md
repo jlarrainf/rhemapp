@@ -1,6 +1,6 @@
 # Spec 005 — Sugerencias y revisión editorial
 
-Estado: Planned — clarificaciones resueltas; pendiente implementación
+Estado: Implemented — clarificaciones resueltas; validación local documentada
 Prioridad: P1
 
 ## Contexto y objetivo
@@ -76,5 +76,6 @@ Los usuarios deben poder proponer lecturas o correcciones para que el responsabl
 - Inicialmente solo existirá la cuenta propietaria como editor/administrador; los editores adicionales se agregarán manualmente más adelante.
 - El MVP no notificará cambios de estado; el usuario consultará sus sugerencias desde su cuenta.
 - Las sugerencias rechazadas o eliminadas conservarán solo auditoría anonimizada durante 12 meses y después se eliminarán.
+- Los estados de persistencia serán `pending`, `in_review`, `approved`, `rejected`, `needs_changes` y `published`; `published` es un estado interno final que registra que una sugerencia aprobada ya produjo una versión publicada.
 
 ## Dudas abiertas

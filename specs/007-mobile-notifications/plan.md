@@ -9,6 +9,7 @@ La entrega se dividirá en dos fases: primero paridad responsive/PWA instalable 
 ## Arquitectura y módulos
 
 - Mejorar `public/manifest.webmanifest`, iconos, metadata y service worker/PWA según soporte elegido.
+- Reordenar `src/components/Navbar.jsx` para dejar el logo como enlace al inicio, exponer solo las tres rutas principales en escritorio y agrupar rutas secundarias, autenticación y tema en un menú de perfil; el menú móvil conservará la misma jerarquía dentro del menú hamburguesa.
 - `src/lib/mobile/` para contratos de deep link, plataforma y preferencias.
 - `src/app/api/notification-preferences/` para hora, zona, estado y dispositivos.
 - `src/app/api/push/register` y `src/app/api/push/unregister`, usados por Android en la segunda fase.
@@ -68,7 +69,7 @@ Restricciones sugeridas:
 
 ## Estrategia de tests
 
-- Tests responsive y manuales en viewport móvil.
+- Tests responsive y manuales en viewport móvil, incluyendo apertura/cierre del menú de perfil, Escape, clic exterior, foco visible y navegación por teclado.
 - Unitarios para zona horaria, hora local y resolución de lectura.
 - Integración para permisos, registro/revocación y aislamiento de dispositivos.
 - Tests de deduplicación, reintentos, tokens inválidos y scheduler.

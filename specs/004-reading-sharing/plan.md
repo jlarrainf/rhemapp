@@ -1,6 +1,6 @@
 # Plan técnico — Spec 004
 
-Estado: Planned — clarificaciones resueltas; pendiente implementación
+Estado: Implemented — clarificaciones resueltas; implementación verificada localmente
 
 ## Alcance técnico
 

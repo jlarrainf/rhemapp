@@ -1,0 +1,28 @@
+{
+  "public": [
+    {
+      "contentType": "liturgical-reading",
+      "date": "2026-09-10",
+      "calendar": "chile",
+      "mode": "date",
+      "readingType": "gospel"
+    },
+    {
+      "contentType": "random-verse",
+      "mode": "random",
+      "verseId": "PSA.23.1"
+    },
+    {
+      "contentType": "bible-passage",
+      "mode": "passage",
+      "bibleId": "b32b9d1b64b4ef29-01",
+      "passageId": "JHN.3.16-21",
+      "ranges": [{ "chapter": 3, "start": 16, "end": 21 }]
+    }
+  ],
+  "private": {
+    "resourceType": "saved-reading",
+    "resourceId": "11111111-1111-4111-8111-111111111111"
+  },
+  "forbiddenFields": ["userId", "ownerUserId", "groupId", "groupName", "notes", "privateNote"]
+}

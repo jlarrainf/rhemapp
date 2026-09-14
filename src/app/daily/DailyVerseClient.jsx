@@ -4,11 +4,13 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 import { CalendarIcon } from "@heroicons/react/24/outline";
 import VerseCard from "@/components/VerseCard.jsx";
 import BibleTranslationNotice from "@/components/BibleTranslationNotice.jsx";
+import LectioSection from "@/components/LectioSection.jsx";
 import {
 	DAILY_TIME_ZONE,
 	MIN_PUBLISHED_DATE,
 	isValidDateKey,
 } from "@/lib/liturgicalSchedule.js";
+import { NOTIFICATION_READING_TYPES } from "@/lib/mobile/constants.js";
 
 function getDateKeyInTimeZone(date, timeZone = DAILY_TIME_ZONE) {
 	const parts = new Intl.DateTimeFormat("en-CA", {
@@ -113,12 +115,14 @@ export default function DailyVerseClient({
 	initialDateLabel,
 	initialNextChangeAt,
 	initialMode = "today",
+	initialReadingType = null,
 }) {
 	const [reading, setReading] = useState(initialReading);
 	const [error, setError] = useState(initialError);
 	const [dateKey, setDateKey] = useState(initialDateKey);
 	const [dateLabel, setDateLabel] = useState(initialDateLabel);
 	const [readingMode, setReadingMode] = useState(initialMode);
+	const [readingType, setReadingType] = useState(initialReadingType);
 	const [dateInputError, setDateInputError] = useState("");
 	const [loading, setLoading] = useState(!initialReading);
 	const [isRefreshing, setIsRefreshing] = useState(false);
@@ -155,8 +159,8 @@ export default function DailyVerseClient({
 
 		try {
 			const endpoint = requestedDateKey
-				? `/api/readings?date=${encodeURIComponent(requestedDateKey)}`
-				: `/api/readings?mode=${encodeURIComponent(requestedMode || "today")}`;
+				? `/api/readings?date=${encodeURIComponent(requestedDateKey)}${readingType ? `&reading=${encodeURIComponent(readingType)}` : ""}`
+				: `/api/readings?mode=${encodeURIComponent(requestedMode || "today")}${readingType ? `&reading=${encodeURIComponent(readingType)}` : ""}`;
 			const response = await fetch(endpoint, {
 				cache: "no-store",
 				headers: { Accept: "application/json" },
@@ -179,6 +183,7 @@ export default function DailyVerseClient({
 			setError(null);
 			setRefreshError(null);
 			setDateInputError("");
+			setReadingType(data.selectedReadingType || readingType || null);
 			setStatusMessage(isRefresh
 				? `Lecturas actualizadas: ${data.dateLabel}.`
 				: `Lecturas cargadas: ${data.dateLabel}.`);
@@ -200,7 +205,7 @@ export default function DailyVerseClient({
 			setLoading(false);
 			setIsRefreshing(false);
 		}
-	}, [scheduleNextChange]);
+	}, [readingType, scheduleNextChange]);
 	loadReadingRef.current = loadReading;
 	const readingItems = getReadingItems(reading);
 
@@ -266,6 +271,14 @@ export default function DailyVerseClient({
 		const searchParams = new URLSearchParams(window.location.search);
 		const requestedDateKey = searchParams.get("date");
 		const requestedMode = searchParams.get("mode");
+		const requestedReadingType = searchParams.get("reading");
+		if (requestedReadingType !== null) {
+			if (!NOTIFICATION_READING_TYPES.includes(requestedReadingType)) {
+				setDateInputError("El tipo de lectura seleccionado no es válido.");
+				return;
+			}
+			setReadingType(requestedReadingType);
+		}
 		if (requestedDateKey !== null) {
 			explicitDateRef.current = true;
 			if (!isValidDateKey(requestedDateKey) || requestedDateKey < MIN_PUBLISHED_DATE) {
@@ -300,6 +313,11 @@ export default function DailyVerseClient({
 			if (retryTimerRef.current) window.clearTimeout(retryTimerRef.current);
 		};
 	}, [initialDateKey, initialNextChangeAt, loadReading, scheduleNextChange]);
+
+	useEffect(() => {
+		if (!readingType || loading) return;
+		document.getElementById(`reading-${readingType}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+	}, [loading, readingType]);
 
 	if (loading && !reading) {
 		return (
@@ -387,15 +405,20 @@ export default function DailyVerseClient({
 				<h2 id="daily-readings-title" className="sr-only">Lecturas litúrgicas</h2>
 				{readingItems.map((item) => {
 					const label = READING_LABELS[item.type] || "Lectura";
+					const title = typeof item.title === "string" ? item.title.trim() : "";
+					const excerpt = typeof item.excerpt === "string" ? item.excerpt.trim() : "";
+					const showDistinctTitle = Boolean(title && title !== excerpt);
 					return (
-						<article key={`${item.type}-${item.passageId || item.reference}`}>
+						<article id={`reading-${item.type}`} key={`${item.type}-${item.passageId || item.reference}`} className={`min-w-0 scroll-mt-24 ${readingType === item.type ? "rounded-2xl ring-2 ring-[#b79b72]/70 ring-offset-4 dark:ring-offset-gray-900" : ""}`} aria-current={readingType === item.type ? "true" : undefined}>
 							<div className="mb-3 text-center">
 								<p className="text-sm font-semibold uppercase tracking-[0.08em] text-[#b79b72]">
 									{label}
 								</p>
-								<h3 className="mt-1 text-lg font-semibold text-[#314156] dark:text-gray-100">
-									{item.title || item.reference}
-								</h3>
+								{showDistinctTitle && (
+									<h3 className="mt-1 text-lg font-semibold text-[#314156] dark:text-gray-100">
+										{title}
+									</h3>
+								)}
 							</div>
 							<VerseCard
 								verse={item.excerpt}
@@ -403,6 +426,20 @@ export default function DailyVerseClient({
 								verseId={item.passageId}
 								passageId={item.passageId}
 								ranges={item.ranges}
+								saveContent={{
+									contentType: "liturgical-reading",
+									date: reading.date,
+									calendar: reading.calendar,
+										readingType: item.type,
+										reading: item,
+									}}
+									shareContent={{
+										contentType: "liturgical-reading",
+										date: reading.date,
+										calendar: reading.calendar,
+										mode: reading.mode === "date" ? "date" : reading.mode || "today",
+										readingType: item.type,
+									}}
 								showNavigation={false}
 								passageLabel={label}
 							/>
@@ -411,6 +448,7 @@ export default function DailyVerseClient({
 				})}
 			</section>
 			<BibleTranslationNotice />
+			<LectioSection readingKey={reading?.date ? `chile:${reading.date}` : null} />
 
 			<div className="mt-4 min-h-6 text-center text-sm" aria-live="polite">
 				{isRefreshing && <span className="text-gray-500 dark:text-gray-400">Cargando la lectura seleccionada…</span>}

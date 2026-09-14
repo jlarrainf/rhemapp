@@ -36,3 +36,10 @@ next-env.d.ts
 firebase-debug.log
 firebase-debug.*.log
 .firebase/
+
+# Android Studio
+/android/.gradle/
+/android/local.properties
+/android/**/build/
+/android/.idea/
+/android/app/google-services.json

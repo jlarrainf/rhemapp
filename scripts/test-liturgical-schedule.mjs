@@ -38,6 +38,11 @@ test("uses the previous Sunday before Saturday 15:00 in Chile", () => {
 	assert.equal(result, "2026-09-13");
 });
 
+test("uses the most recent Sunday on Monday", () => {
+	const result = resolveSundayDateKey({ now: new Date("2026-09-14T12:00:00Z") });
+	assert.equal(result, "2026-09-13");
+});
+
 test("uses the next Sunday at Saturday 15:00 in Chile", () => {
 	const result = resolveSundayDateKey({ now: new Date("2026-09-19T18:00:00Z") });
 	assert.equal(result, "2026-09-20");

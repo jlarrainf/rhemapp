@@ -1,6 +1,6 @@
 # Spec 004 — Compartir lecturas
 
-Estado: Planned — clarificaciones resueltas; pendiente implementación
+Estado: Implemented — clarificaciones resueltas; implementación verificada localmente
 Prioridad: P1
 
 ## Contexto y objetivo

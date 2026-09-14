@@ -1,6 +1,6 @@
 # Plan técnico — Spec 005
 
-Estado: Planned — clarificaciones resueltas; pendiente implementación
+Estado: Implemented — clarificaciones resueltas; validación local documentada
 
 ## Alcance técnico
 
@@ -38,7 +38,10 @@ Las transiciones permitidas deben estar en una máquina de estados server-side. 
 - `GET /api/suggestions` devuelve solo las propias.
 - `GET /api/editorial/suggestions` requiere editor/admin.
 - `POST /api/editorial/suggestions/:id/review` cambia estado con comentario.
-- `POST /api/editorial/suggestions/:id/publish` requiere aprobación y crea versión publicada.
+- `POST /api/editorial/suggestions/:id/publish` requiere aprobación y recibe una entrada litúrgica genérica completa (`payload`) validada contra Spec 001. Si el editor no envía `payload`, el servicio puede derivar una corrección segura desde la entrada vigente solo para una fecha/tipo ya existente.
+- `POST /api/editorial/versions/:id/rollback` crea una nueva versión inmutable a partir de la versión anterior y registra la reversión.
+
+La clave de publicación es `chile:YYYY-MM-DD` y `payload_json` contiene la entrada diaria completa, no solo la lectura modificada. La versión activa es la fila con `superseded_at IS NULL`; el JSON local sigue siendo el respaldo cuando no existe una versión editorial activa.
 
 ## Decisiones técnicas
 
@@ -48,6 +51,18 @@ Las transiciones permitidas deben estar en una máquina de estados server-side. 
 | Versiones publicadas inmutables | Permite rollback y trazabilidad | Sobrescribir la lectura actual |
 | Sin uploads en MVP | Reduce superficie de seguridad y moderación | Recibir documentos desde el comienzo |
 | Rate limit server-side | Reduce spam sin confiar en UI | Ocultar el formulario a usuarios nuevos |
+
+### Máquina de estados
+
+Las transiciones válidas son:
+
+- `pending` → `in_review`, `approved`, `rejected`, `needs_changes`.
+- `in_review` → `approved`, `rejected`, `needs_changes`.
+- `needs_changes` → `in_review`.
+- `approved` → `published` únicamente mediante publicación validada.
+- `rejected` y `published` son estados finales.
+
+Toda transición editorial exige comentario, usa una comparación optimista del estado actual y registra un evento. El autor no puede revisar ni aprobar su propia sugerencia.
 
 ## Trazabilidad hacia RF
 
