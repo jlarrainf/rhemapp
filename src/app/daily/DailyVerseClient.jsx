@@ -392,7 +392,7 @@ export default function DailyVerseClient({
 					const excerpt = typeof item.excerpt === "string" ? item.excerpt.trim() : "";
 					const showDistinctTitle = Boolean(title && title !== excerpt);
 					return (
-						<article id={`reading-${item.type}`} key={`${item.type}-${item.passageId || item.reference}`} className={`min-w-0 scroll-mt-24 ${readingType === item.type ? "rounded-2xl ring-2 ring-[#b79b72]/70 ring-offset-4 dark:ring-offset-gray-900" : ""}`} aria-current={readingType === item.type ? "true" : undefined}>
+						<article id={`reading-${item.type}`} key={`${item.type}-${item.passageId || item.reference}`} className="min-w-0 scroll-mt-24">
 							<div className="mb-3 text-center">
 								<p className="text-sm font-semibold uppercase tracking-[0.08em] text-[#b79b72]">
 									{label}
