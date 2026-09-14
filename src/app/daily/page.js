@@ -9,7 +9,6 @@ import {
 } from "@/lib/dailyReading";
 import { getPublishedReadingWithOverrides } from "@/lib/editorial/publishedReadings";
 import DailyVerseClient from "./DailyVerseClient";
-import { NOTIFICATION_READING_TYPES } from "@/lib/mobile/constants";
 
 export const dynamic = "force-dynamic";
 
@@ -29,7 +28,6 @@ export default async function DailyVersePage({ searchParams }) {
 	const query = await searchParams;
 	let requestedDateKey;
 	let requestedMode;
-	let requestedReadingType;
 	let reading = null;
 	let error = null;
 	let initialMode = "today";
@@ -37,12 +35,8 @@ export default async function DailyVersePage({ searchParams }) {
 	try {
 		requestedDateKey = getQueryValue(query?.date, "date");
 		requestedMode = getQueryValue(query?.mode, "mode");
-		requestedReadingType = getQueryValue(query?.reading, "reading");
 		if (requestedDateKey !== undefined && requestedMode !== undefined) {
 			throw new ReadingRequestError("No se pueden combinar date y mode");
-		}
-		if (requestedReadingType !== undefined && !NOTIFICATION_READING_TYPES.includes(requestedReadingType)) {
-			throw new ReadingRequestError("El tipo de lectura seleccionado no es válido");
 		}
 		initialMode = requestedDateKey ? "date" : requestedMode || "today";
 		if (requestedDateKey !== undefined) {
@@ -104,7 +98,6 @@ export default async function DailyVersePage({ searchParams }) {
 				initialDateLabel={reading?.dateLabel || fallbackDateLabel}
 				initialNextChangeAt={reading?.nextChangeAt || null}
 				initialMode={initialMode}
-				initialReadingType={requestedReadingType || null}
 			/>
 		</>
 	);

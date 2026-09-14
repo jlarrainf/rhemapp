@@ -10,7 +10,6 @@ import {
 	MIN_PUBLISHED_DATE,
 	isValidDateKey,
 } from "@/lib/liturgicalSchedule.js";
-import { NOTIFICATION_READING_TYPES } from "@/lib/mobile/constants.js";
 
 function getDateKeyInTimeZone(date, timeZone = DAILY_TIME_ZONE) {
 	const parts = new Intl.DateTimeFormat("en-CA", {
@@ -115,14 +114,12 @@ export default function DailyVerseClient({
 	initialDateLabel,
 	initialNextChangeAt,
 	initialMode = "today",
-	initialReadingType = null,
 }) {
 	const [reading, setReading] = useState(initialReading);
 	const [error, setError] = useState(initialError);
 	const [dateKey, setDateKey] = useState(initialDateKey);
 	const [dateLabel, setDateLabel] = useState(initialDateLabel);
 	const [readingMode, setReadingMode] = useState(initialMode);
-	const [readingType, setReadingType] = useState(initialReadingType);
 	const [dateInputError, setDateInputError] = useState("");
 	const [loading, setLoading] = useState(!initialReading);
 	const [isRefreshing, setIsRefreshing] = useState(false);
@@ -159,8 +156,8 @@ export default function DailyVerseClient({
 
 		try {
 			const endpoint = requestedDateKey
-				? `/api/readings?date=${encodeURIComponent(requestedDateKey)}${readingType ? `&reading=${encodeURIComponent(readingType)}` : ""}`
-				: `/api/readings?mode=${encodeURIComponent(requestedMode || "today")}${readingType ? `&reading=${encodeURIComponent(readingType)}` : ""}`;
+				? `/api/readings?date=${encodeURIComponent(requestedDateKey)}`
+				: `/api/readings?mode=${encodeURIComponent(requestedMode || "today")}`;
 			const response = await fetch(endpoint, {
 				cache: "no-store",
 				headers: { Accept: "application/json" },
@@ -183,7 +180,6 @@ export default function DailyVerseClient({
 			setError(null);
 			setRefreshError(null);
 			setDateInputError("");
-			setReadingType(data.selectedReadingType || readingType || null);
 			setStatusMessage(isRefresh
 				? `Lecturas actualizadas: ${data.dateLabel}.`
 				: `Lecturas cargadas: ${data.dateLabel}.`);
@@ -205,7 +201,7 @@ export default function DailyVerseClient({
 			setLoading(false);
 			setIsRefreshing(false);
 		}
-	}, [readingType, scheduleNextChange]);
+	}, [scheduleNextChange]);
 	loadReadingRef.current = loadReading;
 	const readingItems = getReadingItems(reading);
 
@@ -271,14 +267,6 @@ export default function DailyVerseClient({
 		const searchParams = new URLSearchParams(window.location.search);
 		const requestedDateKey = searchParams.get("date");
 		const requestedMode = searchParams.get("mode");
-		const requestedReadingType = searchParams.get("reading");
-		if (requestedReadingType !== null) {
-			if (!NOTIFICATION_READING_TYPES.includes(requestedReadingType)) {
-				setDateInputError("El tipo de lectura seleccionado no es válido.");
-				return;
-			}
-			setReadingType(requestedReadingType);
-		}
 		if (requestedDateKey !== null) {
 			explicitDateRef.current = true;
 			if (!isValidDateKey(requestedDateKey) || requestedDateKey < MIN_PUBLISHED_DATE) {
@@ -313,11 +301,6 @@ export default function DailyVerseClient({
 			if (retryTimerRef.current) window.clearTimeout(retryTimerRef.current);
 		};
 	}, [initialDateKey, initialNextChangeAt, loadReading, scheduleNextChange]);
-
-	useEffect(() => {
-		if (!readingType || loading) return;
-		document.getElementById(`reading-${readingType}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
-	}, [loading, readingType]);
 
 	if (loading && !reading) {
 		return (

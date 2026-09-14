@@ -2,7 +2,6 @@ import { Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import Navbar from "../components/Navbar";
-import PwaRegistration from "../components/PwaRegistration";
 import { ThemeProvider } from "../components/ThemeContext";
 import { getSiteUrl } from "@/lib/siteUrl";
 
@@ -166,7 +165,6 @@ export default function RootLayout({ children }) {
 			<body
 				className={`${inter.variable} min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900 dark:text-gray-200 transition-colors duration-300`}
 			>
-				<PwaRegistration />
 				{/* Medición (opcional): fallback no-script para GTM */}
 				{gtmId ? (
 					<noscript>

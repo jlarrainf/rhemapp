@@ -16,7 +16,6 @@ Sitio: https://www.rhemapp.com
 - Misterios del Rosario (`/rosario`) según el día de la semana, con selector.
 - Modal “Ver pasaje completo” para consultar contexto bíblico.
 - Autenticación con Google y correo/contraseña (`/login`), perfil privado (`/perfil`) y administración (`/admin`).
-- PWA instalable responsive y cliente Android nativo en `android/` (Android 10+), con avisos diarios opcionales solo en Android.
 
 ## Rutas
 
@@ -36,10 +35,6 @@ La configuración reproducible de autenticación, OAuth y entornos está en [`do
 - `/api/readings` Devuelve las lecturas genéricas de hoy, una fecha explícita o el domingo vigente.
 - `/api/daily-reading` Mantiene el contrato compatible del evangelio vigente y el próximo cambio de medianoche en Chile.
 - `/api/verses` Sirve subconjuntos del JSON local (`scope=random|daily|all`).
-- `/api/auth/mobile` Entrega una sesión autorizada para el cliente Android.
-- `/api/notification-preferences` Lee y actualiza hora, zona IANA y activación de avisos.
-- `/api/push/register` y `/api/push/unregister` Registran o revocan dispositivos Android sin devolver tokens.
-- `/api/notifications/dispatch` Ejecuta el scheduler protegido para entregar el aviso diario.
 
 Nota SEO: los endpoints JSON responden con `X-Robots-Tag: noindex, nofollow`.
 
@@ -126,8 +121,6 @@ Rhemapp soporta estas variables (ver `.env.example`):
 - `GOOGLE_SITE_VERIFICATION` (opcional)
   - Solo si elegís verificación por meta tag (propiedad “Prefijo de URL” en Search Console).
   - Si verificás “Dominio” por DNS, no hace falta.
-- `PUSH_TOKEN_ENCRYPTION_KEY`, `PUSH_PROVIDER_URL`, `PUSH_PROVIDER_TOKEN` y `NOTIFICATIONS_SCHEDULER_SECRET`
-  - Variables server-only para avisos Android. Consulta [`docs/mobile-operation.md`](docs/mobile-operation.md); nunca las prefijes con `NEXT_PUBLIC_`.
 
 ## SEO e indexación
 
