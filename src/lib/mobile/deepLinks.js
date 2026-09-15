@@ -1,5 +1,5 @@
-import { isValidDateKey } from "../liturgicalSchedule.js";
-import { MOBILE_DAILY_PATH, NOTIFICATION_READING_TYPES } from "./constants.js";
+import { isValidDateKey, isValidMonthKey } from "../liturgicalSchedule.js";
+import { MOBILE_CALENDAR_PATH, MOBILE_DAILY_PATH, NOTIFICATION_READING_TYPES } from "./constants.js";
 
 function normalizeBaseUrl(baseUrl) {
 	const url = new URL(baseUrl);
@@ -36,6 +36,34 @@ export function parseDailyReadingDeepLink(value) {
 		if (mode && !["today", "sunday"].includes(mode)) return { ok: false, error: "Modo no válido" };
 		if (readingType && !NOTIFICATION_READING_TYPES.includes(readingType)) return { ok: false, error: "Lectura no válida" };
 		return { ok: true, dateKey: dateKey || null, mode: mode || null, readingType: readingType || null };
+	} catch {
+		return { ok: false, error: "Enlace no válido" };
+	}
+}
+
+export function createCalendarDeepLink({ baseUrl, monthKey, calendar = "chile" }) {
+	if (!isValidMonthKey(monthKey)) throw new Error("El mes del calendario no es válido");
+	if (calendar !== "chile") throw new Error("El calendario no es válido");
+	const url = new URL(`${normalizeBaseUrl(baseUrl)}${MOBILE_CALENDAR_PATH}`);
+	url.searchParams.set("month", monthKey);
+	url.searchParams.set("calendar", calendar);
+	return url.toString();
+}
+
+export function parseCalendarDeepLink(value) {
+	try {
+		const url = new URL(value);
+		if (url.pathname !== MOBILE_CALENDAR_PATH) return { ok: false, error: "Ruta no válida" };
+		const allowed = new Set(["month", "calendar"]);
+		for (const key of url.searchParams.keys()) if (!allowed.has(key)) return { ok: false, error: "Parámetro no permitido" };
+		if (url.searchParams.getAll("month").length > 1 || url.searchParams.getAll("calendar").length > 1) {
+			return { ok: false, error: "Parámetro repetido" };
+		}
+		const monthKey = url.searchParams.get("month");
+		const calendar = url.searchParams.get("calendar") || "chile";
+		if (!monthKey || !isValidMonthKey(monthKey)) return { ok: false, error: "Mes no válido" };
+		if (calendar !== "chile") return { ok: false, error: "Calendario no válido" };
+		return { ok: true, monthKey, calendar };
 	} catch {
 		return { ok: false, error: "Enlace no válido" };
 	}

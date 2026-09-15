@@ -1,9 +1,11 @@
 "use client";
 
 import React, { useMemo, useState } from "react";
+import Link from "next/link";
 import { BookOpenIcon } from "@heroicons/react/24/outline";
 import RosaryIcon from "@/components/RosaryIcon.jsx";
 import BibleTranslationNotice from "@/components/BibleTranslationNotice.jsx";
+import { DAILY_TIME_ZONE, getMonthKeyInTimeZone } from "@/lib/liturgicalSchedule.js";
 
 export default function RosarioClient({ days, byDayIndex, initialDayIndex }) {
 	const [dayIndex, setDayIndex] = useState(initialDayIndex);
@@ -83,6 +85,12 @@ export default function RosarioClient({ days, byDayIndex, initialDayIndex }) {
 					cita bíblica y versículo correspondiente. Puedes cambiar de día y
 					consultar el pasaje completo.
 				</p>
+				<Link
+					href={`/calendario?month=${getMonthKeyInTimeZone(new Date(), DAILY_TIME_ZONE)}`}
+					className="mt-4 inline-flex min-h-11 items-center rounded-full border border-[#b79b72] px-4 py-2 text-sm font-semibold text-[#314156] transition-colors hover:bg-[#b79b72]/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79b72] dark:text-gray-100"
+				>
+					Consultar calendario litúrgico
+				</Link>
 
 				<div className="flex items-center justify-center mb-4 mt-2">
 					<label

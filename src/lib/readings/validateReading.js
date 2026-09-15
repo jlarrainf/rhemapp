@@ -1,3 +1,5 @@
+import { validateLiturgicalMetadata } from "./liturgicalMetadata.js";
+
 const READING_TYPES = Object.freeze([
 	"first-reading",
 	"psalm",
@@ -174,6 +176,8 @@ export function validateReadingEntry(entry) {
 	}
 	if (typeof entry.celebration !== "string") errors.push("celebration: debe ser una cadena");
 	validateSource(entry.source, "source", errors);
+	const metadataValidation = validateLiturgicalMetadata(entry);
+	errors.push(...metadataValidation.errors);
 
 	if (!Array.isArray(entry.readings) || entry.readings.length === 0) {
 		errors.push("readings: debe contener lecturas");

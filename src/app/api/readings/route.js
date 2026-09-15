@@ -5,6 +5,7 @@ import {
 	ReadingUnavailableError,
 } from "../../../lib/dailyReading.js";
 import { getPublishedReadingWithOverrides } from "@/lib/editorial/publishedReadings";
+import { toPublicPublishedEntry } from "../../../lib/readings/liturgicalMetadata.js";
 
 export const dynamic = "force-dynamic";
 
@@ -32,7 +33,7 @@ export async function GET(request) {
 			mode: date !== null ? "date" : requestedMode || "today",
 			timeZone: DAILY_TIME_ZONE,
 		});
-		const response = NextResponse.json(reading);
+		const response = NextResponse.json(toPublicPublishedEntry(reading));
 
 		response.headers.set("Cache-Control", "no-store, max-age=0");
 		response.headers.set("X-Robots-Tag", "noindex, nofollow");

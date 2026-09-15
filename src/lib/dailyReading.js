@@ -6,10 +6,12 @@ import {
 	formatDateKey,
 	getDateKeyInTimeZone,
 	getNextMidnight,
+	getMonthKeyInTimeZone,
 	resolveReadingDate,
 	resolveSundayDateKey,
 } from "./liturgicalSchedule.js";
 import { validateReadingEntry } from "./readings/validateReading.js";
+import { normalizeLiturgicalMetadata } from "./readings/liturgicalMetadata.js";
 
 export {
 	DAILY_TIME_ZONE,
@@ -17,9 +19,12 @@ export {
 	formatDateKey,
 	getDateKeyInTimeZone,
 	getNextMidnight,
+	getMonthKeyInTimeZone,
 	resolveReadingDate,
 	resolveSundayDateKey,
 } from "./liturgicalSchedule.js";
+
+const dailyReadingsCache = new Map();
 
 export class ReadingRequestError extends Error {
 	constructor(message) {
@@ -37,7 +42,8 @@ export class ReadingUnavailableError extends Error {
 	}
 }
 
-function loadDailyReadingsFile(year) {
+export function loadDailyReadingsFile(year) {
+	if (dailyReadingsCache.has(year)) return dailyReadingsCache.get(year);
 	const filePath = path.join(
 		process.cwd(),
 		"public",
@@ -55,10 +61,11 @@ function loadDailyReadingsFile(year) {
 		throw new Error(`El calendario litúrgico de ${year} no tiene un formato válido`);
 	}
 
+	dailyReadingsCache.set(year, data);
 	return data;
 }
 
-function findEntryByDateKey(dateKey) {
+export function findEntryByDateKey(dateKey) {
 	const year = dateKey.slice(0, 4);
 	const data = loadDailyReadingsFile(year);
 	return data.entries.find((item) => item?.date === dateKey) || null;
@@ -68,6 +75,11 @@ export function getPublishedEntryForDate(dateKey) {
 	const entry = findEntryByDateKey(dateKey);
 	if (!entry) throw new ReadingUnavailableError(`Lectura aún no disponible para ${dateKey}`);
 	return entry;
+}
+
+function enrichLiturgicalMetadata(entry) {
+	const celebrations = normalizeLiturgicalMetadata(entry);
+	return celebrations.length > 0 ? { ...entry, celebrations } : entry;
 }
 
 export function getPublishedReading({
@@ -103,7 +115,7 @@ export function getPublishedReading({
 	}
 
 	return {
-		...entry,
+		...enrichLiturgicalMetadata(entry),
 		dateKey: resolvedDateKey,
 		dateLabel: formatDateKey(resolvedDateKey),
 		timeZone,
@@ -121,7 +133,7 @@ export function getDailyReading({ date = new Date(), timeZone = DAILY_TIME_ZONE 
 		if (!validation.valid) throw new Error(`Las lecturas de ${dateKey} aún no están completas`);
 
 		return {
-			...entry,
+			...enrichLiturgicalMetadata(entry),
 			dateKey,
 			nextChangeAt: getNextMidnight(date, timeZone).toISOString(),
 		};
@@ -132,7 +144,7 @@ export function getDailyReading({ date = new Date(), timeZone = DAILY_TIME_ZONE 
 	}
 
 	return {
-		...entry,
+		...enrichLiturgicalMetadata(entry),
 		dateKey,
 		nextChangeAt: getNextMidnight(date, timeZone).toISOString(),
 	};

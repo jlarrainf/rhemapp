@@ -249,7 +249,14 @@
       "date": "2026-09-12",
       "calendar": "chile",
       "liturgicalYear": "2026",
-      "celebration": "12 de septiembre",
+      "celebration": "Santísimo Nombre de María (memoria)",
+      "celebrations": [{
+        "name": "Santísimo Nombre de María",
+        "rank": "memorial",
+        "isPrimary": true,
+        "saints": [],
+        "source": { "provider": "Ordo de la Conferencia Episcopal de Chile", "url": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf", "verified": true }
+      }],
       "readings": [
         {
           "type": "first-reading",
@@ -610,7 +617,14 @@
       "date": "2026-09-15",
       "calendar": "chile",
       "liturgicalYear": "2026",
-      "celebration": "15 de septiembre",
+      "celebration": "Nuestra Señora de los Dolores (memoria)",
+      "celebrations": [{
+        "name": "Nuestra Señora de los Dolores",
+        "rank": "memorial",
+        "isPrimary": true,
+        "saints": [],
+        "source": { "provider": "Ordo de la Conferencia Episcopal de Chile", "url": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf", "verified": true }
+      }],
       "readings": [
         {
           "type": "first-reading",
@@ -1942,7 +1956,14 @@
       "date": "2026-09-26",
       "calendar": "chile",
       "liturgicalYear": "2026",
-      "celebration": "26 de septiembre",
+      "celebration": "Santos Cosme y Damián, mártires (memoria)",
+      "celebrations": [{
+        "name": "Santos Cosme y Damián, mártires",
+        "rank": "memorial",
+        "isPrimary": true,
+        "saints": [],
+        "source": { "provider": "Ordo de la Conferencia Episcopal de Chile", "url": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf", "verified": true }
+      }],
       "readings": [
         {
           "type": "first-reading",
@@ -2817,7 +2838,14 @@
       "date": "2026-10-04",
       "calendar": "chile",
       "liturgicalYear": "2026",
-      "celebration": "4 de octubre",
+      "celebration": "XXVII Domingo del Tiempo Ordinario",
+      "celebrations": [{
+        "name": "XXVII Domingo del Tiempo Ordinario",
+        "rank": "other",
+        "isPrimary": true,
+        "saints": [],
+        "source": { "provider": "Ordo de la Conferencia Episcopal de Chile", "url": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf", "verified": true }
+      }],
       "readings": [
         {
           "type": "first-reading",
@@ -3676,6 +3704,13 @@
       "calendar": "chile",
       "liturgicalYear": "2026",
       "celebration": "Nuestra Señora del Pilar (memoria)",
+      "celebrations": [{
+        "name": "Nuestra Señora del Pilar",
+        "rank": "memorial",
+        "isPrimary": true,
+        "saints": [],
+        "source": { "provider": "Ordo de la Conferencia Episcopal de Chile", "url": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf", "verified": true }
+      }],
       "gospel": {
         "reference": "Lucas 11:29-32",
         "passageId": "LUK.11.29-32",
@@ -3934,7 +3969,14 @@
       "date": "2026-10-15",
       "calendar": "chile",
       "liturgicalYear": "2026",
-      "celebration": "15 de octubre",
+      "celebration": "Santa Teresa de Jesús, virgen y doctora de la Iglesia (memoria)",
+      "celebrations": [{
+        "name": "Santa Teresa de Jesús, virgen y doctora de la Iglesia",
+        "rank": "memorial",
+        "isPrimary": true,
+        "saints": [],
+        "source": { "provider": "Ordo de la Conferencia Episcopal de Chile", "url": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf", "verified": true }
+      }],
       "readings": [
         {
           "type": "first-reading",

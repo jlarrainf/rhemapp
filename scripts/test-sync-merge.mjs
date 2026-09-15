@@ -3,7 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import test from "node:test";
 import { mergeValidatedReading } from "../src/lib/readings/mergeSyncedReading.js";
-import { markReadingFresh, markReadingStale } from "../src/lib/readings/syncState.js";
+import { markReadingFresh, markReadingStale, recordSyncAttempt } from "../src/lib/readings/syncState.js";
 
 const fixturesDirectory = path.join(process.cwd(), "specs", "001-liturgical-readings", "fixtures");
 
@@ -52,4 +52,37 @@ test("clears stale sync metadata after a successful fetch", () => {
 	assert.equal(freshEntry.source.fetchedAt, "2026-09-13T13:00:00.000Z");
 	assert.equal(freshEntry.source.lastSyncError, undefined);
 	assert.ok(freshEntry.readings.every((reading) => reading.source.syncStatus === "fresh"));
+});
+
+test("updates metadata provenance together with the reading provenance", () => {
+	const entry = loadFixture("2026-09-13-complete.json");
+	entry.celebrations = [{
+		name: "XXIV Domingo del Tiempo Ordinario",
+		rank: "other",
+		isPrimary: true,
+		saints: [{
+			name: "Santo de prueba editorial",
+			source: { provider: "Fuente editorial", url: "https://example.com/saint", verified: true },
+		}],
+		source: { provider: "Fuente editorial", url: "https://example.com/day", verified: true },
+	}];
+	const freshEntry = markReadingFresh(entry, "2026-09-13T13:00:00.000Z");
+
+	assert.equal(freshEntry.celebrations[0].source.syncStatus, "fresh");
+	assert.equal(freshEntry.celebrations[0].source.fetchedAt, "2026-09-13T13:00:00.000Z");
+	assert.equal(freshEntry.celebrations[0].saints[0].source.syncStatus, "fresh");
+	assert.equal(freshEntry.celebrations[0].saints[0].source.fetchedAt, "2026-09-13T13:00:00.000Z");
+});
+
+test("records every sync attempt with a bounded error and public source", () => {
+	const attempts = recordSyncAttempt({}, "2026-09-13", {
+		status: "unavailable",
+		attemptedAt: "2026-09-15T12:00:00.000Z",
+		source: { provider: "Fuente primaria", url: "https://example.com/day" },
+		error: "x".repeat(1000),
+	});
+	assert.equal(attempts["2026-09-13"].status, "unavailable");
+	assert.equal(attempts["2026-09-13"].source.provider, "Fuente primaria");
+	assert.equal(attempts["2026-09-13"].attemptedAt, "2026-09-15T12:00:00.000Z");
+	assert.equal(attempts["2026-09-13"].error.length, 240);
 });

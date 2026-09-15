@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useCallback, useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { CalendarIcon, ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 import VerseCard from "@/components/VerseCard.jsx";
 import BibleTranslationNotice from "@/components/BibleTranslationNotice.jsx";
@@ -49,6 +50,126 @@ const READING_LABELS = {
 	"second-reading": "Segunda lectura",
 	gospel: "Evangelio",
 };
+
+const RANK_LABELS = {
+	weekday: "Día litúrgico",
+	memorial: "Memoria",
+	"optional-memorial": "Memoria opcional",
+	feast: "Fiesta",
+	solemnity: "Solemnidad",
+	commemoration: "Conmemoración",
+	other: "Celebración",
+};
+
+const SEASON_LABELS = {
+	advent: "Adviento",
+	christmas: "Navidad",
+	lent: "Cuaresma",
+	easter: "Pascua",
+	ordinary: "Tiempo Ordinario",
+};
+
+const COLOR_LABELS = {
+	green: "verde",
+	white: "blanco",
+	red: "rojo",
+	violet: "violeta",
+	rose: "rosa",
+	black: "negro",
+	gold: "dorado",
+};
+
+const COLOR_SWATCHES = {
+	green: "bg-emerald-600",
+	white: "border border-gray-400 bg-white",
+	red: "bg-red-600",
+	violet: "bg-violet-700",
+	rose: "bg-pink-300",
+	black: "bg-gray-900",
+	gold: "bg-amber-400",
+};
+
+function LiturgicalContext({ reading }) {
+	const celebrations = Array.isArray(reading?.celebrations) ? reading.celebrations : [];
+	const primary = celebrations.find((celebration) => celebration?.isPrimary) || celebrations[0] || null;
+	const optionalCelebrations = celebrations.filter((celebration) => celebration !== primary);
+	const saints = celebrations.flatMap((celebration) => Array.isArray(celebration?.saints) ? celebration.saints : []);
+	const hasDetail = Boolean(primary || reading?.liturgicalSeason || reading?.liturgicalColor || saints.length);
+	const source = reading?.source;
+
+	return (
+		<section className="mb-8 w-full max-w-3xl rounded-xl border border-gray-200 bg-white/80 p-5 text-left shadow-sm dark:border-gray-700 dark:bg-gray-800/80" aria-labelledby="liturgical-context-title">
+			<div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+				<div className="min-w-0">
+					<h2 id="liturgical-context-title" className="text-lg font-semibold text-[#314156] dark:text-gray-100">
+						Contexto litúrgico
+					</h2>
+					{primary ? (
+						<>
+							<p className="mt-2 text-sm font-medium text-[#b79b72]">Celebración principal</p>
+							<h3 className="mt-1 text-xl font-semibold text-[#314156] dark:text-gray-100">{primary.name}</h3>
+							{primary.rank && <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">{RANK_LABELS[primary.rank] || "Celebración"}</p>}
+						</>
+					) : (
+						<p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
+							El detalle litúrgico no está disponible para esta fecha.
+						</p>
+					)}
+				</div>
+				<div className="flex shrink-0 flex-wrap gap-2 text-sm text-gray-700 dark:text-gray-200">
+					{reading?.liturgicalSeason && <span className="rounded-full bg-[#314156]/[0.08] px-3 py-1 dark:bg-white/10">{SEASON_LABELS[reading.liturgicalSeason] || reading.liturgicalSeason}</span>}
+					{reading?.liturgicalColor && COLOR_LABELS[reading.liturgicalColor] && (
+						<span className="inline-flex items-center gap-2 rounded-full bg-[#314156]/[0.08] px-3 py-1 dark:bg-white/10">
+							<span className={`h-3 w-3 rounded-full ${COLOR_SWATCHES[reading.liturgicalColor]}`} aria-hidden="true" />
+							Color {COLOR_LABELS[reading.liturgicalColor]}
+						</span>
+					)}
+				</div>
+			</div>
+
+			{optionalCelebrations.length > 0 && (
+				<div className="mt-5 border-t border-gray-200 pt-4 dark:border-gray-700">
+					<h3 className="text-sm font-semibold text-[#314156] dark:text-gray-100">Celebraciones opcionales</h3>
+					<ul className="mt-2 space-y-2 text-sm text-gray-700 dark:text-gray-200">
+						{optionalCelebrations.map((celebration) => (
+							<li key={`${celebration.name}-${celebration.rank}`}>
+								<span className="font-medium">{celebration.name}</span>
+								{celebration.rank && <span className="text-gray-500 dark:text-gray-400"> · {RANK_LABELS[celebration.rank] || "Celebración"}</span>}
+							</li>
+						))}
+					</ul>
+				</div>
+			)}
+
+			{saints.length > 0 && (
+				<div className="mt-5 border-t border-gray-200 pt-4 dark:border-gray-700">
+					<h3 className="text-sm font-semibold text-[#314156] dark:text-gray-100">Santos asociados</h3>
+					<ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm text-gray-700 dark:text-gray-200">
+						{saints.map((saint) => <li key={saint.name}>{saint.name}</li>)}
+					</ul>
+				</div>
+			)}
+
+			<div className="mt-5 flex flex-col gap-3 border-t border-gray-200 pt-4 dark:border-gray-700 sm:flex-row sm:items-center sm:justify-between">
+				<details className="text-sm text-gray-600 dark:text-gray-300">
+					<summary className="cursor-pointer font-medium text-[#314156] underline decoration-[#b79b72] underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79b72] dark:text-gray-100">
+						Fuente y verificación
+					</summary>
+					<div className="mt-3 space-y-1 leading-6">
+						<p>Estado: {source?.verified === true ? "información verificada" : "información no publicada"}.</p>
+						{source?.provider && <p>Proveedor: {source.provider}</p>}
+						{source?.url && <p><a className="underline underline-offset-2" href={source.url} target="_blank" rel="noreferrer">Consultar fuente editorial</a></p>}
+						{source?.syncStatus === "stale" && <p>Se conserva la última versión verificada mientras se revisa la fuente.</p>}
+					</div>
+				</details>
+				<Link href={`/calendario?month=${encodeURIComponent((reading?.date || reading?.dateKey || "").slice(0, 7))}`} className="inline-flex min-h-11 items-center justify-center rounded-full border border-[#b79b72] px-4 py-2 text-sm font-semibold text-[#314156] transition-colors hover:bg-[#b79b72]/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79b72] dark:text-gray-100">
+					Ver calendario litúrgico
+				</Link>
+			</div>
+			{!hasDetail && <p className="sr-only">La lectura está disponible aunque falte el detalle litúrgico opcional.</p>}
+		</section>
+	);
+}
 
 function getReadingItems(reading) {
 	if (Array.isArray(reading?.readings) && reading.readings.length > 0) {
@@ -411,11 +532,6 @@ export default function DailyVerseClient({
 					Lecturas del día
 				</h1>
 				<p className="mb-2 text-xl font-semibold capitalize text-[#b79b72]">{dateLabel}</p>
-				{reading.celebration && (
-					<p className="mb-3 text-sm font-medium uppercase tracking-[0.08em] text-[#314156]/70 dark:text-gray-300">
-						{reading.celebration}
-					</p>
-				)}
 				<ReadingControls
 					dateKey={dateKey}
 					readingMode={readingMode}
@@ -434,6 +550,7 @@ export default function DailyVerseClient({
 					</p>
 				)}
 			</div>
+			<LiturgicalContext reading={reading} />
 
 			<section className="w-full max-w-3xl space-y-6" aria-labelledby="daily-readings-title">
 				<h2 id="daily-readings-title" className="sr-only">Lecturas litúrgicas</h2>

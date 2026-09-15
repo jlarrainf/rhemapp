@@ -1,8 +1,9 @@
 import fs from "node:fs";
 import path from "node:path";
 import { mergeValidatedReading } from "../src/lib/readings/mergeSyncedReading.js";
-import { markReadingFresh, markReadingStale } from "../src/lib/readings/syncState.js";
+import { markReadingFresh, markReadingStale, recordSyncAttempt } from "../src/lib/readings/syncState.js";
 import { validateDailyDataset } from "../src/lib/readings/validateDailyDataset.js";
+import { normalizeLiturgicalMetadata } from "../src/lib/readings/liturgicalMetadata.js";
 
 const ROOT = process.cwd();
 const DAILY_DIR = path.join(ROOT, "public", "data", "daily-readings");
@@ -531,7 +532,11 @@ function extractSourceDate(html, date) {
 	const celebration = plain
 		.match(/RITOS INICIALES\s+\(Ver Ordinario de la Misa\)\s+([^\n]+)/i)?.[1]
 		?.trim() || "";
-	return { title, celebration };
+	const seasonMatch = plain.match(/(?:TIEMPO|TIEMPO LITÚRGICO)\s*[:\-]?\s*(Adviento|Navidad|Cuaresma|Pascua|Tiempo Ordinario)/i)?.[1]?.toLocaleLowerCase("es-CL");
+	const season = seasonMatch === "tiempo ordinario" ? "ordinary" : seasonMatch;
+	const color = plain.match(/COLOR LITÚRGICO\s*[:\-]?\s*(verde|blanco|rojo|violeta|rosa|negro|dorado)/i)?.[1]?.toLocaleLowerCase("es-CL");
+	const colorMap = { verde: "green", blanco: "white", rojo: "red", violeta: "violet", rosa: "rose", negro: "black", dorado: "gold" };
+	return { title, celebration, liturgicalSeason: season, liturgicalColor: colorMap[color] };
 }
 
 function parseEucaristiaGospel(html) {
@@ -575,6 +580,7 @@ function parseEucaristia(html, date) {
 		pageTitle: sourceInfo.title,
 		verified: true,
 	};
+	const celebrations = normalizeLiturgicalMetadata({ celebration: sourceInfo.celebration, source });
 	const readingReferenceLines = lines
 		.map((line, index) => ({ index, parsed: parseReadingReferenceLine(line) }))
 		.filter((item) => item.parsed);
@@ -621,6 +627,9 @@ function parseEucaristia(html, date) {
 		calendar: "chile",
 		liturgicalYear: date.slice(0, 4),
 		celebration: sourceInfo.celebration,
+		...(sourceInfo.liturgicalSeason ? { liturgicalSeason: sourceInfo.liturgicalSeason } : {}),
+		...(sourceInfo.liturgicalColor ? { liturgicalColor: sourceInfo.liturgicalColor } : {}),
+		...(celebrations.length > 0 ? { celebrations } : {}),
 		readings,
 		source,
 	};
@@ -852,7 +861,7 @@ function applyOrdoOverride(entry, date) {
 		ordoUrl: ORDO_URL,
 		ordoValidated: true,
 	};
-	return withLegacyGospelAlias({
+	const enrichedEntry = withLegacyGospelAlias({
 		...entry,
 		celebration: entry.celebration || override.celebration,
 		source,
@@ -867,8 +876,10 @@ function applyOrdoOverride(entry, date) {
 				excerpt: override.excerpt || reading.excerpt,
 				excerptReference: override.excerptReference || reference,
 				source,
-			}),
+		}),
 	});
+	const celebrations = normalizeLiturgicalMetadata(enrichedEntry);
+	return celebrations.length > 0 ? { ...enrichedEntry, celebrations } : enrichedEntry;
 }
 
 async function fetchEntry(date) {
@@ -928,9 +939,12 @@ const args = parseArgs();
 const start = args.start || process.env.DAILY_SYNC_START || "2026-09-10";
 const end = args.end || process.env.DAILY_SYNC_END || "2026-12-31";
 const dryRun = Boolean(args["dry-run"]);
+const runStartedAt = new Date().toISOString();
 const year = start.slice(0, 4);
 const outputPath = path.join(DAILY_DIR, `${year}.json`);
 const existing = fs.existsSync(outputPath) ? JSON.parse(fs.readFileSync(outputPath, "utf8")) : { calendar: "chile", year: Number(year), liturgicalYear: year, entries: [] };
+let syncAttempts = { ...(existing.syncState?.attempts || {}) };
+let runHadFailure = false;
 const entriesByDate = new Map(
 	(existing.entries || []).map((entry) => [
 		entry.date,
@@ -946,6 +960,7 @@ const entriesByDate = new Map(
 
 for (const date of dateRange(start, end)) {
 	const previousEntry = entriesByDate.get(date);
+	const attemptedAt = new Date().toISOString();
 	try {
 		const entry = await fetchEntry(date);
 		if (entry) {
@@ -953,15 +968,37 @@ for (const date of dateRange(start, end)) {
 			if (!merged.updated) {
 				throw new Error(`${date}: la publicación se descartó porque está incompleta o es inválida: ${merged.errors.join(" | ")}`);
 			}
-			const nextEntry = markReadingFresh(merged.entry);
+			const nextEntry = markReadingFresh(merged.entry, attemptedAt);
 			entriesByDate.set(date, nextEntry);
+			syncAttempts = recordSyncAttempt(syncAttempts, date, {
+			status: "published",
+			attemptedAt,
+			source: nextEntry.source,
+		});
 			const readingTypes = nextEntry.readings.map((reading) => reading.type).join(" → ");
 			console.log(`${date}: ${nextEntry.gospel.reference} (${readingTypes}, ${nextEntry.source.provider})`);
 		} else {
 			throw new Error(`${date}: sin publicación disponible`);
 		}
 	} catch (error) {
-		if (previousEntry) entriesByDate.set(date, markReadingStale(previousEntry, error));
+		runHadFailure = true;
+		if (previousEntry) {
+			const staleEntry = markReadingStale(previousEntry, error, attemptedAt);
+			entriesByDate.set(date, staleEntry);
+			syncAttempts = recordSyncAttempt(syncAttempts, date, {
+				status: "stale",
+				attemptedAt,
+				source: staleEntry.source,
+				error: error?.message || "La fuente no devolvió una lectura válida",
+			});
+		} else {
+			syncAttempts = recordSyncAttempt(syncAttempts, date, {
+				status: "unavailable",
+				attemptedAt,
+				source: { provider: "Eucaristía Diaria / Conferencia Episcopal de Chile", url: `${PRIMARY_URL}${date}` },
+				error: error?.message || "La fuente no devolvió una lectura válida",
+			});
+		}
 		console.warn(`${date}: ${error.message}`);
 	}
 }
@@ -978,6 +1015,11 @@ const candidateDocument = {
 	year: Number(year),
 	liturgicalYear: year,
 	syncedAt,
+	syncState: {
+		lastAttemptAt: runStartedAt,
+		status: runHadFailure ? "partial" : "success",
+		attempts: syncAttempts,
+	},
 	entries,
 };
 const datasetValidation = validateDailyDataset(candidateDocument, { year });
@@ -992,7 +1034,7 @@ const nextDocument = `${JSON.stringify(candidateDocument, null, 2)}\n`;
 
 if (dryRun) {
 	console.log(`Simulación completada: ${entries.length} entradas calculadas para ${outputPath}`);
-} else if (previousEntries === nextEntries) {
+} else if (previousEntries === nextEntries && JSON.stringify(existing.syncState || {}) === JSON.stringify(candidateDocument.syncState)) {
 	console.log(`Sin cambios: ${entries.length} entradas válidas en ${outputPath}`);
 } else {
 	replaceJsonAtomically(outputPath, nextDocument);

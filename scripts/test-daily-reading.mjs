@@ -7,6 +7,7 @@ import {
 	getDailyReading,
 	getPublishedReading,
 } from "../src/lib/dailyReading.js";
+import { getPublishedReadingWithOverrides } from "../src/lib/editorial/publishedReadings.js";
 
 const dailyClient = fs.readFileSync(
 	path.join(process.cwd(), "src", "app", "daily", "DailyVerseClient.jsx"),
@@ -51,6 +52,13 @@ test("reports a missing calendar year as unavailable content", () => {
 		() => getPublishedReading({ dateKey: "2027-01-01", mode: "date" }),
 		(error) => error instanceof ReadingUnavailableError && error.status === 404,
 	);
+});
+
+test("keeps a verified legacy entry readable while generic migration is pending", async () => {
+	const result = await getPublishedReadingWithOverrides({ dateKey: "2026-10-02", mode: "date" });
+	assert.equal(result.dateKey, "2026-10-02");
+	assert.equal(result.mode, "date");
+	assert.equal(result.gospel.reference, "Mateo 18:1-5,10");
 });
 
 test("keeps the compatible daily contract while exposing readings", () => {

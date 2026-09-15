@@ -12,7 +12,10 @@ import java.net.URLEncoder
 data class MobileSession(val accessToken: String, val refreshToken: String)
 data class NotificationPreferences(val enabled: Boolean, val localTime: String, val timezone: String)
 data class ReadingItem(val type: String, val title: String, val reference: String, val excerpt: String)
-data class DailyReading(val dateKey: String, val dateLabel: String, val celebration: String, val readings: List<ReadingItem>)
+data class LiturgicalCelebration(val name: String, val rank: String, val isPrimary: Boolean, val saints: List<String>)
+data class DailyReading(val dateKey: String, val dateLabel: String, val celebration: String, val celebrations: List<LiturgicalCelebration>, val liturgicalSeason: String, val liturgicalColor: String, val readings: List<ReadingItem>)
+data class CalendarDay(val dateKey: String, val dateLabel: String, val primaryCelebration: String, val celebrationRank: String, val saints: List<String>, val liturgicalColor: String, val available: Boolean)
+data class LiturgicalCalendar(val month: String, val monthLabel: String, val calendar: String, val timeZone: String, val days: List<CalendarDay>)
 
 class ApiException(val statusCode: Int, override val message: String) : Exception(message)
 
@@ -46,9 +49,16 @@ class RhemappApiClient(context: Context) {
     suspend fun getDailyReading(dateKey: String? = null): DailyReading = withContext(Dispatchers.IO) {
         val path = if (dateKey.isNullOrBlank()) "/api/readings?mode=today" else "/api/readings?date=${URLEncoder.encode(dateKey, "UTF-8")}"
         val response = request(path, "GET")
-        val readings = response.optJSONArray("readings") ?: JSONArray()
-        DailyReading(response.optString("dateKey", dateKey ?: ""), response.optString("dateLabel", "Lectura del día"), response.optString("celebration", ""), readings.toReadingItems())
-    }
+		val readings = response.optJSONArray("readings")
+		val items = if (readings != null && readings.length() > 0) readings.toReadingItems() else response.optJSONObject("gospel")?.let { gospel -> listOf(ReadingItem("gospel", gospel.optString("title", gospel.optString("excerpt", "")), gospel.optString("reference", ""), gospel.optString("excerpt", ""))) } ?: emptyList()
+		DailyReading(response.optString("dateKey", dateKey ?: ""), response.optString("dateLabel", "Lectura del día"), response.optString("celebration", ""), response.optJSONArray("celebrations")?.toCelebrations() ?: emptyList(), response.optString("liturgicalSeason", ""), response.optString("liturgicalColor", ""), items)
+	}
+
+	suspend fun getCalendarMonth(monthKey: String): LiturgicalCalendar = withContext(Dispatchers.IO) {
+		val response = request("/api/calendar?month=${URLEncoder.encode(monthKey, "UTF-8")}", "GET")
+		val days = response.optJSONArray("days")?.toCalendarDays() ?: emptyList()
+		LiturgicalCalendar(response.optString("month", monthKey), response.optString("monthLabel", monthKey), response.optString("calendar", "chile"), response.optString("timeZone", "America/Santiago"), days)
+	}
 
     suspend fun getNotificationPreferences(): NotificationPreferences = withContext(Dispatchers.IO) {
         val preferences = request("/api/notification-preferences", "GET").getJSONObject("preferences")
@@ -116,10 +126,34 @@ class RhemappApiClient(context: Context) {
         return result
     }
 
-    private fun JSONArray.toReadingItems(): List<ReadingItem> = buildList {
+	private fun JSONArray.toReadingItems(): List<ReadingItem> = buildList {
         for (index in 0 until length()) {
             val item = optJSONObject(index) ?: continue
             add(ReadingItem(item.optString("type", "reading"), item.optString("title", ""), item.optString("reference", item.optString("excerptReference", "")), item.optString("excerpt", "")))
-        }
-    }
+	}
+	}
+
+	private fun JSONArray.toCelebrations(): List<LiturgicalCelebration> = buildList {
+		for (index in 0 until length()) {
+			val item = optJSONObject(index) ?: continue
+			val saints = item.optJSONArray("saints")?.let { saintArray -> buildList {
+				for (saintIndex in 0 until saintArray.length()) {
+					val saint = saintArray.optJSONObject(saintIndex) ?: continue
+					val name = saint.optString("name", "").trim()
+					if (name.isNotBlank()) add(name)
+				}
+			} } ?: emptyList()
+			add(LiturgicalCelebration(item.optString("name", ""), item.optString("rank", ""), item.optBoolean("isPrimary", false), saints))
+		}
+	}
+
+	private fun JSONArray.toCalendarDays(): List<CalendarDay> = buildList {
+		for (index in 0 until length()) {
+			val item = optJSONObject(index) ?: continue
+			val saints = item.optJSONArray("saints")?.let { saintArray -> buildList {
+				for (saintIndex in 0 until saintArray.length()) add(saintArray.optString(saintIndex, ""))
+			} } ?: emptyList()
+			add(CalendarDay(item.optString("date", ""), item.optString("label", ""), item.optString("primaryCelebration", ""), item.optString("celebrationRank", ""), saints.filter { it.isNotBlank() }, item.optString("liturgicalColor", ""), item.optBoolean("available", false)))
+		}
+	}
 }

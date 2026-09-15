@@ -1,0 +1,86 @@
+{
+  "complete": {
+    "liturgicalSeason": "ordinary",
+    "liturgicalColor": "green",
+    "celebrations": [
+      {
+        "name": "XXIV Domingo del Tiempo Ordinario",
+        "rank": "other",
+        "isPrimary": true,
+        "saints": [],
+        "source": {
+          "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+          "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-13",
+          "verified": true
+        }
+      }
+    ]
+  },
+  "optional": {
+    "celebrations": [
+      {
+        "name": "Santa Teresa de Jesús, virgen y doctora de la Iglesia",
+        "rank": "memorial",
+        "isPrimary": true,
+        "saints": [
+          {
+            "name": "Santa Teresa de Jesús",
+            "source": {
+              "provider": "Ordo de la Conferencia Episcopal de Chile",
+              "url": "https://www.iglesia.cl/ordo",
+              "verified": true
+            }
+          }
+        ],
+        "source": {
+          "provider": "Ordo de la Conferencia Episcopal de Chile",
+          "url": "https://www.iglesia.cl/ordo",
+          "verified": true
+        }
+      },
+      {
+        "name": "Celebración opcional documentada por la fuente",
+        "rank": "optional-memorial",
+        "isPrimary": false,
+        "saints": [],
+        "source": {
+          "provider": "Fixture editorial de pruebas",
+          "url": "https://example.com/rhemapp/spec-009-optional",
+          "verified": true
+        }
+      }
+    ]
+  },
+  "conflict": {
+    "celebrations": [
+      {
+        "name": "Metadata no verificada",
+        "rank": "memorial",
+        "isPrimary": true,
+        "saints": [],
+        "source": {
+          "provider": "Fuente sin revisión editorial",
+          "url": "https://example.com/rhemapp/spec-009-conflict",
+          "verified": false
+        }
+      }
+    ]
+  },
+  "sourceFailure": {
+    "status": "failed",
+    "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+    "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-13",
+    "attemptedAt": "2026-09-15T12:00:00.000Z"
+  },
+  "incomplete": {
+    "liturgicalSeason": "ordinary"
+  },
+  "legacy": {
+    "celebration": "Todos los Santos (solemnidad)",
+    "source": {
+      "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
+      "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-11-01",
+      "verified": true
+    }
+  }
+}

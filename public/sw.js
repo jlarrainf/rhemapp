@@ -1,5 +1,5 @@
 const CACHE_NAME = "rhemapp-shell-v1";
-const SHELL_ASSETS = ["/", "/daily", "/random", "/rosario", "/manifest.webmanifest", "/Rhemapp_isotype.png"];
+const SHELL_ASSETS = ["/", "/daily", "/calendario", "/random", "/rosario", "/manifest.webmanifest", "/Rhemapp_isotype.png"];
 const PRIVATE_PATHS = ["/perfil", "/admin", "/biblioteca", "/sugerencias", "/login", "/recuperar", "/restablecer"];
 
 function isPrivate(pathname) {

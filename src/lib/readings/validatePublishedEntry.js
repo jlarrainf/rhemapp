@@ -1,4 +1,5 @@
 import { validateReadingEntry } from "./validateReading.js";
+import { validateLiturgicalMetadata } from "./liturgicalMetadata.js";
 
 function isNonEmptyString(value) {
 	return typeof value === "string" && value.trim().length > 0;
@@ -16,6 +17,7 @@ function validateLegacyEntry(entry) {
 	if (!isNonEmptyString(entry?.source?.provider)) errors.push("falta source.provider");
 	if (!isNonEmptyString(entry?.source?.url)) errors.push("falta source.url");
 	if (entry?.source?.verified !== true) errors.push("source.verified debe ser true");
+	errors.push(...validateLiturgicalMetadata(entry).errors);
 
 	return { valid: errors.length === 0, errors, legacy: true };
 }

@@ -12,8 +12,27 @@ import {
 	resolveSundayDateKey,
 } from "../dailyReading.js";
 import { validatePublishedEntry } from "../readings/validatePublishedEntry.js";
+import { normalizeLiturgicalMetadata } from "../readings/liturgicalMetadata.js";
 
 const VERSION_FIELDS = "id, reading_key, payload_json, published_by, source_suggestion_id, rollback_of, created_at, superseded_at";
+
+function enrichPublishedEntry(entry) {
+	const celebrations = normalizeLiturgicalMetadata(entry);
+	return celebrations.length > 0 ? { ...entry, celebrations } : entry;
+}
+
+function buildLegacyPublishedReading(entry, dateKey, mode, timeZone) {
+	const validation = validatePublishedEntry(entry);
+	if (!validation.valid) return null;
+	return {
+		...enrichPublishedEntry(entry),
+		dateKey,
+		dateLabel: formatDateKey(dateKey),
+		timeZone,
+		mode,
+		nextChangeAt: null,
+	};
+}
 
 function readingKey(dateKey) {
 	return `chile:${dateKey}`;
@@ -86,12 +105,19 @@ export async function getPublishedReadingWithOverrides({
 	const override = await getActivePublishedEntry(resolvedDateKey);
 	if (!override) {
 		if (base) return base;
+		try {
+			const legacyEntry = getPublishedEntryForDate(resolvedDateKey);
+			const legacyReading = buildLegacyPublishedReading(legacyEntry, resolvedDateKey, mode, timeZone);
+			if (legacyReading) return legacyReading;
+		} catch {
+			// The original request error below contains the actionable public response.
+		}
 		throw baseError || new ReadingUnavailableError(`Lectura aún no disponible para ${resolvedDateKey}`);
 	}
 
 	const resolvedMode = base?.mode || mode;
 	return {
-		...override,
+		...enrichPublishedEntry(override),
 		dateKey: resolvedDateKey,
 		dateLabel: formatDateKey(resolvedDateKey),
 		timeZone,
@@ -105,7 +131,7 @@ export async function getDailyReadingWithOverrides({ date = new Date(), timeZone
 	const override = await getActivePublishedEntry(dateKey);
 	if (override) {
 		return {
-			...override,
+			...enrichPublishedEntry(override),
 			dateKey,
 			nextChangeAt: getNextMidnight(date, timeZone).toISOString(),
 		};

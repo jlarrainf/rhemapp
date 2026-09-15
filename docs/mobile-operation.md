@@ -34,6 +34,8 @@ El proveedor recibe un `POST` con `{ token, payload, idempotencyKey }` y debe re
 
 ## Calendario y entrega
 
+La PWA y Android consumen el contrato público `GET /api/calendar?month=YYYY-MM&calendar=chile`; no calculan celebraciones, colores ni reglas dominicales localmente. La pantalla web `/calendario` y la pantalla de calendario Android muestran resúmenes y abren el mismo enlace explícito `/daily?date=YYYY-MM-DD`. El service worker precarga `/calendario` como shell público, pero no cachea `/api/` ni rutas privadas; si no hay conexión solo se muestra una versión de página previamente visitada.
+
 El scheduler se ejecuta cada minuto. Compara `local_time` en la zona IANA del perfil y entrega a todos los dispositivos Android activos del usuario con la misma preferencia. El contenido se resuelve con `America/Santiago` y modo `today`, respetando el corte dominical del sábado a las 15:00; el enlace siempre contiene `date=YYYY-MM-DD`.
 
 La clave única por dispositivo y lectura (`device-id:chile:YYYY-MM-DD`) evita duplicados entre cron y reintentos. El RPC toma un bloqueo y permite como máximo tres intentos. Cambiar la zona se aplica en la próxima ejecución y no deja timers del navegador.

@@ -21,12 +21,19 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data android:scheme="https" android:host="rhemapp.com" android:pathPrefix="/daily" />
+                <data android:scheme="https" android:host="rhemapp.com" android:pathPrefix="/calendario" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data android:scheme="rhemapp" android:host="daily" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="rhemapp" android:host="calendar" />
             </intent-filter>
         </activity>
         <service android:name=".PushMessagingService" android:exported="false">

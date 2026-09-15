@@ -1,5 +1,6 @@
 export const DAILY_TIME_ZONE = "America/Santiago";
 export const MIN_PUBLISHED_DATE = "2025-01-01";
+export const MIN_CALENDAR_MONTH = MIN_PUBLISHED_DATE.slice(0, 7);
 export const SUNDAY_CUTOFF_MINUTES = 15 * 60;
 
 function createDateRequestError(message) {
@@ -60,6 +61,50 @@ export function isValidDateKey(value) {
 	return date.getUTCFullYear() === year
 		&& date.getUTCMonth() === month - 1
 		&& date.getUTCDate() === day;
+}
+
+export function isValidMonthKey(value) {
+	if (typeof value !== "string" || !/^\d{4}-\d{2}$/.test(value)) return false;
+	const [year, month] = value.split("-").map(Number);
+	return year >= 1 && month >= 1 && month <= 12;
+}
+
+export function getMonthKeyInTimeZone(date = new Date(), timeZone = DAILY_TIME_ZONE) {
+	const { year, month } = getDatePartsInTimeZone(date, timeZone);
+	return `${year}-${month}`;
+}
+
+export function addCalendarMonths(monthKey, months) {
+	if (!isValidMonthKey(monthKey) || !Number.isInteger(months)) {
+		throw new Error(`Mes inválido: ${monthKey}`);
+	}
+	const [year, month] = monthKey.split("-").map(Number);
+	const date = new Date(Date.UTC(year, month - 1 + months, 1));
+	return `${date.getUTCFullYear()}-${String(date.getUTCMonth() + 1).padStart(2, "0")}`;
+}
+
+export function getCalendarMonthDateKeys(monthKey) {
+	if (!isValidMonthKey(monthKey)) throw new Error(`Mes inválido: ${monthKey}`);
+	const [year, month] = monthKey.split("-").map(Number);
+	const daysInMonth = new Date(Date.UTC(year, month, 0)).getUTCDate();
+	return Array.from({ length: daysInMonth }, (_, index) =>
+		`${monthKey}-${String(index + 1).padStart(2, "0")}`
+	);
+}
+
+export function getCalendarMonthLabel(monthKey, locale = "es-CL") {
+	if (!isValidMonthKey(monthKey)) throw new Error(`Mes inválido: ${monthKey}`);
+	return new Intl.DateTimeFormat(locale, {
+		month: "long",
+		year: "numeric",
+		timeZone: "UTC",
+	}).format(new Date(`${monthKey}-01T12:00:00Z`));
+}
+
+export function getWeekdayIndexForDateKey(dateKey) {
+	if (!isValidDateKey(dateKey)) throw new Error(`Fecha inválida: ${dateKey}`);
+	const [year, month, day] = dateKey.split("-").map(Number);
+	return new Date(Date.UTC(year, month - 1, day)).getUTCDay();
 }
 
 export function getDateKeyInTimeZone(date = new Date(), timeZone = DAILY_TIME_ZONE) {

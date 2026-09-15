@@ -7,6 +7,7 @@ export default function sitemap() {
 	return [
 		{ url: new URL("/", siteUrl).toString(), lastModified },
 		{ url: new URL("/daily", siteUrl).toString(), lastModified },
+		{ url: new URL("/calendario", siteUrl).toString(), lastModified },
 		{ url: new URL("/random", siteUrl).toString(), lastModified },
 		{ url: new URL("/rosario", siteUrl).toString(), lastModified },
 	];

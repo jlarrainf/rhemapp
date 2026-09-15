@@ -5,7 +5,7 @@ import test from "node:test";
 import { fileURLToPath } from "node:url";
 import { DEFAULT_NOTIFICATION_LOCAL_TIME, DEFAULT_NOTIFICATION_TIMEZONE, NOTIFICATION_PLATFORM } from "../src/lib/mobile/constants.js";
 import { createNotificationPreferenceView, validateMobileGoogleLogin, validateNotificationPreferencesPatch, validatePushRegistration, validatePushUnregister } from "../src/lib/mobile/validation.js";
-import { createDailyReadingDeepLink, parseDailyReadingDeepLink } from "../src/lib/mobile/deepLinks.js";
+import { createCalendarDeepLink, createDailyReadingDeepLink, parseCalendarDeepLink, parseDailyReadingDeepLink } from "../src/lib/mobile/deepLinks.js";
 import { getNotificationLocalParts, shouldDispatchForPreference } from "../src/lib/mobile/schedule.js";
 import { decryptPushToken, encryptPushToken, hashPushToken } from "../src/lib/mobile/pushTokens.js";
 import { createNotificationPayload, dispatchToDevice } from "../src/lib/mobile/notifications.js";
@@ -56,6 +56,10 @@ test("deep links use explicit dates and reject unsupported modes", () => {
 	assert.deepEqual(parseDailyReadingDeepLink(deepLink), { ok: true, dateKey: "2026-09-14", mode: null, readingType: null });
 	assert.equal(parseDailyReadingDeepLink("https://rhemapp.com/daily?mode=tomorrow").ok, false);
 	assert.throws(() => createDailyReadingDeepLink({ baseUrl: "https://rhemapp.com", dateKey: "2026-09-14", mode: "sunday" }));
+	const calendarLink = createCalendarDeepLink({ baseUrl: "https://rhemapp.com", monthKey: "2026-09" });
+	assert.equal(calendarLink, "https://rhemapp.com/calendario?month=2026-09&calendar=chile");
+	assert.deepEqual(parseCalendarDeepLink(calendarLink), { ok: true, monthKey: "2026-09", calendar: "chile" });
+	assert.equal(parseCalendarDeepLink("https://rhemapp.com/calendario?month=2026-9").ok, false);
 });
 
 test("scheduler matches the local minute in the configured IANA timezone", () => {
@@ -132,6 +136,7 @@ test("PWA and Android artifacts preserve the phase and security contract", () =>
 	assert.equal(manifest.icons[1].src, "/Rhemapp_isotype.png");
 	assert.match(serviceWorker, /url\.pathname\.startsWith\("\/api\/"\)/);
 	assert.match(serviceWorker, /PRIVATE_PATHS/);
+	assert.match(serviceWorker, /"\/calendario"/);
 	assert.doesNotMatch(serviceWorker, /pushManager|Notification\.requestPermission/);
 	assert.match(migration, /notification_preferences/);
 	assert.match(migration, /push_devices/);
@@ -147,6 +152,7 @@ test("PWA and Android artifacts preserve the phase and security contract", () =>
 	assert.ok(fs.existsSync(androidLogo));
 	assert.ok(fs.statSync(androidLogo).size > 100_000);
 	assert.match(androidManifest, /android:pathPrefix="\/daily"/);
+	assert.match(androidManifest, /android:pathPrefix="\/calendario"/);
 	assert.match(googleAuthClient, /GetSignInWithGoogleOption/);
 	assert.match(googleAuthClient, /GetGoogleIdOption/);
 	assert.match(googleAuthClient, /setFilterByAuthorizedAccounts\(false\)/);
@@ -157,9 +163,14 @@ test("PWA and Android artifacts preserve the phase and security contract", () =>
 	assert.match(googleAuthClient, /GoogleSignInCredential\(googleCredential\.idToken, nonce\)/);
 	assert.match(googleAuthClient, /GOOGLE_WEB_CLIENT_ID/);
 	assert.match(mainActivity, /Continuar con Google/);
+	assert.match(androidApiClient, /getCalendarMonth/);
+	assert.match(androidApiClient, /\/api\/calendar\?month=/);
+	assert.match(mainActivity, /CalendarScreen/);
 	assert.match(createNotificationPayload({ reading: { dateKey: "2026-09-14", dateLabel: "14 de septiembre de 2026", celebration: "Memoria" }, baseUrl: "https://rhemapp.com" }).url, /daily\?date=2026-09-14/);
 	assert.ok(rosaryClient.indexOf("<BibleTranslationNotice />") > rosaryClient.indexOf("{misterios.map"));
 	assert.match(dailyClient, /addCalendarDays/);
 	assert.match(dailyClient, /aria-label="Ver el día anterior"/);
 	assert.match(dailyClient, /aria-label="Ver el día siguiente"/);
+	assert.match(dailyClient, /Ver calendario litúrgico/);
+	assert.match(rosaryClient, /Consultar calendario litúrgico/);
 });

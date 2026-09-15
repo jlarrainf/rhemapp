@@ -8,6 +8,7 @@ export const MAX_PUSH_TOKEN_LENGTH = 4096;
 export const MAX_GOOGLE_ID_TOKEN_LENGTH = 16_384;
 export const MAX_GOOGLE_NONCE_LENGTH = 256;
 export const MOBILE_DAILY_PATH = "/daily";
+export const MOBILE_CALENDAR_PATH = "/calendario";
 export const MOBILE_RESPONSE_HEADERS = Object.freeze({
 	"Cache-Control": "no-store, max-age=0",
 	"X-Robots-Tag": "noindex, nofollow",

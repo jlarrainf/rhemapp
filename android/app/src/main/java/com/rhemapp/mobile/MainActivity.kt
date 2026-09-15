@@ -52,6 +52,9 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 import java.util.TimeZone
+import java.time.ZoneId
+import java.time.ZonedDateTime
+import java.time.format.DateTimeFormatter
 
 class MainActivity : ComponentActivity() {
     private var pendingDeepLink by mutableStateOf<Uri?>(null)
@@ -74,10 +77,14 @@ class MainActivity : ComponentActivity() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun RhemappApp(api: RhemappApiClient, googleAuth: GoogleAuthClient, deepLink: Uri?, onDeepLinkConsumed: () -> Unit) {
-    var authenticated by remember { mutableStateOf(api.isAuthenticated()) }
-    var screen by remember { mutableStateOf("daily") }
+	var authenticated by remember { mutableStateOf(api.isAuthenticated()) }
+	var screen by remember { mutableStateOf("daily") }
 
-    LaunchedEffect(authenticated) { if (authenticated) api.refreshSession() }
+	LaunchedEffect(authenticated) { if (authenticated) api.refreshSession() }
+	LaunchedEffect(deepLink) {
+		if (parseCalendarMonth(deepLink) != null) screen = "calendar"
+		else if (parseDailyDate(deepLink) != null) screen = "daily"
+	}
 
     if (!authenticated) {
         LoginScreen(
@@ -89,14 +96,19 @@ private fun RhemappApp(api: RhemappApiClient, googleAuth: GoogleAuthClient, deep
 
     Scaffold(topBar = {
         TopAppBar(
-            title = { Text(if (screen == "daily") "Lecturas del día" else "Preferencias") },
+            title = { Text(when (screen) { "daily" -> "Lecturas del día"; "calendar" -> "Calendario litúrgico"; else -> "Preferencias" }) },
             actions = {
-                TextButton(onClick = { screen = if (screen == "daily") "settings" else "daily" }) { Text(if (screen == "daily") "Preferencias" else "Lectura") }
+                TextButton(onClick = { screen = if (screen == "calendar") "daily" else "calendar" }) { Text(if (screen == "calendar") "Lectura" else "Calendario") }
+                TextButton(onClick = { screen = if (screen == "settings") "daily" else "settings" }) { Text(if (screen == "settings") "Lectura" else "Preferencias") }
                 TextButton(onClick = { api.logout(); authenticated = false }) { Text("Salir") }
             },
         )
     }) { padding ->
-        if (screen == "daily") DailyScreen(api, deepLink, onDeepLinkConsumed, padding) else NotificationSettingsScreen(api, padding)
+        when (screen) {
+            "daily" -> DailyScreen(api, deepLink, onDeepLinkConsumed, padding)
+            "calendar" -> CalendarScreen(api, deepLink, onDeepLinkConsumed, padding) { screen = "daily" }
+            else -> NotificationSettingsScreen(api, padding)
+        }
     }
 }
 
@@ -166,10 +178,56 @@ private fun DailyScreen(api: RhemappApiClient, deepLink: Uri?, onDeepLinkConsume
 
     val current = reading ?: return
     LazyColumn(Modifier.fillMaxSize().padding(padding), contentPadding = PaddingValues(20.dp), verticalArrangement = Arrangement.spacedBy(16.dp)) {
-        item { Text(current.dateLabel, style = MaterialTheme.typography.titleLarge, color = MaterialTheme.colorScheme.secondary); if (current.celebration.isNotBlank()) Text(current.celebration, style = MaterialTheme.typography.titleMedium); if (dateKey != null) Text("Lectura abierta desde un aviso", style = MaterialTheme.typography.bodySmall) }
+        item {
+            Text(current.dateLabel, style = MaterialTheme.typography.titleLarge, color = MaterialTheme.colorScheme.secondary)
+            val primary = current.celebrations.firstOrNull { it.isPrimary } ?: current.celebrations.firstOrNull()
+            if (primary != null) Text(primary.name, style = MaterialTheme.typography.titleMedium)
+            else if (current.celebration.isNotBlank()) Text(current.celebration, style = MaterialTheme.typography.titleMedium)
+            current.celebrations.drop(1).forEach { celebration -> Text("${celebration.name} (${celebration.rank.toRankLabel()})", style = MaterialTheme.typography.bodySmall) }
+            if (current.liturgicalSeason.isNotBlank() || current.liturgicalColor.isNotBlank()) Text(listOf(current.liturgicalSeason.toSeasonLabel(), current.liturgicalColor.toColorLabel()).filter { it.isNotBlank() }.joinToString(" · "), style = MaterialTheme.typography.bodySmall)
+            if (dateKey != null) Text("Lectura abierta desde un aviso", style = MaterialTheme.typography.bodySmall)
+        }
         items(current.readings) { item ->
             Column(Modifier.fillMaxWidth()) { Text(item.type.toReadingLabel(), style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.secondary); if (item.title.isNotBlank()) Text(item.title, style = MaterialTheme.typography.titleMedium); Text(item.excerpt, style = MaterialTheme.typography.bodyLarge, modifier = Modifier.padding(top = 8.dp)); Text(item.reference, style = MaterialTheme.typography.labelMedium, modifier = Modifier.padding(top = 8.dp)) }
             HorizontalDivider(modifier = Modifier.padding(top = 16.dp))
+        }
+    }
+}
+
+@Composable
+private fun CalendarScreen(api: RhemappApiClient, deepLink: Uri?, onDeepLinkConsumed: () -> Unit, padding: PaddingValues, onOpenDate: (String) -> Unit) {
+    val scope = rememberCoroutineScope()
+    var calendar by remember { mutableStateOf<LiturgicalCalendar?>(null) }
+    var pending by remember { mutableStateOf(true) }
+    var error by remember { mutableStateOf("") }
+    val monthKey = remember(deepLink) { parseCalendarMonth(deepLink) ?: currentCalendarMonth() }
+
+    fun load() {
+        scope.launch {
+            pending = true; error = ""
+            try { calendar = api.getCalendarMonth(monthKey) }
+            catch (cause: Exception) { error = cause.message ?: "No se pudo cargar el calendario litúrgico." }
+            finally { pending = false; onDeepLinkConsumed() }
+        }
+    }
+    LaunchedEffect(monthKey) { load() }
+
+    if (pending) return Column(Modifier.fillMaxSize().padding(padding), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center) { CircularProgressIndicator(); Spacer(Modifier.height(12.dp)); Text("Cargando el calendario…") }
+    if (error.isNotBlank() || calendar == null) return Column(Modifier.fillMaxSize().padding(padding).padding(24.dp), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center) { Text(error.ifBlank { "No hay un calendario disponible." }, color = MaterialTheme.colorScheme.error); Spacer(Modifier.height(12.dp)); Button(onClick = { load() }) { Text("Reintentar") } }
+
+    val current = calendar ?: return
+    LazyColumn(Modifier.fillMaxSize().padding(padding), contentPadding = PaddingValues(20.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+        item { Text(current.monthLabel, style = MaterialTheme.typography.headlineSmall); Text("Calendario chileno · zona horaria de Chile", style = MaterialTheme.typography.bodySmall) }
+        items(current.days) { day ->
+            Column(Modifier.fillMaxWidth()) {
+                Text(day.dateLabel, style = MaterialTheme.typography.titleMedium)
+                if (day.available) {
+                    Text(day.primaryCelebration.ifBlank { "Celebración litúrgica" }, style = MaterialTheme.typography.bodyLarge)
+                    if (day.saints.isNotEmpty()) Text("Santos: ${day.saints.joinToString(", ")}", style = MaterialTheme.typography.bodySmall)
+                    TextButton(onClick = { onOpenDate(day.dateKey) }) { Text("Abrir lecturas") }
+                } else Text("Lecturas no publicadas para este día.", style = MaterialTheme.typography.bodySmall)
+                HorizontalDivider(modifier = Modifier.padding(top = 8.dp))
+            }
         }
     }
 }
@@ -244,7 +302,23 @@ private fun parseDailyDate(uri: Uri?): String? {
     return if (Regex("\\d{4}-\\d{2}-\\d{2}").matches(date)) date else null
 }
 
+private fun parseCalendarMonth(uri: Uri?): String? {
+    if (uri == null) return null
+    val validHost = (uri.scheme == "rhemapp" && uri.host == "calendar") || (uri.scheme == "https" && uri.host == "rhemapp.com" && uri.path == "/calendario")
+    if (!validHost) return null
+    val month = uri.getQueryParameter("month") ?: return null
+    return if (Regex("\\d{4}-(0[1-9]|1[0-2])").matches(month)) month else null
+}
+
+private fun currentCalendarMonth(): String = ZonedDateTime.now(ZoneId.of("America/Santiago")).format(DateTimeFormatter.ofPattern("yyyy-MM"))
+
 private fun String.toReadingLabel(): String = when (this) { "first-reading" -> "Primera lectura"; "psalm" -> "Salmo"; "second-reading" -> "Segunda lectura"; "gospel" -> "Evangelio"; else -> "Lectura" }
+
+private fun String.toRankLabel(): String = when (this) { "weekday" -> "día litúrgico"; "memorial" -> "memoria"; "optional-memorial" -> "memoria opcional"; "feast" -> "fiesta"; "solemnity" -> "solemnidad"; "commemoration" -> "conmemoración"; else -> "celebración" }
+
+private fun String.toSeasonLabel(): String = when (this) { "advent" -> "Adviento"; "christmas" -> "Navidad"; "lent" -> "Cuaresma"; "easter" -> "Pascua"; "ordinary" -> "Tiempo Ordinario"; else -> "" }
+
+private fun String.toColorLabel(): String = when (this) { "green" -> "color verde"; "white" -> "color blanco"; "red" -> "color rojo"; "violet" -> "color violeta"; "rose" -> "color rosa"; "black" -> "color negro"; "gold" -> "color dorado"; else -> "" }
 
 @Composable
 private fun RhemappTheme(content: @Composable () -> Unit) { MaterialTheme(content = content) }

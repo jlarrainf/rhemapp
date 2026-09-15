@@ -1,0 +1,4 @@
+{
+  "invalidMonths": ["2026-9", "2026-00", "2026-13", "2026-02-01", "2026-02", "2026-02"],
+  "unsupportedCalendars": ["argentina", "universal", ""]
+}

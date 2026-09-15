@@ -1,6 +1,6 @@
 # Spec 009 — Calendario litúrgico enriquecido
 
-Estado: Draft — creada para revisión humana; no autoriza implementación
+Estado: Aprobada para implementación — autorización explícita del propietario el 2026-09-15
 Prioridad: P1
 
 ## Contexto y objetivo

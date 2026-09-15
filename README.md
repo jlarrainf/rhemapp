@@ -23,6 +23,7 @@ Sitio: https://www.rhemapp.com
 - `/` Inicio
 - `/random` Versículo aleatorio
 - `/daily` Lectura del día
+- `/calendario` Calendario litúrgico chileno con resúmenes y enlaces por fecha
 - `/rosario` Misterios del rosario
 - `/login` Iniciar sesión o crear una cuenta
 - `/perfil` Perfil privado
@@ -34,6 +35,7 @@ La configuración reproducible de autenticación, OAuth y entornos está en [`do
 
 - `/api/passage` Obtiene un pasaje desde una API externa (requiere API key).
 - `/api/readings` Devuelve las lecturas genéricas de hoy, una fecha explícita o el domingo vigente.
+- `/api/calendar?month=YYYY-MM&calendar=chile` Devuelve el resumen mensual público y sus fuentes verificadas.
 - `/api/daily-reading` Mantiene el contrato compatible del evangelio vigente y el próximo cambio de medianoche en Chile.
 - `/api/verses` Sirve subconjuntos del JSON local (`scope=random|daily|all`).
 - `/api/notification-preferences` Lee y actualiza la hora, zona y activación de avisos.
@@ -92,6 +94,7 @@ npm run dev
 - `npm run start` Ejecuta el build.
 - `npm run sync:daily` Sincroniza las lecturas fechadas con Eucaristía Diaria y respaldos provisionales.
 - `npm run validate:daily` Verifica cobertura, formato y campos obligatorios del calendario.
+- `npm run test:calendar` Verifica metadata litúrgica, resumen mensual, parámetros y deep links.
 - `npm run test:sharing` Verifica URLs públicas, tokens privados, autorización, rate limit y UI de compartir.
 - `npm run test:mobile` Verifica contratos móviles, calendario, deduplicación, tokens, PWA y Android.
 
