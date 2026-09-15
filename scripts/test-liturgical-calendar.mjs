@@ -57,6 +57,7 @@ test("derives a short monthly summary and marks unpublished days unavailable", a
 	assert.deepEqual(noSaintDay.saints, []);
 	const currentSaintDay = calendar.days.find((day) => day.date === "2026-09-15");
 	assert.deepEqual(currentSaintDay.saints, ["Nuestra Señora de los Dolores"]);
+	assert.equal("supplementalSaints" in currentSaintDay, false);
 });
 
 test("rejects an unsupported calendar without inventing a second calendar", async () => {

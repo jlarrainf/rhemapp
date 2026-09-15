@@ -1,6 +1,6 @@
 # Clarificaciones — Spec 009
 
-Estado: Resolved — decisiones de alcance registradas el 2026-09-14 y ampliaciones de santos y fuente secundaria aprobadas el 2026-09-15; pendiente revisión humana del documento completo
+Estado: Resolved — decisiones de alcance registradas el 2026-09-14 y ampliaciones de santos, fuente secundaria y nombres de `santos.html` aprobadas el 2026-09-15; pendiente revisión humana del documento completo
 
 ## Hallazgos de QA
 
@@ -48,3 +48,13 @@ Estado: Resolved — decisiones de alcance registradas el 2026-09-14 y ampliacio
 - Plan: `readings[]`, el resolvedor temporal y el sincronizador deben compartir una única normalización y una única fuente editorial.
 - Tareas: antes de implementar se debe registrar la atribución y condición de uso del enlace secundario, sin incorporar el texto descriptivo externo, y actualizar la documentación de operación de contenido.
 - Impacto de la ampliación: se debe validar la lista de santos y sus fuentes secundarias en la entrada publicada, extender fixtures y pruebas de ausencia/duplicado/fuente no verificada/URL no coincidente, y actualizar la evidencia RF-13 y RF-14 antes de cerrar la implementación.
+
+## Ampliación aprobada: nombres de `santos.html`
+
+- **Fuente:** `https://www.vaticannews.va/es/santos.html` aporta la lista que Vatican News muestra para una fecha concreta. El Ordo continúa siendo la autoridad para la celebración y los santos litúrgicos publicados por Rhemapp.
+- **Modelo:** cada entrada puede incluir `supplementalSaints[]`, con `name` y `source`. La lista representa una captura editorial fechada de Vatican News y no se mezcla silenciosamente con `celebrations[].saints[]`.
+- **Contenido:** solo se conservará el nombre limpio y no ambiguo de cada elemento. Se eliminarán del campo publicado las reseñas, titulares, cargos, fechas y cualquier otro texto biográfico.
+- **Verificación:** la captura debe corresponder a `entry.date`, conservar URL, proveedor, atribución y `verified: true`, y mantener el orden visible de la página. Si el nombre no puede separarse de un título biográfico con seguridad, se omite.
+- **Superficie:** Daily web mostrará una lista separada “También mencionados por Vatican News” con nombres únicamente. La cuadrícula mensual, el resumen litúrgico del Ordo y los enlaces individuales de RF-14 no se sustituyen por esta lista.
+- **Disponibilidad:** la lista se publica desde datos locales versionados; no se consulta ni se raspa Vatican News durante la petición del usuario. Una captura ausente o inválida no afecta las lecturas ni los santos del Ordo.
+- **Captura inicial:** para el 2026-09-15 se verificaron los nombres “Santísima Virgen de los Dolores”, “Nicomedes” y “Catalina de Génova” en la página diaria; no se incorporan sus párrafos descriptivos.

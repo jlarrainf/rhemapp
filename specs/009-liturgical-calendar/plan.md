@@ -2,7 +2,7 @@
 
 ## Alcance técnico
 
-La spec extiende el dominio de lecturas existente para incluir metadata litúrgica verificable, nombres de santos del día, enlaces secundarios de información y una vista mensual pública. La implementación debe conservar los archivos JSON actuales, el endpoint `/api/readings`, la regla dominical y la compatibilidad temporal del campo `celebration`.
+La spec extiende el dominio de lecturas existente para incluir metadata litúrgica verificable, nombres de santos del día, nombres suplementarios de Vatican News, enlaces secundarios de información y una vista mensual pública. La implementación debe conservar los archivos JSON actuales, el endpoint `/api/readings`, la regla dominical y la compatibilidad temporal del campo `celebration`.
 
 No se introduce una base de datos para el calendario en esta fase. La fuente de publicación seguirá siendo el conjunto local validado, actualizado por el sincronizador editorial.
 
@@ -27,6 +27,7 @@ No se introduce una base de datos para el calendario en esta fase. La fuente de 
 - `liturgicalCalendar.js` proyectará esos nombres al resumen mensual. La celda mantendrá una altura acotada; su etiqueta accesible y el detalle de Daily conservarán la lista completa publicada.
 - El home no incorporará una tarjeta ni un enlace principal nuevo. El acceso continuará siendo el enlace contextual de Daily y Rosario, preservando la navegación acordada.
 - No se almacenarán descripciones ni biografías. Cada santo podrá tener un `informationSource` secundario con proveedor, URL, verificación editorial y atribución; solo esa metadata se enviará a `/api/readings` y se mostrará en Daily.
+- Cada entrada podrá incluir `supplementalSaints[]` como captura local, fechada y verificada de los nombres visibles en `https://www.vaticannews.va/es/santos.html`; sus elementos conservarán nombre y provenance, sin biografía ni enlace individual.
 - La cuadrícula mensual seguirá proyectando únicamente nombres de santos; no incluirá enlaces secundarios para conservar densidad, rendimiento y accesibilidad.
 - Vatican News no se consultará ni se raspará durante una petición de usuario. Las URLs se incorporarán mediante revisión editorial explícita y el enlace no bloqueará la lectura si el sitio externo no está disponible.
 
@@ -59,6 +60,17 @@ La forma propuesta mantiene compatibilidad con `celebration`:
       "source": { "provider": "...", "url": "...", "verified": true }
     }
   ],
+  "supplementalSaints": [
+    {
+      "name": "...",
+      "source": {
+        "provider": "Vatican News",
+        "url": "https://www.vaticannews.va/es/santos.html",
+        "verified": true,
+        "attribution": "Vatican News"
+      }
+    }
+  ],
   "readings": [],
   "source": {
     "provider": "...",
@@ -69,7 +81,7 @@ La forma propuesta mantiene compatibilidad con `celebration`:
 }
 ```
 
-Los valores técnicos de `rank` serán una enumeración controlada. La interfaz traducirá esos valores a etiquetas españolas. No se publicará un santo o celebración sin `source.verified === true`. `informationSource` será opcional, pero si existe exigirá la misma validación HTTP(S), proveedor y `verified === true`, además de conservar la atribución. La validación rechazará nombres ausentes, fuentes no verificadas, URLs secundarias inválidas y duplicados de santos dentro de una entrada; la normalización conservará el orden editorial.
+Los valores técnicos de `rank` serán una enumeración controlada. La interfaz traducirá esos valores a etiquetas españolas. No se publicará un santo o celebración sin `source.verified === true`. `informationSource` será opcional, pero si existe exigirá la misma validación HTTP(S), proveedor y `verified === true`, además de conservar la atribución. `supplementalSaints` será opcional, exigirá una fuente verificada y nombres no vacíos, y se validará como una captura asociada a la fecha de la entrada. La validación rechazará nombres ausentes, fuentes no verificadas, URLs secundarias inválidas y duplicados de santos dentro de una entrada; la normalización conservará el orden editorial.
 
 ## Contratos
 
@@ -101,7 +113,7 @@ El endpoint rechazará meses inválidos, parámetros repetidos y calendarios no 
 
 ### `GET /api/readings`
 
-Conservará el contrato existente y añadirá metadata estructurada de la celebración y la lista pública de nombres de santos verificados. Las lecturas y la fecha seguirán siendo la fuente de verdad para el contenido bíblico.
+Conservará el contrato existente y añadirá metadata estructurada de la celebración, la lista pública de nombres de santos verificados y, cuando exista, `supplementalSaints` con los nombres y provenance de la captura de Vatican News. Las lecturas y la fecha seguirán siendo la fuente de verdad para el contenido bíblico. La interfaz web mostrará de esa lista únicamente `name`; no se publicará texto biográfico.
 
 ## Decisiones técnicas
 
@@ -116,6 +128,7 @@ Conservará el contrato existente y añadirá metadata estructurada de la celebr
 | Metadata opcional no bloquea lecturas válidas | Degrada con seguridad sin perder la función principal | Ocultar Daily completo por un campo secundario |
 | Fuente primaria separada de `informationSource` | Evita confundir autoridad litúrgica con información complementaria | Reemplazar el Ordo por una fuente secundaria |
 | URLs secundarias editoriales y estáticas | Hace reproducible la publicación y tolera caídas del sitio externo | Resolver o inventar enlaces dinámicamente |
+| Captura local de nombres de Vatican News | Permite mostrar los nombres solicitados sin scraping en cada visita ni mezclar autoridades editoriales | Hacer fetch de `santos.html` desde el render o copiar la página completa |
 
 ## Trazabilidad hacia RF
 
@@ -127,6 +140,7 @@ Conservará el contrato existente y añadirá metadata estructurada de la celebr
 | Daily enriquecido | RF-1, RF-2, RF-3, RF-9, RF-11 |
 | Lista pública de santos y presentación compacta | RF-2, RF-4, RF-6, RF-9, RF-11, RF-13 |
 | `informationSource` y enlace atribuido en Daily | RF-7, RF-11, RF-12, RF-14 |
+| `supplementalSaints` y lista web de nombres | RF-7, RF-9, RF-11, RF-15 |
 | Sincronización y documentación editorial | RF-7, RF-8 |
 | Tests responsive, accesibles y de zona horaria | RF-1 a RF-14 |
 
@@ -137,6 +151,7 @@ Conservará el contrato existente y añadirá metadata estructurada de la celebr
 - Fixtures con día ordinario, memoria, fiesta, solemnidad, opciones múltiples, metadata ausente y fuente conflictiva.
 - Fixtures de santos con uno, varios, ausente, duplicado y fuente no verificada; el caso de varios debe probar el orden en Daily y calendario.
 - Fixtures de `informationSource` presente, ausente, proveedor/URL inválidos, `verified` falso y fuente no coincidente; ningún fixture debe incluir texto biográfico copiado.
+- Fixtures de `supplementalSaints` con captura válida, ausencia, fecha incorrecta, nombres múltiples, duplicados y nombre ambiguo; la proyección debe conservar solo nombre y provenance permitido.
 - Tests de calendario mensual para febrero, cambio de año, mes inválido, fechas futuras y fecha sin publicación.
 - Tests de resolución de fecha en `America/Santiago`, medianoche y sábado 14:59:59/15:00:00.
 - Tests de API para parámetros repetidos, calendario no soportado, datos incompletos y respuesta válida.
@@ -153,5 +168,6 @@ Conservará el contrato existente y añadirá metadata estructurada de la celebr
 - Riesgo: sobrecargar la cuadrícula con listas extensas de santos. Mitigación: resumen visual acotado, lista accesible completa y detalle en Daily.
 - Riesgo: publicar nombres no verificables o duplicados. Mitigación: validación por entrada, provenance por santo y rechazo antes de publicar.
 - Riesgo: presentar una URL secundaria incorrecta o una biografía protegida como contenido propio. Mitigación: campo separado, revisión editorial exacta, lista blanca pública de metadata y prohibición de scraping/copia.
+- Riesgo: publicar títulos o frases biográficas de `santos.html` como si fueran nombres. Mitigación: extracción editorial explícita, validación de fecha/orden/duplicados y fixture de nombre ambiguo; la UI renderiza únicamente el campo `name`.
 - Riesgo: calendario mensual lento o incompleto. Mitigación: derivación local, respuestas resumidas y cache público controlado.
 - Rollback: dejar de publicar metadata nueva, conservar la respuesta legacy y volver a mostrar solo la información verificada anterior sin borrar los archivos ni el historial de sincronización.

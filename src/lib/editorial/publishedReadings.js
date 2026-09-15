@@ -12,13 +12,20 @@ import {
 	resolveSundayDateKey,
 } from "../dailyReading.js";
 import { validatePublishedEntry } from "../readings/validatePublishedEntry.js";
-import { normalizeLiturgicalMetadata } from "../readings/liturgicalMetadata.js";
+import { normalizeLiturgicalMetadata, normalizeSupplementalSaints } from "../readings/liturgicalMetadata.js";
 
 const VERSION_FIELDS = "id, reading_key, payload_json, published_by, source_suggestion_id, rollback_of, created_at, superseded_at";
 
 function enrichPublishedEntry(entry) {
 	const celebrations = normalizeLiturgicalMetadata(entry);
-	return celebrations.length > 0 ? { ...entry, celebrations } : entry;
+	const supplementalSaints = normalizeSupplementalSaints(entry);
+	const entryWithoutSupplementalSaints = { ...entry };
+	delete entryWithoutSupplementalSaints.supplementalSaints;
+	return {
+		...entryWithoutSupplementalSaints,
+		...(celebrations.length > 0 ? { celebrations } : {}),
+		...(supplementalSaints.length > 0 ? { supplementalSaints } : {}),
+	};
 }
 
 function buildLegacyPublishedReading(entry, dateKey, mode, timeZone) {

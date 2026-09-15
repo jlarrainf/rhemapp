@@ -14,6 +14,28 @@
           "verified": true
         }
       }
+    ],
+    "supplementalSaints": [
+      {
+        "name": "Nicomedes",
+        "source": {
+          "provider": "Vatican News",
+          "url": "https://www.vaticannews.va/es/santos.html",
+          "verified": true,
+          "attribution": "Vatican News",
+          "reviewedForDate": "2026-09-13"
+        }
+      },
+      {
+        "name": "Catalina de Génova",
+        "source": {
+          "provider": "Vatican News",
+          "url": "https://www.vaticannews.va/es/santos.html",
+          "verified": true,
+          "attribution": "Vatican News",
+          "reviewedForDate": "2026-09-13"
+        }
+      }
     ]
   },
   "optional": {

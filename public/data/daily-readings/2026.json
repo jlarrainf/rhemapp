@@ -638,6 +638,38 @@
         }],
         "source": { "provider": "Ordo de la Conferencia Episcopal de Chile", "url": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf", "verified": true }
       }],
+      "supplementalSaints": [
+        {
+          "name": "Santísima Virgen de los Dolores",
+          "source": {
+            "provider": "Vatican News",
+            "url": "https://www.vaticannews.va/es/santos.html",
+            "verified": true,
+            "attribution": "Vatican News",
+            "reviewedForDate": "2026-09-15"
+          }
+        },
+        {
+          "name": "Nicomedes",
+          "source": {
+            "provider": "Vatican News",
+            "url": "https://www.vaticannews.va/es/santos.html",
+            "verified": true,
+            "attribution": "Vatican News",
+            "reviewedForDate": "2026-09-15"
+          }
+        },
+        {
+          "name": "Catalina de Génova",
+          "source": {
+            "provider": "Vatican News",
+            "url": "https://www.vaticannews.va/es/santos.html",
+            "verified": true,
+            "attribution": "Vatican News",
+            "reviewedForDate": "2026-09-15"
+          }
+        }
+      ],
       "readings": [
         {
           "type": "first-reading",

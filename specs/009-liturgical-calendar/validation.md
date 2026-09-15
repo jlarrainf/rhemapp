@@ -1,6 +1,6 @@
 # Validación — Spec 009
 
-Estado: Validación completa RF-1 a RF-14 — 2026-09-15
+Estado: Validación completa RF-1 a RF-15 — 2026-09-15
 
 ## Evidencia por requisito
 
@@ -20,6 +20,7 @@ Estado: Validación completa RF-1 a RF-14 — 2026-09-15
 | RF-12 | `scripts/test-mobile-notifications.mjs`; cliente Android; `npm run test:mobile`; APK debug | Cumple | PWA y Android consumen el mismo contrato, comparten deep links y no duplican la resolución de calendario. |
 | RF-13 | `liturgicalMetadata.js`, `liturgicalCalendar.js`, `DailyVerseClient.jsx`, `CalendarClient.jsx`; `npm run test:calendar`; AX tree de Daily/calendario | Cumple | Los nombres verificados se conservan en orden editorial, aparecen en Daily y en el resumen mensual, el calendario no incorpora enlaces secundarios y las fechas sin nombres verificados no muestran placeholder. |
 | RF-14 | `secondarySources.js`, `sync-daily-readings.mjs`, `DailyVerseClient.jsx`, `RhemappApiClient.kt`, `MainActivity.kt`; `npm run test:calendar`, `npm run test:mobile`; navegador local | Cumple | Se publican cuatro URLs específicas de Vatican News con coincidencia editorial verificada; Daily y Android muestran enlaces atribuidos, 2026-10-12 no infiere uno y no se copian biografías ni se hace scraping. |
+| RF-15 | `secondarySources.js`, `liturgicalMetadata.js`, `sync-daily-readings.mjs`, `public/data/daily-readings/2026.json`, `DailyVerseClient.jsx`; `npm run test:calendar`, `npm run test:readings`, `npm run validate:daily`; AX tree de Daily | Cumple | Para 2026-09-15 Daily web muestra “También mencionados por Vatican News” con “Santísima Virgen de los Dolores”, “Nicomedes” y “Catalina de Génova”, únicamente como nombres y en el orden editorial revisado. La captura usa la URL fechada y verificada; no se publica biografía ni se altera la lista litúrgica del Ordo. |
 
 ## Requisitos no funcionales
 
@@ -28,6 +29,7 @@ Estado: Validación completa RF-1 a RF-14 — 2026-09-15
 - Responsive: se revisó `/calendario?month=2026-09` en viewport estrecho; los resúmenes largos quedan contenidos dentro de sus celdas y los controles permanecen utilizables.
 - Rendimiento y privacidad: la cuadrícula no carga pasajes completos, la API publica solo campos permitidos y no se agregaron secretos, migraciones ni datos privados.
 - Fuente secundaria y derechos: `informationSource` está separado de la fuente litúrgica, se limita a proveedor/URL/verificación/atribución y no contiene texto externo. Vatican News se consulta fuera de la petición, durante la revisión editorial.
+- Captura de nombres Vatican News: `supplementalSaints` conserva solo nombres, fuente, atribución, verificación y fecha de revisión; Daily web no renderiza títulos, reseñas ni biografías, y la captura ausente no bloquea las lecturas.
 - Fecha y zona horaria: las pruebas cubren medianoche, cambio de año, febrero bisiesto, zona horaria canónica y corte dominical.
 - Operación: la documentación cubre sincronización, stale, unavailable, atribución/licencia y rollback.
 - Ampliación RF-13/RF-14: los nombres publicados provienen de títulos/nombres explícitos del Ordo chileno y conservan `provider`, URL y verificación. La cobertura de enlaces secundarios incluye 15 y 26 de septiembre y 4 y 15 de octubre de 2026; el 12 de octubre conserva el santo sin URL secundaria por falta de coincidencia específica publicada.
@@ -40,14 +42,15 @@ Estado: Validación completa RF-1 a RF-14 — 2026-09-15
 - [x] La documentación operativa contiene fuente, licencia/condiciones como gate editorial, sincronización y rollback.
 - [x] Los nombres de santos verificados aparecen en Daily y en el resumen mensual, con fixtures y pruebas para ausencia, duplicado y fuente no verificada.
 - [x] Los enlaces secundarios presentes, ausentes, no coincidentes e inválidos se validan y se muestran solo en Daily/Android con atribución.
+- [x] La captura de `santos.html` se valida por fecha, fuente, orden y duplicados; Daily web muestra únicamente los nombres verificados y no contamina el resumen mensual.
 
 ## Cómo probarlo
 
 Prerrequisitos: Node.js/npm, JDK 21 para el módulo Android y las variables existentes del proyecto; no se requieren nuevas variables ni secretos.
 
 ```bash
-npm run test:readings       # 53 pruebas aprobadas
-npm run test:calendar       # 18 pruebas aprobadas
+npm run test:readings       # 57 pruebas aprobadas
+npm run test:calendar       # 23 pruebas aprobadas
 npm run test:mobile         # 9 pruebas aprobadas
 npm run validate:daily      # 113 entradas válidas
 npm run lint                # sin warnings ni errores
@@ -60,13 +63,14 @@ Con `npm start`, revisar:
 1. `/calendario?month=2026-09`: aparecen 30 días, días no publicados explícitos y resúmenes sin lecturas completas.
 2. En la celda del 26 de septiembre, comprobar el resumen `Santos: Santos Cosme y Damián` y abrir `/daily?date=2026-09-26`.
 3. En `/daily?date=2026-09-15`, comprobar “Santos del día”, el enlace atribuido “Más información sobre Nuestra Señora de los Dolores en Vatican News”, “Fuente y verificación” y el enlace de vuelta al calendario.
-4. Abrir `/daily?date=2026-10-12`: debe aparecer el santo, pero no “Información adicional” ni un enlace Vatican News.
-5. Abrir `/calendario?month=2026-09`: debe aparecer `Santos Cosme y Damián`, pero no enlaces Vatican News.
-6. Usar “Siguiente” para abrir `month=2026-10` y recorrer los controles con `Tab`.
-7. Comprobar el API: `/api/readings?date=2026-09-26` y `/api/calendar?month=2026-09` responden 200; el santo de readings incluye solo nombre, fuente litúrgica e `informationSource` con proveedor/URL/verificación/atribución, mientras el resumen mensual no contiene `informationSource` ni `readings`; repetir `month` responde 400 con un error en español.
+4. En `/daily?date=2026-09-15`, comprobar “También mencionados por Vatican News” y los tres nombres “Santísima Virgen de los Dolores”, “Nicomedes” y “Catalina de Génova”; no debe aparecer el texto de sus reseñas.
+5. Abrir `/daily?date=2026-10-12`: debe aparecer el santo, pero no “Información adicional” ni un enlace Vatican News ni la lista suplementaria.
+6. Abrir `/calendario?month=2026-09`: debe aparecer `Nuestra Señora de los Dolores`, pero no enlaces Vatican News ni los nombres suplementarios de `santos.html`.
+7. Usar “Siguiente” para abrir `month=2026-10` y recorrer los controles con `Tab`.
+8. Comprobar el API: `/api/readings?date=2026-09-15` responde 200 y expone `supplementalSaints` con solo nombres y provenance permitido; `/api/readings?date=2026-09-26` y `/api/calendar?month=2026-09` responden 200; el resumen mensual no contiene `supplementalSaints`, `informationSource` ni `readings`; repetir `month` responde 400 con un error en español.
 
 La validación offline se cubre mediante el contrato del service worker y las pruebas PWA/Android; no se ejecutó una simulación de desconexión física ni se usó un dispositivo Android físico. La comprobación de accesibilidad se realizó mediante el árbol de accesibilidad del navegador y teclado, sin un lector de pantalla externo.
 
 ## Veredicto
 
-`SPEC CUMPLIDA` — RF-1 a RF-14 validados; la ampliación de santos y la fuente secundaria de Vatican News están implementadas con publicación segura, paridad web/Android y evidencia automatizada/manual.
+`SPEC CUMPLIDA` — RF-1 a RF-15 validados; la ampliación de santos, la fuente secundaria y la captura de nombres de Vatican News están implementadas con publicación segura y evidencia automatizada/manual.

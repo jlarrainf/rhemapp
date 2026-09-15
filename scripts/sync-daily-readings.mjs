@@ -4,7 +4,7 @@ import { mergeValidatedReading } from "../src/lib/readings/mergeSyncedReading.js
 import { markReadingFresh, markReadingStale, recordSyncAttempt } from "../src/lib/readings/syncState.js";
 import { validateDailyDataset } from "../src/lib/readings/validateDailyDataset.js";
 import { normalizeLiturgicalMetadata } from "../src/lib/readings/liturgicalMetadata.js";
-import { getSaintInformationSource } from "../src/lib/readings/secondarySources.js";
+import { getSaintInformationSource, getSupplementalSaints } from "../src/lib/readings/secondarySources.js";
 
 const ROOT = process.cwd();
 const DAILY_DIR = path.join(ROOT, "public", "data", "daily-readings");
@@ -859,52 +859,64 @@ async function enrichExcerptFromBibleApi(entry) {
 
 function applyOrdoOverride(entry, date) {
 	const override = ORDO_GOSPEL_OVERRIDES[date];
-	if (!entry || !override || !Array.isArray(entry.readings)) return entry;
+	if (!entry) return entry;
+	let enrichedEntry = entry;
 
-	const { reference, passageId, ranges } = normalizeCitation(override.book, override.citation);
-	const source = {
-		...entry.source,
-		ordoUrl: ORDO_URL,
-		ordoValidated: true,
-	};
-	const enrichedEntry = withLegacyGospelAlias({
-		...entry,
-		celebration: entry.celebration || override.celebration,
-		source,
-		readings: entry.readings.map((reading) => reading.type !== "gospel"
-			? reading
-			: {
-				...reading,
-				reference,
-				passageId,
-				ranges,
-				title: override.excerpt || reading.title,
-				excerpt: override.excerpt || reading.excerpt,
-				excerptReference: override.excerptReference || reference,
-				source,
-		}),
-	});
-	const celebrations = normalizeLiturgicalMetadata(enrichedEntry);
-	const celebrationsWithSaints = override.saints?.length > 0
-		? celebrations.map((celebration, index) => index === 0
-			? {
-				...celebration,
-				saints: override.saints.map((name) => {
-					const informationSource = getSaintInformationSource(date, name);
-					return {
-						name,
-						source: {
-							provider: "Ordo de la Conferencia Episcopal de Chile",
-							url: ORDO_URL,
-							verified: true,
-						},
-						...(informationSource ? { informationSource } : {}),
-					};
+	if (override && Array.isArray(entry.readings)) {
+		const { reference, passageId, ranges } = normalizeCitation(override.book, override.citation);
+		const source = {
+			...entry.source,
+			ordoUrl: ORDO_URL,
+			ordoValidated: true,
+		};
+		enrichedEntry = withLegacyGospelAlias({
+			...entry,
+			celebration: entry.celebration || override.celebration,
+			source,
+			readings: entry.readings.map((reading) => reading.type !== "gospel"
+				? reading
+				: {
+					...reading,
+					reference,
+					passageId,
+					ranges,
+					title: override.excerpt || reading.title,
+					excerpt: override.excerpt || reading.excerpt,
+					excerptReference: override.excerptReference || reference,
+					source,
 				}),
-			}
-			: celebration)
-		: celebrations;
-	return celebrationsWithSaints.length > 0 ? { ...enrichedEntry, celebrations: celebrationsWithSaints } : enrichedEntry;
+		});
+		const celebrations = normalizeLiturgicalMetadata(enrichedEntry);
+		const celebrationsWithSaints = override.saints?.length > 0
+			? celebrations.map((celebration, index) => index === 0
+				? {
+					...celebration,
+					saints: override.saints.map((name) => {
+						const informationSource = getSaintInformationSource(date, name);
+						return {
+							name,
+							source: {
+								provider: "Ordo de la Conferencia Episcopal de Chile",
+								url: ORDO_URL,
+								verified: true,
+							},
+							...(informationSource ? { informationSource } : {}),
+						};
+					}),
+				}
+				: celebration)
+			: celebrations;
+		enrichedEntry = celebrationsWithSaints.length > 0
+			? { ...enrichedEntry, celebrations: celebrationsWithSaints }
+			: enrichedEntry;
+	}
+
+	const supplementalSaints = getSupplementalSaints(date);
+	if (supplementalSaints.length === 0) {
+		const { supplementalSaints: _previousSupplementalSaints, ...withoutSupplementalSaints } = enrichedEntry;
+		return withoutSupplementalSaints;
+	}
+	return { ...enrichedEntry, supplementalSaints };
 }
 
 async function fetchEntry(date) {

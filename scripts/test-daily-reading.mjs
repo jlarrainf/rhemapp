@@ -29,6 +29,16 @@ test("publishes a generic entry for an explicit date", () => {
 	);
 });
 
+test("exposes the reviewed Vatican News names without descriptive fields", () => {
+	const result = getPublishedReading({ dateKey: "2026-09-15", mode: "date" });
+	assert.deepEqual(result.supplementalSaints.map((saint) => saint.name), [
+		"Santísima Virgen de los Dolores",
+		"Nicomedes",
+		"Catalina de Génova",
+	]);
+	assert.equal(result.supplementalSaints[0].description, undefined);
+});
+
 test("resolves the published Sunday entry through the generic domain", () => {
 	const result = getPublishedReading({
 		mode: "sunday",
@@ -88,4 +98,14 @@ test("renders verified secondary saint information as an attributed safe externa
 	assert.match(dailyClient, /target="_blank"/);
 	assert.match(dailyClient, /rel="noopener noreferrer"/);
 	assert.match(dailyClient, /focus-visible:ring-2/);
+});
+
+test("renders the Vatican News daily name capture as names only", () => {
+	assert.match(dailyClient, /supplementalSaints/);
+	assert.match(dailyClient, /También mencionados por Vatican News/);
+	assert.match(dailyClient, /supplementalSaints\.map/);
+	const supplementalStart = dailyClient.indexOf("{supplementalSaints.length > 0");
+	const supplementalRender = dailyClient.slice(supplementalStart, supplementalStart + 700);
+	assert.match(supplementalRender, /\{saint\.name\}/);
+	assert.doesNotMatch(supplementalRender, /informationSource|description|excerpt|biograf/i);
 });

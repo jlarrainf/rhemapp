@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
 import test from "node:test";
-import { normalizeLiturgicalMetadata, toPublicPublishedEntry, validateLiturgicalMetadata } from "../src/lib/readings/liturgicalMetadata.js";
+import { normalizeLiturgicalMetadata, normalizeSupplementalSaints, toPublicPublishedEntry, validateLiturgicalMetadata } from "../src/lib/readings/liturgicalMetadata.js";
 import { validateReadingEntry } from "../src/lib/readings/validateReading.js";
 
 const root = process.cwd();
@@ -18,6 +18,38 @@ test("accepts verified primary celebration, season and color metadata", () => {
 	assert.deepEqual(validateLiturgicalMetadata(entry), { valid: true, errors: [] });
 	assert.equal(validateReadingEntry(entry).valid, true);
 	assert.equal(normalizeLiturgicalMetadata(entry)[0].isPrimary, true);
+});
+
+test("preserves the dated Vatican News name capture and publishes no descriptive text", () => {
+	const entry = withMetadata(metadata.complete);
+	const supplementalSaints = normalizeSupplementalSaints(entry);
+	assert.deepEqual(supplementalSaints.map((saint) => saint.name), ["Nicomedes", "Catalina de Génova"]);
+	assert.equal(supplementalSaints[0].source.reviewedForDate, "2026-09-13");
+
+	const publicEntry = toPublicPublishedEntry(entry);
+	assert.deepEqual(publicEntry.supplementalSaints, [
+		{
+			name: "Nicomedes",
+			source: {
+				provider: "Vatican News",
+				url: "https://www.vaticannews.va/es/santos.html",
+				verified: true,
+				attribution: "Vatican News",
+				reviewedForDate: "2026-09-13",
+			},
+		},
+		{
+			name: "Catalina de Génova",
+			source: {
+				provider: "Vatican News",
+				url: "https://www.vaticannews.va/es/santos.html",
+				verified: true,
+				attribution: "Vatican News",
+				reviewedForDate: "2026-09-13",
+			},
+		},
+	]);
+	assert.equal("description" in publicEntry.supplementalSaints[0], false);
 });
 
 test("preserves the primary/optional editorial order and saint source", () => {
@@ -108,6 +140,20 @@ test("rejects an invalid or unverified secondary information source", () => {
 	const missingAttributionResult = validateLiturgicalMetadata(missingAttribution);
 	assert.equal(missingAttributionResult.valid, false);
 	assert.ok(missingAttributionResult.errors.some((error) => error.includes("informationSource.attribution")));
+});
+
+test("rejects an invalid, misdated or duplicated Vatican News name capture", () => {
+	const invalidDate = withMetadata(metadata.complete);
+	invalidDate.supplementalSaints[0].source.reviewedForDate = "2026-09-14";
+	const invalidDateResult = validateLiturgicalMetadata(invalidDate);
+	assert.equal(invalidDateResult.valid, false);
+	assert.ok(invalidDateResult.errors.some((error) => error.includes("reviewedForDate")));
+
+	const duplicate = withMetadata(metadata.complete);
+	duplicate.supplementalSaints.push({ ...duplicate.supplementalSaints[0] });
+	const duplicateResult = validateLiturgicalMetadata(duplicate);
+	assert.equal(duplicateResult.valid, false);
+	assert.ok(duplicateResult.errors.some((error) => error.includes("supplementalSaints: no puede repetir nombres")));
 });
 
 test("derives only a verified legacy celebration and never turns a date into a feast", () => {

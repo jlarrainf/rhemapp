@@ -94,7 +94,10 @@ function LiturgicalContext({ reading }) {
 	const primary = celebrations.find((celebration) => celebration?.isPrimary) || celebrations[0] || null;
 	const optionalCelebrations = celebrations.filter((celebration) => celebration !== primary);
 	const saints = celebrations.flatMap((celebration) => Array.isArray(celebration?.saints) ? celebration.saints : []);
-	const hasDetail = Boolean(primary || reading?.liturgicalSeason || reading?.liturgicalColor || saints.length);
+	const supplementalSaints = Array.isArray(reading?.supplementalSaints)
+		? reading.supplementalSaints.filter((saint) => saint?.name?.trim())
+		: [];
+	const hasDetail = Boolean(primary || reading?.liturgicalSeason || reading?.liturgicalColor || saints.length || supplementalSaints.length);
 	const source = reading?.source;
 	const informationSources = saints.filter((saint) => {
 		try {
@@ -175,6 +178,17 @@ function LiturgicalContext({ reading }) {
 							</ul>
 						</div>
 					)}
+				</div>
+			)}
+
+			{supplementalSaints.length > 0 && (
+				<div className="mt-5 border-t border-gray-200 pt-4 dark:border-gray-700" aria-labelledby="vatican-news-saints-title">
+					<h3 id="vatican-news-saints-title" className="text-sm font-semibold text-[#314156] dark:text-gray-100">
+						También mencionados por Vatican News
+					</h3>
+					<ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm text-gray-700 dark:text-gray-200">
+						{supplementalSaints.map((saint, index) => <li key={`${saint.name}-${index}`}>{saint.name}</li>)}
+					</ul>
 				</div>
 			)}
 

@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { getSaintInformationSource } from "../src/lib/readings/secondarySources.js";
+import { getSaintInformationSource, getSupplementalSaints } from "../src/lib/readings/secondarySources.js";
 
 test("returns the reviewed Vatican News source for an exact saint/date match", () => {
 	assert.deepEqual(getSaintInformationSource("2026-09-26", "Santos Cosme y Damián"), {
@@ -20,4 +20,52 @@ test("returns a copy so editorial source metadata cannot be mutated globally", (
 	const source = getSaintInformationSource("2026-10-15", "Santa Teresa de Jesús");
 	source.attribution = "valor local";
 	assert.equal(getSaintInformationSource("2026-10-15", "Santa Teresa de Jesús").attribution, "Vatican News");
+});
+
+test("returns the reviewed Vatican News names in page order for an exact date", () => {
+	assert.deepEqual(getSupplementalSaints("2026-09-15"), [
+		{
+			name: "Santísima Virgen de los Dolores",
+			source: {
+				provider: "Vatican News",
+				url: "https://www.vaticannews.va/es/santos.html",
+				verified: true,
+				attribution: "Vatican News",
+				reviewedForDate: "2026-09-15",
+			},
+		},
+		{
+			name: "Nicomedes",
+			source: {
+				provider: "Vatican News",
+				url: "https://www.vaticannews.va/es/santos.html",
+				verified: true,
+				attribution: "Vatican News",
+				reviewedForDate: "2026-09-15",
+			},
+		},
+		{
+			name: "Catalina de Génova",
+			source: {
+				provider: "Vatican News",
+				url: "https://www.vaticannews.va/es/santos.html",
+				verified: true,
+				attribution: "Vatican News",
+				reviewedForDate: "2026-09-15",
+			},
+		},
+	]);
+});
+
+test("does not infer a Vatican News name capture for an unreviewed date", () => {
+	assert.deepEqual(getSupplementalSaints("2026-10-12"), []);
+});
+
+test("returns independent name capture objects", () => {
+	const saints = getSupplementalSaints("2026-09-15");
+	saints[0].name = "valor local";
+	saints[0].source.attribution = "valor local";
+	const freshSaints = getSupplementalSaints("2026-09-15");
+	assert.equal(freshSaints[0].name, "Santísima Virgen de los Dolores");
+	assert.equal(freshSaints[0].source.attribution, "Vatican News");
 });

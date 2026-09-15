@@ -11,7 +11,7 @@ import {
 	resolveSundayDateKey,
 } from "./liturgicalSchedule.js";
 import { validateReadingEntry } from "./readings/validateReading.js";
-import { normalizeLiturgicalMetadata } from "./readings/liturgicalMetadata.js";
+import { normalizeLiturgicalMetadata, normalizeSupplementalSaints } from "./readings/liturgicalMetadata.js";
 
 export {
 	DAILY_TIME_ZONE,
@@ -79,7 +79,14 @@ export function getPublishedEntryForDate(dateKey) {
 
 function enrichLiturgicalMetadata(entry) {
 	const celebrations = normalizeLiturgicalMetadata(entry);
-	return celebrations.length > 0 ? { ...entry, celebrations } : entry;
+	const supplementalSaints = normalizeSupplementalSaints(entry);
+	const entryWithoutSupplementalSaints = { ...entry };
+	delete entryWithoutSupplementalSaints.supplementalSaints;
+	return {
+		...entryWithoutSupplementalSaints,
+		...(celebrations.length > 0 ? { celebrations } : {}),
+		...(supplementalSaints.length > 0 ? { supplementalSaints } : {}),
+	};
 }
 
 export function getPublishedReading({

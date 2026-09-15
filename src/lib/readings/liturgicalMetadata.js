@@ -76,6 +76,39 @@ function validateInformationSource(source, path, errors) {
 	}
 }
 
+function validateSupplementalSaints(saints, entryDate, errors) {
+	if (!Array.isArray(saints)) {
+		errors.push("supplementalSaints: debe ser un arreglo");
+		return;
+	}
+
+	const names = [];
+	saints.forEach((saint, index) => {
+		const path = `supplementalSaints[${index}]`;
+		if (!isPlainObject(saint)) {
+			errors.push(`${path}: debe ser un objeto`);
+			return;
+		}
+		if (!isNonEmptyString(saint.name, 200)) errors.push(`${path}.name: nombre requerido`);
+		validateInformationSource(saint.source, `${path}.source`, errors);
+		if (saint.source?.provider !== "Vatican News") {
+			errors.push(`${path}.source.provider: debe ser Vatican News`);
+		}
+		if (saint.source?.url !== "https://www.vaticannews.va/es/santos.html") {
+			errors.push(`${path}.source.url: debe apuntar a santos.html`);
+		}
+		if (saint.source?.reviewedForDate !== entryDate) {
+			errors.push(`${path}.source.reviewedForDate: debe coincidir con la fecha de la entrada`);
+		}
+		names.push(normalizedText(saint.name));
+	});
+
+	const validNames = names.filter(Boolean);
+	if (new Set(validNames).size !== validNames.length) {
+		errors.push("supplementalSaints: no puede repetir nombres");
+	}
+}
+
 function validateSaint(saint, path, errors) {
 	if (!isPlainObject(saint)) {
 		errors.push(`${path}: debe ser un objeto`);
@@ -120,6 +153,9 @@ export function validateLiturgicalMetadata(entry) {
 	if (entry.liturgicalColor !== undefined && !LITURGICAL_COLORS.includes(entry.liturgicalColor)) {
 		errors.push("liturgicalColor: color litúrgico no permitido");
 	}
+	if (entry.supplementalSaints !== undefined) {
+		validateSupplementalSaints(entry.supplementalSaints, entry.date, errors);
+	}
 
 	if (entry.celebrations !== undefined) {
 		if (!Array.isArray(entry.celebrations) || entry.celebrations.length === 0) {
@@ -156,6 +192,14 @@ function cloneSaints(saints, source) {
 	}));
 }
 
+function cloneSupplementalSaints(saints) {
+	if (!Array.isArray(saints)) return [];
+	return saints.map((saint) => ({
+		name: saint.name.trim(),
+		source: cloneSource(saint.source),
+	}));
+}
+
 export function normalizeLiturgicalMetadata(entry) {
 	if (!isPlainObject(entry)) return [];
 	if (Array.isArray(entry.celebrations)) {
@@ -179,6 +223,12 @@ export function normalizeLiturgicalMetadata(entry) {
 		saints: [],
 		source: cloneSource(entry.source),
 	}];
+}
+
+export function normalizeSupplementalSaints(entry) {
+	if (!Array.isArray(entry?.supplementalSaints)) return [];
+	const validation = validateLiturgicalMetadata(entry);
+	return validation.valid ? cloneSupplementalSaints(entry.supplementalSaints) : [];
 }
 
 export function getPrimaryCelebration(entry) {
@@ -232,6 +282,18 @@ export function toPublicLiturgicalMetadata(entry) {
 				})),
 			})),
 		} : {}),
+		...(normalizeSupplementalSaints(entry).length > 0 ? {
+			supplementalSaints: normalizeSupplementalSaints(entry).map((saint) => ({
+				name: saint.name,
+				source: {
+					provider: saint.source.provider,
+					url: saint.source.url,
+					verified: saint.source.verified,
+					attribution: saint.source.attribution,
+					reviewedForDate: saint.source.reviewedForDate,
+				},
+			})),
+		} : {}),
 		...(entry?.liturgicalSeason ? { liturgicalSeason: entry.liturgicalSeason } : {}),
 		...(entry?.liturgicalColor ? { liturgicalColor: entry.liturgicalColor } : {}),
 	};
@@ -242,6 +304,7 @@ export function toPublicPublishedEntry(entry) {
 	const publicMetadata = toPublicLiturgicalMetadata(entry);
 	const publicEntry = { ...entry, ...publicMetadata };
 	if (!publicMetadata.celebrations) delete publicEntry.celebrations;
+	if (!publicMetadata.supplementalSaints) delete publicEntry.supplementalSaints;
 	publicEntry.source = toPublicSource(entry.source);
 	if (Array.isArray(entry.readings)) {
 		publicEntry.readings = entry.readings.map((reading) => ({

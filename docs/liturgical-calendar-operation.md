@@ -23,6 +23,8 @@ Vatican News (`https://www.vaticannews.va/es/santos.html`) se usa únicamente co
 
 La incorporación es editorial y explícita por fecha y nombre. Cada URL debe apuntar a una página específica del santo o de la fecha, comprobar su correspondencia con el Ordo y quedar marcada con `verified: true`. No se deben construir URLs por concatenación del nombre, usar la portada como sustituto ni consultar Vatican News durante una petición de usuario. Si la coincidencia no existe o la URL deja de ser válida, se elimina `informationSource` en la siguiente publicación y el santo permanece disponible sin enlace.
 
+Para mostrar los nombres de la página diaria de Vatican News, el mantenedor puede publicar `supplementalSaints[]` en la entrada correspondiente. La captura debe revisarse para la misma fecha, guardar solo nombres inequívocos en el orden visible y usar `https://www.vaticannews.va/es/santos.html` como URL atribuida. No se copian reseñas, titulares ni cargos biográficos, y esta lista no reemplaza los santos del Ordo ni se consulta durante el render. Para el 2026-09-15 la captura verificada contiene “Santísima Virgen de los Dolores”, “Nicomedes” y “Catalina de Génova”.
+
 La cobertura inicial verificada de 2026 incluye 15 y 26 de septiembre y 4 y 15 de octubre. El 12 de octubre —Nuestra Señora del Pilar— conserva su nombre del Ordo, pero no tiene enlace secundario publicado hasta contar con una página específica cotejada. La cuadrícula mensual no muestra enlaces Vatican News; Daily y Android los presentan solo cuando la metadata está verificada.
 
 ## Contratos públicos
@@ -56,4 +58,4 @@ npm run build
 
 Revisar manualmente `/daily`, `/daily?date=YYYY-MM-DD` y `/calendario?month=YYYY-MM` en escritorio, móvil, teclado y lector de pantalla. Los cambios de fuente requieren repetir la revisión de atribución/licencia y verificar que no se filtren `lastSyncError` ni credenciales.
 
-Para modificar una fuente secundaria, revisar la página exacta en Vatican News, confirmar que el nombre y la fecha coinciden con el Ordo vigente, actualizar el mapa editorial y el JSON, ejecutar `npm run validate:daily` y comprobar que la API pública no contiene texto biográfico. La atribución visible debe seguir identificando a Vatican News.
+Para modificar una fuente secundaria o una captura de nombres, revisar la página exacta en Vatican News, confirmar que el nombre y la fecha coinciden con el Ordo vigente, actualizar el mapa editorial y el JSON, ejecutar `npm run validate:daily` y comprobar que la API pública no contiene texto biográfico. La atribución visible debe seguir identificando a Vatican News.

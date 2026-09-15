@@ -27,6 +27,17 @@ Una entrada diaria mantiene la fecha ISO y el calendario chileno:
       "source": { "provider": "...", "url": "https://...", "verified": true }
     }
   ],
+  "supplementalSaints": [
+    {
+      "name": "...",
+      "source": {
+        "provider": "Vatican News",
+        "url": "https://www.vaticannews.va/es/santos.html",
+        "verified": true,
+        "attribution": "Vatican News"
+      }
+    }
+  ],
   "readings": [],
   "source": {
     "provider": "...",
@@ -43,6 +54,8 @@ Los santos, sus descripciones y cada celebración necesitan una fuente HTTP(S) v
 
 En esta ampliación se publican los nombres verificados de los santos, en el orden editorial de la entrada. De forma opcional, un santo puede incluir `informationSource` con una URL específica de Vatican News revisada editorialmente. No se publican descripciones ni biografías, y nunca se hace scraping en tiempo de ejecución. Un nombre ausente, una fuente no verificada, una URL secundaria inválida o un duplicado dentro de la entrada invalida esa metadata antes de publicar.
 
+`supplementalSaints` es una captura editorial opcional de nombres visibles en `https://www.vaticannews.va/es/santos.html` para la fecha de la entrada. Cada elemento exige `name` y `source` verificada, conserva el orden de la página y no se mezcla con los santos litúrgicos del Ordo. La web puede mostrar solo sus nombres en una lista atribuida; no se publican titulares, cargos, reseñas ni biografías. Una captura ausente, fechada incorrectamente o ambigua se omite sin bloquear las lecturas.
+
 `celebration` permanece como alias de compatibilidad. Si contiene un nombre editorial no vacío y la entrada tiene una fuente verificada, el dominio puede presentarlo como celebración principal de rango `other` o inferir únicamente un rango explícito presente en el texto (`memoria`, `fiesta`, `solemnidad`, `conmemoración`, `semana del tiempo`). No se convierten fechas solas en celebraciones ni se infieren santos.
 
 ## Jerarquía y procedencia
@@ -57,6 +70,6 @@ El campo `source` conserva proveedor, URL, `verified`, `fetchedAt` y, cuando exi
 
 ## Contratos públicos
 
-`GET /api/readings` conserva las lecturas actuales y expone solo metadata verificada, incluidos los nombres de santos y, cuando existe, `informationSource` con proveedor, URL, verificación y atribución. `GET /api/calendar?month=YYYY-MM&calendar=chile` devuelve `{ month, monthLabel, calendar, timeZone, days }`; cada día contiene fecha ISO, etiqueta, resumen de celebración principal, rango, nombres de santos en orden editorial, color, disponibilidad y fuente pública, pero no `informationSource`. La cuadrícula nunca incluye extractos, lecturas completas ni cuerpos de páginas externas.
+`GET /api/readings` conserva las lecturas actuales y expone solo metadata verificada, incluidos los nombres de santos, `supplementalSaints` cuando existe una captura válida y, cuando existe, `informationSource` con proveedor, URL, verificación y atribución. `GET /api/calendar?month=YYYY-MM&calendar=chile` devuelve `{ month, monthLabel, calendar, timeZone, days }`; cada día contiene fecha ISO, etiqueta, resumen de celebración principal, rango, nombres de santos del Ordo en orden editorial, color, disponibilidad y fuente pública, pero no `supplementalSaints` ni `informationSource`. La cuadrícula nunca incluye extractos, lecturas completas ni cuerpos de páginas externas.
 
 El calendario usa siempre `America/Santiago`. La fecha explícita navega como `/daily?date=YYYY-MM-DD` y queda fija aunque el reloj cruce el corte dominical del sábado a las 15:00.

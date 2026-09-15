@@ -133,3 +133,30 @@
   - RF: RF-1 a RF-14
   - Hecho cuando: pasan fixtures, suite, validación diaria, lint, build web/Android y revisión manual; `validation.md`, `docs/liturgical-calendar-operation.md` y `contract.md` registran provenance, atribución, límites de contenido y rollback.
   - Evidencia: `validation.md`, `docs/liturgical-calendar-operation.md` y `contract.md`; `npm run test:readings` (53), `npm run test:calendar` (18), `npm run test:mobile` (9), `npm run validate:daily` (113 entradas), `npm run lint`, `npm run build`, `:app:assembleDebug` con Java 21 y contratos HTTP de producción local 200/400; veredicto final `SPEC CUMPLIDA` RF-1 a RF-14.
+
+## Fase 6 — Nombres publicados por Vatican News
+
+- [x] T25 — Registrar en los artefactos de spec la captura de nombres de `santos.html`.
+  - RF: RF-7, RF-9, RF-11, RF-15
+  - Hecho cuando: `spec.md`, `clarifications.md`, `plan.md`, `contract.md` y este backlog definen la captura fechada, la atribución, el orden, el contenido limitado a nombres y la ausencia de scraping en runtime.
+  - Evidencia: `spec.md`, `clarifications.md`, `plan.md`, `contract.md`, `validation.md` y `docs/liturgical-calendar-operation.md` registran la captura estática, fecha, atribución, orden, nombres únicamente y la prohibición de scraping en runtime.
+
+- [x] T26 — Extender el modelo, validator y proyección pública para `supplementalSaints`.
+  - RF: RF-7, RF-9, RF-11, RF-15
+  - Hecho cuando: una captura opcional exige nombres no vacíos, fuente HTTP(S) verificada y correspondencia con la fecha; se conservan orden y provenance, se rechazan duplicados/fechas inválidas y la proyección elimina texto no permitido.
+  - Evidencia: `src/lib/readings/liturgicalMetadata.js`, `fixtures/liturgical-metadata.json`, `scripts/test-liturgical-metadata.mjs`; `npm run test:calendar` (23 pruebas) y `npm run test:readings` (57 pruebas) cubren captura válida, fecha incorrecta, fuente inválida, duplicados y eliminación de campos descriptivos.
+
+- [x] T27 — Incorporar la captura editorial inicial de Vatican News sin scraping en tiempo de ejecución.
+  - RF: RF-7, RF-8, RF-15
+  - Hecho cuando: el 2026-09-15 publica únicamente los nombres verificados de la página `santos.html`, en el orden visible, y fechas sin captura no reciben nombres inventados ni pierden la información del Ordo.
+  - Evidencia: `src/lib/readings/secondarySources.js`, `scripts/sync-daily-readings.mjs`, `public/data/daily-readings/2026.json`; `npm run test:calendar` (23 pruebas) y `npm run validate:daily` (113 entradas válidas). La captura 2026-09-15 contiene los tres nombres revisados y 2026-10-12 no infiere una lista.
+
+- [x] T28 — Mostrar los nombres suplementarios en Daily web.
+  - RF: RF-9, RF-11, RF-15
+  - Hecho cuando: Daily presenta una lista separada y atribuida “También mencionados por Vatican News” con nombres únicamente, sin biografías, cargos, titulares ni enlaces individuales; una fecha sin captura no muestra placeholder.
+  - Evidencia: `src/app/daily/DailyVerseClient.jsx`, `scripts/test-daily-reading.mjs`; build local de producción en `/daily?date=2026-09-15` confirmó heading, tres nombres, cero enlaces dentro de la lista, ausencia de biografías y cero errores de consola.
+
+- [x] T29 — Completar la validación y la evidencia RF-15.
+  - RF: RF-1 a RF-15
+  - Hecho cuando: pasan fixtures, suite, validación diaria, lint, build y revisión manual; `validation.md` y la documentación operativa registran el caso presente, ausente, inválido y el veredicto final.
+  - Evidencia: `validation.md` actualizado; `npm run test:calendar` (23), `npm run test:readings` (57), `npm run test:mobile` (9), `npm run validate:daily` (113), `npm run lint`, `npm run build`, `:app:assembleDebug` y revisión manual web/AX tree completados. API pública y calendario mensual conservan sus contratos sin texto biográfico ni `supplementalSaints` en la cuadrícula.
