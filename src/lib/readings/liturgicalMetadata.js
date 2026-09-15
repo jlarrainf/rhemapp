@@ -96,8 +96,6 @@ function validateCelebration(celebration, index, errors) {
 			errors.push(`${path}.saints: debe ser un arreglo`);
 		} else {
 			celebration.saints.forEach((saint, saintIndex) => validateSaint(saint, `${path}.saints[${saintIndex}]`, errors));
-			const saintNames = celebration.saints.map((saint) => normalizedText(saint?.name)).filter(Boolean);
-			if (new Set(saintNames).size !== saintNames.length) errors.push(`${path}.saints: no puede repetir santos`);
 		}
 	}
 }
@@ -120,6 +118,11 @@ export function validateLiturgicalMetadata(entry) {
 			entry.celebrations.forEach((celebration, index) => validateCelebration(celebration, index, errors));
 			const names = entry.celebrations.map((celebration) => normalizedText(celebration?.name)).filter(Boolean);
 			if (new Set(names).size !== names.length) errors.push("celebrations: no puede repetir nombres");
+			const saintNames = entry.celebrations
+				.flatMap((celebration) => Array.isArray(celebration?.saints) ? celebration.saints : [])
+				.map((saint) => normalizedText(saint?.name))
+				.filter(Boolean);
+			if (new Set(saintNames).size !== saintNames.length) errors.push("celebrations.saints: no puede repetir santos");
 			const primaryCount = entry.celebrations.filter((celebration) => celebration?.isPrimary === true).length;
 			if (primaryCount !== 1) errors.push("celebrations: debe tener exactamente una celebración principal");
 			if (entry.celebrations[0]?.isPrimary !== true) errors.push("celebrations: la celebración principal debe conservar el primer lugar editorial");
@@ -198,7 +201,16 @@ export function toPublicSource(source) {
 export function toPublicLiturgicalMetadata(entry) {
 	const celebrations = normalizeLiturgicalMetadata(entry);
 	return {
-		...(celebrations.length > 0 ? { celebrations } : {}),
+		...(celebrations.length > 0 ? {
+			celebrations: celebrations.map((celebration) => ({
+				...celebration,
+				source: toPublicSource(celebration.source),
+				saints: celebration.saints.map((saint) => ({
+					name: saint.name,
+					source: toPublicSource(saint.source),
+				})),
+			})),
+		} : {}),
 		...(entry?.liturgicalSeason ? { liturgicalSeason: entry.liturgicalSeason } : {}),
 		...(entry?.liturgicalColor ? { liturgicalColor: entry.liturgicalColor } : {}),
 	};

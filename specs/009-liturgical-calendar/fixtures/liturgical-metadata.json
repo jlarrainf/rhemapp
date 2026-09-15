@@ -25,6 +25,7 @@
         "saints": [
           {
             "name": "Santa Teresa de Jesús",
+            "description": "Descripción editorial que no debe publicarse",
             "source": {
               "provider": "Ordo de la Conferencia Episcopal de Chile",
               "url": "https://www.iglesia.cl/ordo",

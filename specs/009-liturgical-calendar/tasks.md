@@ -67,26 +67,32 @@
 
 ## Fase 4 — Ampliación de santos del día
 
-- [ ] T12 — Extender el modelo y validator para nombres de santos verificables.
+- [x] T12 — Extender el modelo y validator para nombres de santos verificables.
   - RF: RF-2, RF-3, RF-7, RF-9, RF-13
   - Hecho cuando: `saints[]` exige nombre y fuente verificada, rechaza ausencias y duplicados dentro de una entrada, y conserva el orden editorial sin crear biografías.
+  - Evidencia: `src/lib/readings/liturgicalMetadata.js` valida nombre, URL HTTP(S), verificación y duplicados en toda la entrada; `toPublicPublishedEntry` publica solo `name` y `source`; `npm run test:calendar` pasa 14 pruebas.
 
-- [ ] T13 — Incorporar santos al pipeline editorial y a la publicación segura.
+- [x] T13 — Incorporar santos al pipeline editorial y a la publicación segura.
   - RF: RF-7, RF-8, RF-13
   - Hecho cuando: el sincronizador conserva provenance por santo, una fuente caída no reemplaza la versión válida y los datos sin verificación quedan fuera de publicación.
+  - Evidencia: `scripts/sync-daily-readings.mjs` aplica nombres explícitos del Ordo y adjunta su fuente; `src/lib/readings/syncState.js` propaga `fresh/stale/fetchedAt` a cada santo; pruebas de merge/sync dentro de `npm run test:readings`; `npm run validate:daily` pasa 113 entradas.
 
-- [ ] T14 — Exponer la lista pública en los contratos compartidos.
+- [x] T14 — Exponer la lista pública en los contratos compartidos.
   - RF: RF-4, RF-6, RF-12, RF-13
   - Hecho cuando: `/api/readings` y `/api/calendar` entregan solo nombres verificados en orden, sin descripciones internas ni lecturas completas en la cuadrícula.
+  - Evidencia: proyección pública en `src/lib/readings/liturgicalMetadata.js`; peticiones HTTP locales a ambos endpoints devuelven 200, el santo contiene solo `name,source` y la celda de calendario no contiene `readings`.
 
-- [ ] T15 — Mostrar santos en Daily y en el resumen mensual.
+- [x] T15 — Mostrar santos en Daily y en el resumen mensual.
   - RF: RF-2, RF-4, RF-6, RF-9, RF-11, RF-13
   - Hecho cuando: Daily muestra “Santos del día” de forma compacta, el calendario ofrece un resumen visual acotado y no aparecen placeholders si no hay santos publicados.
+  - Evidencia: `DailyVerseClient.jsx` y `CalendarClient.jsx`; AX tree y screenshot de `/daily?date=2026-09-15` y `/calendario?month=2026-09` muestran el nombre; la fecha 12 de septiembre conserva la ausencia sin placeholder; detector Impeccable sin hallazgos.
 
-- [ ] T16 — Mantener paridad en PWA/Android y deep links.
+- [x] T16 — Mantener paridad en PWA/Android y deep links.
   - RF: RF-12, RF-13
   - Hecho cuando: ambos clientes reciben la misma lista pública y la muestran sin duplicar validación, calendario ni reglas de fecha.
+  - Evidencia: `RhemappApiClient.kt` consume `celebrations[].saints[]` y `CalendarDay.saints`; `MainActivity.kt` muestra “Santos del día”; `npm run test:mobile` pasa 9 pruebas y `:app:assembleDebug` finaliza con `BUILD SUCCESSFUL`.
 
-- [ ] T17 — Validar, documentar y actualizar la evidencia de la ampliación.
+- [x] T17 — Validar, documentar y actualizar la evidencia de la ampliación.
   - RF: RF-1 a RF-13
   - Hecho cuando: pasan fixtures, suite, lint, build web/Android y revisión manual; `validation.md` contiene evidencia RF-13 y las limitaciones conocidas.
+  - Evidencia: `validation.md` actualizado con trazabilidad RF1–RF13; `npm run test:readings`, `npm run test:calendar`, `npm run test:mobile`, `npm run validate:daily`, `npm run lint`, `npm run build` y la revisión manual completados.

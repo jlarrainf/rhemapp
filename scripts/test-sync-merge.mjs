@@ -72,6 +72,9 @@ test("updates metadata provenance together with the reading provenance", () => {
 	assert.equal(freshEntry.celebrations[0].source.fetchedAt, "2026-09-13T13:00:00.000Z");
 	assert.equal(freshEntry.celebrations[0].saints[0].source.syncStatus, "fresh");
 	assert.equal(freshEntry.celebrations[0].saints[0].source.fetchedAt, "2026-09-13T13:00:00.000Z");
+	const staleEntry = markReadingStale(entry, new Error("fuente temporalmente no disponible"), "2026-09-13T14:00:00.000Z");
+	assert.equal(staleEntry.celebrations[0].saints[0].source.syncStatus, "stale");
+	assert.equal(staleEntry.celebrations[0].saints[0].source.provider, "Fuente editorial");
 });
 
 test("records every sync attempt with a bounded error and public source", () => {

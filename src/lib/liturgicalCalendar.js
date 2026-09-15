@@ -47,17 +47,9 @@ function emptyCalendarDay(dateKey) {
 }
 
 function getSaintNames(celebrations) {
-	const names = [];
-	const seen = new Set();
-	for (const celebration of celebrations) {
-		for (const saint of celebration.saints || []) {
-			const key = saint.name.trim().toLocaleLowerCase("es-CL");
-			if (!key || seen.has(key)) continue;
-			seen.add(key);
-			names.push(saint.name.trim());
-		}
-	}
-	return names;
+	return celebrations.flatMap((celebration) => (celebration.saints || [])
+		.map((saint) => saint.name.trim())
+		.filter(Boolean));
 }
 
 function toCalendarDay(dateKey, entry) {

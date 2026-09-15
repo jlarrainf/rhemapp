@@ -622,7 +622,14 @@
         "name": "Nuestra Señora de los Dolores",
         "rank": "memorial",
         "isPrimary": true,
-        "saints": [],
+        "saints": [{
+          "name": "Nuestra Señora de los Dolores",
+          "source": {
+            "provider": "Ordo de la Conferencia Episcopal de Chile",
+            "url": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "verified": true
+          }
+        }],
         "source": { "provider": "Ordo de la Conferencia Episcopal de Chile", "url": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf", "verified": true }
       }],
       "readings": [
@@ -1961,7 +1968,14 @@
         "name": "Santos Cosme y Damián, mártires",
         "rank": "memorial",
         "isPrimary": true,
-        "saints": [],
+        "saints": [{
+          "name": "Santos Cosme y Damián",
+          "source": {
+            "provider": "Ordo de la Conferencia Episcopal de Chile",
+            "url": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "verified": true
+          }
+        }],
         "source": { "provider": "Ordo de la Conferencia Episcopal de Chile", "url": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf", "verified": true }
       }],
       "readings": [
@@ -2843,7 +2857,14 @@
         "name": "XXVII Domingo del Tiempo Ordinario",
         "rank": "other",
         "isPrimary": true,
-        "saints": [],
+        "saints": [{
+          "name": "San Francisco de Asís",
+          "source": {
+            "provider": "Ordo de la Conferencia Episcopal de Chile",
+            "url": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "verified": true
+          }
+        }],
         "source": { "provider": "Ordo de la Conferencia Episcopal de Chile", "url": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf", "verified": true }
       }],
       "readings": [
@@ -3708,7 +3729,14 @@
         "name": "Nuestra Señora del Pilar",
         "rank": "memorial",
         "isPrimary": true,
-        "saints": [],
+        "saints": [{
+          "name": "Nuestra Señora del Pilar",
+          "source": {
+            "provider": "Ordo de la Conferencia Episcopal de Chile",
+            "url": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "verified": true
+          }
+        }],
         "source": { "provider": "Ordo de la Conferencia Episcopal de Chile", "url": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf", "verified": true }
       }],
       "gospel": {
@@ -3974,7 +4002,14 @@
         "name": "Santa Teresa de Jesús, virgen y doctora de la Iglesia",
         "rank": "memorial",
         "isPrimary": true,
-        "saints": [],
+        "saints": [{
+          "name": "Santa Teresa de Jesús",
+          "source": {
+            "provider": "Ordo de la Conferencia Episcopal de Chile",
+            "url": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "verified": true
+          }
+        }],
         "source": { "provider": "Ordo de la Conferencia Episcopal de Chile", "url": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf", "verified": true }
       }],
       "readings": [

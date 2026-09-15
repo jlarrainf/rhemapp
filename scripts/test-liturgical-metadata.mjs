@@ -21,10 +21,16 @@ test("accepts verified primary celebration, season and color metadata", () => {
 });
 
 test("preserves the primary/optional editorial order and saint source", () => {
-	const celebrations = normalizeLiturgicalMetadata(withMetadata(metadata.optional));
+	const entry = withMetadata(metadata.optional);
+	const celebrations = normalizeLiturgicalMetadata(entry);
 	assert.equal(celebrations[0].isPrimary, true);
 	assert.equal(celebrations[1].rank, "optional-memorial");
 	assert.equal(celebrations[0].saints[0].source.verified, true);
+	assert.equal(celebrations[0].saints[0].name, "Santa Teresa de Jesús");
+	assert.equal(celebrations[0].saints[0].description, "Descripción editorial que no debe publicarse");
+	const publicEntry = toPublicPublishedEntry(entry);
+	assert.equal(publicEntry.celebrations[0].saints[0].description, undefined);
+	assert.equal(publicEntry.celebrations[0].saints[0].source.verified, true);
 });
 
 test("accepts valid readings when optional metadata is absent", () => {
@@ -50,6 +56,31 @@ test("rejects duplicate celebrations, duplicate saints and a misplaced primary",
 	assert.ok(result.errors.some((error) => error.includes("no puede repetir nombres")));
 	assert.ok(result.errors.some((error) => error.includes("no puede repetir santos")));
 	assert.ok(result.errors.some((error) => error.includes("primer lugar editorial")));
+});
+
+test("rejects a saint repeated across celebrations instead of silently deduplicating it", () => {
+	const entry = withMetadata(metadata.optional);
+	entry.celebrations[1].saints = [{
+		name: "Santa Teresa de Jesús",
+		source: { ...entry.celebrations[0].saints[0].source },
+	}];
+	const result = validateLiturgicalMetadata(entry);
+	assert.equal(result.valid, false);
+	assert.ok(result.errors.some((error) => error.includes("no puede repetir santos")));
+});
+
+test("rejects saints without a name or explicit verified source", () => {
+	const missingName = withMetadata(metadata.optional);
+	missingName.celebrations[0].saints[0].name = "";
+	const missingNameResult = validateLiturgicalMetadata(missingName);
+	assert.equal(missingNameResult.valid, false);
+	assert.ok(missingNameResult.errors.some((error) => error.includes("saints[0].name")));
+
+	const unverified = withMetadata(metadata.optional);
+	unverified.celebrations[0].saints[0].source.verified = false;
+	const unverifiedResult = validateLiturgicalMetadata(unverified);
+	assert.equal(unverifiedResult.valid, false);
+	assert.ok(unverifiedResult.errors.some((error) => error.includes("saints[0].source")));
 });
 
 test("derives only a verified legacy celebration and never turns a date into a feast", () => {

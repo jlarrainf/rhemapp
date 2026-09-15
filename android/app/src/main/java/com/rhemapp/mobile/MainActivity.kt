@@ -185,6 +185,8 @@ private fun DailyScreen(api: RhemappApiClient, deepLink: Uri?, onDeepLinkConsume
             else if (current.celebration.isNotBlank()) Text(current.celebration, style = MaterialTheme.typography.titleMedium)
             current.celebrations.drop(1).forEach { celebration -> Text("${celebration.name} (${celebration.rank.toRankLabel()})", style = MaterialTheme.typography.bodySmall) }
             if (current.liturgicalSeason.isNotBlank() || current.liturgicalColor.isNotBlank()) Text(listOf(current.liturgicalSeason.toSeasonLabel(), current.liturgicalColor.toColorLabel()).filter { it.isNotBlank() }.joinToString(" · "), style = MaterialTheme.typography.bodySmall)
+            val saints = current.celebrations.flatMap { it.saints }
+            if (saints.isNotEmpty()) Text("Santos del día: ${saints.joinToString(", ")}", style = MaterialTheme.typography.bodySmall)
             if (dateKey != null) Text("Lectura abierta desde un aviso", style = MaterialTheme.typography.bodySmall)
         }
         items(current.readings) { item ->

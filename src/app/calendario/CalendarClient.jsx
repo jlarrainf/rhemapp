@@ -33,6 +33,16 @@ function getDayNumber(dateKey) {
 	return Number(dateKey.slice(-2));
 }
 
+function getDayAccessibleLabel(day) {
+	const details = [
+		day.primaryCelebration,
+		day.celebrationRank && RANK_LABELS[day.celebrationRank],
+		day.saints?.length > 0 && `Santos del día: ${day.saints.join(", ")}`,
+		day.liturgicalColor && `Color ${COLOR_LABELS[day.liturgicalColor] || day.liturgicalColor}`,
+	].filter(Boolean);
+	return `${day.label}${details.length > 0 ? `: ${details.join(". ")}.` : "."} Abrir lecturas.`;
+}
+
 function DaySummary({ day }) {
 	if (!day.available) {
 		return <span className="text-xs text-gray-500 dark:text-gray-400">Sin publicación</span>;
@@ -63,7 +73,7 @@ function CalendarDayCell({ day }) {
 			{day.available ? (
 				<Link
 					href={`/daily?date=${encodeURIComponent(day.date)}`}
-					aria-label={`Abrir lecturas del ${day.label}`}
+					aria-label={getDayAccessibleLabel(day)}
 					className="block min-h-full rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79b72] focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-800"
 				>
 					{content}

@@ -142,10 +142,10 @@ function LiturgicalContext({ reading }) {
 			)}
 
 			{saints.length > 0 && (
-				<div className="mt-5 border-t border-gray-200 pt-4 dark:border-gray-700">
-					<h3 className="text-sm font-semibold text-[#314156] dark:text-gray-100">Santos asociados</h3>
+				<div className="mt-5 border-t border-gray-200 pt-4 dark:border-gray-700" aria-labelledby="daily-saints-title">
+					<h3 id="daily-saints-title" className="text-sm font-semibold text-[#314156] dark:text-gray-100">Santos del día</h3>
 					<ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm text-gray-700 dark:text-gray-200">
-						{saints.map((saint) => <li key={saint.name}>{saint.name}</li>)}
+						{saints.map((saint, index) => <li key={`${saint.name}-${index}`}>{saint.name}</li>)}
 					</ul>
 				</div>
 			)}

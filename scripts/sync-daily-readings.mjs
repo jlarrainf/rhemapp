@@ -172,6 +172,7 @@ const ORDO_GOSPEL_OVERRIDES = {
 		book: "Lucas",
 		citation: "7:11-17",
 		celebration: "Nuestra Señora de los Dolores (memoria)",
+		saints: ["Nuestra Señora de los Dolores"],
 		excerpt: "Y cuando el Señor la vio, se compadeció de ella, y le dijo: No llores.",
 		excerptReference: "Lucas 7:13",
 	},
@@ -179,6 +180,7 @@ const ORDO_GOSPEL_OVERRIDES = {
 		book: "Lucas",
 		citation: "9:43-45",
 		celebration: "Santos Cosme y Damián, mártires (memoria)",
+		saints: ["Santos Cosme y Damián"],
 		excerpt: "Haced que os penetren bien en los oídos estas palabras; porque acontecerá que el Hijo del Hombre será entregado en manos de hombres.",
 		excerptReference: "Lucas 9:44",
 	},
@@ -186,6 +188,7 @@ const ORDO_GOSPEL_OVERRIDES = {
 		book: "Mateo",
 		citation: "21:33-46",
 		celebration: "XXVII Domingo del Tiempo Ordinario",
+		saints: ["San Francisco de Asís"],
 		excerpt: "Por tanto os digo, que el reino de Dios será quitado de vosotros, y será dado a gente que produzca los frutos de él.",
 		excerptReference: "Mateo 21:43",
 	},
@@ -193,6 +196,7 @@ const ORDO_GOSPEL_OVERRIDES = {
 		book: "Lucas",
 		citation: "11:29-32",
 		celebration: "Nuestra Señora del Pilar (memoria)",
+		saints: ["Nuestra Señora del Pilar"],
 		excerpt: "Y apiñándose las multitudes, comenzó a decir: Esta generación es mala; demanda señal, pero señal no le será dada, sino la señal de Jonás.",
 		excerptReference: "Lucas 11:29",
 	},
@@ -200,6 +204,7 @@ const ORDO_GOSPEL_OVERRIDES = {
 		book: "Lucas",
 		citation: "11:47-54",
 		celebration: "Santa Teresa de Jesús, virgen y doctora de la Iglesia (memoria)",
+		saints: ["Santa Teresa de Jesús"],
 		excerpt: "¡Ay de vosotros, que edificáis los sepulcros de los profetas a quienes mataron vuestros padres!",
 		excerptReference: "Lucas 11:47",
 	},
@@ -879,7 +884,22 @@ function applyOrdoOverride(entry, date) {
 		}),
 	});
 	const celebrations = normalizeLiturgicalMetadata(enrichedEntry);
-	return celebrations.length > 0 ? { ...enrichedEntry, celebrations } : enrichedEntry;
+	const celebrationsWithSaints = override.saints?.length > 0
+		? celebrations.map((celebration, index) => index === 0
+			? {
+				...celebration,
+				saints: override.saints.map((name) => ({
+					name,
+					source: {
+						provider: "Ordo de la Conferencia Episcopal de Chile",
+						url: ORDO_URL,
+						verified: true,
+					},
+				})),
+			}
+			: celebration)
+		: celebrations;
+	return celebrationsWithSaints.length > 0 ? { ...enrichedEntry, celebrations: celebrationsWithSaints } : enrichedEntry;
 }
 
 async function fetchEntry(date) {
