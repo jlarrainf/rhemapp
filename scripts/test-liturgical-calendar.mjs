@@ -52,6 +52,7 @@ test("derives a short monthly summary and marks unpublished days unavailable", a
 	assert.equal("readings" in publishedDay, false);
 	const saintDay = calendar.days.find((day) => day.date === "2026-09-26");
 	assert.deepEqual(saintDay.saints, ["Santos Cosme y Damián"]);
+	assert.equal("informationSource" in saintDay, false);
 	const noSaintDay = calendar.days.find((day) => day.date === "2026-09-12");
 	assert.deepEqual(noSaintDay.saints, []);
 	const currentSaintDay = calendar.days.find((day) => day.date === "2026-09-15");

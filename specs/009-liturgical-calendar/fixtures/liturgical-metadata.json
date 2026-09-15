@@ -30,6 +30,13 @@
               "provider": "Ordo de la Conferencia Episcopal de Chile",
               "url": "https://www.iglesia.cl/ordo",
               "verified": true
+            },
+            "informationSource": {
+              "provider": "Vatican News",
+              "url": "https://www.vaticannews.va/es/santos/10/15/s--teresa-de-jesus--virgen--doctora-de-la-iglesia--carmelita-des.html",
+              "verified": true,
+              "attribution": "Vatican News",
+              "lastSyncError": "no debe publicarse"
             }
           }
         ],

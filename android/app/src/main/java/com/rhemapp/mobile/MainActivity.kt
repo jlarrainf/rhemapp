@@ -1,6 +1,7 @@
 package com.rhemapp.mobile
 
 import android.Manifest
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
@@ -158,6 +159,7 @@ private fun LoginScreen(onLogin: suspend (String, String) -> Unit, onGoogleLogin
 @Composable
 private fun DailyScreen(api: RhemappApiClient, deepLink: Uri?, onDeepLinkConsumed: () -> Unit, padding: PaddingValues) {
     val scope = rememberCoroutineScope()
+    val context = LocalContext.current
     var reading by remember { mutableStateOf<DailyReading?>(null) }
     var pending by remember { mutableStateOf(true) }
     var error by remember { mutableStateOf("") }
@@ -186,7 +188,14 @@ private fun DailyScreen(api: RhemappApiClient, deepLink: Uri?, onDeepLinkConsume
             current.celebrations.drop(1).forEach { celebration -> Text("${celebration.name} (${celebration.rank.toRankLabel()})", style = MaterialTheme.typography.bodySmall) }
             if (current.liturgicalSeason.isNotBlank() || current.liturgicalColor.isNotBlank()) Text(listOf(current.liturgicalSeason.toSeasonLabel(), current.liturgicalColor.toColorLabel()).filter { it.isNotBlank() }.joinToString(" · "), style = MaterialTheme.typography.bodySmall)
             val saints = current.celebrations.flatMap { it.saints }
-            if (saints.isNotEmpty()) Text("Santos del día: ${saints.joinToString(", ")}", style = MaterialTheme.typography.bodySmall)
+            if (saints.isNotEmpty()) {
+                Text("Santos del día: ${saints.joinToString(", ") { it.name }}", style = MaterialTheme.typography.bodySmall)
+                saints.mapNotNull { saint -> saint.informationSource?.let { saint to it } }.forEach { (saint, source) ->
+                    TextButton(onClick = { openExternalUrl(context, source.url) }) {
+                        Text("Más información sobre ${saint.name} en ${source.attribution}")
+                    }
+                }
+            }
             if (dateKey != null) Text("Lectura abierta desde un aviso", style = MaterialTheme.typography.bodySmall)
         }
         items(current.readings) { item ->
@@ -313,6 +322,12 @@ private fun parseCalendarMonth(uri: Uri?): String? {
 }
 
 private fun currentCalendarMonth(): String = ZonedDateTime.now(ZoneId.of("America/Santiago")).format(DateTimeFormatter.ofPattern("yyyy-MM"))
+
+private fun openExternalUrl(context: Context, url: String) {
+    val uri = Uri.parse(url)
+    if (uri.scheme?.lowercase() !in setOf("http", "https")) return
+    runCatching { context.startActivity(Intent(Intent.ACTION_VIEW, uri)) }
+}
 
 private fun String.toReadingLabel(): String = when (this) { "first-reading" -> "Primera lectura"; "psalm" -> "Salmo"; "second-reading" -> "Segunda lectura"; "gospel" -> "Evangelio"; else -> "Lectura" }
 

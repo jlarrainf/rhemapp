@@ -4,6 +4,7 @@ import { mergeValidatedReading } from "../src/lib/readings/mergeSyncedReading.js
 import { markReadingFresh, markReadingStale, recordSyncAttempt } from "../src/lib/readings/syncState.js";
 import { validateDailyDataset } from "../src/lib/readings/validateDailyDataset.js";
 import { normalizeLiturgicalMetadata } from "../src/lib/readings/liturgicalMetadata.js";
+import { getSaintInformationSource } from "../src/lib/readings/secondarySources.js";
 
 const ROOT = process.cwd();
 const DAILY_DIR = path.join(ROOT, "public", "data", "daily-readings");
@@ -888,14 +889,18 @@ function applyOrdoOverride(entry, date) {
 		? celebrations.map((celebration, index) => index === 0
 			? {
 				...celebration,
-				saints: override.saints.map((name) => ({
-					name,
-					source: {
-						provider: "Ordo de la Conferencia Episcopal de Chile",
-						url: ORDO_URL,
-						verified: true,
-					},
-				})),
+				saints: override.saints.map((name) => {
+					const informationSource = getSaintInformationSource(date, name);
+					return {
+						name,
+						source: {
+							provider: "Ordo de la Conferencia Episcopal de Chile",
+							url: ORDO_URL,
+							verified: true,
+						},
+						...(informationSource ? { informationSource } : {}),
+					};
+				}),
 			}
 			: celebration)
 		: celebrations;

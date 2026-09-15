@@ -1,6 +1,7 @@
 package com.rhemapp.mobile
 
 import android.content.Context
+import android.net.Uri
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.json.JSONArray
@@ -12,7 +13,9 @@ import java.net.URLEncoder
 data class MobileSession(val accessToken: String, val refreshToken: String)
 data class NotificationPreferences(val enabled: Boolean, val localTime: String, val timezone: String)
 data class ReadingItem(val type: String, val title: String, val reference: String, val excerpt: String)
-data class LiturgicalCelebration(val name: String, val rank: String, val isPrimary: Boolean, val saints: List<String>)
+data class SaintInformationSource(val provider: String, val url: String, val verified: Boolean, val attribution: String)
+data class LiturgicalSaint(val name: String, val informationSource: SaintInformationSource?)
+data class LiturgicalCelebration(val name: String, val rank: String, val isPrimary: Boolean, val saints: List<LiturgicalSaint>)
 data class DailyReading(val dateKey: String, val dateLabel: String, val celebration: String, val celebrations: List<LiturgicalCelebration>, val liturgicalSeason: String, val liturgicalColor: String, val readings: List<ReadingItem>)
 data class CalendarDay(val dateKey: String, val dateLabel: String, val primaryCelebration: String, val celebrationRank: String, val saints: List<String>, val liturgicalColor: String, val available: Boolean)
 data class LiturgicalCalendar(val month: String, val monthLabel: String, val calendar: String, val timeZone: String, val days: List<CalendarDay>)
@@ -140,11 +143,20 @@ class RhemappApiClient(context: Context) {
 				for (saintIndex in 0 until saintArray.length()) {
 					val saint = saintArray.optJSONObject(saintIndex) ?: continue
 					val name = saint.optString("name", "").trim()
-					if (name.isNotBlank()) add(name)
+					if (name.isNotBlank()) add(LiturgicalSaint(name, saint.optInformationSource()))
 				}
 			} } ?: emptyList()
 			add(LiturgicalCelebration(item.optString("name", ""), item.optString("rank", ""), item.optBoolean("isPrimary", false), saints))
 		}
+	}
+
+	private fun JSONObject.optInformationSource(): SaintInformationSource? {
+		val source = optJSONObject("informationSource") ?: return null
+		val provider = source.optString("provider", "").trim()
+		val url = source.optString("url", "").trim()
+		val scheme = Uri.parse(url).scheme?.lowercase()
+		if (provider.isBlank() || url.isBlank() || source.optBoolean("verified", false) != true || scheme !in setOf("http", "https")) return null
+		return SaintInformationSource(provider, url, true, source.optString("attribution", provider).trim().ifBlank { provider })
 	}
 
 	private fun JSONArray.toCalendarDays(): List<CalendarDay> = buildList {

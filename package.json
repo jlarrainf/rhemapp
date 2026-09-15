@@ -8,7 +8,7 @@
 		"start": "next start",
 		"lint": "next lint",
 		"test:readings": "node --experimental-default-type=module --test scripts/test-reading-validator.mjs scripts/test-reading-migration.mjs scripts/test-daily-validation.mjs scripts/test-sync-merge.mjs scripts/test-liturgical-schedule.mjs scripts/test-daily-reading.mjs scripts/test-liturgical-metadata.mjs scripts/test-liturgical-calendar.mjs",
-		"test:calendar": "node --experimental-default-type=module --test scripts/test-liturgical-metadata.mjs scripts/test-liturgical-calendar.mjs",
+		"test:calendar": "node --experimental-default-type=module --test scripts/test-liturgical-metadata.mjs scripts/test-liturgical-calendar.mjs scripts/test-secondary-sources.mjs",
 		"test:saved-readings": "node --experimental-default-type=module --test scripts/test-saved-reading-keys.mjs",
 		"test:saved-reading-migration": "node --experimental-default-type=module --test scripts/test-saved-reading-migration.mjs",
 		"test:saved-reading-rls": "node --experimental-default-type=module --test scripts/test-saved-reading-rls.mjs",

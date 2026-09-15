@@ -81,3 +81,11 @@ test("keeps translation attribution available without a prominent notice", () =>
 	assert.match(translationNotice, /CC0/);
 	assert.doesNotMatch(translationNotice, /rounded-lg border/);
 });
+
+test("renders verified secondary saint information as an attributed safe external link", () => {
+	assert.match(dailyClient, /informationSource/);
+	assert.match(dailyClient, /Más información sobre \{saint\.name\} en/);
+	assert.match(dailyClient, /target="_blank"/);
+	assert.match(dailyClient, /rel="noopener noreferrer"/);
+	assert.match(dailyClient, /focus-visible:ring-2/);
+});

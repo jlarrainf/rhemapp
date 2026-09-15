@@ -628,6 +628,12 @@
             "provider": "Ordo de la Conferencia Episcopal de Chile",
             "url": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "verified": true
+          },
+          "informationSource": {
+            "provider": "Vatican News",
+            "url": "https://www.vaticannews.va/es/fiestas-liturgicas/santisima-virgen-de-los-dolores.html",
+            "verified": true,
+            "attribution": "Vatican News"
           }
         }],
         "source": { "provider": "Ordo de la Conferencia Episcopal de Chile", "url": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf", "verified": true }
@@ -1974,6 +1980,12 @@
             "provider": "Ordo de la Conferencia Episcopal de Chile",
             "url": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "verified": true
+          },
+          "informationSource": {
+            "provider": "Vatican News",
+            "url": "https://www.vaticannews.va/es/santos/09/26/ss--cosme-y-damian--martires.html",
+            "verified": true,
+            "attribution": "Vatican News"
           }
         }],
         "source": { "provider": "Ordo de la Conferencia Episcopal de Chile", "url": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf", "verified": true }
@@ -2863,6 +2875,12 @@
             "provider": "Ordo de la Conferencia Episcopal de Chile",
             "url": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "verified": true
+          },
+          "informationSource": {
+            "provider": "Vatican News",
+            "url": "https://www.vaticannews.va/es/santos/10/04.html",
+            "verified": true,
+            "attribution": "Vatican News"
           }
         }],
         "source": { "provider": "Ordo de la Conferencia Episcopal de Chile", "url": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf", "verified": true }
@@ -4008,6 +4026,12 @@
             "provider": "Ordo de la Conferencia Episcopal de Chile",
             "url": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "verified": true
+          },
+          "informationSource": {
+            "provider": "Vatican News",
+            "url": "https://www.vaticannews.va/es/santos/10/15/s--teresa-de-jesus--virgen--doctora-de-la-iglesia--carmelita-des.html",
+            "verified": true,
+            "attribution": "Vatican News"
           }
         }],
         "source": { "provider": "Ordo de la Conferencia Episcopal de Chile", "url": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf", "verified": true }

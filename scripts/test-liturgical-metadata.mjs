@@ -28,9 +28,16 @@ test("preserves the primary/optional editorial order and saint source", () => {
 	assert.equal(celebrations[0].saints[0].source.verified, true);
 	assert.equal(celebrations[0].saints[0].name, "Santa Teresa de Jesús");
 	assert.equal(celebrations[0].saints[0].description, "Descripción editorial que no debe publicarse");
+	assert.equal(celebrations[0].saints[0].informationSource.provider, "Vatican News");
 	const publicEntry = toPublicPublishedEntry(entry);
 	assert.equal(publicEntry.celebrations[0].saints[0].description, undefined);
 	assert.equal(publicEntry.celebrations[0].saints[0].source.verified, true);
+	assert.deepEqual(publicEntry.celebrations[0].saints[0].informationSource, {
+		provider: "Vatican News",
+		url: "https://www.vaticannews.va/es/santos/10/15/s--teresa-de-jesus--virgen--doctora-de-la-iglesia--carmelita-des.html",
+		verified: true,
+		attribution: "Vatican News",
+	});
 });
 
 test("accepts valid readings when optional metadata is absent", () => {
@@ -81,6 +88,26 @@ test("rejects saints without a name or explicit verified source", () => {
 	const unverifiedResult = validateLiturgicalMetadata(unverified);
 	assert.equal(unverifiedResult.valid, false);
 	assert.ok(unverifiedResult.errors.some((error) => error.includes("saints[0].source")));
+});
+
+test("rejects an invalid or unverified secondary information source", () => {
+	const invalidUrl = withMetadata(metadata.optional);
+	invalidUrl.celebrations[0].saints[0].informationSource.url = "javascript:alert(1)";
+	const invalidUrlResult = validateLiturgicalMetadata(invalidUrl);
+	assert.equal(invalidUrlResult.valid, false);
+	assert.ok(invalidUrlResult.errors.some((error) => error.includes("saints[0].informationSource")));
+
+	const unverified = withMetadata(metadata.optional);
+	unverified.celebrations[0].saints[0].informationSource.verified = false;
+	const unverifiedResult = validateLiturgicalMetadata(unverified);
+	assert.equal(unverifiedResult.valid, false);
+	assert.ok(unverifiedResult.errors.some((error) => error.includes("saints[0].informationSource")));
+
+	const missingAttribution = withMetadata(metadata.optional);
+	delete missingAttribution.celebrations[0].saints[0].informationSource.attribution;
+	const missingAttributionResult = validateLiturgicalMetadata(missingAttribution);
+	assert.equal(missingAttributionResult.valid, false);
+	assert.ok(missingAttributionResult.errors.some((error) => error.includes("informationSource.attribution")));
 });
 
 test("derives only a verified legacy celebration and never turns a date into a feast", () => {

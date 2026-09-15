@@ -69,6 +69,13 @@ function validateMetadataSource(source, path, errors) {
 	}
 }
 
+function validateInformationSource(source, path, errors) {
+	validateMetadataSource(source, path, errors);
+	if (isPlainObject(source) && !isNonEmptyString(source.attribution, 200)) {
+		errors.push(`${path}.attribution: atribución requerida`);
+	}
+}
+
 function validateSaint(saint, path, errors) {
 	if (!isPlainObject(saint)) {
 		errors.push(`${path}: debe ser un objeto`);
@@ -79,6 +86,9 @@ function validateSaint(saint, path, errors) {
 		errors.push(`${path}.description: debe ser una descripción no vacía`);
 	}
 	validateMetadataSource(saint.source, `${path}.source`, errors);
+	if (saint.informationSource !== undefined) {
+		validateInformationSource(saint.informationSource, `${path}.informationSource`, errors);
+	}
 }
 
 function validateCelebration(celebration, index, errors) {
@@ -142,6 +152,7 @@ function cloneSaints(saints, source) {
 		name: saint.name.trim(),
 		...(saint.description ? { description: saint.description.trim() } : {}),
 		source: cloneSource(saint.source || source),
+		...(saint.informationSource ? { informationSource: cloneSource(saint.informationSource) } : {}),
 	}));
 }
 
@@ -198,6 +209,15 @@ export function toPublicSource(source) {
 	);
 }
 
+export function toPublicInformationSource(source) {
+	if (!isPlainObject(source)) return null;
+	return Object.fromEntries(
+		["provider", "url", "verified", "attribution"]
+			.filter((field) => source[field] !== undefined)
+			.map((field) => [field, source[field]])
+	);
+}
+
 export function toPublicLiturgicalMetadata(entry) {
 	const celebrations = normalizeLiturgicalMetadata(entry);
 	return {
@@ -208,6 +228,7 @@ export function toPublicLiturgicalMetadata(entry) {
 				saints: celebration.saints.map((saint) => ({
 					name: saint.name,
 					source: toPublicSource(saint.source),
+					...(saint.informationSource ? { informationSource: toPublicInformationSource(saint.informationSource) } : {}),
 				})),
 			})),
 		} : {}),
@@ -232,7 +253,11 @@ export function toPublicPublishedEntry(entry) {
 		publicEntry.celebrations = publicEntry.celebrations.map((celebration) => ({
 			...celebration,
 			source: toPublicSource(celebration.source),
-			saints: celebration.saints.map((saint) => ({ ...saint, source: toPublicSource(saint.source) })),
+			saints: celebration.saints.map((saint) => ({
+				...saint,
+				source: toPublicSource(saint.source),
+				...(saint.informationSource ? { informationSource: toPublicInformationSource(saint.informationSource) } : {}),
+			})),
 		}));
 	}
 	return publicEntry;

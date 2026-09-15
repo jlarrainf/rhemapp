@@ -166,8 +166,12 @@ test("PWA and Android artifacts preserve the phase and security contract", () =>
 	assert.match(androidApiClient, /getCalendarMonth/);
 	assert.match(androidApiClient, /\/api\/calendar\?month=/);
 	assert.match(androidApiClient, /saintArray/);
+	assert.match(androidApiClient, /SaintInformationSource/);
+	assert.match(androidApiClient, /optInformationSource/);
 	assert.match(mainActivity, /CalendarScreen/);
 	assert.match(mainActivity, /Santos del día/);
+	assert.match(mainActivity, /Más información sobre/);
+	assert.match(mainActivity, /Intent\.ACTION_VIEW/);
 	assert.match(createNotificationPayload({ reading: { dateKey: "2026-09-14", dateLabel: "14 de septiembre de 2026", celebration: "Memoria" }, baseUrl: "https://rhemapp.com" }).url, /daily\?date=2026-09-14/);
 	assert.ok(rosaryClient.indexOf("<BibleTranslationNotice />") > rosaryClient.indexOf("{misterios.map"));
 	assert.match(dailyClient, /addCalendarDays/);

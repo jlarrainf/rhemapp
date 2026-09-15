@@ -96,6 +96,14 @@ function LiturgicalContext({ reading }) {
 	const saints = celebrations.flatMap((celebration) => Array.isArray(celebration?.saints) ? celebration.saints : []);
 	const hasDetail = Boolean(primary || reading?.liturgicalSeason || reading?.liturgicalColor || saints.length);
 	const source = reading?.source;
+	const informationSources = saints.filter((saint) => {
+		try {
+			const url = new URL(saint?.informationSource?.url);
+			return saint?.informationSource?.verified === true && (url.protocol === "http:" || url.protocol === "https:");
+		} catch {
+			return false;
+		}
+	});
 
 	return (
 		<section className="mb-8 w-full max-w-3xl rounded-xl border border-gray-200 bg-white/80 p-5 text-left shadow-sm dark:border-gray-700 dark:bg-gray-800/80" aria-labelledby="liturgical-context-title">
@@ -147,6 +155,26 @@ function LiturgicalContext({ reading }) {
 					<ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm text-gray-700 dark:text-gray-200">
 						{saints.map((saint, index) => <li key={`${saint.name}-${index}`}>{saint.name}</li>)}
 					</ul>
+					{informationSources.length > 0 && (
+						<div className="mt-3 text-sm text-gray-600 dark:text-gray-300">
+							<p className="font-medium text-[#314156] dark:text-gray-100">Información adicional</p>
+							<ul className="mt-1 space-y-1">
+								{informationSources.map((saint, index) => (
+									<li key={`${saint.name}-information-${index}`}>
+										<a
+											href={saint.informationSource.url}
+											target="_blank"
+											rel="noopener noreferrer"
+											aria-label={`Más información sobre ${saint.name} en ${saint.informationSource.provider || "Vatican News"}`}
+											className="font-medium text-[#314156] underline decoration-[#b79b72] underline-offset-4 transition-colors hover:text-[#8f744e] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79b72] dark:text-gray-100 dark:hover:text-[#e2c18f]"
+										>
+											Más información sobre {saint.name} en {saint.informationSource.provider || "Vatican News"}
+										</a>
+									</li>
+								))}
+							</ul>
+						</div>
+					)}
 				</div>
 			)}
 

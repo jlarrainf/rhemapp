@@ -96,3 +96,40 @@
   - RF: RF-1 a RF-13
   - Hecho cuando: pasan fixtures, suite, lint, build web/Android y revisión manual; `validation.md` contiene evidencia RF-13 y las limitaciones conocidas.
   - Evidencia: `validation.md` actualizado con trazabilidad RF1–RF13; `npm run test:readings`, `npm run test:calendar`, `npm run test:mobile`, `npm run validate:daily`, `npm run lint`, `npm run build` y la revisión manual completados.
+
+## Fase 5 — Fuente secundaria de información de santos
+
+- [x] T18 — Actualizar los artefactos de spec para RF-14.
+  - RF: RF-7, RF-11, RF-12, RF-14
+  - Hecho cuando: `spec.md`, `clarifications.md`, `plan.md` y este backlog documentan el Ordo como fuente primaria, Vatican News como fuente secundaria enlazada, el campo `informationSource` y la prohibición de copiar o raspar biografías.
+  - Evidencia: cambios aprobados por el propietario el 2026-09-15; la spec define enlace externo exacto en Daily, calendario sin enlaces y fallback sin bloqueo de lectura.
+
+- [x] T19 — Extender el modelo, validator y proyección pública para `informationSource`.
+  - RF: RF-7, RF-11, RF-12, RF-14
+  - Hecho cuando: el campo opcional exige proveedor, URL HTTP(S), `verified: true` y atribución; se conserva durante la normalización y se publica solo su metadata permitida, sin descripciones.
+  - Evidencia: `src/lib/readings/liturgicalMetadata.js`, `specs/009-liturgical-calendar/fixtures/liturgical-metadata.json` y `npm run test:calendar` (18 pruebas); cubiertos los casos presente, ausente, inválido, no verificado y sin atribución, sin exponer descripción ni estado interno.
+
+- [x] T20 — Incorporar enlaces Vatican News con revisión editorial explícita.
+  - RF: RF-7, RF-8, RF-14
+  - Hecho cuando: solo se publican URLs específicas cotejadas con el nombre/fecha del Ordo; las fechas sin coincidencia conservan el santo sin enlace y el sincronizador no hace scraping en tiempo de ejecución.
+  - Evidencia: `src/lib/readings/secondarySources.js`, `scripts/sync-daily-readings.mjs`, `public/data/daily-readings/2026.json`, `npm run test:calendar` (18 pruebas) y `npm run validate:daily` (113 entradas válidas); 4 coincidencias exactas publicadas y 2026-10-12 permanece sin enlace secundario.
+
+- [x] T21 — Exponer la fuente secundaria en el contrato de Daily sin contaminar el calendario mensual.
+  - RF: RF-11, RF-12, RF-14
+  - Hecho cuando: `/api/readings` entrega `informationSource` validado, `/api/calendar` conserva solo nombres y no se exponen cuerpos de páginas ni campos internos.
+  - Evidencia: `contract.md`, `src/lib/readings/liturgicalMetadata.js`, `scripts/test-liturgical-metadata.mjs`, `scripts/test-liturgical-calendar.mjs` y `npm run test:calendar` (18 pruebas); `/api/readings` reutiliza la proyección pública y el resumen mensual no incluye `informationSource`.
+
+- [x] T22 — Mostrar el enlace atribuido en Daily web/PWA.
+  - RF: RF-11, RF-14
+  - Hecho cuando: cada enlace aparece dentro de “Santos del día” con texto visible en español, nombre accesible, foco visible, apertura externa segura y ausencia total cuando falta la fuente secundaria.
+  - Evidencia: `src/app/daily/DailyVerseClient.jsx`, `scripts/test-daily-reading.mjs` y `npm run test:readings` (53 pruebas); navegador local confirmó un enlace con `target=_blank`, `rel=noopener noreferrer`, nombre accesible y foco visible, ausencia de enlace el 2026-10-12 y cero errores de consola en una carga limpia; calendario sin enlaces Vatican News.
+
+- [x] T23 — Mantener la fuente secundaria utilizable en Android.
+  - RF: RF-12, RF-14
+  - Hecho cuando: Android parsea el nuevo campo desde el contrato compartido y permite abrir la URL HTTP(S) atribuida desde el contexto del día sin duplicar validación editorial.
+  - Evidencia: `RhemappApiClient.kt`, `MainActivity.kt`, `npm run test:mobile` (9 pruebas) y `:app:assembleDebug` con Java 21 de Android Studio; `BUILD SUCCESSFUL`.
+
+- [x] T24 — Validar, documentar y actualizar la evidencia de RF-14.
+  - RF: RF-1 a RF-14
+  - Hecho cuando: pasan fixtures, suite, validación diaria, lint, build web/Android y revisión manual; `validation.md`, `docs/liturgical-calendar-operation.md` y `contract.md` registran provenance, atribución, límites de contenido y rollback.
+  - Evidencia: `validation.md`, `docs/liturgical-calendar-operation.md` y `contract.md`; `npm run test:readings` (53), `npm run test:calendar` (18), `npm run test:mobile` (9), `npm run validate:daily` (113 entradas), `npm run lint`, `npm run build`, `:app:assembleDebug` con Java 21 y contratos HTTP de producción local 200/400; veredicto final `SPEC CUMPLIDA` RF-1 a RF-14.
