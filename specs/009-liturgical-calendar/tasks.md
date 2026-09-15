@@ -64,3 +64,29 @@
   - RF: RF-1 a RF-12
   - Hecho cuando: pasan `npm run validate:daily`, la suite específica, `npm run lint`, `npm run build`, la matriz responsive/accesible y cada RF tiene evidencia en `validation.md`.
   - Evidencia: `validation.md`; suite de lecturas (49), móvil (9), calendario (12), datos (113 entradas), lint, build, Android debug y revisión manual browser/AX responsive.
+
+## Fase 4 — Ampliación de santos del día
+
+- [ ] T12 — Extender el modelo y validator para nombres de santos verificables.
+  - RF: RF-2, RF-3, RF-7, RF-9, RF-13
+  - Hecho cuando: `saints[]` exige nombre y fuente verificada, rechaza ausencias y duplicados dentro de una entrada, y conserva el orden editorial sin crear biografías.
+
+- [ ] T13 — Incorporar santos al pipeline editorial y a la publicación segura.
+  - RF: RF-7, RF-8, RF-13
+  - Hecho cuando: el sincronizador conserva provenance por santo, una fuente caída no reemplaza la versión válida y los datos sin verificación quedan fuera de publicación.
+
+- [ ] T14 — Exponer la lista pública en los contratos compartidos.
+  - RF: RF-4, RF-6, RF-12, RF-13
+  - Hecho cuando: `/api/readings` y `/api/calendar` entregan solo nombres verificados en orden, sin descripciones internas ni lecturas completas en la cuadrícula.
+
+- [ ] T15 — Mostrar santos en Daily y en el resumen mensual.
+  - RF: RF-2, RF-4, RF-6, RF-9, RF-11, RF-13
+  - Hecho cuando: Daily muestra “Santos del día” de forma compacta, el calendario ofrece un resumen visual acotado y no aparecen placeholders si no hay santos publicados.
+
+- [ ] T16 — Mantener paridad en PWA/Android y deep links.
+  - RF: RF-12, RF-13
+  - Hecho cuando: ambos clientes reciben la misma lista pública y la muestran sin duplicar validación, calendario ni reglas de fecha.
+
+- [ ] T17 — Validar, documentar y actualizar la evidencia de la ampliación.
+  - RF: RF-1 a RF-13
+  - Hecho cuando: pasan fixtures, suite, lint, build web/Android y revisión manual; `validation.md` contiene evidencia RF-13 y las limitaciones conocidas.

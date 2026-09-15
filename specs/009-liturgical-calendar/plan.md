@@ -2,7 +2,7 @@
 
 ## Alcance técnico
 
-La spec extiende el dominio de lecturas existente para incluir metadata litúrgica verificable y crea una vista mensual pública. La implementación debe conservar los archivos JSON actuales, el endpoint `/api/readings`, la regla dominical y la compatibilidad temporal del campo `celebration`.
+La spec extiende el dominio de lecturas existente para incluir metadata litúrgica verificable, nombres de santos del día y una vista mensual pública. La implementación debe conservar los archivos JSON actuales, el endpoint `/api/readings`, la regla dominical y la compatibilidad temporal del campo `celebration`.
 
 No se introduce una base de datos para el calendario en esta fase. La fuente de publicación seguirá siendo el conjunto local validado, actualizado por el sincronizador editorial.
 
@@ -19,6 +19,14 @@ No se introduce una base de datos para el calendario en esta fase. La fuente de 
 - `src/app/daily/`: presentación compacta de celebración, santos, color y enlace al calendario.
 - `src/app/calendario/`: vista mensual accesible y navegación por `month=YYYY-MM`.
 - `public/data/daily-readings/*.json`: persistencia versionada y trazable de la metadata.
+
+### Ampliación de santos del día
+
+- La única fuente de verdad seguirá siendo `celebrations[].saints[]` dentro de la entrada diaria; no se crea un directorio ni una tabla independiente de santos.
+- Daily renderizará una sección “Santos del día” con los nombres verificados en orden editorial, dentro del bloque de contexto existente.
+- `liturgicalCalendar.js` proyectará esos nombres al resumen mensual. La celda mantendrá una altura acotada; su etiqueta accesible y el detalle de Daily conservarán la lista completa publicada.
+- El home no incorporará una tarjeta ni un enlace principal nuevo. El acceso continuará siendo el enlace contextual de Daily y Rosario, preservando la navegación acordada.
+- Las descripciones, biografías y enlaces individuales quedarán fuera de esta ampliación y no se enviarán a la respuesta pública.
 
 La vista mensual debe consumir la misma función de dominio que valida la fecha solicitada por Daily. No debe reconstruir fechas con objetos `Date` ambiguos ni duplicar la regla del sábado.
 
@@ -42,7 +50,6 @@ La forma propuesta mantiene compatibilidad con `celebration`:
       "saints": [
         {
           "name": "...",
-          "description": "...",
           "source": { "provider": "...", "url": "...", "verified": true }
         }
       ],
@@ -59,7 +66,7 @@ La forma propuesta mantiene compatibilidad con `celebration`:
 }
 ```
 
-Los valores técnicos de `rank` serán una enumeración controlada. La interfaz traducirá esos valores a etiquetas españolas. No se publicará un santo o celebración sin `source.verified === true`.
+Los valores técnicos de `rank` serán una enumeración controlada. La interfaz traducirá esos valores a etiquetas españolas. No se publicará un santo o celebración sin `source.verified === true`. La validación rechazará nombres ausentes, fuentes no verificadas y duplicados de santos dentro de una entrada; la normalización conservará el orden editorial.
 
 ## Contratos
 
@@ -91,7 +98,7 @@ El endpoint rechazará meses inválidos, parámetros repetidos y calendarios no 
 
 ### `GET /api/readings`
 
-Conservará el contrato existente y añadirá metadata estructurada de la celebración. Las lecturas y la fecha seguirán siendo la fuente de verdad para el contenido bíblico.
+Conservará el contrato existente y añadirá metadata estructurada de la celebración y la lista pública de nombres de santos verificados. Las lecturas y la fecha seguirán siendo la fuente de verdad para el contenido bíblico.
 
 ## Decisiones técnicas
 
@@ -101,6 +108,8 @@ Conservará el contrato existente y añadirá metadata estructurada de la celebr
 | Derivar el mes desde las entradas diarias | Evita dos fuentes de verdad | Mantener un calendario mensual separado |
 | Conservar `celebration` como alias | Protege consumidores legacy | Romper todos los consumidores de una vez |
 | Mostrar resumen en la cuadrícula | Mantiene legibilidad y rendimiento | Renderizar lecturas completas en cada día |
+| Mostrar nombres, no biografías | Mantiene el contexto pastoral sin crear un directorio pesado | Añadir perfiles, descripciones o enlaces de santos en esta spec |
+| Mantener Daily y calendario como superficies | Reutiliza la navegación y el contexto existentes | Añadir una nueva tarjeta principal al home |
 | Metadata opcional no bloquea lecturas válidas | Degrada con seguridad sin perder la función principal | Ocultar Daily completo por un campo secundario |
 | Fuente y licencia obligatorias | Evita publicar contenido litúrgico no trazable | Inferir verificación desde el nombre |
 
@@ -112,13 +121,16 @@ Conservará el contrato existente y añadirá metadata estructurada de la celebr
 | `liturgicalSchedule.js` y `liturgicalCalendar.js` | RF-1, RF-4, RF-5, RF-10, RF-12 |
 | `/api/calendar` | RF-4, RF-5, RF-6, RF-12 |
 | Daily enriquecido | RF-1, RF-2, RF-3, RF-9, RF-11 |
+| Lista pública de santos y presentación compacta | RF-2, RF-4, RF-6, RF-9, RF-11, RF-13 |
 | Sincronización y documentación editorial | RF-7, RF-8 |
-| Tests responsive, accesibles y de zona horaria | RF-1 a RF-12 |
+| Tests responsive, accesibles y de zona horaria | RF-1 a RF-13 |
 
 ## Estrategia de tests
 
 - Unitarios para normalización de celebraciones, rangos, color, santos y clasificación principal/opcional.
+- Unitarios para nombres de santos verificados, fuente ausente/no verificada, duplicados, orden editorial y ausencia sin placeholder.
 - Fixtures con día ordinario, memoria, fiesta, solemnidad, opciones múltiples, metadata ausente y fuente conflictiva.
+- Fixtures de santos con uno, varios, ausente, duplicado y fuente no verificada; el caso de varios debe probar el orden en Daily y calendario.
 - Tests de calendario mensual para febrero, cambio de año, mes inválido, fechas futuras y fecha sin publicación.
 - Tests de resolución de fecha en `America/Santiago`, medianoche y sábado 14:59:59/15:00:00.
 - Tests de API para parámetros repetidos, calendario no soportado, datos incompletos y respuesta válida.
@@ -131,5 +143,7 @@ Conservará el contrato existente y añadirá metadata estructurada de la celebr
 - Riesgo: la fuente cambia sus encabezados o estructura. Mitigación: parser por secciones, fixtures reales, validación completa y conservación de la última versión válida.
 - Riesgo: el Ordo y la fuente web discrepan. Mitigación: detener publicación de la fecha, registrar conflicto y resolver editorialmente.
 - Riesgo: romper consumidores de `celebration`. Mitigación: alias temporal y migración en dos pasos.
+- Riesgo: sobrecargar la cuadrícula con listas extensas de santos. Mitigación: resumen visual acotado, lista accesible completa y detalle en Daily.
+- Riesgo: publicar nombres no verificables o duplicados. Mitigación: validación por entrada, provenance por santo y rechazo antes de publicar.
 - Riesgo: calendario mensual lento o incompleto. Mitigación: derivación local, respuestas resumidas y cache público controlado.
 - Rollback: dejar de publicar metadata nueva, conservar la respuesta legacy y volver a mostrar solo la información verificada anterior sin borrar los archivos ni el historial de sincronización.

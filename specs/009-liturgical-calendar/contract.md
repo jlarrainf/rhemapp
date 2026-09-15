@@ -20,7 +20,6 @@ Una entrada diaria mantiene la fecha ISO y el calendario chileno:
       "saints": [
         {
           "name": "...",
-          "description": "...",
           "source": { "provider": "...", "url": "https://...", "verified": true }
         }
       ],
@@ -41,6 +40,8 @@ Una entrada diaria mantiene la fecha ISO y el calendario chileno:
 
 Los santos, sus descripciones y cada celebración necesitan una fuente HTTP(S) verificada. La falta de metadata opcional no invalida lecturas verificadas; la UI muestra una indicación discreta. Una fuente ausente, no verificada, conflictiva o incompleta nunca reemplaza una versión publicada válida.
 
+En esta ampliación solo se publican los nombres verificados de los santos, en el orden editorial de la entrada. Las descripciones, biografías y enlaces individuales no forman parte de la experiencia ni del contrato público de Spec 009. Un nombre ausente, una fuente no verificada o un duplicado dentro de la entrada invalida esa metadata antes de publicar.
+
 `celebration` permanece como alias de compatibilidad. Si contiene un nombre editorial no vacío y la entrada tiene una fuente verificada, el dominio puede presentarlo como celebración principal de rango `other` o inferir únicamente un rango explícito presente en el texto (`memoria`, `fiesta`, `solemnidad`, `conmemoración`, `semana del tiempo`). No se convierten fechas solas en celebraciones ni se infieren santos.
 
 ## Jerarquía y procedencia
@@ -54,6 +55,6 @@ El campo `source` conserva proveedor, URL, `verified`, `fetchedAt` y, cuando exi
 
 ## Contratos públicos
 
-`GET /api/readings` conserva las lecturas actuales y expone solo metadata verificada. `GET /api/calendar?month=YYYY-MM&calendar=chile` devuelve `{ month, monthLabel, calendar, timeZone, days }`; cada día contiene fecha ISO, etiqueta, resumen de celebración principal, rango, nombres de santos, color, disponibilidad y fuente pública. La cuadrícula nunca incluye extractos ni lecturas completas.
+`GET /api/readings` conserva las lecturas actuales y expone solo metadata verificada, incluidos los nombres de santos. `GET /api/calendar?month=YYYY-MM&calendar=chile` devuelve `{ month, monthLabel, calendar, timeZone, days }`; cada día contiene fecha ISO, etiqueta, resumen de celebración principal, rango, nombres de santos en orden editorial, color, disponibilidad y fuente pública. La cuadrícula nunca incluye extractos ni lecturas completas.
 
 El calendario usa siempre `America/Santiago`. La fecha explícita navega como `/daily?date=YYYY-MM-DD` y queda fija aunque el reloj cruce el corte dominical del sábado a las 15:00.

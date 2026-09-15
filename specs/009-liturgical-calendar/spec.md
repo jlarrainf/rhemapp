@@ -1,6 +1,6 @@
 # Spec 009 — Calendario litúrgico enriquecido
 
-Estado: Aprobada para implementación — autorización explícita del propietario el 2026-09-15
+Estado: Ampliación aprobada para planificación — autorización explícita del propietario el 2026-09-15
 Prioridad: P1
 
 ## Contexto y objetivo
@@ -28,7 +28,7 @@ Rhemapp ya muestra las lecturas del día y mantiene un calendario chileno con fe
 - RF-1: CUANDO un visitante abre `/daily` sin fecha explícita, EL SISTEMA muestra la celebración correspondiente a la fecha vigente en `America/Santiago` junto con las lecturas publicadas.
 - RF-2: CUANDO una entrada publicada contiene información litúrgica verificada, EL SISTEMA muestra la celebración principal, su rango, el tiempo litúrgico o color cuando estén disponibles y los santos asociados sin inventar campos faltantes.
 - RF-3: CUANDO una fecha tiene celebraciones opcionales o conmemoraciones adicionales, EL SISTEMA distingue visualmente la celebración principal de las opciones y conserva el orden editorial de la fuente.
-- RF-4: CUANDO un visitante abre `/calendario?month=YYYY-MM`, EL SISTEMA muestra el mes solicitado con fechas ISO, un resumen breve por día y el calendario `chile` en `America/Santiago`.
+- RF-4: CUANDO un visitante abre `/calendario?month=YYYY-MM`, EL SISTEMA muestra el mes solicitado con fechas ISO, un resumen breve de la celebración y los santos verificados del día cuando estén disponibles, y el calendario `chile` en `America/Santiago`.
 - RF-5: CUANDO un visitante selecciona un día del calendario, EL SISTEMA navega a `/daily?date=YYYY-MM-DD` y conserva esa fecha como selección explícita, sin sustituirla por “Hoy”.
 - RF-6: MIENTRAS el visitante consulta la cuadrícula mensual, EL SISTEMA muestra solo resúmenes breves y permite abrir el detalle de un día sin cargar todas las lecturas dentro de la cuadrícula.
 - RF-7: CUANDO el proceso editorial sincroniza una fecha, EL SISTEMA conserva el proveedor, la URL, el momento de obtención y el estado de verificación de la información litúrgica publicada.
@@ -37,6 +37,7 @@ Rhemapp ya muestra las lecturas del día y mantiene un calendario chileno con fe
 - RF-10: CUANDO el reloj pasa de sábado 14:59:59 a sábado 15:00:00 en `America/Santiago`, EL SISTEMA mantiene la regla dominical existente para el modo domingo; una fecha seleccionada explícitamente no cambia por ese corte.
 - RF-11: CUANDO una persona consulta el detalle de una celebración, EL SISTEMA ofrece la fuente editorial y el estado de verificación mediante un disclosure accesible, sin competir visualmente con las lecturas.
 - RF-12: EL SISTEMA ofrece la misma información esencial y los mismos enlaces de fecha en web, PWA y Android mediante contratos compartidos, sin duplicar la lógica del calendario en los clientes.
+- RF-13: CUANDO una entrada publicada contiene uno o más santos del día con nombre y fuente verificados, EL SISTEMA muestra sus nombres en la sección de contexto de Daily y en el resumen mensual, conserva el orden editorial y no muestra descripciones biográficas, enlaces individuales ni placeholders cuando no existen santos verificados.
 
 ## Requisitos no funcionales
 
@@ -48,12 +49,14 @@ Rhemapp ya muestra las lecturas del día y mantiene un calendario chileno con fe
 - Los errores y estados vacíos estarán en español y no expondrán detalles técnicos ni secretos.
 - El calendario debe poder servirse desde datos locales verificados cuando la fuente externa no esté disponible durante una consulta.
 - La nueva metadata no debe requerir autenticación ni crear datos privados.
+- Los santos se presentarán como nombres breves y ordenados; cualquier descripción biográfica o enlace individual requiere una decisión de producto posterior.
 
 ## Casos límite
 
 - Fecha sin entrada publicada, fecha futura incompleta o año fuera del rango disponible.
 - Día con más de una celebración, memoria opcional o santos repetidos en la fuente.
 - Celebración publicada sin color, descripción, santo o rango verificable.
+- Santo con nombre ausente, fuente no verificada, duplicado o una lista demasiado extensa para la celda mensual.
 - Conflicto entre Eucaristía Diaria y el Ordo.
 - Fuente externa caída, respuesta parcial, cambio de HTML o URL inválida.
 - Cambio de fecha alrededor de medianoche en un dispositivo con otra zona horaria.
@@ -65,6 +68,7 @@ Rhemapp ya muestra las lecturas del día y mantiene un calendario chileno con fe
 ## Fuera de alcance
 
 - Directorio independiente de santos o biografías extensas.
+- Descripciones biográficas, enlaces individuales o búsqueda independiente de santos.
 - Calendarios de otros países o selección automática por locale del navegador.
 - Texto completo de la Misa, Liturgia de las Horas o devociones.
 - Modificación manual de celebraciones desde la interfaz pública.
@@ -73,8 +77,9 @@ Rhemapp ya muestra las lecturas del día y mantiene un calendario chileno con fe
 
 ## Criterios de finalización
 
-- RF-1 a RF-12 tienen implementación y evidencia en `validation.md`.
+- RF-1 a RF-13 tienen implementación y evidencia en `validation.md`.
 - Las entradas completas, opcionales, incompletas y con conflicto de fuente tienen fixtures y validadores.
+- Los casos de santos verificados, ausentes, duplicados y no verificados tienen fixtures y pruebas; los nombres aparecen en Daily y en el resumen mensual sin inventar datos.
 - La vista mensual navega con fechas ISO y enlaza correctamente a Daily.
 - Se prueban las fronteras del sábado 15:00, medianoche, fechas futuras y zonas horarias distintas.
 - `npm run validate:daily`, `npm run lint`, `npm run build` y la suite específica pasan.

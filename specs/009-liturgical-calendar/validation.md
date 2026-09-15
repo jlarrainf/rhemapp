@@ -1,6 +1,6 @@
 # Validación — Spec 009
 
-Estado: Validada — 2026-09-15
+Estado: Validación previa conservada; ampliación RF-13 pendiente — 2026-09-15
 
 ## Evidencia por requisito
 
@@ -18,6 +18,7 @@ Estado: Validada — 2026-09-15
 | RF-10 | `npm run test:readings` — pruebas de `14:59:59` y `15:00:00` | Cumple | El corte dominical se centraliza en `America/Santiago`; las fechas explícitas permanecen fijas. |
 | RF-11 | AX tree de Daily con disclosure “Fuente y verificación”; `docs/liturgical-calendar-operation.md` | Cumple | La atribución y estado de verificación son accesibles mediante elementos nativos y enlaces identificables. |
 | RF-12 | `scripts/test-mobile-notifications.mjs`; cliente Android; `npm run test:mobile`; APK debug | Cumple | PWA y Android consumen el mismo contrato, comparten deep links y no duplican la resolución de calendario. |
+| RF-13 | Nueva ampliación aprobada; T12–T17 | Pendiente | La implementación debe mostrar nombres de santos verificados en Daily y en el resumen mensual, conservando orden, fuentes y ausencia sin placeholder. |
 
 ## Requisitos no funcionales
 
@@ -27,6 +28,7 @@ Estado: Validada — 2026-09-15
 - Rendimiento y privacidad: la cuadrícula no carga pasajes completos, la API publica solo campos permitidos y no se agregaron secretos, migraciones ni datos privados.
 - Fecha y zona horaria: las pruebas cubren medianoche, cambio de año, febrero bisiesto, zona horaria canónica y corte dominical.
 - Operación: la documentación cubre sincronización, stale, unavailable, atribución/licencia y rollback.
+- Ampliación RF-13: la decisión de producto y el plan están documentados; aún no se han ejecutado cambios de código, datos, contratos ni clientes para esta ampliación.
 
 ## Criterios de finalización
 
@@ -34,6 +36,7 @@ Estado: Validada — 2026-09-15
 - [x] `npm run validate:daily`, `npm run lint` y `npm run build` pasan.
 - [x] Daily y calendario fueron revisados manualmente en escritorio, viewport estrecho y teclado; el AX tree fue inspeccionado para cobertura de lector de pantalla.
 - [x] La documentación operativa contiene fuente, licencia/condiciones como gate editorial, sincronización y rollback.
+- [ ] Los nombres de santos verificados aparecen en Daily y en el resumen mensual, con fixtures y pruebas para ausencia, duplicado y fuente no verificada.
 
 ## Cómo probarlo
 
@@ -61,4 +64,4 @@ La validación offline se cubre mediante el contrato del service worker y las pr
 
 ## Veredicto
 
-`SPEC CUMPLIDA` — RF-1 a RF-12 implementados y respaldados por pruebas automatizadas, build web/Android, revisión manual responsive y evidencia de accesibilidad; las limitaciones de entorno quedan documentadas arriba.
+`SPEC NO CUMPLIDA` — RF-1 a RF-12 permanecen validados, pero la ampliación RF-13 todavía requiere implementar y validar T12–T17.
