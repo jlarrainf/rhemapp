@@ -5,7 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import AuthActions from "./AuthActions";
-import ProfileMenu, { ThemeToggleButton } from "./ProfileMenu";
+import ProfileMenu from "./ProfileMenu";
+import ThemePreferenceControl from "./ThemePreferenceControl";
 
 const Navbar = () => {
 	const pathname = usePathname();
@@ -155,7 +156,7 @@ const Navbar = () => {
 						<MobileNavLink href="/perfil" pathname={pathname} onClick={handleLinkClick}>
 							Mi perfil
 						</MobileNavLink>
-						<ThemeToggleButton className="mt-1" />
+						<ThemePreferenceControl className="mt-1" />
 						<AuthActions menu />
 					</div>
 				</div>

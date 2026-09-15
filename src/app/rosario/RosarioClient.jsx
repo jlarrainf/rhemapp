@@ -105,8 +105,6 @@ export default function RosarioClient({ days, byDayIndex, initialDayIndex }) {
 					</select>
 				</div>
 			</div>
-			<BibleTranslationNotice />
-
 			<div className="w-full max-w-3xl">
 				{misterios.map((misterio, index) => (
 					<div
@@ -123,7 +121,7 @@ export default function RosarioClient({ days, byDayIndex, initialDayIndex }) {
 							<p className="text-gray-600 dark:text-gray-300 mb-4 pl-11">
 								{misterio.descripcion}
 							</p>
-							<div className="bg-gray-50 dark:bg-gray-700 p-4 rounded border-l-4 border-[#b79b72]">
+							<div className="rounded border-l border-[#b79b72]/70 bg-gray-50 p-4 dark:bg-gray-700">
 								<p className="italic text-gray-700 dark:text-gray-200 mb-1">
 									{misterio.versiculo}
 								</p>
@@ -145,6 +143,7 @@ export default function RosarioClient({ days, byDayIndex, initialDayIndex }) {
 					</div>
 				))}
 			</div>
+			<BibleTranslationNotice />
 
 			{showFullPassage && fullPassage && (
 				<div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center z-50 p-4">

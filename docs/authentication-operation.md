@@ -43,6 +43,20 @@ Para un Supabase local, el callback predeterminado es `http://127.0.0.1:54321/au
 
 En el Dashboard de Supabase, habilita **Authentication → Providers → Google** y guarda esas credenciales en el proyecto del entorno correcto.
 
+### 1A. Configurar el cliente nativo Android
+
+La app Android usa Credential Manager y solicita un ID token cuya audiencia es el Web Client ID de Google. Registra también un cliente OAuth Android para el package `com.rhemapp.mobile` y la huella SHA-1 de la firma que usarás (debug o release). En Supabase conserva el Web Client ID y el Client Secret; si el proveedor acepta varios Client IDs, el Web Client ID debe permanecer primero.
+
+Al compilar el cliente nativo, proporciona el Web Client ID sin versionarlo:
+
+```bash
+GOOGLE_WEB_CLIENT_ID=<web-client-id> gradlew.bat :app:assembleDebug
+```
+
+En Windows también puedes usar `gradlew.bat -PgoogleWebClientId=<web-client-id> :app:assembleDebug`. Alternativamente, `google-services.json` en `android/app/` permite resolver el recurso `default_web_client_id`; ese archivo permanece ignorado por Git.
+
+El botón Android envía el ID token y un nonce a `POST /api/auth/mobile/google`. El servidor valida ambos mediante `signInWithIdToken` y devuelve la sesión móvil; no se almacenan tokens de Google.
+
 ### 2. Permitir los retornos de la aplicación
 
 En **Authentication → URL Configuration** configura:

@@ -12,6 +12,10 @@ const migration = await readFile(
 	new URL("../supabase/migrations/20260913204558_authentication_profiles_roles_audit.sql", import.meta.url),
 	"utf8",
 );
+const themeMigration = await readFile(
+	new URL("../supabase/migrations/20260914164207_add_theme_preferences.sql", import.meta.url),
+	"utf8",
+);
 
 test("validates and maps only the approved profile fields", () => {
 	const result = validateProfileUpdate({
@@ -19,6 +23,7 @@ test("validates and maps only the approved profile fields", () => {
 		avatarUrl: "https://example.com/avatar.png",
 		locale: "es-CL",
 		timezone: "America/Santiago",
+		themePreference: "system",
 	});
 
 	assert.deepEqual(result, {
@@ -28,6 +33,7 @@ test("validates and maps only the approved profile fields", () => {
 			avatar_url: "https://example.com/avatar.png",
 			locale: "es-CL",
 			timezone: "America/Santiago",
+			theme_preference: "system",
 		},
 	});
 });
@@ -40,6 +46,7 @@ test("rejects identity, email, role and malformed values", () => {
 		{ avatarUrl: "javascript:alert(1)" },
 		{ locale: "not-a-locale" },
 		{ timezone: "Not/A-Timezone" },
+		{ themePreference: "auto" },
 	]) {
 		assert.equal(validateProfileUpdate(payload).ok, false);
 	}
@@ -60,7 +67,8 @@ test("creates a public profile view without role or provider metadata", () => {
 		profile: { display_name: "Persona", avatar_url: null, locale: "es-CL", timezone: "America/Santiago" },
 	});
 
-	assert.deepEqual(Object.keys(view).sort(), ["avatarUrl", "displayName", "email", "id", "locale", "timezone"]);
+	assert.deepEqual(Object.keys(view).sort(), ["avatarUrl", "displayName", "email", "id", "locale", "themePreference", "timezone"]);
+	assert.equal(view.themePreference, "system");
 	assert.equal("role" in view, false);
 	assert.equal("accessToken" in view, false);
 });
@@ -69,6 +77,7 @@ test("profile API authenticates first and scopes reads and writes to the session
 	assert.match(profileRoute, /export async function GET/);
 	assert.match(profileRoute, /export async function PATCH/);
 	assert.match(profileRoute, /requireAuthenticatedSession/);
+	assert.match(profileRoute, /theme_preference/);
 	assert.match(profileRoute, /\.eq\("user_id", session\.user\.id\)/g);
 	assert.doesNotMatch(profileRoute, /\.update\([^)]*email/);
 });
@@ -85,4 +94,7 @@ test("profile UI submits only approved fields and keeps unexpected errors generi
 test("database grants restrict profile updates to approved columns", () => {
 	assert.match(migration, /grant update \(display_name, avatar_url, locale, timezone\) on public\.profiles to authenticated/i);
 	assert.doesNotMatch(migration, /grant select, insert, update on public\.profiles to authenticated/i);
+	assert.match(themeMigration, /add column theme_preference text not null default 'system'/i);
+	assert.match(themeMigration, /check \(theme_preference in \('system', 'light', 'dark'\)\)/i);
+	assert.match(themeMigration, /grant update \(theme_preference\) on public\.profiles to authenticated/i);
 });

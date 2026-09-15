@@ -1,13 +1,14 @@
 "use client";
 
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { CalendarIcon } from "@heroicons/react/24/outline";
+import { CalendarIcon, ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 import VerseCard from "@/components/VerseCard.jsx";
 import BibleTranslationNotice from "@/components/BibleTranslationNotice.jsx";
 import LectioSection from "@/components/LectioSection.jsx";
 import {
 	DAILY_TIME_ZONE,
 	MIN_PUBLISHED_DATE,
+	addCalendarDays,
 	isValidDateKey,
 } from "@/lib/liturgicalSchedule.js";
 
@@ -59,7 +60,7 @@ function getReadingItems(reading) {
 	return [];
 }
 
-function ReadingControls({ dateKey, readingMode, dateInputError, onDateChange, onModeChange }) {
+function ReadingControls({ dateKey, readingMode, dateInputError, onDateChange, onModeChange, onDayChange }) {
 	return (
 		<div className="mx-auto mb-4 max-w-xs text-left">
 			<div className="mb-3" role="group" aria-label="Modo de lectura">
@@ -98,6 +99,27 @@ function ReadingControls({ dateKey, readingMode, dateInputError, onDateChange, o
 				aria-describedby={dateInputError ? "daily-date-error" : undefined}
 				className="min-h-11 w-full rounded-lg border border-gray-300 bg-white px-3 text-[#314156] shadow-sm focus:border-[#b79b72] focus:outline-none focus:ring-2 focus:ring-[#b79b72]/40 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100"
 			/>
+			<div className="mt-3 grid grid-cols-2 gap-2" role="group" aria-label="Cambiar fecha de lectura">
+				<button
+					type="button"
+					onClick={() => onDayChange(-1)}
+					disabled={!dateKey || dateKey <= MIN_PUBLISHED_DATE}
+					className="inline-flex min-h-11 items-center justify-center gap-1 rounded-lg border border-gray-300 px-3 py-2 text-sm font-semibold text-[#314156] transition-colors hover:border-[#b79b72] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79b72] disabled:cursor-not-allowed disabled:opacity-45 dark:border-gray-600 dark:text-gray-100"
+					aria-label="Ver el día anterior"
+				>
+					<ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />
+					<span>Anterior</span>
+				</button>
+				<button
+					type="button"
+					onClick={() => onDayChange(1)}
+					className="inline-flex min-h-11 items-center justify-center gap-1 rounded-lg border border-gray-300 px-3 py-2 text-sm font-semibold text-[#314156] transition-colors hover:border-[#b79b72] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79b72] dark:border-gray-600 dark:text-gray-100"
+					aria-label="Ver el día siguiente"
+				>
+					<span>Siguiente</span>
+					<ChevronRightIcon className="h-5 w-5" aria-hidden="true" />
+				</button>
+			</div>
 			{dateInputError && (
 				<p id="daily-date-error" className="mt-1 text-sm text-red-600 dark:text-red-400" role="alert">
 					{dateInputError}
@@ -246,6 +268,32 @@ export default function DailyVerseClient({
 		void loadReading({ mode: nextMode });
 	};
 
+	const handleDayChange = (offset) => {
+		const baseDateKey = dateKey || getDateKeyInTimeZone(new Date());
+		let nextDateKey;
+		try {
+			nextDateKey = addCalendarDays(baseDateKey, offset);
+		} catch {
+			setDateInputError("No se pudo calcular la fecha seleccionada.");
+			return;
+		}
+		if (nextDateKey < MIN_PUBLISHED_DATE) {
+			setDateInputError(`No se pueden consultar fechas anteriores al ${MIN_PUBLISHED_DATE}.`);
+			return;
+		}
+		explicitDateRef.current = true;
+		readingModeRef.current = "date";
+		setReadingMode("date");
+		setDateInputError("");
+		setDateKey(nextDateKey);
+		setDateLabel(formatDateKeyLabel(nextDateKey));
+		const url = new URL(window.location.href);
+		url.searchParams.set("date", nextDateKey);
+		url.searchParams.delete("mode");
+		window.history.replaceState({}, "", url);
+		void loadReading({ dateKey: nextDateKey });
+	};
+
 	useEffect(() => {
 		const checkDate = (forceRefresh = false) => {
 			if (explicitDateRef.current || readingModeRef.current !== "today") return;
@@ -317,6 +365,7 @@ export default function DailyVerseClient({
 						dateInputError={dateInputError}
 						onDateChange={handleDateChange}
 						onModeChange={handleModeChange}
+						onDayChange={handleDayChange}
 					/>
 					<p className="mx-auto max-w-2xl text-center text-gray-600 transition-colors duration-300 dark:text-gray-300">
 						Cargando la lectura correspondiente al calendario litúrgico de Chile…
@@ -341,6 +390,7 @@ export default function DailyVerseClient({
 					dateInputError={dateInputError}
 					onDateChange={handleDateChange}
 					onModeChange={handleModeChange}
+					onDayChange={handleDayChange}
 				/>
 				<button
 					type="button"
@@ -372,6 +422,7 @@ export default function DailyVerseClient({
 					dateInputError={dateInputError}
 					onDateChange={handleDateChange}
 					onModeChange={handleModeChange}
+					onDayChange={handleDayChange}
 				/>
 				<p className="text-center text-gray-600 transition-colors duration-300 dark:text-gray-300">
 					Lee las lecturas del día según el calendario litúrgico de Chile. Cada cita es

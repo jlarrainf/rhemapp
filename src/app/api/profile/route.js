@@ -6,7 +6,7 @@ import { createProfileView, validateProfileUpdate } from "@/lib/profile/validati
 
 export const dynamic = "force-dynamic";
 
-const PROFILE_SELECT = "user_id, display_name, avatar_url, locale, timezone";
+const PROFILE_SELECT = "user_id, display_name, avatar_url, locale, timezone, theme_preference";
 const PROFILE_HEADERS = {
 	"Cache-Control": "no-store, max-age=0",
 	"X-Robots-Tag": "noindex, nofollow",

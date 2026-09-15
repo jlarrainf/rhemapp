@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import Navbar from "../components/Navbar";
+import PwaRegistration from "../components/PwaRegistration";
 import { ThemeProvider } from "../components/ThemeContext";
 import { getSiteUrl } from "@/lib/siteUrl";
 
@@ -53,7 +54,7 @@ export const metadata = {
 			{ url: "/Rhemapp_isotype.ico" },
 			{ url: "/Rhemapp_isotype.png", type: "image/png" },
 		],
-		apple: [{ url: "/apple-touch-icon.png", type: "image/png" }],
+		apple: [{ url: "/Rhemapp_isotype.png", type: "image/png" }],
 	},
 	manifest: "/manifest.webmanifest",
 	appleWebApp: {
@@ -114,12 +115,17 @@ export default function RootLayout({ children }) {
 					dangerouslySetInnerHTML={{
 						__html: `(() => {
 							try {
-								const stored = localStorage.getItem('theme');
+								const stored = localStorage.getItem('themePreference');
+								const legacy = localStorage.getItem('theme');
 								const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-								const theme = stored === 'dark' || stored === 'light' ? stored : (prefersDark ? 'dark' : 'light');
+								const preference = stored === 'system' || stored === 'dark' || stored === 'light'
+									? stored
+									: (legacy === 'dark' || legacy === 'light' ? legacy : 'system');
+								const theme = preference === 'dark' || (preference === 'system' && prefersDark) ? 'dark' : 'light';
 								const root = document.documentElement;
 								root.classList.toggle('dark', theme === 'dark');
 								root.classList.toggle('light', theme === 'light');
+								root.dataset.themePreference = preference;
 							} catch (e) {}
 						})();`,
 					}}
@@ -177,6 +183,7 @@ export default function RootLayout({ children }) {
 					</noscript>
 				) : null}
 				<ThemeProvider>
+					<PwaRegistration />
 					<Navbar />
 					<main className="flex-1 w-full max-w-6xl mx-auto px-4 py-8 pt-24">
 						{children}

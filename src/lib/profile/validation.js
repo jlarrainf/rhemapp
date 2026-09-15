@@ -1,8 +1,11 @@
+import { isThemePreference, normalizeThemePreference } from "../theme/preferences.js";
+
 export const PROFILE_UPDATE_FIELDS = Object.freeze([
 	"displayName",
 	"avatarUrl",
 	"locale",
 	"timezone",
+	"themePreference",
 ]);
 
 const LOCALE_PATTERN = /^[a-z]{2}(?:-[A-Z]{2})?$/;
@@ -89,6 +92,13 @@ export function validateProfileUpdate(payload) {
 		updates.timezone = timezone;
 	}
 
+	if (Object.prototype.hasOwnProperty.call(payload, "themePreference")) {
+		if (!isThemePreference(payload.themePreference)) {
+			return { ok: false, error: "La preferencia de tema no es válida" };
+		}
+		updates.theme_preference = payload.themePreference;
+	}
+
 	return { ok: true, updates };
 }
 
@@ -100,5 +110,6 @@ export function createProfileView({ sessionUser, profile }) {
 		avatarUrl: profile?.avatar_url ?? sessionUser.avatarUrl ?? null,
 		locale: profile?.locale ?? sessionUser.locale ?? "es-CL",
 		timezone: profile?.timezone ?? sessionUser.timezone ?? "America/Santiago",
+		themePreference: normalizeThemePreference(profile?.theme_preference),
 	};
 }

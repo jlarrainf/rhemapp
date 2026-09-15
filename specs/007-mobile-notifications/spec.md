@@ -1,6 +1,6 @@
 # Spec 007 — Mobile, PWA y notificaciones
 
-Estado: Implementing — T4 completada; resto de fases pendiente
+Estado: Implemented — RF-12 implementado y validado localmente; Google requiere configuración OAuth por entorno
 Prioridad: P2
 
 ## Contexto y objetivo
@@ -33,6 +33,9 @@ Rhemapp debe poder usarse cómodamente desde un teléfono con las mismas funcion
 - RF-7: CUANDO el usuario abre un aviso Android, EL SISTEMA navega a la lectura correcta incluso si la aplicación estaba cerrada.
 - RF-8: SI el dispositivo, token, scheduler o proveedor falla, ENTONCES EL SISTEMA registra el error técnico, limpia tokens inválidos y no duplica avisos innecesariamente.
 - RF-9: EL SISTEMA respeta el cambio dominical de sábado a las 15:00 en `America/Santiago` al resolver enlaces y contenido de notificación.
+- RF-10: CUANDO un usuario consulta Misterios del Rosario, EL SISTEMA muestra la fuente y traducción después de todo el contenido de misterios, sin interrumpir el orden principal de meditación y manteniendo el detalle accesible.
+- RF-11: CUANDO un usuario consulta Lecturas del día, EL SISTEMA ofrece controles accesibles para avanzar o retroceder un día; cada cambio usa una fecha ISO explícita en la URL, conserva el calendario chileno, respeta la fecha mínima publicada y muestra un estado accionable si la fecha no tiene una lectura válida.
+- RF-12: CUANDO un usuario pulsa “Continuar con Google” en la app Android, EL SISTEMA ofrece el selector nativo de Google, valida el ID token en el servidor mediante Supabase y crea la misma sesión móvil segura que el acceso por contraseña; si el usuario cancela o la configuración no está disponible, muestra un error accionable en español y no crea una sesión parcial.
 
 ## Requisitos no funcionales
 
@@ -69,6 +72,8 @@ Rhemapp debe poder usarse cómodamente desde un teléfono con las mismas funcion
 - Usuario puede configurar, cambiar y desactivar la hora.
 - Un aviso abre la lectura correcta y no se duplica por reintentos.
 - Existen pruebas de permisos, zona horaria, scheduler y deep links.
+- La atribución del Rosario aparece al final y Daily permite recorrer días mediante controles táctiles y de teclado.
+- La app Android permite iniciar sesión con Google mediante Credential Manager y conserva únicamente la sesión de Rhemapp.
 
 ## Decisiones confirmadas
 
@@ -83,3 +88,4 @@ Rhemapp debe poder usarse cómodamente desde un teléfono con las mismas funcion
 - El logo de Rhemapp es el único acceso persistente al inicio; no se repite “Inicio” como enlace principal.
 - En escritorio, el menú de perfil agrupa biblioteca, sugerencias, perfil, autenticación y cambio de tema. En móvil, el menú hamburguesa mantiene la misma jerarquía bajo “Perfil y más”.
 - El menú de perfil se puede abrir y cerrar con teclado, se cierra con Escape o al pulsar fuera y mantiene foco visible en todos sus controles.
+- Google en Android usará Credential Manager con un Web Client ID configurado por entorno; el ID token se valida mediante `signInWithIdToken` server-side y no se persisten tokens del proveedor.

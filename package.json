@@ -20,7 +20,9 @@
 		"test:sharing": "node --experimental-default-type=module --test scripts/test-sharing.mjs scripts/test-sharing-migration.mjs scripts/test-sharing-api.mjs scripts/test-sharing-ui.mjs",
 		"test:suggestions": "node --experimental-default-type=module --test scripts/test-reading-suggestions.mjs scripts/test-reading-suggestions-migration.mjs scripts/test-reading-suggestions-api.mjs scripts/test-reading-suggestions-ui.mjs",
 		"test:lectio": "node --experimental-default-type=module --test scripts/test-lectio-divina.mjs",
+		"test:mobile": "node --experimental-default-type=module --test scripts/test-mobile-notifications.mjs",
 		"test:auth": "node --experimental-default-type=module --test scripts/test-auth-contract.mjs scripts/test-auth-migration.mjs scripts/test-auth-oauth.mjs scripts/test-auth-session.mjs scripts/test-auth-ui.mjs scripts/test-auth-guards.mjs scripts/test-auth-profile.mjs scripts/test-auth-roles.mjs scripts/test-auth-audit.mjs scripts/test-auth-deletion.mjs scripts/test-auth-operations-doc.mjs scripts/test-auth-recovery.mjs scripts/test-auth-rate-limits.mjs",
+		"test:theme": "node --experimental-default-type=module --test scripts/test-theme-preferences.mjs",
 		"sync:daily": "node --experimental-default-type=module scripts/sync-daily-readings.mjs",
 		"generate:lectio": "node --experimental-default-type=module scripts/generate-lectio.mjs",
 		"validate:daily": "node --experimental-default-type=module scripts/validate-daily-readings.mjs"

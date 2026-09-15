@@ -5,35 +5,15 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import {
 	ChevronDownIcon,
-	MoonIcon,
-	SunIcon,
 	UserCircleIcon,
 } from "@heroicons/react/24/outline";
 import AuthActions from "./AuthActions";
-import { useTheme } from "./ThemeContext";
+import ThemePreferenceControl from "./ThemePreferenceControl";
 
 const SECONDARY_ROUTES = ["/biblioteca", "/sugerencias", "/perfil"];
 
 const controlClassName =
 	"flex min-h-10 w-full items-center gap-3 rounded-md px-3 py-2 text-sm font-medium text-[#314156] transition hover:bg-[#b79b72]/10 hover:text-[#314156] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79b72] dark:text-gray-100 dark:hover:bg-[#b79b72]/20 dark:hover:text-white";
-
-export function ThemeToggleButton({ className = "" }) {
-	const { isDarkMode, toggleTheme } = useTheme();
-	const label = isDarkMode ? "Usar tema claro" : "Usar tema oscuro";
-	const Icon = isDarkMode ? SunIcon : MoonIcon;
-
-	return (
-		<button
-			type="button"
-			onClick={toggleTheme}
-			className={`${controlClassName} ${className}`}
-			aria-label={label}
-		>
-			<Icon className="h-5 w-5 shrink-0" aria-hidden="true" />
-			<span>{label}</span>
-		</button>
-	);
-}
 
 export default function ProfileMenu() {
 	const pathname = usePathname();
@@ -118,7 +98,7 @@ export default function ProfileMenu() {
 						</ProfileMenuLink>
 					</nav>
 					<div className="space-y-1 border-t border-gray-100 p-2 dark:border-gray-700">
-						<ThemeToggleButton />
+						<ThemePreferenceControl />
 						<AuthActions menu />
 					</div>
 				</div>

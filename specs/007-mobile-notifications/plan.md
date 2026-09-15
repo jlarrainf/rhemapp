@@ -1,6 +1,6 @@
 # Plan técnico — Spec 007
 
-Estado: Planned — clarificaciones resueltas; pendiente implementación
+Estado: Implemented — RF-12 implementado y validado localmente; configuración OAuth externa documentada
 
 ## Alcance técnico
 
@@ -9,6 +9,8 @@ La entrega se dividirá en dos fases: primero paridad responsive/PWA instalable 
 ## Arquitectura y módulos
 
 - Mejorar `public/manifest.webmanifest`, iconos, metadata y service worker/PWA según soporte elegido.
+- Mantener la atribución `BibleTranslationNotice` como un detalle accesible al final de `RosarioClient`, después de los misterios.
+- Incorporar en `DailyVerseClient` controles anterior/siguiente con `addCalendarDays`, fecha ISO explícita y protección de `MIN_PUBLISHED_DATE`.
 - Reordenar `src/components/Navbar.jsx` para dejar el logo como enlace al inicio, exponer solo las tres rutas principales en escritorio y agrupar rutas secundarias, autenticación y tema en un menú de perfil; el menú móvil conservará la misma jerarquía dentro del menú hamburguesa.
 - `src/lib/mobile/` para contratos de deep link, plataforma y preferencias.
 - `src/app/api/notification-preferences/` para hora, zona, estado y dispositivos.
@@ -16,6 +18,7 @@ La entrega se dividirá en dos fases: primero paridad responsive/PWA instalable 
 - Scheduler protegido que resuelve cada usuario Android por su zona horaria y la lectura diaria vigente.
 - Tablas `notification_preferences`, `push_devices` y `notification_deliveries`.
 - Aplicación Android posterior con cliente API compartido, no con acceso directo a la base de datos.
+- Login Google Android con Credential Manager y `GetSignInWithGoogleOption`; si un proveedor de Credential Manager devuelve `NoCredentialException` por incompatibilidad, se reintenta con `GetGoogleIdOption` sin filtrar cuentas. El ID token se envía al endpoint móvil y Supabase lo valida con `signInWithIdToken`.
 
 Las preferencias, dispositivos y entregas se persistirán en Supabase con RLS. La aplicación nativa solo usará el cliente autorizado y contratos API; nunca credenciales privilegiadas ni acceso directo con service key.
 
@@ -42,6 +45,7 @@ Restricciones sugeridas:
 - `GET/PATCH /api/notification-preferences`.
 - `POST /api/push/register` y `POST /api/push/unregister`.
 - `POST /api/notifications/dispatch` solo para scheduler autenticado.
+- `POST /api/auth/mobile/google` recibe únicamente un ID token Google validado por Supabase y devuelve el mismo contrato `session` que el login por contraseña.
 - Deep links con fecha/mode/reading validados por la ruta Daily.
 - La PWA no registra dispositivos push ni solicita permisos de notificación en la primera fase.
 - Cambiar `timezone` recalcula inmediatamente las entregas pendientes del usuario.
@@ -57,6 +61,7 @@ Restricciones sugeridas:
 | Registro de entregas idempotente | Evita duplicados y permite diagnosticar | Reintentos sin identidad de entrega |
 | Cliente nativo contra API | Mantiene una sola frontera de autorización | Dar acceso directo a la base de datos |
 | Android nativo Kotlin/Compose | Ajusta el alcance a Android y facilita push/deep links | Añadir una capa multiplataforma sin requerimiento iOS |
+| Credential Manager + ID token server-side | Usa la UX y validación nativas actuales sin exponer credenciales privilegiadas | Login web embebido o validar claims Google manualmente en Android |
 
 ## Trazabilidad hacia RF
 
@@ -66,6 +71,8 @@ Restricciones sugeridas:
 | Preferencias y dispositivos | RF-3, RF-4, RF-6 |
 | Scheduler y entregas | RF-5, RF-8, RF-9 |
 | Deep links | RF-7, RF-9 |
+| Atribución y navegación diaria | RF-10, RF-11 |
+| Google nativo Android | RF-12 |
 
 ## Estrategia de tests
 
@@ -75,6 +82,7 @@ Restricciones sugeridas:
 - Tests de deduplicación, reintentos, tokens inválidos y scheduler.
 - Tests para múltiples dispositivos con una preferencia común, cambio inmediato de zona horaria y compatibilidad Android 10+.
 - Pruebas de instalación y paridad en PWA; después smoke tests y push en Android.
+- Pruebas de cancelación, token inválido, proveedor no configurado y sesión válida para Google Android; la prueba válida requiere credenciales OAuth de un entorno autorizado.
 
 ## Riesgos, migración y rollback
 

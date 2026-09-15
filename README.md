@@ -16,6 +16,7 @@ Sitio: https://www.rhemapp.com
 - Misterios del Rosario (`/rosario`) según el día de la semana, con selector.
 - Modal “Ver pasaje completo” para consultar contexto bíblico.
 - Autenticación con Google y correo/contraseña (`/login`), perfil privado (`/perfil`) y administración (`/admin`).
+- PWA responsive sin push en la web y cliente Android nativo Kotlin/Compose en `android/`, con avisos diarios opcionales.
 
 ## Rutas
 
@@ -35,6 +36,9 @@ La configuración reproducible de autenticación, OAuth y entornos está en [`do
 - `/api/readings` Devuelve las lecturas genéricas de hoy, una fecha explícita o el domingo vigente.
 - `/api/daily-reading` Mantiene el contrato compatible del evangelio vigente y el próximo cambio de medianoche en Chile.
 - `/api/verses` Sirve subconjuntos del JSON local (`scope=random|daily|all`).
+- `/api/notification-preferences` Lee y actualiza la hora, zona y activación de avisos.
+- `/api/push/register` y `/api/push/unregister` Registran o revocan dispositivos Android autenticados.
+- `/api/notifications/dispatch` Ejecuta el scheduler protegido por secreto.
 
 Nota SEO: los endpoints JSON responden con `X-Robots-Tag: noindex, nofollow`.
 
@@ -89,6 +93,7 @@ npm run dev
 - `npm run sync:daily` Sincroniza las lecturas fechadas con Eucaristía Diaria y respaldos provisionales.
 - `npm run validate:daily` Verifica cobertura, formato y campos obligatorios del calendario.
 - `npm run test:sharing` Verifica URLs públicas, tokens privados, autorización, rate limit y UI de compartir.
+- `npm run test:mobile` Verifica contratos móviles, calendario, deduplicación, tokens, PWA y Android.
 
 ## Guardados y colecciones
 
@@ -121,6 +126,8 @@ Rhemapp soporta estas variables (ver `.env.example`):
 - `GOOGLE_SITE_VERIFICATION` (opcional)
   - Solo si elegís verificación por meta tag (propiedad “Prefijo de URL” en Search Console).
   - Si verificás “Dominio” por DNS, no hace falta.
+- `PUSH_TOKEN_ENCRYPTION_KEY`, `PUSH_PROVIDER_URL`, `PUSH_PROVIDER_TOKEN` y `NOTIFICATIONS_SCHEDULER_SECRET`
+  - Configuración server-side para avisos Android; consulta [`docs/mobile-operation.md`](docs/mobile-operation.md).
 
 ## SEO e indexación
 
