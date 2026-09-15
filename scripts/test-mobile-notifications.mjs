@@ -128,6 +128,8 @@ test("PWA and Android artifacts preserve the phase and security contract", () =>
 	const dailyClient = fs.readFileSync(path.join(root, "src/app/daily/DailyVerseClient.jsx"), "utf8");
 	assert.equal(manifest.start_url, "/daily");
 	assert.equal(manifest.theme_color, "#314156");
+	assert.equal(manifest.icons[0].src, "/Rhemapp_isotype.png");
+	assert.equal(manifest.icons[1].src, "/Rhemapp_isotype.png");
 	assert.match(serviceWorker, /url\.pathname\.startsWith\("\/api\/"\)/);
 	assert.match(serviceWorker, /PRIVATE_PATHS/);
 	assert.doesNotMatch(serviceWorker, /pushManager|Notification\.requestPermission/);

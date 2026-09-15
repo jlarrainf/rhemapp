@@ -75,13 +75,13 @@
   - RF: RF-4, RF-6
   - Hecho cuando: el usuario puede guardar, cambiar y desactivar preferencias.
   - Estado actual: COMPLETADA. API, formulario de perfil y cliente Android permiten consultar, guardar y desactivar preferencias con validación IANA.
-  - Evidencia: `npm run test:mobile` (7/7), incluyendo defaults, zonas y contrato de preferencias.
+  - Evidencia: `npm run test:mobile` (9/9), incluyendo defaults, zonas y contrato de preferencias.
 
 - [x] T9 — Implementar registro y revocación de dispositivos.
   - RF: RF-3, RF-6, RF-8
   - Hecho cuando: tokens inválidos se revocan sin exponerlos.
   - Estado actual: COMPLETADA. Tokens se deduplican por hash, se cifran en reposo y los inválidos del proveedor revocan el dispositivo sin devolverse al cliente.
-  - Evidencia: `npm run test:mobile` (7/7), subtests de registro, cifrado/hash y revocación.
+  - Evidencia: `npm run test:mobile` (9/9), subtests de registro, cifrado/hash y revocación.
 
 - [x] T10 — Implementar scheduler y resolución de lectura.
   - RF: RF-5, RF-9
@@ -93,7 +93,7 @@
   - RF: RF-5, RF-8
   - Hecho cuando: un reintento no duplica el aviso y queda trazabilidad técnica.
   - Estado actual: COMPLETADA. RPC de claim/complete/fail, clave idempotente, máximo de tres intentos y adaptador 404/410/429/5xx implementados.
-  - Evidencia: `npm run test:mobile` (7/7), subtest de idempotencia y token inválido.
+  - Evidencia: `npm run test:mobile` (9/9), subtest de idempotencia y token inválido.
 
 - [x] T12 — Implementar deep link desde la notificación.
   - RF: RF-7, RF-9
