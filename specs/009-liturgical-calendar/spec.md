@@ -24,7 +24,7 @@ Rhemapp ya muestra las lecturas del día y mantiene un calendario chileno con fe
 - H5: Como mantenedor, quiero publicar solo información litúrgica trazable y verificada.
 - H6: Como visitante, quiero acceder a información adicional sobre un santo sin que Rhemapp copie ni presente como propia una biografía externa.
 - H7: Como visitante, quiero ver los nombres de los santos que Vatican News destaca para el día, sin cargar sus biografías.
-- H8: Como visitante, quiero expandir el contexto litúrgico solo cuando lo necesite y encontrar allí una única lista integrada de fiestas y santos del día en una vista limpia.
+- H8: Como visitante, quiero expandir el contexto litúrgico solo cuando lo necesite y encontrar allí una única lista integrada de fiestas y santos del día en una vista limpia y coherente con la estética de Rhemapp.
 
 ## Requisitos funcionales
 
@@ -65,6 +65,7 @@ Rhemapp ya muestra las lecturas del día y mantiene un calendario chileno con fe
 - La actualización será idempotente y fallará de forma segura: una respuesta caída, incompleta, fechada incorrectamente o ambigua no sobrescribirá datos válidos ni trasladará nombres de otra fecha. La ejecución conservará trazabilidad en Git y el despliegue a Vercel ocurrirá mediante el flujo existente de `main`.
 - Los nombres de Vatican News se incorporarán mediante una captura fechada con URL, atribución y estado de verificación. La interfaz web no mostrará descripciones, biografías, titulares ni enlaces individuales de esa captura.
 - Los nombres de santos y fiestas visibles en Daily se presentarán en una lista vertical plana única, sin etiquetas derivadas de la fuente, tarjetas, píldoras, separadores ni enlaces incrustados; los enlaces secundarios verificados de RF-14 permanecerán accesibles únicamente desde el disclosure “Fuente y verificación”.
+- El bloque de contexto conservará el lenguaje visual de las tarjetas de lectura existentes: radio, borde, sombra, azul marino y acento dorado coherentes, con espaciado compacto y adaptación a pantallas estrechas.
 
 ## Casos límite
 
@@ -115,6 +116,7 @@ Rhemapp ya muestra las lecturas del día y mantiene un calendario chileno con fe
 - La documentación operativa registra fuente, licencia, sincronización, conservación de última versión y rollback.
 - El workflow diario puede ejecutarse manualmente, es idempotente, actualiza solo la fecha vigente y deja la captura publicada disponible para el deploy de `main`.
 - Daily muestra fiestas y santos en una única lista integrada dentro del contexto colapsable, con tratamientos “San”/“Santa” y fuentes separadas después del contenido principal.
+- El contexto litúrgico comparte el lenguaje visual de las tarjetas de lectura sin introducir una superficie visual ajena al resto de Daily.
 
 ## Dudas abiertas
 

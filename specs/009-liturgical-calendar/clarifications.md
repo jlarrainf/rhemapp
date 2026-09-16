@@ -94,3 +94,10 @@ Estado: Resolved — decisiones de alcance registradas el 2026-09-14 y ampliacio
 - **Encabezado:** no se mostrarán “Santos y santas del día”, “Otros santos y santas del día” ni encabezados equivalentes basados en la existencia de una fuente anterior. El resumen del disclosure seguirá siendo “Fiestas y santos del día” y la lista tendrá ese mismo significado unificado.
 - **Metadatos de celebración:** el rango de una fiesta o celebración seguirá visible como información secundaria junto a su nombre cuando exista; no se mostrará información de fuente dentro de la lista.
 - **Fecha solo suplementaria:** cuando solo exista `supplementalSaints`, sus nombres aparecerán directamente en la lista unificada, sin la palabra “otros” y sin cambiar el mensaje de disponibilidad agregada.
+
+## Refinamiento aprobado: coherencia visual del contexto
+
+- **Dirección visual:** se conservará la estética existente de Daily y de `VerseCard`: superficie clara, radio moderado, borde sutil, sombra suave, texto azul marino y acento dorado. No se creará una tarjeta con un lenguaje visual distinto.
+- **Jerarquía:** el resumen del disclosure seguirá siendo el elemento principal; al abrirlo, la lista tendrá un espaciado más compacto y el rango de una celebración será un dato secundario, no un encabezado adicional.
+- **Lista:** los marcadores usarán el acento dorado de la interfaz en lugar del bullet negro por defecto, manteniendo HTML semántico de lista y contraste suficiente.
+- **Responsive:** las etiquetas de temporada/color podrán envolver en pantallas estrechas y la lista no dependerá de anchos fijos ni generará desplazamiento horizontal.

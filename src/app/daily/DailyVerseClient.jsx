@@ -120,18 +120,18 @@ function LiturgicalContext({ reading }) {
 
 	return (
 		<>
-			<section className="mb-5 w-full max-w-3xl rounded-xl border border-gray-200 bg-white/80 p-5 text-left shadow-sm dark:border-gray-700 dark:bg-gray-800/80">
+			<section className="mb-5 w-full max-w-3xl rounded-lg border border-gray-100 bg-white p-4 text-left shadow-lg transition-colors duration-300 hover:border-[#b79b72] dark:border-gray-700 dark:bg-gray-800 dark:hover:border-[#b79b72]/80 sm:p-6">
 				<details className="group">
-					<summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 rounded-lg text-[#314156] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79b72] dark:text-gray-100 [&::-webkit-details-marker]:hidden">
+					<summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 rounded-lg text-[#314156] transition-colors duration-300 hover:text-[#8f744e] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79b72] dark:text-gray-100 dark:hover:text-[#e2c18f] [&::-webkit-details-marker]:hidden">
 						<span className="min-w-0">
 							<span className="block text-lg font-semibold">Contexto litúrgico</span>
-							<span className="mt-1 block text-sm text-gray-600 dark:text-gray-300">Fiestas y santos del día</span>
+							<span className="mt-1 block text-sm font-medium text-[#b79b72] dark:text-[#b79b72]/90">Fiestas y santos del día</span>
 						</span>
 						<ChevronRightIcon className="h-5 w-5 shrink-0 transition-transform duration-200 group-open:rotate-90" aria-hidden="true" />
 					</summary>
 
 					<div id="liturgical-context-details" className="mt-5 border-t border-gray-200 pt-5 dark:border-gray-700">
-						<div className="flex justify-end gap-2 text-sm text-gray-700 dark:text-gray-200">
+						<div className="flex flex-wrap justify-start gap-2 text-sm text-gray-700 dark:text-gray-200 sm:justify-end">
 							{reading?.liturgicalSeason && <span className="rounded-full bg-[#314156]/[0.08] px-3 py-1 dark:bg-white/10">{SEASON_LABELS[reading.liturgicalSeason] || reading.liturgicalSeason}</span>}
 							{reading?.liturgicalColor && COLOR_LABELS[reading.liturgicalColor] && (
 								<span className="inline-flex items-center gap-2 rounded-full bg-[#314156]/[0.08] px-3 py-1 dark:bg-white/10">
@@ -142,13 +142,14 @@ function LiturgicalContext({ reading }) {
 						</div>
 
 						{contextItems.length > 0 ? (
-							<ul aria-label="Fiestas y santos del día" className="mt-5 list-disc space-y-2 pl-5 text-sm text-gray-700 dark:text-gray-200">
+							<ul aria-label="Fiestas y santos del día" className="mt-4 list-none space-y-2 pl-0 text-sm text-[#314156] dark:text-gray-100">
 								{contextItems.map((item, index) => {
 									const displayName = item.kind === "saint" ? formatSaintName(item.name) : item.name;
 									return (
-										<li key={`${item.kind}-${item.name}-${index}`}>
-											<span className={item.kind === "celebration" ? "font-medium" : undefined}>{displayName}</span>
-											{item.rank && <span className="text-gray-500 dark:text-gray-400"> · {RANK_LABELS[item.rank] || "Celebración"}</span>}
+										<li key={`${item.kind}-${item.name}-${index}`} className="flex items-baseline gap-3">
+											<span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#b79b72]" aria-hidden="true" />
+											<span className={item.kind === "celebration" ? "font-semibold" : "font-medium"}>{displayName}</span>
+											{item.rank && <span className="text-xs font-medium uppercase tracking-[0.08em] text-[#b79b72]">{RANK_LABELS[item.rank] || "Celebración"}</span>}
 										</li>
 									);
 								})}

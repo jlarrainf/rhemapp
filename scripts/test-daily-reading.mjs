@@ -106,10 +106,13 @@ test("keeps the visible context as one simple names list", () => {
 	const contextItemsStart = dailyClient.indexOf("{contextItems.length > 0");
 	const sourcesStart = dailyClient.indexOf("Fuentes y verificación");
 	const contextRender = dailyClient.slice(contextItemsStart, sourcesStart);
-	assert.match(contextRender, /list-disc space-y-2 pl-5/);
+	assert.match(contextRender, /list-none space-y-2 pl-0/);
 	assert.match(contextRender, /aria-label="Fiestas y santos del día"/);
+	assert.match(contextRender, /bg-\[#b79b72\]/);
 	assert.doesNotMatch(contextRender, /Santos y santas del día|Otros santos y santas del día|informationSources|Más información|Proveedor|Vatican News/);
 	assert.doesNotMatch(contextRender, /description|excerpt|biograf/i);
+	assert.match(dailyClient, /rounded-lg border border-gray-100 bg-white p-4 text-left shadow-lg/);
+	assert.match(dailyClient, /hover:border-\[#b79b72\]/);
 });
 
 test("integrates the Vatican News daily name capture without a source heading", () => {

@@ -153,6 +153,10 @@ Conservará el contrato existente y añadirá metadata estructurada de la celebr
 
 La UI construirá una proyección única de contexto a partir de las celebraciones publicadas, sus santos asociados y `supplementalSaints`. La fuente de cada dato seguirá separada en el contrato y en la sección “Fuentes y verificación”, pero nunca se expresará mediante subtítulos distintos dentro de la lista visible. El orden será determinista: celebraciones, santos del Ordo y captura suplementaria, preservando el orden de cada fuente y eliminando solo duplicados exactos para no repetir visualmente un mismo nombre. Los rangos de celebración seguirán como metadato secundario junto al nombre correspondiente.
 
+### Refinamiento visual del bloque
+
+El bloque conservará el componente nativo `<details>` y se alineará visualmente con `VerseCard`: `rounded-lg`, borde sutil, `shadow-lg`, superficie blanca en claro y gris oscuro en dark mode, con el azul marino y dorado ya usados en Daily. El contenido abierto usará menos espacio vertical, una lista semántica con marcadores dorados y etiquetas de temporada/color flexibles. No se añadirán iconos decorativos, nuevas tarjetas anidadas ni estilos que cambien la identidad del resto de la página.
+
 ## Trazabilidad hacia RF
 
 | Parte del plan | RF cubiertos |
@@ -185,6 +189,7 @@ La UI construirá una proyección única de contexto a partir de las celebracion
 - Verificación manual de Daily y calendario en móvil, escritorio, teclado y lector de pantalla.
 - Verificación manual de enlaces externos en Daily y Android: nombre accesible, nueva pestaña/intención externa, atribución visible y degradación segura cuando falta `informationSource`.
 - Verificación manual de las listas de santos en Daily: nombres verticales, sin tarjetas/separadores/enlaces visibles, disclosure de fuentes accesible por teclado y comportamiento legible en móvil.
+- Verificación visual del bloque contra `VerseCard`: superficie, radio, borde, sombra, colores, espaciado, foco y comportamiento en móvil.
 - Verificación manual del contexto cerrado por defecto, su apertura con teclado, la separación posterior de fuentes y la ausencia de mensaje cuando existe únicamente `supplementalSaints`.
 - Tests de presentación de nombres con `San`/`Santa`, preservación de títulos marianos y ausencia de duplicación de información de fuentes en el contexto principal.
 - Tests de proyección unificada: combinación de celebración, santos del Ordo y `supplementalSaints`, deduplicación exacta, orden estable y ausencia de encabezados “Otros” o de separación por proveedor, incluido el caso supplemental-only.

@@ -253,3 +253,25 @@
   - RF: RF-1 a RF-18
   - Hecho cuando: pasan lint, build, validación de datos y detector de interfaz; se comprueban cerrado/abierto, teclado, móvil, nombres, fiestas, fuentes posteriores y despliegue público.
   - Evidencia: `validation.md` actualizado con resultados, URLs y limitaciones; `npm run lint`, `npm run build`, AX tree, screenshot, apertura/cierre, foco con `Tab` y revisión pública; T43–T46 marcadas tras completar la evidencia.
+
+## Fase 11 — Coherencia visual con Daily
+
+- [x] T47 — Registrar la dirección visual aprobada.
+  - RF: RF-11, RF-16, RF-17
+  - Hecho cuando: `spec.md`, `clarifications.md`, `plan.md` y este backlog describen la alineación con las tarjetas de lectura, el espaciado compacto y el acento dorado sin cambiar el comportamiento.
+  - Evidencia: documentos actualizados y diff revisado antes de modificar estilos.
+
+- [x] T48 — Ajustar el bloque de contexto al lenguaje visual existente.
+  - RF: RF-11, RF-16, RF-17
+  - Hecho cuando: el bloque comparte radio, borde, sombra, superficie, tipografía y colores con `VerseCard`; la lista mantiene sus nombres, usa marcadores dorados y no introduce tarjetas anidadas ni elementos decorativos ajenos.
+  - Evidencia: `src/app/daily/DailyVerseClient.jsx`, screenshot local y detector Impeccable.
+
+- [x] T49 — Cubrir la presentación refinada en escritorio, móvil y teclado.
+  - RF: RF-1, RF-2, RF-9, RF-11, RF-13, RF-15, RF-16, RF-17, RF-18
+  - Hecho cuando: se verifica el estado cerrado/abierto, foco visible, envoltura de etiquetas, lista única, nombres con tratamiento y ausencia agregada sin regresiones.
+  - Evidencia: pruebas de Daily/calendario, AX tree, screenshot de escritorio y comprobación responsive.
+
+- [ ] T50 — Documentar y desplegar el refinamiento visual.
+  - RF: RF-1 a RF-18
+  - Hecho cuando: pasan lint, build, validación de datos y detector; `validation.md` registra la comparación visual, las URLs y el despliegue público.
+  - Evidencia: validación final y estado exitoso de Vercel; T47–T50 se marcan solo tras la evidencia.
