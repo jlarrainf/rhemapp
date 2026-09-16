@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { applySupplementalSaintsOverride, getSaintInformationSource, getSupplementalSaints, preserveSupplementalSaints } from "../src/lib/readings/secondarySources.js";
+import { applySupplementalSaintsOverride, getSaintInformationSource, getSupplementalSaints, preserveLiturgicalMetadata, preserveSupplementalSaints } from "../src/lib/readings/secondarySources.js";
 
 test("returns the reviewed Vatican News source for an exact saint/date match", () => {
 	assert.deepEqual(getSaintInformationSource("2026-09-26", "Santos Cosme y Damián"), {
@@ -89,4 +89,29 @@ test("preserves a daily capture when the legacy override has no entry for the da
 	assert.deepEqual(result.supplementalSaints, entry.supplementalSaints);
 	assert.notStrictEqual(result.supplementalSaints, entry.supplementalSaints);
 	assert.deepEqual(applySupplementalSaintsOverride(result, "2026-09-16"), result);
+});
+
+test("preserves the verified liturgical context when a reading refresh omits optional metadata", () => {
+	const entry = {
+		date: "2026-09-26",
+		liturgicalSeason: "ordinary",
+		liturgicalColor: "red",
+		celebrations: [{
+			name: "Santos Cosme y Damián, mártires",
+			rank: "memorial",
+			isPrimary: true,
+			saints: [{
+				name: "Santos Cosme y Damián",
+				source: { provider: "Ordo", url: "https://example.com/ordo", verified: true },
+			}],
+			source: { provider: "Ordo", url: "https://example.com/ordo", verified: true },
+		}],
+	};
+	const nextEntry = { date: "2026-09-26", readings: [{ type: "gospel" }] };
+	const result = preserveLiturgicalMetadata(entry, nextEntry);
+
+	assert.deepEqual(result.celebrations, entry.celebrations);
+	assert.deepEqual(result.liturgicalSeason, entry.liturgicalSeason);
+	assert.deepEqual(result.liturgicalColor, entry.liturgicalColor);
+	assert.notStrictEqual(result.celebrations, entry.celebrations);
 });

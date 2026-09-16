@@ -77,3 +77,12 @@ Estado: Resolved — decisiones de alcance registradas el 2026-09-14 y ampliacio
 - **Fallo seguro:** si la fuente no responde, la fecha no coincide, el HTML cambia o el job no puede publicar, no se reemplazará la entrada válida ni se reutilizarán nombres de otra fecha. Las lecturas y los santos del Ordo seguirán disponibles; el fallo quedará registrado en la ejecución del workflow.
 - **Despliegue:** el job hará commit solo si cambió la captura y usará el flujo existente de `main` para que Vercel publique la nueva versión. No se necesitan nuevas variables de entorno ni secretos para consultar la URL pública.
 - **Revisión humana:** la revisión humana se realiza sobre la spec, el parser, sus fixtures y las validaciones antes de habilitar el job; las capturas diarias que pasan el contrato determinista no requieren una aprobación manual repetitiva.
+
+## Refinamiento aprobado: contexto litúrgico colapsable y disponibilidad por fuente
+
+- **Contenido principal:** el contexto litúrgico de Daily reunirá la fiesta o celebración principal, las celebraciones opcionales, el tiempo/color y las listas disponibles de santos y santas. No se agregará una tarjeta ni una superficie nueva.
+- **Presentación:** todo el contexto se envolverá en un disclosure nativo “Contexto litúrgico”, cerrado por defecto. Su resumen será visible y tendrá foco de teclado; al abrirlo se conservará HTML semántico y listas verticales simples.
+- **Tratamientos:** los nombres visibles de santos se mostrarán con “San” o “Santa” según el tratamiento editorial aplicable. Los nombres marianos o los nombres que ya traen un título equivalente conservarán ese título, y el dato de origen no se reescribirá.
+- **Fuentes:** `Fuente y verificación` se moverá a una sección independiente posterior al contexto. La lista principal no mencionará proveedores, URLs, atribución ni enlaces; las fuentes primarias, secundarias y enlaces RF-14 quedarán dentro del disclosure posterior.
+- **Disponibilidad:** la captura suplementaria válida de Vatican News cuenta como contexto disponible aunque todavía falte la celebración estructurada del Ordo. El mensaje de ausencia solo se permite cuando no hay celebración, santo, captura suplementaria, tiempo ni color verificables en las fuentes revisadas.
+- **Accesibilidad y responsive:** el contexto estará cerrado inicialmente, será operable por teclado, tendrá un resumen identificable y conservará legibilidad en móvil; la sección de fuentes posterior mantendrá su foco y enlaces accesibles.

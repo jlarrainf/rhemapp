@@ -100,3 +100,30 @@ export function preserveSupplementalSaints(previousEntry, nextEntry) {
 		})),
 	};
 }
+
+export function preserveLiturgicalMetadata(previousEntry, nextEntry) {
+	if (!nextEntry) return nextEntry;
+
+	const preserved = { ...nextEntry };
+	if (preserved.celebrations === undefined && Array.isArray(previousEntry?.celebrations)) {
+		preserved.celebrations = previousEntry.celebrations.map((celebration) => ({
+			...celebration,
+			saints: Array.isArray(celebration.saints)
+				? celebration.saints.map((saint) => ({
+					...saint,
+					source: saint.source ? { ...saint.source } : saint.source,
+					...(saint.informationSource ? { informationSource: { ...saint.informationSource } } : {}),
+				}))
+				: [],
+			source: celebration.source ? { ...celebration.source } : celebration.source,
+		}));
+	}
+	if (preserved.liturgicalSeason === undefined && previousEntry?.liturgicalSeason) {
+		preserved.liturgicalSeason = previousEntry.liturgicalSeason;
+	}
+	if (preserved.liturgicalColor === undefined && previousEntry?.liturgicalColor) {
+		preserved.liturgicalColor = previousEntry.liturgicalColor;
+	}
+
+	return preserved;
+}

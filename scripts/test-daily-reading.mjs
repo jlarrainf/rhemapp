@@ -8,6 +8,7 @@ import {
 	getPublishedReading,
 } from "../src/lib/dailyReading.js";
 import { getPublishedReadingWithOverrides } from "../src/lib/editorial/publishedReadings.js";
+import { formatSaintName } from "../src/lib/readings/saintNames.js";
 
 const dailyClient = fs.readFileSync(
 	path.join(process.cwd(), "src", "app", "daily", "DailyVerseClient.jsx"),
@@ -94,8 +95,8 @@ test("keeps translation attribution available without a prominent notice", () =>
 
 test("renders verified secondary saint information as an attributed safe external link", () => {
 	assert.match(dailyClient, /informationSource/);
-	assert.match(dailyClient, /Más información sobre \{saint\.name\} en/);
-	assert.ok(dailyClient.indexOf("informationSources.length > 0") > dailyClient.indexOf("Fuente y verificación"));
+	assert.match(dailyClient, /Más información sobre \{displayName\} en/);
+	assert.ok(dailyClient.indexOf("informationSources.length > 0") > dailyClient.indexOf("Fuentes y verificación"));
 	assert.match(dailyClient, /target="_blank"/);
 	assert.match(dailyClient, /rel="noopener noreferrer"/);
 	assert.match(dailyClient, /focus-visible:ring-2/);
@@ -104,23 +105,53 @@ test("renders verified secondary saint information as an attributed safe externa
 test("keeps visible saint sections as simple names-only lists", () => {
 	const saintsStart = dailyClient.indexOf("{saints.length > 0");
 	const supplementalStart = dailyClient.indexOf("{supplementalSaints.length > 0");
+	const sourcesStart = dailyClient.indexOf("Fuentes y verificación");
 	const saintsRender = dailyClient.slice(saintsStart, supplementalStart);
 	assert.match(saintsRender, /list-disc space-y-1 pl-5/);
 	assert.doesNotMatch(saintsRender, /informationSources|Más información|border-t|flex flex-wrap/);
 
-	const supplementalEnd = dailyClient.indexOf("\n\t\t\t<div className=\"mt-5 flex flex-col", supplementalStart);
-	assert.ok(supplementalEnd > supplementalStart);
-	const supplementalRender = dailyClient.slice(supplementalStart, supplementalEnd);
+	const supplementalRender = dailyClient.slice(supplementalStart, sourcesStart);
+	assert.ok(sourcesStart > supplementalStart);
 	assert.match(supplementalRender, /list-disc space-y-1 pl-5/);
 	assert.doesNotMatch(supplementalRender, /informationSource|description|excerpt|biograf|border-t|flex flex-wrap/i);
 });
 
 test("renders the Vatican News daily name capture as names only", () => {
 	assert.match(dailyClient, /supplementalSaints/);
-	assert.match(dailyClient, /También mencionados por Vatican News/);
+	assert.match(dailyClient, /Otros santos y santas del día/);
 	assert.match(dailyClient, /supplementalSaints\.map/);
 	const supplementalStart = dailyClient.indexOf("{supplementalSaints.length > 0");
 	const supplementalRender = dailyClient.slice(supplementalStart, supplementalStart + 700);
-	assert.match(supplementalRender, /\{saint\.name\}/);
+	assert.match(supplementalRender, /formatSaintName\(saint\.name\)/);
 	assert.doesNotMatch(supplementalRender, /informationSource|description|excerpt|biograf/i);
+});
+
+test("collapses the complete context and keeps provenance after the main content", () => {
+	const contextStart = dailyClient.indexOf("Contexto litúrgico");
+	const sourcesStart = dailyClient.indexOf("Fuentes y verificación");
+	const contextRender = dailyClient.slice(contextStart, sourcesStart);
+
+	assert.ok(contextStart >= 0);
+	assert.ok(sourcesStart > contextStart);
+	assert.match(dailyClient, /<details className="group">/);
+	assert.match(contextRender, /Fiestas y santos del día/);
+	assert.match(contextRender, /Otras fiestas y celebraciones/);
+	assert.doesNotMatch(contextRender, /Vatican News|informationSource|Proveedor|Fuente/);
+	assert.match(contextRender, /!hasContextData &&/);
+});
+
+test("does not report missing context when a supplemental source is available", () => {
+	assert.match(dailyClient, /supplementalSaints\.length > 0/);
+	assert.match(dailyClient, /\) : !hasContextData && \(/);
+	assert.match(dailyClient, /El contexto litúrgico no está disponible en las fuentes consultadas/);
+});
+
+test("adds the appropriate saint treatment without rewriting protected titles", () => {
+	assert.equal(formatSaintName("Eufemia"), "Santa Eufemia");
+	assert.equal(formatSaintName("Víctor III"), "San Víctor III");
+	assert.equal(formatSaintName("Nicomedes"), "San Nicomedes");
+	assert.equal(formatSaintName("Catalina de Génova"), "Santa Catalina de Génova");
+	assert.equal(formatSaintName("Santos Cosme y Damián"), "San Cosme y San Damián");
+	assert.equal(formatSaintName("Nuestra Señora del Pilar"), "Nuestra Señora del Pilar");
+	assert.equal(formatSaintName("Santa Teresa de Jesús"), "Santa Teresa de Jesús");
 });

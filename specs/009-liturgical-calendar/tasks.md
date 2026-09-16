@@ -209,3 +209,25 @@
   - RF: RF-1 a RF-15
   - Hecho cuando: pasan parser, sincronización, validación de datos, suite de calendario, lint y build; `validation.md` incluye evidencia del caso válido, idempotente, fallido y del contrato público, con limitaciones de ejecución del scheduler.
   - Evidencia: `validation.md`; `npm run test:vatican-saints`, `npm run test:calendar` (30), `npm run test:readings` (58), `npm run test:mobile` (9), `npm run validate:daily` (113), `npm run lint`, `npm run build`, dry-run real y contrato público documentados. El workflow remoto `35136162075` terminó correctamente, publicó `a46a28c` y la versión de producción respondió 200 con los cuatro nombres esperados.
+
+## Fase 9 — Contexto litúrgico colapsable y disponibilidad agregada
+
+- [x] T39 — Actualizar el contrato de producto para el contexto colapsable.
+  - RF: RF-2, RF-9, RF-11, RF-16, RF-17, RF-18
+  - Hecho cuando: `spec.md`, `clarifications.md`, `plan.md` y este backlog definen fiestas/celebraciones, santos con tratamiento, disclosure cerrado, fuentes posteriores y disponibilidad agregada entre Ordo y Vatican News.
+  - Evidencia: `spec.md`, `clarifications.md`, `plan.md`, `contract.md` y este backlog actualizados; diff revisado antes de editar la interfaz.
+
+- [x] T40 — Implementar la presentación segura de nombres y del contexto.
+  - RF: RF-2, RF-11, RF-13, RF-15, RF-16, RF-17
+  - Hecho cuando: Daily muestra el contexto completo en un bloque colapsable cerrado por defecto, presenta fiestas y santos/santas con `San`/`Santa`, mantiene listas solo de nombres y mueve toda provenance a una sección posterior.
+  - Evidencia: `src/app/daily/DailyVerseClient.jsx`, `src/lib/readings/saintNames.js`, `scripts/test-daily-reading.mjs`, detector Impeccable `[]` y `npm run test:readings` (62/62); no se modifican los nombres almacenados ni se muestran fuentes en el bloque principal.
+
+- [x] T41 — Corregir la condición de ausencia y cubrir estados de fuente.
+  - RF: RF-8, RF-9, RF-18
+  - Hecho cuando: una captura válida de Vatican News evita el mensaje de contexto no disponible aunque falte la celebración principal; el mensaje solo aparece sin contexto verificable de ninguna fuente.
+  - Evidencia: `src/lib/readings/liturgicalContext.js`, `scripts/test-liturgical-metadata.mjs`, `scripts/test-daily-reading.mjs`, `scripts/test-secondary-sources.mjs`; `npm run test:calendar` (32/32) y `npm run validate:daily` (113 entradas válidas).
+
+- [x] T42 — Validar responsive, accesibilidad y regresión.
+  - RF: RF-1 a RF-18
+  - Hecho cuando: pasan tests de nombres, Daily/calendario, lint y build; la revisión manual confirma cerrado/abierto, foco, móvil, fiestas, santos, fuentes posteriores y ausencia agregada.
+  - Evidencia: `validation.md` actualizado con comandos, URLs, resultados y limitaciones; `npm run lint`, `npm run build`, `npm run test:vatican-saints` (6/6), `npm run test:mobile` (9/9), comprobación local de HTML/API, AX tree, apertura/cierre y navegación con Tab; tareas T39–T42 marcadas tras evidencia.

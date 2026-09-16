@@ -3,6 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import test from "node:test";
 import { normalizeLiturgicalMetadata, normalizeSupplementalSaints, toPublicPublishedEntry, validateLiturgicalMetadata } from "../src/lib/readings/liturgicalMetadata.js";
+import { hasPublishedLiturgicalContext } from "../src/lib/readings/liturgicalContext.js";
 import { validateReadingEntry } from "../src/lib/readings/validateReading.js";
 
 const root = process.cwd();
@@ -18,6 +19,12 @@ test("accepts verified primary celebration, season and color metadata", () => {
 	assert.deepEqual(validateLiturgicalMetadata(entry), { valid: true, errors: [] });
 	assert.equal(validateReadingEntry(entry).valid, true);
 	assert.equal(normalizeLiturgicalMetadata(entry)[0].isPrimary, true);
+});
+
+test("counts a verified supplemental capture as available liturgical context", () => {
+	assert.equal(hasPublishedLiturgicalContext({ supplementalSaints: [{ name: "Eufemia" }] }), true);
+	assert.equal(hasPublishedLiturgicalContext({ celebrations: [] }), false);
+	assert.equal(hasPublishedLiturgicalContext({ liturgicalSeason: "ordinary" }), true);
 });
 
 test("preserves the dated Vatican News name capture and publishes no descriptive text", () => {

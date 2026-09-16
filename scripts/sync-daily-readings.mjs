@@ -4,7 +4,7 @@ import { mergeValidatedReading } from "../src/lib/readings/mergeSyncedReading.js
 import { markReadingFresh, markReadingStale, recordSyncAttempt } from "../src/lib/readings/syncState.js";
 import { validateDailyDataset } from "../src/lib/readings/validateDailyDataset.js";
 import { normalizeLiturgicalMetadata } from "../src/lib/readings/liturgicalMetadata.js";
-import { applySupplementalSaintsOverride, getSaintInformationSource, preserveSupplementalSaints } from "../src/lib/readings/secondarySources.js";
+import { applySupplementalSaintsOverride, getSaintInformationSource, preserveLiturgicalMetadata, preserveSupplementalSaints } from "../src/lib/readings/secondarySources.js";
 
 const ROOT = process.cwd();
 const DAILY_DIR = path.join(ROOT, "public", "data", "daily-readings");
@@ -857,6 +857,32 @@ async function enrichExcerptFromBibleApi(entry) {
 	return withLegacyGospelAlias({ ...entry, readings });
 }
 
+function getOrdoCelebrationName(value) {
+	return typeof value === "string"
+		? value.replace(/\s*\((?:memoria opcional|memoria|fiesta|solemnidad|conmemoración)\)\s*$/iu, "").trim()
+		: "";
+}
+
+function getOrdoCelebrationRank(value) {
+	const normalized = typeof value === "string" ? value.toLocaleLowerCase("es-CL") : "";
+	if (normalized.includes("solemnidad")) return "solemnity";
+	if (normalized.includes("fiesta")) return "feast";
+	if (normalized.includes("memoria opcional")) return "optional-memorial";
+	if (normalized.includes("memoria")) return "memorial";
+	if (normalized.includes("conmemoración")) return "commemoration";
+	return "other";
+}
+
+function buildOrdoCelebration(override, source) {
+	return {
+		name: getOrdoCelebrationName(override.celebration),
+		rank: getOrdoCelebrationRank(override.celebration),
+		isPrimary: true,
+		saints: [],
+		source: { ...source },
+	};
+}
+
 function applyOrdoOverride(entry, date) {
 	const override = ORDO_GOSPEL_OVERRIDES[date];
 	if (!entry) return entry;
@@ -869,9 +895,11 @@ function applyOrdoOverride(entry, date) {
 			ordoUrl: ORDO_URL,
 			ordoValidated: true,
 		};
+		const currentCelebration = typeof entry.celebration === "string" ? entry.celebration.trim() : "";
+		const hasDateOnlyCelebration = /^\d{1,2}\s+de\s+[\p{L}]+(?:\s+de\s+\d{4})?$/iu.test(currentCelebration);
 		enrichedEntry = withLegacyGospelAlias({
 			...entry,
-			celebration: entry.celebration || override.celebration,
+			celebration: !currentCelebration || hasDateOnlyCelebration ? override.celebration : entry.celebration,
 			source,
 			readings: entry.readings.map((reading) => reading.type !== "gospel"
 				? reading
@@ -884,9 +912,12 @@ function applyOrdoOverride(entry, date) {
 					excerpt: override.excerpt || reading.excerpt,
 					excerptReference: override.excerptReference || reference,
 					source,
-				}),
+			}),
 		});
-		const celebrations = normalizeLiturgicalMetadata(enrichedEntry);
+		let celebrations = normalizeLiturgicalMetadata(enrichedEntry);
+		if (celebrations.length === 0 && override.celebration) {
+			celebrations = [buildOrdoCelebration(override, source)];
+		}
 		const celebrationsWithSaints = override.saints?.length > 0
 			? celebrations.map((celebration, index) => index === 0
 				? {
@@ -1000,7 +1031,10 @@ for (const date of dateRange(start, end)) {
 			if (!merged.updated) {
 				throw new Error(`${date}: la publicación se descartó porque está incompleta o es inválida: ${merged.errors.join(" | ")}`);
 			}
-			const nextEntry = markReadingFresh(preserveSupplementalSaints(previousEntry, merged.entry), attemptedAt);
+			const nextEntry = markReadingFresh(
+				preserveLiturgicalMetadata(previousEntry, preserveSupplementalSaints(previousEntry, merged.entry)),
+				attemptedAt,
+			);
 			entriesByDate.set(date, nextEntry);
 			syncAttempts = recordSyncAttempt(syncAttempts, date, {
 			status: "published",

@@ -36,6 +36,14 @@ No se introduce una base de datos para el calendario en esta fase. La fuente de 
 - Daily renderizará `celebrations[].saints[]` y `supplementalSaints[]` como listas verticales planas, separadas por provenance y sin tarjetas, separadores, píldoras ni enlaces dentro de las listas.
 - Los enlaces válidos de `informationSource` se conservarán en el contrato y se moverán al disclosure existente `Fuente y verificación`, fuera del bloque visible de nombres.
 
+### Refinamiento del contexto litúrgico
+
+- `LiturgicalContext` conservará una sola superficie visual, pero su contenido se envolverá en un `<details>` nativo cerrado por defecto con el resumen `Contexto litúrgico`.
+- Dentro del disclosure se mostrarán la fiesta/celebración principal, las celebraciones opcionales, el tiempo/color y dos listas de nombres: santos y santas litúrgicos y nombres suplementarios disponibles. Ninguna de esas listas mostrará proveedores o enlaces.
+- `formatSaintName` será una utilidad de presentación compartida por las listas de Daily. Agregará `San` o `Santa` a nombres sin tratamiento, conservará títulos marianos o hagiográficos existentes y no modificará los JSON ni el contrato público.
+- El disclosure de fuentes se separará del contexto y aparecerá después en una sección independiente. Allí quedarán la fuente editorial, el estado, la atribución, el enlace secundario y el enlace a Vatican News de la captura, sin duplicar esa información en el bloque principal.
+- La condición de ausencia se calculará a partir de todo el contexto verificable (`celebrations`, santos, `supplementalSaints`, tiempo y color). La presencia de cualquier captura suplementaria impedirá mostrar “no disponible”, aunque no exista `primary`.
+
 La vista mensual debe consumir la misma función de dominio que valida la fecha solicitada por Daily. No debe reconstruir fechas con objetos `Date` ambiguos ni duplicar la regla del sábado.
 
 ## Modelo de datos
@@ -137,6 +145,9 @@ Conservará el contrato existente y añadirá metadata estructurada de la celebr
 | Parser fail-closed e idempotente | Impide publicar una fecha incorrecta, biografía o captura parcial y permite repetir el job sin duplicar cambios | Aceptar cualquier texto visible o sobrescribir ante una respuesta incompleta |
 | Listas verticales planas para santos | Reduce carga visual y mantiene nombres escaneables sin perder separación de provenance | Mantener chips, columnas flexibles o enlaces visibles junto a cada nombre |
 | Disclosure para enlaces RF-14 | Conserva el acceso a información verificada sin competir con el objetivo principal de la lista | Eliminar enlaces secundarios o mantenerlos como una segunda lista visible |
+| Contexto litúrgico colapsable | Prioriza una vista limpia y deja el detalle disponible bajo una acción nativa y accesible | Mostrar toda la metadata abierta antes de las lecturas |
+| Fuentes como sección posterior | Separa contenido litúrgico de provenance y evita contaminar la lectura principal | Repetir proveedores y enlaces dentro de cada lista |
+| Disponibilidad agregada de fuentes | Evita falsos estados de ausencia cuando Vatican News ya tiene una captura válida | Basar el estado únicamente en la celebración primaria |
 
 ## Trazabilidad hacia RF
 
@@ -169,6 +180,8 @@ Conservará el contrato existente y añadirá metadata estructurada de la celebr
 - Verificación manual de Daily y calendario en móvil, escritorio, teclado y lector de pantalla.
 - Verificación manual de enlaces externos en Daily y Android: nombre accesible, nueva pestaña/intención externa, atribución visible y degradación segura cuando falta `informationSource`.
 - Verificación manual de las listas de santos en Daily: nombres verticales, sin tarjetas/separadores/enlaces visibles, disclosure de fuentes accesible por teclado y comportamiento legible en móvil.
+- Verificación manual del contexto cerrado por defecto, su apertura con teclado, la separación posterior de fuentes y la ausencia de mensaje cuando existe únicamente `supplementalSaints`.
+- Tests de presentación de nombres con `San`/`Santa`, preservación de títulos marianos y ausencia de duplicación de información de fuentes en el contexto principal.
 - Ejecutar `npm run validate:daily`, `npm run lint`, `npm run build` y la suite específica antes de marcar tareas.
 
 ## Riesgos, migración y rollback

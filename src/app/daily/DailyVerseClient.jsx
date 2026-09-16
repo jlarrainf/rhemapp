@@ -12,6 +12,8 @@ import {
 	addCalendarDays,
 	isValidDateKey,
 } from "@/lib/liturgicalSchedule.js";
+import { hasPublishedLiturgicalContext } from "@/lib/readings/liturgicalContext.js";
+import { formatSaintName } from "@/lib/readings/saintNames.js";
 
 function getDateKeyInTimeZone(date, timeZone = DAILY_TIME_ZONE) {
 	const parts = new Intl.DateTimeFormat("en-CA", {
@@ -97,8 +99,16 @@ function LiturgicalContext({ reading }) {
 	const supplementalSaints = Array.isArray(reading?.supplementalSaints)
 		? reading.supplementalSaints.filter((saint) => saint?.name?.trim())
 		: [];
-	const hasDetail = Boolean(primary || reading?.liturgicalSeason || reading?.liturgicalColor || saints.length || supplementalSaints.length);
+	const hasContextData = hasPublishedLiturgicalContext(reading);
 	const source = reading?.source;
+	const supplementalSource = supplementalSaints.find((saint) => {
+		try {
+			const url = new URL(saint?.source?.url);
+			return saint?.source?.verified === true && saint?.source?.provider && (url.protocol === "http:" || url.protocol === "https:");
+		} catch {
+			return false;
+		}
+	})?.source;
 	const informationSources = saints.filter((saint) => {
 		try {
 			const url = new URL(saint?.informationSource?.url);
@@ -109,96 +119,115 @@ function LiturgicalContext({ reading }) {
 	});
 
 	return (
-		<section className="mb-8 w-full max-w-3xl rounded-xl border border-gray-200 bg-white/80 p-5 text-left shadow-sm dark:border-gray-700 dark:bg-gray-800/80" aria-labelledby="liturgical-context-title">
-			<div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-				<div className="min-w-0">
-					<h2 id="liturgical-context-title" className="text-lg font-semibold text-[#314156] dark:text-gray-100">
-						Contexto litúrgico
-					</h2>
-					{primary ? (
-						<>
-							<p className="mt-2 text-sm font-medium text-[#b79b72]">Celebración principal</p>
-							<h3 className="mt-1 text-xl font-semibold text-[#314156] dark:text-gray-100">{primary.name}</h3>
-							{primary.rank && <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">{RANK_LABELS[primary.rank] || "Celebración"}</p>}
-						</>
-					) : (
-						<p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
-							El detalle litúrgico no está disponible para esta fecha.
-						</p>
-					)}
-				</div>
-				<div className="flex shrink-0 flex-wrap gap-2 text-sm text-gray-700 dark:text-gray-200">
-					{reading?.liturgicalSeason && <span className="rounded-full bg-[#314156]/[0.08] px-3 py-1 dark:bg-white/10">{SEASON_LABELS[reading.liturgicalSeason] || reading.liturgicalSeason}</span>}
-					{reading?.liturgicalColor && COLOR_LABELS[reading.liturgicalColor] && (
-						<span className="inline-flex items-center gap-2 rounded-full bg-[#314156]/[0.08] px-3 py-1 dark:bg-white/10">
-							<span className={`h-3 w-3 rounded-full ${COLOR_SWATCHES[reading.liturgicalColor]}`} aria-hidden="true" />
-							Color {COLOR_LABELS[reading.liturgicalColor]}
+		<>
+			<section className="mb-5 w-full max-w-3xl rounded-xl border border-gray-200 bg-white/80 p-5 text-left shadow-sm dark:border-gray-700 dark:bg-gray-800/80">
+				<details className="group">
+					<summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 rounded-lg text-[#314156] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79b72] dark:text-gray-100 [&::-webkit-details-marker]:hidden">
+						<span className="min-w-0">
+							<span className="block text-lg font-semibold">Contexto litúrgico</span>
+							<span className="mt-1 block text-sm text-gray-600 dark:text-gray-300">Fiestas y santos del día</span>
 						</span>
-					)}
-				</div>
-			</div>
+						<ChevronRightIcon className="h-5 w-5 shrink-0 transition-transform duration-200 group-open:rotate-90" aria-hidden="true" />
+					</summary>
 
-			{optionalCelebrations.length > 0 && (
-				<div className="mt-5 border-t border-gray-200 pt-4 dark:border-gray-700">
-					<h3 className="text-sm font-semibold text-[#314156] dark:text-gray-100">Celebraciones opcionales</h3>
-					<ul className="mt-2 space-y-2 text-sm text-gray-700 dark:text-gray-200">
-						{optionalCelebrations.map((celebration) => (
-							<li key={`${celebration.name}-${celebration.rank}`}>
-								<span className="font-medium">{celebration.name}</span>
-								{celebration.rank && <span className="text-gray-500 dark:text-gray-400"> · {RANK_LABELS[celebration.rank] || "Celebración"}</span>}
-							</li>
-						))}
-					</ul>
-				</div>
-			)}
+					<div id="liturgical-context-details" className="mt-5 border-t border-gray-200 pt-5 dark:border-gray-700">
+						<div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+							<div className="min-w-0">
+								{primary ? (
+									<>
+										<p className="text-sm font-medium text-[#b79b72]">Celebración principal</p>
+										<h3 className="mt-1 text-xl font-semibold text-[#314156] dark:text-gray-100">{primary.name}</h3>
+										{primary.rank && <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">{RANK_LABELS[primary.rank] || "Celebración"}</p>}
+									</>
+								) : !hasContextData && (
+									<p className="text-sm text-gray-600 dark:text-gray-300">
+										El contexto litúrgico no está disponible en las fuentes consultadas para esta fecha.
+									</p>
+								)}
+							</div>
+							<div className="flex shrink-0 flex-wrap gap-2 text-sm text-gray-700 dark:text-gray-200">
+								{reading?.liturgicalSeason && <span className="rounded-full bg-[#314156]/[0.08] px-3 py-1 dark:bg-white/10">{SEASON_LABELS[reading.liturgicalSeason] || reading.liturgicalSeason}</span>}
+								{reading?.liturgicalColor && COLOR_LABELS[reading.liturgicalColor] && (
+									<span className="inline-flex items-center gap-2 rounded-full bg-[#314156]/[0.08] px-3 py-1 dark:bg-white/10">
+										<span className={`h-3 w-3 rounded-full ${COLOR_SWATCHES[reading.liturgicalColor]}`} aria-hidden="true" />
+										Color {COLOR_LABELS[reading.liturgicalColor]}
+									</span>
+								)}
+							</div>
+						</div>
 
-			{saints.length > 0 && (
-				<div className="mt-5" aria-labelledby="daily-saints-title">
-					<h3 id="daily-saints-title" className="text-sm font-semibold text-[#314156] dark:text-gray-100">Santos del día</h3>
-					<ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-gray-700 dark:text-gray-200">
-						{saints.map((saint, index) => <li key={`${saint.name}-${index}`}>{saint.name}</li>)}
-					</ul>
-				</div>
-			)}
+						{optionalCelebrations.length > 0 && (
+							<div className="mt-5">
+								<h3 className="text-sm font-semibold text-[#314156] dark:text-gray-100">Otras fiestas y celebraciones</h3>
+								<ul className="mt-2 space-y-2 text-sm text-gray-700 dark:text-gray-200">
+									{optionalCelebrations.map((celebration) => (
+										<li key={`${celebration.name}-${celebration.rank}`}>
+											<span className="font-medium">{celebration.name}</span>
+											{celebration.rank && <span className="text-gray-500 dark:text-gray-400"> · {RANK_LABELS[celebration.rank] || "Celebración"}</span>}
+										</li>
+									))}
+								</ul>
+							</div>
+						)}
 
-			{supplementalSaints.length > 0 && (
-				<div className="mt-5" aria-labelledby="vatican-news-saints-title">
-					<h3 id="vatican-news-saints-title" className="text-sm font-semibold text-[#314156] dark:text-gray-100">
-						También mencionados por Vatican News
-					</h3>
-					<ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-gray-700 dark:text-gray-200">
-						{supplementalSaints.map((saint, index) => <li key={`${saint.name}-${index}`}>{saint.name}</li>)}
-					</ul>
-				</div>
-			)}
+						{saints.length > 0 && (
+							<div className="mt-5" aria-labelledby="daily-saints-title">
+								<h3 id="daily-saints-title" className="text-sm font-semibold text-[#314156] dark:text-gray-100">Santos y santas del día</h3>
+								<ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-gray-700 dark:text-gray-200">
+									{saints.map((saint, index) => <li key={`${saint.name}-${index}`}>{formatSaintName(saint.name)}</li>)}
+								</ul>
+							</div>
+						)}
 
-			<div className="mt-5 flex flex-col gap-3 border-t border-gray-200 pt-4 dark:border-gray-700 sm:flex-row sm:items-center sm:justify-between">
-				<details className="text-sm text-gray-600 dark:text-gray-300">
-					<summary className="cursor-pointer font-medium text-[#314156] underline decoration-[#b79b72] underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79b72] dark:text-gray-100">
-						Fuente y verificación
+						{supplementalSaints.length > 0 && (
+							<div className="mt-5" aria-labelledby="supplemental-saints-title">
+								<h3 id="supplemental-saints-title" className="text-sm font-semibold text-[#314156] dark:text-gray-100">
+									Otros santos y santas del día
+								</h3>
+								<ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-gray-700 dark:text-gray-200">
+									{supplementalSaints.map((saint, index) => <li key={`${saint.name}-${index}`}>{formatSaintName(saint.name)}</li>)}
+								</ul>
+							</div>
+						)}
+					</div>
+				</details>
+			</section>
+
+			<section className="mb-8 flex w-full max-w-3xl flex-col gap-3 text-left sm:flex-row sm:items-start sm:justify-between" aria-labelledby="daily-sources-title">
+				<details className="min-w-0 flex-1 text-sm text-gray-600 dark:text-gray-300">
+					<summary id="daily-sources-title" className="inline-flex min-h-11 cursor-pointer list-none items-center font-medium text-[#314156] underline decoration-[#b79b72] underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79b72] dark:text-gray-100 [&::-webkit-details-marker]:hidden">
+						Fuentes y verificación
 					</summary>
 					<div className="mt-3 space-y-1 leading-6">
-						<p>Estado: {source?.verified === true ? "información verificada" : "información no publicada"}.</p>
+						<p>Fuente litúrgica: {source?.verified === true ? "información verificada" : "información no publicada"}.</p>
 						{source?.provider && <p>Proveedor: {source.provider}</p>}
 						{source?.url && <p><a className="underline underline-offset-2" href={source.url} target="_blank" rel="noreferrer">Consultar fuente editorial</a></p>}
 						{source?.syncStatus === "stale" && <p>Se conserva la última versión verificada mientras se revisa la fuente.</p>}
+						{supplementalSource && (
+							<p>
+								Fuente complementaria de nombres: <a className="underline underline-offset-2" href={supplementalSource.url} target="_blank" rel="noreferrer">{supplementalSource.provider}</a>.
+							</p>
+						)}
 						{informationSources.length > 0 && (
 							<div className="mt-3 pt-2">
-								<p className="font-medium text-[#314156] dark:text-gray-100">Información sobre los santos</p>
+								<p className="font-medium text-[#314156] dark:text-gray-100">Información adicional de santos</p>
 								<ul className="mt-1 space-y-1">
-									{informationSources.map((saint, index) => (
-										<li key={`${saint.name}-information-${index}`}>
-											<a
-												href={saint.informationSource.url}
-												target="_blank"
-												rel="noopener noreferrer"
-												aria-label={`Más información sobre ${saint.name} en ${saint.informationSource.provider || "Vatican News"}`}
-												className="font-medium text-[#314156] underline decoration-[#b79b72] underline-offset-4 transition-colors hover:text-[#8f744e] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79b72] dark:text-gray-100 dark:hover:text-[#e2c18f]"
-											>
-												Más información sobre {saint.name} en {saint.informationSource.provider || "Vatican News"}
-											</a>
-										</li>
-									))}
+									{informationSources.map((saint, index) => {
+										const displayName = formatSaintName(saint.name);
+										return (
+											<li key={`${saint.name}-information-${index}`}>
+												<a
+													href={saint.informationSource.url}
+													target="_blank"
+													rel="noopener noreferrer"
+													aria-label={`Más información sobre ${displayName} en ${saint.informationSource.provider || "Vatican News"}`}
+													className="font-medium text-[#314156] underline decoration-[#b79b72] underline-offset-4 transition-colors hover:text-[#8f744e] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79b72] dark:text-gray-100 dark:hover:text-[#e2c18f]"
+												>
+													Más información sobre {displayName} en {saint.informationSource.provider || "Vatican News"}
+												</a>
+											</li>
+										);
+									})}
 								</ul>
 							</div>
 						)}
@@ -207,9 +236,8 @@ function LiturgicalContext({ reading }) {
 				<Link href={`/calendario?month=${encodeURIComponent((reading?.date || reading?.dateKey || "").slice(0, 7))}`} className="inline-flex min-h-11 items-center justify-center rounded-full border border-[#b79b72] px-4 py-2 text-sm font-semibold text-[#314156] transition-colors hover:bg-[#b79b72]/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79b72] dark:text-gray-100">
 					Ver calendario litúrgico
 				</Link>
-			</div>
-			{!hasDetail && <p className="sr-only">La lectura está disponible aunque falte el detalle litúrgico opcional.</p>}
-		</section>
+			</section>
+		</>
 	);
 }
 
@@ -642,6 +670,9 @@ export default function DailyVerseClient({
 			</section>
 			<BibleTranslationNotice />
 			<LectioSection readingKey={reading?.date ? `chile:${reading.date}` : null} />
+			<p className="mt-6 text-center text-sm text-gray-500 dark:text-gray-400">
+				¿Quieres continuar rezando? <Link href="/orar" className="font-semibold text-[#314156] underline decoration-[#b79b72] underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79b72] dark:text-gray-100">Visita Orar</Link>.
+			</p>
 
 			<div className="mt-4 min-h-6 text-center text-sm" aria-live="polite">
 				{isRefreshing && <span className="text-gray-500 dark:text-gray-400">Cargando la lectura seleccionada…</span>}
