@@ -90,6 +90,8 @@ Comprobación local ejecutada el 2026-09-16: `npm start -- -p 3100`, AX tree y s
 
 Despliegue verificado el 2026-09-16: el commit `63efdba` (`feat: refine collapsible liturgical context`) llegó a `main`; Vercel reportó `success` para el deployment `GFcZ5RmQSadqYTMN4EJGUVkyxgsp`. La comprobación pública de `/daily?date=2026-09-15`, `/daily?date=2026-09-16`, `/daily?date=2026-10-12` y `/api/readings?date=2026-09-16` respondió 200; el AX tree y screenshot de producción confirmaron el disclosure cerrado y, al abrirlo, los cuatro nombres suplementarios con su tratamiento.
 
+Integración unificada verificada el 2026-09-16: el commit `97e1eff` (`feat: unify liturgical context names`) llegó a `main`; Vercel reportó `success` para el deployment `7DM978M67Zvqi2MDaHYqVC5Te3wD`. En producción, `/daily?date=2026-09-15`, `/daily?date=2026-09-16` y `/daily?date=2026-09-26` respondieron 200 con una única lista `Fiestas y santos del día`, sin `Otros santos y santas del día`; `/api/readings?date=2026-09-16` respondió 200 y conservó cuatro `supplementalSaints`.
+
 La validación offline se cubre mediante el contrato del service worker y las pruebas PWA/Android; no se ejecutó una simulación de desconexión física ni se usó un dispositivo Android físico. La comprobación de accesibilidad se realizó mediante el árbol de accesibilidad del navegador y teclado, sin un lector de pantalla externo. Para esta ampliación se verificaron de forma automatizada el estado cerrado, la lista única, la ausencia de encabezados por fuente, los tratamientos y el caso supplemental-only; la revisión visual de producción queda documentada tras el despliegue.
 
 ## Veredicto
