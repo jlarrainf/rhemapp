@@ -87,6 +87,8 @@ Con `npm start`, revisar:
 
 Comprobación local ejecutada el 2026-09-16: `npm start -- -p 3100`, AX tree y screenshot de `/daily?date=2026-09-16`, apertura del contexto con el control nativo y navegación con `Tab` hacia `Fuentes y verificación`. La interfaz mostró `Santa Eufemia`, `San Víctor III`, `San Cornelio` y `San Cipriano`; la herramienta CLI `agent-browser` no está instalada en este entorno, por lo que no se registró una ejecución de esa herramienta.
 
+Despliegue verificado el 2026-09-16: el commit `63efdba` (`feat: refine collapsible liturgical context`) llegó a `main`; Vercel reportó `success` para el deployment `GFcZ5RmQSadqYTMN4EJGUVkyxgsp`. La comprobación pública de `/daily?date=2026-09-15`, `/daily?date=2026-09-16`, `/daily?date=2026-10-12` y `/api/readings?date=2026-09-16` respondió 200; el AX tree y screenshot de producción confirmaron el disclosure cerrado y, al abrirlo, los cuatro nombres suplementarios con su tratamiento.
+
 La validación offline se cubre mediante el contrato del service worker y las pruebas PWA/Android; no se ejecutó una simulación de desconexión física ni se usó un dispositivo Android físico. La comprobación de accesibilidad se realizó mediante el árbol de accesibilidad del navegador y teclado, sin un lector de pantalla externo. Para esta ampliación se verificaron de forma automatizada el estado cerrado, la separación de fuentes, los tratamientos y el caso supplemental-only; la revisión visual de producción queda documentada tras el despliegue.
 
 ## Veredicto
