@@ -628,6 +628,34 @@
       "calendar": "chile",
       "liturgicalYear": "2026",
       "celebration": "15 de septiembre",
+      "celebrations": [
+        {
+          "name": "Nuestra Señora de los Dolores",
+          "rank": "memorial",
+          "isPrimary": true,
+          "saints": [
+            {
+              "name": "Nuestra Señora de los Dolores",
+              "source": {
+                "provider": "Ordo de la Conferencia Episcopal de Chile",
+                "url": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+                "verified": true
+              },
+              "informationSource": {
+                "provider": "Vatican News",
+                "url": "https://www.vaticannews.va/es/fiestas-liturgicas/santisima-virgen-de-los-dolores.html",
+                "verified": true,
+                "attribution": "Vatican News"
+              }
+            }
+          ],
+          "source": {
+            "provider": "Ordo de la Conferencia Episcopal de Chile",
+            "url": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "verified": true
+          }
+        }
+      ],
       "readings": [
         {
           "type": "first-reading",
@@ -1992,6 +2020,34 @@
       "calendar": "chile",
       "liturgicalYear": "2026",
       "celebration": "26 de septiembre",
+      "celebrations": [
+        {
+          "name": "Santos Cosme y Damián, mártires",
+          "rank": "memorial",
+          "isPrimary": true,
+          "saints": [
+            {
+              "name": "Santos Cosme y Damián",
+              "source": {
+                "provider": "Ordo de la Conferencia Episcopal de Chile",
+                "url": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+                "verified": true
+              },
+              "informationSource": {
+                "provider": "Vatican News",
+                "url": "https://www.vaticannews.va/es/santos/09/26/ss--cosme-y-damian--martires.html",
+                "verified": true,
+                "attribution": "Vatican News"
+              }
+            }
+          ],
+          "source": {
+            "provider": "Ordo de la Conferencia Episcopal de Chile",
+            "url": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
+            "verified": true
+          }
+        }
+      ],
       "readings": [
         {
           "type": "first-reading",
