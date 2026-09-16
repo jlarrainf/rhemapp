@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { getSaintInformationSource, getSupplementalSaints } from "../src/lib/readings/secondarySources.js";
+import { applySupplementalSaintsOverride, getSaintInformationSource, getSupplementalSaints, preserveSupplementalSaints } from "../src/lib/readings/secondarySources.js";
 
 test("returns the reviewed Vatican News source for an exact saint/date match", () => {
 	assert.deepEqual(getSaintInformationSource("2026-09-26", "Santos Cosme y Damián"), {
@@ -68,4 +68,25 @@ test("returns independent name capture objects", () => {
 	const freshSaints = getSupplementalSaints("2026-09-15");
 	assert.equal(freshSaints[0].name, "Santísima Virgen de los Dolores");
 	assert.equal(freshSaints[0].source.attribution, "Vatican News");
+});
+
+test("preserves a daily capture when the legacy override has no entry for the date", () => {
+	const entry = {
+		date: "2026-09-16",
+		supplementalSaints: [{
+			name: "Eufemia",
+			source: {
+				provider: "Vatican News",
+				url: "https://www.vaticannews.va/es/santos.html",
+				verified: true,
+				reviewedForDate: "2026-09-16",
+			},
+		}],
+	};
+	const nextEntry = { date: "2026-09-16", readings: [{ type: "gospel" }] };
+	const result = preserveSupplementalSaints(entry, nextEntry);
+
+	assert.deepEqual(result.supplementalSaints, entry.supplementalSaints);
+	assert.notStrictEqual(result.supplementalSaints, entry.supplementalSaints);
+	assert.deepEqual(applySupplementalSaintsOverride(result, "2026-09-16"), result);
 });

@@ -79,3 +79,24 @@ export function getSupplementalSaints(dateKey) {
 		source: { ...saint.source },
 	}));
 }
+
+export function applySupplementalSaintsOverride(entry, dateKey) {
+	const supplementalSaints = getSupplementalSaints(dateKey);
+	return supplementalSaints.length > 0
+		? { ...entry, supplementalSaints }
+		: entry;
+}
+
+export function preserveSupplementalSaints(previousEntry, nextEntry) {
+	if (nextEntry?.supplementalSaints !== undefined || !Array.isArray(previousEntry?.supplementalSaints)) {
+		return nextEntry;
+	}
+
+	return {
+		...nextEntry,
+		supplementalSaints: previousEntry.supplementalSaints.map((saint) => ({
+			name: saint.name,
+			source: { ...saint.source },
+		})),
+	};
+}

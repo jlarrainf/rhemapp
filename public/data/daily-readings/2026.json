@@ -916,7 +916,53 @@
         "title": "¡Les tocamos la flauta, y no bailaron! ¡Entonamos cantos fúnebres, y no lloraron!",
         "excerpt": "¡Les tocamos la flauta, y no bailaron! ¡Entonamos cantos fúnebres, y no lloraron!",
         "excerptReference": "Lucas 7:31-35"
-      }
+      },
+      "supplementalSaints": [
+        {
+          "name": "Eufemia",
+          "source": {
+            "provider": "Vatican News",
+            "url": "https://www.vaticannews.va/es/santos.html",
+            "verified": true,
+            "attribution": "Vatican News",
+            "reviewedForDate": "2026-09-16",
+            "fetchedAt": "2026-09-16T18:08:54.082Z"
+          }
+        },
+        {
+          "name": "Víctor III",
+          "source": {
+            "provider": "Vatican News",
+            "url": "https://www.vaticannews.va/es/santos.html",
+            "verified": true,
+            "attribution": "Vatican News",
+            "reviewedForDate": "2026-09-16",
+            "fetchedAt": "2026-09-16T18:08:54.082Z"
+          }
+        },
+        {
+          "name": "Cornelio",
+          "source": {
+            "provider": "Vatican News",
+            "url": "https://www.vaticannews.va/es/santos.html",
+            "verified": true,
+            "attribution": "Vatican News",
+            "reviewedForDate": "2026-09-16",
+            "fetchedAt": "2026-09-16T18:08:54.082Z"
+          }
+        },
+        {
+          "name": "Cipriano",
+          "source": {
+            "provider": "Vatican News",
+            "url": "https://www.vaticannews.va/es/santos.html",
+            "verified": true,
+            "attribution": "Vatican News",
+            "reviewedForDate": "2026-09-16",
+            "fetchedAt": "2026-09-16T18:08:54.082Z"
+          }
+        }
+      ]
     },
     {
       "date": "2026-09-17",

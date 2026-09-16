@@ -4,7 +4,7 @@ import { mergeValidatedReading } from "../src/lib/readings/mergeSyncedReading.js
 import { markReadingFresh, markReadingStale, recordSyncAttempt } from "../src/lib/readings/syncState.js";
 import { validateDailyDataset } from "../src/lib/readings/validateDailyDataset.js";
 import { normalizeLiturgicalMetadata } from "../src/lib/readings/liturgicalMetadata.js";
-import { getSaintInformationSource, getSupplementalSaints } from "../src/lib/readings/secondarySources.js";
+import { applySupplementalSaintsOverride, getSaintInformationSource, preserveSupplementalSaints } from "../src/lib/readings/secondarySources.js";
 
 const ROOT = process.cwd();
 const DAILY_DIR = path.join(ROOT, "public", "data", "daily-readings");
@@ -911,12 +911,7 @@ function applyOrdoOverride(entry, date) {
 			: enrichedEntry;
 	}
 
-	const supplementalSaints = getSupplementalSaints(date);
-	if (supplementalSaints.length === 0) {
-		const { supplementalSaints: _previousSupplementalSaints, ...withoutSupplementalSaints } = enrichedEntry;
-		return withoutSupplementalSaints;
-	}
-	return { ...enrichedEntry, supplementalSaints };
+	return applySupplementalSaintsOverride(enrichedEntry, date);
 }
 
 async function fetchEntry(date) {
@@ -1005,7 +1000,7 @@ for (const date of dateRange(start, end)) {
 			if (!merged.updated) {
 				throw new Error(`${date}: la publicación se descartó porque está incompleta o es inválida: ${merged.errors.join(" | ")}`);
 			}
-			const nextEntry = markReadingFresh(merged.entry, attemptedAt);
+			const nextEntry = markReadingFresh(preserveSupplementalSaints(previousEntry, merged.entry), attemptedAt);
 			entriesByDate.set(date, nextEntry);
 			syncAttempts = recordSyncAttempt(syncAttempts, date, {
 			status: "published",

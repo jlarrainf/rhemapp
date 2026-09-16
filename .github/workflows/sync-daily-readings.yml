@@ -1,9 +1,13 @@
-name: Sincronizar evangelios diarios
+name: Sincronizar calendario diario
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: "15 3 * * *"
+    - cron: "15 5 * * *"
+
+concurrency:
+  group: daily-calendar-sync
+  cancel-in-progress: false
 
 permissions:
   contents: write
@@ -25,6 +29,8 @@ jobs:
         env:
           BIBLE_API_KEY: ${{ secrets.BIBLE_API_KEY }}
         run: npm run sync:daily -- --start 2026-09-10 --end 2026-12-31
+      - name: Actualizar nombres de santos de Vatican News
+        run: npm run sync:vatican-saints
       - name: Validar lecturas
         run: npm run validate:daily -- --year 2026 --start 2026-09-10 --end 2026-12-31
       - name: Guardar cambios

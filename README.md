@@ -93,6 +93,7 @@ npm run dev
 - `npm run build` Compila para producción.
 - `npm run start` Ejecuta el build.
 - `npm run sync:daily` Sincroniza las lecturas fechadas con Eucaristía Diaria y respaldos provisionales.
+- `npm run sync:vatican-saints` Consulta la página diaria de santos de Vatican News y actualiza solo la fecha vigente tras validar nombres y fecha.
 - `npm run validate:daily` Verifica cobertura, formato y campos obligatorios del calendario.
 - `npm run test:calendar` Verifica metadata litúrgica, resumen mensual, parámetros y deep links.
 - `npm run test:sharing` Verifica URLs públicas, tokens privados, autorización, rate limit y UI de compartir.
@@ -161,6 +162,8 @@ Además:
 3) Deploy
    - Cambios de código: `git push` a la branch conectada (por ejemplo `main`).
    - Cambios de env vars: requieren **Redeploy** para reflejarse.
+
+El workflow `.github/workflows/sync-daily-readings.yml` ejecuta la sincronización del calendario una vez al día a las 05:15 UTC. Incluye la consulta server-side de Vatican News, valida la captura y hace commit solo cuando hay cambios; ese commit en `main` activa el deploy conectado de Vercel. También puede ejecutarse manualmente desde GitHub Actions.
 
 ## Estructura (alto nivel)
 

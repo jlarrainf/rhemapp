@@ -8,7 +8,8 @@
 		"start": "next start",
 		"lint": "next lint",
 		"test:readings": "node --experimental-default-type=module --test scripts/test-reading-validator.mjs scripts/test-reading-migration.mjs scripts/test-daily-validation.mjs scripts/test-sync-merge.mjs scripts/test-liturgical-schedule.mjs scripts/test-daily-reading.mjs scripts/test-liturgical-metadata.mjs scripts/test-liturgical-calendar.mjs",
-		"test:calendar": "node --experimental-default-type=module --test scripts/test-liturgical-metadata.mjs scripts/test-liturgical-calendar.mjs scripts/test-secondary-sources.mjs",
+		"test:calendar": "node --experimental-default-type=module --test scripts/test-liturgical-metadata.mjs scripts/test-liturgical-calendar.mjs scripts/test-secondary-sources.mjs scripts/test-vatican-news-saints.mjs",
+		"test:vatican-saints": "node --experimental-default-type=module --test scripts/test-vatican-news-saints.mjs",
 		"test:saved-readings": "node --experimental-default-type=module --test scripts/test-saved-reading-keys.mjs",
 		"test:saved-reading-migration": "node --experimental-default-type=module --test scripts/test-saved-reading-migration.mjs",
 		"test:saved-reading-rls": "node --experimental-default-type=module --test scripts/test-saved-reading-rls.mjs",
@@ -25,6 +26,7 @@
 		"test:auth": "node --experimental-default-type=module --test scripts/test-auth-contract.mjs scripts/test-auth-migration.mjs scripts/test-auth-oauth.mjs scripts/test-auth-session.mjs scripts/test-auth-ui.mjs scripts/test-auth-guards.mjs scripts/test-auth-profile.mjs scripts/test-auth-roles.mjs scripts/test-auth-audit.mjs scripts/test-auth-deletion.mjs scripts/test-auth-operations-doc.mjs scripts/test-auth-recovery.mjs scripts/test-auth-rate-limits.mjs",
 		"test:theme": "node --experimental-default-type=module --test scripts/test-theme-preferences.mjs",
 		"sync:daily": "node --experimental-default-type=module scripts/sync-daily-readings.mjs",
+		"sync:vatican-saints": "node --experimental-default-type=module scripts/sync-vatican-news-saints.mjs",
 		"generate:lectio": "node --experimental-default-type=module scripts/generate-lectio.mjs",
 		"validate:daily": "node --experimental-default-type=module scripts/validate-daily-readings.mjs"
 	},

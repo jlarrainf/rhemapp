@@ -13,6 +13,8 @@ No se introduce una base de datos para el calendario en esta fase. La fuente de 
 - `src/lib/liturgicalCalendar.js`: resumen mensual, clasificación de celebraciones y resolución de fuentes.
 - `src/lib/dailyReading.js`: carga de entradas enriquecidas sin romper consumidores legacy.
 - `scripts/sync-daily-readings.mjs`: extracción de celebración principal, opcionales, rango, color y santos cuando la fuente los entregue; incorporación editorial explícita de enlaces secundarios cotejados.
+- `src/lib/readings/vaticanNewsSaints.js`: contrato del parser server-side para fecha, sección, nombres limpios, orden, duplicados y provenance de la captura diaria.
+- `scripts/sync-vatican-news-saints.mjs`: consulta diaria idempotente de `santos.html`, validación contra la fecha chilena y actualización atómica de la entrada JSON sin eliminar metadata no relacionada.
 - `scripts/validate-daily-readings.mjs`: validación de fechas, orden, fuentes, duplicados y metadata.
 - `src/app/api/readings/route.js`: respuesta enriquecida para Daily.
 - `src/app/api/calendar/route.js`: contrato resumido por mes para web, PWA y Android.
@@ -28,6 +30,7 @@ No se introduce una base de datos para el calendario en esta fase. La fuente de 
 - El home no incorporará una tarjeta ni un enlace principal nuevo. El acceso continuará siendo el enlace contextual de Daily y Rosario, preservando la navegación acordada.
 - No se almacenarán descripciones ni biografías. Cada santo podrá tener un `informationSource` secundario con proveedor, URL, verificación editorial y atribución; solo esa metadata se enviará a `/api/readings` y se mostrará en Daily.
 - Cada entrada podrá incluir `supplementalSaints[]` como captura local, fechada y verificada de los nombres visibles en `https://www.vaticannews.va/es/santos.html`; sus elementos conservarán nombre y provenance, sin biografía ni enlace individual.
+- El workflow diario resolverá la fecha con `America/Santiago`, consultará la representación fechada `/es/santos/MM/DD.html` que la portada `santos.html` carga para ese día, validará la fecha y la estructura esperadas y solo escribirá un cambio si la captura completa es válida. El commit queda trazado en Git y el deploy de `main` publica el JSON actualizado; la provenance pública conservará la URL solicitada `santos.html`.
 - La cuadrícula mensual seguirá proyectando únicamente nombres de santos; no incluirá enlaces secundarios para conservar densidad, rendimiento y accesibilidad.
 - Vatican News no se consultará ni se raspará durante una petición de usuario. Las URLs se incorporarán mediante revisión editorial explícita y el enlace no bloqueará la lectura si el sitio externo no está disponible.
 - Daily renderizará `celebrations[].saints[]` y `supplementalSaints[]` como listas verticales planas, separadas por provenance y sin tarjetas, separadores, píldoras ni enlaces dentro de las listas.
@@ -130,7 +133,8 @@ Conservará el contrato existente y añadirá metadata estructurada de la celebr
 | Metadata opcional no bloquea lecturas válidas | Degrada con seguridad sin perder la función principal | Ocultar Daily completo por un campo secundario |
 | Fuente primaria separada de `informationSource` | Evita confundir autoridad litúrgica con información complementaria | Reemplazar el Ordo por una fuente secundaria |
 | URLs secundarias editoriales y estáticas | Hace reproducible la publicación y tolera caídas del sitio externo | Resolver o inventar enlaces dinámicamente |
-| Captura local de nombres de Vatican News | Permite mostrar los nombres solicitados sin scraping en cada visita ni mezclar autoridades editoriales | Hacer fetch de `santos.html` desde el render o copiar la página completa |
+| Captura local actualizada por job diario | Permite mantener los nombres al día sin scraping en cada visita, conservar historial y no mezclar autoridades editoriales | Hacer fetch de `santos.html` desde el render o depender de un filesystem efímero de Vercel |
+| Parser fail-closed e idempotente | Impide publicar una fecha incorrecta, biografía o captura parcial y permite repetir el job sin duplicar cambios | Aceptar cualquier texto visible o sobrescribir ante una respuesta incompleta |
 | Listas verticales planas para santos | Reduce carga visual y mantiene nombres escaneables sin perder separación de provenance | Mantener chips, columnas flexibles o enlaces visibles junto a cada nombre |
 | Disclosure para enlaces RF-14 | Conserva el acceso a información verificada sin competir con el objetivo principal de la lista | Eliminar enlaces secundarios o mantenerlos como una segunda lista visible |
 
@@ -144,7 +148,7 @@ Conservará el contrato existente y añadirá metadata estructurada de la celebr
 | Daily enriquecido | RF-1, RF-2, RF-3, RF-9, RF-11 |
 | Lista pública de santos y presentación compacta | RF-2, RF-4, RF-6, RF-9, RF-11, RF-13 |
 | `informationSource` y enlace atribuido en Daily | RF-7, RF-11, RF-12, RF-14 |
-| `supplementalSaints` y lista web de nombres | RF-7, RF-9, RF-11, RF-15 |
+| `supplementalSaints`, parser y lista web de nombres | RF-7, RF-9, RF-11, RF-15 |
 | Sincronización y documentación editorial | RF-7, RF-8 |
 | Tests responsive, accesibles y de zona horaria | RF-1 a RF-14 |
 
@@ -156,10 +160,12 @@ Conservará el contrato existente y añadirá metadata estructurada de la celebr
 - Fixtures de santos con uno, varios, ausente, duplicado y fuente no verificada; el caso de varios debe probar el orden en Daily y calendario.
 - Fixtures de `informationSource` presente, ausente, proveedor/URL inválidos, `verified` falso y fuente no coincidente; ningún fixture debe incluir texto biográfico copiado.
 - Fixtures de `supplementalSaints` con captura válida, ausencia, fecha incorrecta, nombres múltiples, duplicados y nombre ambiguo; la proyección debe conservar solo nombre y provenance permitido.
+- Fixtures del HTML mínimo esperado de Vatican News con fecha válida, fecha incorrecta, estructura ausente, nombres con descriptor y duplicado; el parser debe fallar cerrado y conservar solo nombres inequívocos.
 - Tests de calendario mensual para febrero, cambio de año, mes inválido, fechas futuras y fecha sin publicación.
 - Tests de resolución de fecha en `America/Santiago`, medianoche y sábado 14:59:59/15:00:00.
 - Tests de API para parámetros repetidos, calendario no soportado, datos incompletos y respuesta válida.
 - Tests de sincronización para fuente caída, respuesta parcial, conservación de la última entrada y estado stale.
+- Tests del job diario para zona horaria chilena, fecha de fuente, idempotencia, escritura solo de la fecha vigente, preservación de campos no relacionados y rechazo sin mutación ante HTML inválido.
 - Verificación manual de Daily y calendario en móvil, escritorio, teclado y lector de pantalla.
 - Verificación manual de enlaces externos en Daily y Android: nombre accesible, nueva pestaña/intención externa, atribución visible y degradación segura cuando falta `informationSource`.
 - Verificación manual de las listas de santos en Daily: nombres verticales, sin tarjetas/separadores/enlaces visibles, disclosure de fuentes accesible por teclado y comportamiento legible en móvil.
@@ -167,12 +173,13 @@ Conservará el contrato existente y añadirá metadata estructurada de la celebr
 
 ## Riesgos, migración y rollback
 
-- Riesgo: la fuente cambia sus encabezados o estructura. Mitigación: parser por secciones, fixtures reales, validación completa y conservación de la última versión válida.
+- Riesgo: la fuente cambia sus encabezados o estructura. Mitigación: parser por secciones, fixtures mínimas del contrato, validación completa, workflow visible y conservación de la última versión válida.
 - Riesgo: el Ordo y la fuente web discrepan. Mitigación: detener publicación de la fecha, registrar conflicto y resolver editorialmente.
 - Riesgo: romper consumidores de `celebration`. Mitigación: alias temporal y migración en dos pasos.
 - Riesgo: sobrecargar la cuadrícula con listas extensas de santos. Mitigación: resumen visual acotado, lista accesible completa y detalle en Daily.
 - Riesgo: publicar nombres no verificables o duplicados. Mitigación: validación por entrada, provenance por santo y rechazo antes de publicar.
 - Riesgo: presentar una URL secundaria incorrecta o una biografía protegida como contenido propio. Mitigación: campo separado, revisión editorial exacta, lista blanca pública de metadata y prohibición de scraping/copia.
 - Riesgo: publicar títulos o frases biográficas de `santos.html` como si fueran nombres. Mitigación: extracción editorial explícita, validación de fecha/orden/duplicados y fixture de nombre ambiguo; la UI renderiza únicamente el campo `name`.
+- Riesgo: GitHub Actions ejecuta el job con retraso, dos veces o sin permisos de escritura. Mitigación: fecha canónica independiente de UTC, operación idempotente, permisos declarados, commit solo ante diff y fallo visible sin alterar la captura anterior.
 - Riesgo: calendario mensual lento o incompleto. Mitigación: derivación local, respuestas resumidas y cache público controlado.
-- Rollback: dejar de publicar metadata nueva, conservar la respuesta legacy y volver a mostrar solo la información verificada anterior sin borrar los archivos ni el historial de sincronización.
+- Rollback: deshabilitar temporalmente el job, revertir el commit de captura si es necesario, ejecutar `npm run validate:daily` y volver a desplegar. No borrar archivos ni historial; la web seguirá sirviendo la última captura válida.

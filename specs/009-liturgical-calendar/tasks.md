@@ -177,3 +177,35 @@
   - RF: RF-1 a RF-15
   - Hecho cuando: pasan la suite específica, lint y build; `validation.md` registra la nueva evidencia visual y el veredicto RF-11/RF-13/RF-14/RF-15.
   - Evidencia: `validation.md` actualizado; `npm run test:readings` (58), `npm run test:calendar` (23), `npm run test:mobile` (9), `npm run validate:daily` (113), `npm run lint`, `npm run build`, `git diff --check` y detector Impeccable (`[]`) pasan; revisión local de escritorio/AX tree completada.
+
+## Fase 8 — Consulta diaria y publicación automática de RF-15
+
+- [x] T33 — Registrar en los artefactos la actualización diaria server-side/CI.
+  - RF: RF-7, RF-8, RF-15
+  - Hecho cuando: `spec.md`, `clarifications.md`, `plan.md`, `contract.md` y la documentación operativa definen fecha chilena, workflow diario, parser fail-closed, idempotencia, fallback y rollback.
+  - Evidencia: `spec.md`, `clarifications.md`, `plan.md`, `contract.md` y `docs/liturgical-calendar-operation.md` actualizados; diff revisado antes de editar código; no se modifica la interfaz ni se consulta Vatican News desde el navegador.
+
+- [x] T34 — Implementar y probar el parser seguro de `santos.html`.
+  - RF: RF-7, RF-8, RF-15
+  - Hecho cuando: el parser extrae solo nombres inequívocos de la sección esperada, valida la fecha, conserva el orden y rechaza HTML incompleto, fecha incorrecta, duplicados y texto biográfico ambiguo.
+  - Evidencia: `src/lib/readings/vaticanNewsSaints.js`, `specs/009-liturgical-calendar/fixtures/vatican-news-santos.html` y `npm run test:vatican-saints` (6 pruebas); además, la página real del 2026-09-16 produjo cuatro nombres esperados.
+
+- [x] T35 — Implementar el sincronizador diario idempotente.
+  - RF: RF-7, RF-8, RF-15
+  - Hecho cuando: `npm run sync:vatican-saints` resuelve `America/Santiago`, consulta la URL pública, actualiza únicamente la entrada de la fecha vigente tras validar, preserva campos no relacionados y no muta el archivo ante un fallo.
+  - Evidencia: `scripts/sync-vatican-news-saints.mjs`; `npm run sync:vatican-saints` publicó/verificó 2026-09-16 y `npm run sync:vatican-saints -- --dry-run` repitió la captura sin cambios; `npm run validate:daily` confirmó 113 entradas válidas.
+
+- [x] T36 — Integrar el workflow diario con el deploy existente.
+  - RF: RF-7, RF-8, RF-15
+  - Hecho cuando: GitHub Actions ejecuta el sincronizador una vez al día en UTC, tiene `contents: write`, permite ejecución manual, commitea solo cambios públicos validados y deja que `main` active el deploy existente de Vercel.
+  - Evidencia: `.github/workflows/sync-daily-readings.yml` usa `15 5 * * *`, `workflow_dispatch`, `contents: write`, concurrencia sin cancelación y commit condicionado a diff; el job usa la conexión existente de `main` con Vercel y no agrega secretos nuevos.
+
+- [x] T37 — Evitar que otras sincronizaciones eliminen capturas válidas.
+  - RF: RF-8, RF-15
+  - Hecho cuando: `sync:daily` conserva `supplementalSaints` ya publicados cuando no existe un override editorial nuevo y las pruebas cubren la preservación.
+  - Evidencia: `scripts/sync-daily-readings.mjs`, `src/lib/readings/secondarySources.js`, `scripts/test-secondary-sources.mjs` y `npm run test:calendar` (caso explícito de preservación); `npm run test:readings` pasa con 58 pruebas.
+
+- [x] T38 — Validar y documentar la operación diaria.
+  - RF: RF-1 a RF-15
+  - Hecho cuando: pasan parser, sincronización, validación de datos, suite de calendario, lint y build; `validation.md` incluye evidencia del caso válido, idempotente, fallido y del contrato público, con limitaciones de ejecución del scheduler.
+  - Evidencia: `validation.md`; `npm run test:vatican-saints`, `npm run test:calendar` (30), `npm run test:readings` (58), `npm run test:mobile` (9), `npm run validate:daily` (113), `npm run lint`, `npm run build`, dry-run real y contrato público documentados. La ejecución programada remota queda pendiente de su primer disparo por GitHub Actions.
