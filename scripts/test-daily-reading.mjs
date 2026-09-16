@@ -95,9 +95,24 @@ test("keeps translation attribution available without a prominent notice", () =>
 test("renders verified secondary saint information as an attributed safe external link", () => {
 	assert.match(dailyClient, /informationSource/);
 	assert.match(dailyClient, /Más información sobre \{saint\.name\} en/);
+	assert.ok(dailyClient.indexOf("informationSources.length > 0") > dailyClient.indexOf("Fuente y verificación"));
 	assert.match(dailyClient, /target="_blank"/);
 	assert.match(dailyClient, /rel="noopener noreferrer"/);
 	assert.match(dailyClient, /focus-visible:ring-2/);
+});
+
+test("keeps visible saint sections as simple names-only lists", () => {
+	const saintsStart = dailyClient.indexOf("{saints.length > 0");
+	const supplementalStart = dailyClient.indexOf("{supplementalSaints.length > 0");
+	const saintsRender = dailyClient.slice(saintsStart, supplementalStart);
+	assert.match(saintsRender, /list-disc space-y-1 pl-5/);
+	assert.doesNotMatch(saintsRender, /informationSources|Más información|border-t|flex flex-wrap/);
+
+	const supplementalEnd = dailyClient.indexOf("\n\t\t\t<div className=\"mt-5 flex flex-col", supplementalStart);
+	assert.ok(supplementalEnd > supplementalStart);
+	const supplementalRender = dailyClient.slice(supplementalStart, supplementalEnd);
+	assert.match(supplementalRender, /list-disc space-y-1 pl-5/);
+	assert.doesNotMatch(supplementalRender, /informationSource|description|excerpt|biograf|border-t|flex flex-wrap/i);
 });
 
 test("renders the Vatican News daily name capture as names only", () => {

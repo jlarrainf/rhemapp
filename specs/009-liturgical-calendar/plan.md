@@ -30,6 +30,8 @@ No se introduce una base de datos para el calendario en esta fase. La fuente de 
 - Cada entrada podrá incluir `supplementalSaints[]` como captura local, fechada y verificada de los nombres visibles en `https://www.vaticannews.va/es/santos.html`; sus elementos conservarán nombre y provenance, sin biografía ni enlace individual.
 - La cuadrícula mensual seguirá proyectando únicamente nombres de santos; no incluirá enlaces secundarios para conservar densidad, rendimiento y accesibilidad.
 - Vatican News no se consultará ni se raspará durante una petición de usuario. Las URLs se incorporarán mediante revisión editorial explícita y el enlace no bloqueará la lectura si el sitio externo no está disponible.
+- Daily renderizará `celebrations[].saints[]` y `supplementalSaints[]` como listas verticales planas, separadas por provenance y sin tarjetas, separadores, píldoras ni enlaces dentro de las listas.
+- Los enlaces válidos de `informationSource` se conservarán en el contrato y se moverán al disclosure existente `Fuente y verificación`, fuera del bloque visible de nombres.
 
 La vista mensual debe consumir la misma función de dominio que valida la fecha solicitada por Daily. No debe reconstruir fechas con objetos `Date` ambiguos ni duplicar la regla del sábado.
 
@@ -129,6 +131,8 @@ Conservará el contrato existente y añadirá metadata estructurada de la celebr
 | Fuente primaria separada de `informationSource` | Evita confundir autoridad litúrgica con información complementaria | Reemplazar el Ordo por una fuente secundaria |
 | URLs secundarias editoriales y estáticas | Hace reproducible la publicación y tolera caídas del sitio externo | Resolver o inventar enlaces dinámicamente |
 | Captura local de nombres de Vatican News | Permite mostrar los nombres solicitados sin scraping en cada visita ni mezclar autoridades editoriales | Hacer fetch de `santos.html` desde el render o copiar la página completa |
+| Listas verticales planas para santos | Reduce carga visual y mantiene nombres escaneables sin perder separación de provenance | Mantener chips, columnas flexibles o enlaces visibles junto a cada nombre |
+| Disclosure para enlaces RF-14 | Conserva el acceso a información verificada sin competir con el objetivo principal de la lista | Eliminar enlaces secundarios o mantenerlos como una segunda lista visible |
 
 ## Trazabilidad hacia RF
 
@@ -158,6 +162,7 @@ Conservará el contrato existente y añadirá metadata estructurada de la celebr
 - Tests de sincronización para fuente caída, respuesta parcial, conservación de la última entrada y estado stale.
 - Verificación manual de Daily y calendario en móvil, escritorio, teclado y lector de pantalla.
 - Verificación manual de enlaces externos en Daily y Android: nombre accesible, nueva pestaña/intención externa, atribución visible y degradación segura cuando falta `informationSource`.
+- Verificación manual de las listas de santos en Daily: nombres verticales, sin tarjetas/separadores/enlaces visibles, disclosure de fuentes accesible por teclado y comportamiento legible en móvil.
 - Ejecutar `npm run validate:daily`, `npm run lint`, `npm run build` y la suite específica antes de marcar tareas.
 
 ## Riesgos, migración y rollback

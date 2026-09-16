@@ -153,40 +153,20 @@ function LiturgicalContext({ reading }) {
 			)}
 
 			{saints.length > 0 && (
-				<div className="mt-5 border-t border-gray-200 pt-4 dark:border-gray-700" aria-labelledby="daily-saints-title">
+				<div className="mt-5" aria-labelledby="daily-saints-title">
 					<h3 id="daily-saints-title" className="text-sm font-semibold text-[#314156] dark:text-gray-100">Santos del día</h3>
-					<ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm text-gray-700 dark:text-gray-200">
+					<ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-gray-700 dark:text-gray-200">
 						{saints.map((saint, index) => <li key={`${saint.name}-${index}`}>{saint.name}</li>)}
 					</ul>
-					{informationSources.length > 0 && (
-						<div className="mt-3 text-sm text-gray-600 dark:text-gray-300">
-							<p className="font-medium text-[#314156] dark:text-gray-100">Información adicional</p>
-							<ul className="mt-1 space-y-1">
-								{informationSources.map((saint, index) => (
-									<li key={`${saint.name}-information-${index}`}>
-										<a
-											href={saint.informationSource.url}
-											target="_blank"
-											rel="noopener noreferrer"
-											aria-label={`Más información sobre ${saint.name} en ${saint.informationSource.provider || "Vatican News"}`}
-											className="font-medium text-[#314156] underline decoration-[#b79b72] underline-offset-4 transition-colors hover:text-[#8f744e] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79b72] dark:text-gray-100 dark:hover:text-[#e2c18f]"
-										>
-											Más información sobre {saint.name} en {saint.informationSource.provider || "Vatican News"}
-										</a>
-									</li>
-								))}
-							</ul>
-						</div>
-					)}
 				</div>
 			)}
 
 			{supplementalSaints.length > 0 && (
-				<div className="mt-5 border-t border-gray-200 pt-4 dark:border-gray-700" aria-labelledby="vatican-news-saints-title">
+				<div className="mt-5" aria-labelledby="vatican-news-saints-title">
 					<h3 id="vatican-news-saints-title" className="text-sm font-semibold text-[#314156] dark:text-gray-100">
 						También mencionados por Vatican News
 					</h3>
-					<ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm text-gray-700 dark:text-gray-200">
+					<ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-gray-700 dark:text-gray-200">
 						{supplementalSaints.map((saint, index) => <li key={`${saint.name}-${index}`}>{saint.name}</li>)}
 					</ul>
 				</div>
@@ -202,6 +182,26 @@ function LiturgicalContext({ reading }) {
 						{source?.provider && <p>Proveedor: {source.provider}</p>}
 						{source?.url && <p><a className="underline underline-offset-2" href={source.url} target="_blank" rel="noreferrer">Consultar fuente editorial</a></p>}
 						{source?.syncStatus === "stale" && <p>Se conserva la última versión verificada mientras se revisa la fuente.</p>}
+						{informationSources.length > 0 && (
+							<div className="mt-3 pt-2">
+								<p className="font-medium text-[#314156] dark:text-gray-100">Información sobre los santos</p>
+								<ul className="mt-1 space-y-1">
+									{informationSources.map((saint, index) => (
+										<li key={`${saint.name}-information-${index}`}>
+											<a
+												href={saint.informationSource.url}
+												target="_blank"
+												rel="noopener noreferrer"
+												aria-label={`Más información sobre ${saint.name} en ${saint.informationSource.provider || "Vatican News"}`}
+												className="font-medium text-[#314156] underline decoration-[#b79b72] underline-offset-4 transition-colors hover:text-[#8f744e] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79b72] dark:text-gray-100 dark:hover:text-[#e2c18f]"
+											>
+												Más información sobre {saint.name} en {saint.informationSource.provider || "Vatican News"}
+											</a>
+										</li>
+									))}
+								</ul>
+							</div>
+						)}
 					</div>
 				</details>
 				<Link href={`/calendario?month=${encodeURIComponent((reading?.date || reading?.dateKey || "").slice(0, 7))}`} className="inline-flex min-h-11 items-center justify-center rounded-full border border-[#b79b72] px-4 py-2 text-sm font-semibold text-[#314156] transition-colors hover:bg-[#b79b72]/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79b72] dark:text-gray-100">

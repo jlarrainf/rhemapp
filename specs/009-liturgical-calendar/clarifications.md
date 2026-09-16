@@ -58,3 +58,11 @@ Estado: Resolved — decisiones de alcance registradas el 2026-09-14 y ampliacio
 - **Superficie:** Daily web mostrará una lista separada “También mencionados por Vatican News” con nombres únicamente. La cuadrícula mensual, el resumen litúrgico del Ordo y los enlaces individuales de RF-14 no se sustituyen por esta lista.
 - **Disponibilidad:** la lista se publica desde datos locales versionados; no se consulta ni se raspa Vatican News durante la petición del usuario. Una captura ausente o inválida no afecta las lecturas ni los santos del Ordo.
 - **Captura inicial:** para el 2026-09-15 se verificaron los nombres “Santísima Virgen de los Dolores”, “Nicomedes” y “Catalina de Génova” en la página diaria; no se incorporan sus párrafos descriptivos.
+
+## Refinamiento aprobado: presentación minimalista de santos
+
+- **Objetivo:** la parte visible de santos debe permitir identificar los nombres de un vistazo, con la menor carga visual posible.
+- **Presentación:** `Santos del día` y `También mencionados por Vatican News` seguirán siendo listas separadas para no mezclar la autoridad del Ordo con la captura secundaria, pero cada bloque mostrará únicamente una lista vertical simple de nombres.
+- **Limpieza visual:** se eliminan del bloque visible de nombres las tarjetas, píldoras, separadores, distribución en varias columnas y enlaces de información. No se cambia el contenido, el orden ni la provenance.
+- **Enlaces RF-14:** los enlaces específicos ya verificados no se eliminan del contrato ni de Android; en Daily web se trasladan al disclosure existente `Fuente y verificación`, para conservar la funcionalidad sin competir con la lista de nombres.
+- **Accesibilidad:** cada lista mantiene un encabezado accesible y elementos `li` semánticos. El disclosure conserva foco de teclado y nombres de enlace comprensibles.

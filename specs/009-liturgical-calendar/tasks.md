@@ -160,3 +160,20 @@
   - RF: RF-1 a RF-15
   - Hecho cuando: pasan fixtures, suite, validación diaria, lint, build y revisión manual; `validation.md` y la documentación operativa registran el caso presente, ausente, inválido y el veredicto final.
   - Evidencia: `validation.md` actualizado; `npm run test:calendar` (23), `npm run test:readings` (57), `npm run test:mobile` (9), `npm run validate:daily` (113), `npm run lint`, `npm run build`, `:app:assembleDebug` y revisión manual web/AX tree completados. API pública y calendario mensual conservan sus contratos sin texto biográfico ni `supplementalSaints` en la cuadrícula.
+
+## Fase 7 — Simplificación visual de la sección de santos
+
+- [x] T30 — Registrar el refinamiento visual en los artefactos de spec.
+  - RF: RF-11, RF-13, RF-14, RF-15
+  - Hecho cuando: `spec.md`, `clarifications.md`, `plan.md` y este backlog definen listas verticales simples, provenance separada, ausencia de enlaces visibles dentro de las listas y acceso de RF-14 mediante el disclosure de fuentes.
+  - Evidencia: `spec.md`, `clarifications.md`, `plan.md` y este backlog actualizados; `git diff` revisado antes de implementar.
+
+- [x] T31 — Simplificar la presentación de nombres en Daily web/PWA.
+  - RF: RF-11, RF-13, RF-14, RF-15
+  - Hecho cuando: los dos grupos de santos se muestran como listas verticales de nombres sin tarjetas, separadores, distribución flexible ni enlaces incrustados; los enlaces RF-14 continúan disponibles desde “Fuente y verificación”.
+  - Evidencia: `src/app/daily/DailyVerseClient.jsx`, `scripts/test-daily-reading.mjs`; `npm run test:readings` (58), `npm run lint` y `npm run build` pasan; captura local y AX tree confirman las dos listas verticales de nombres, ausencia de enlaces visibles y enlaces RF-14 dentro del disclosure expandible.
+
+- [x] T32 — Validar y documentar la simplificación visual.
+  - RF: RF-1 a RF-15
+  - Hecho cuando: pasan la suite específica, lint y build; `validation.md` registra la nueva evidencia visual y el veredicto RF-11/RF-13/RF-14/RF-15.
+  - Evidencia: `validation.md` actualizado; `npm run test:readings` (58), `npm run test:calendar` (23), `npm run test:mobile` (9), `npm run validate:daily` (113), `npm run lint`, `npm run build`, `git diff --check` y detector Impeccable (`[]`) pasan; revisión local de escritorio/AX tree completada.
