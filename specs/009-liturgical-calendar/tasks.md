@@ -271,7 +271,7 @@
   - Hecho cuando: se verifica el estado cerrado/abierto, foco visible, envoltura de etiquetas, lista única, nombres con tratamiento y ausencia agregada sin regresiones.
   - Evidencia: pruebas de Daily/calendario, AX tree, screenshot de escritorio y comprobación responsive.
 
-- [ ] T50 — Documentar y desplegar el refinamiento visual.
+- [x] T50 — Documentar y desplegar el refinamiento visual.
   - RF: RF-1 a RF-18
   - Hecho cuando: pasan lint, build, validación de datos y detector; `validation.md` registra la comparación visual, las URLs y el despliegue público.
-  - Evidencia: validación final y estado exitoso de Vercel; T47–T50 se marcan solo tras la evidencia.
+  - Evidencia: `validation.md` actualizado con comparación visual, pruebas públicas y estado exitoso de Vercel; T47–T50 marcadas tras la evidencia.
