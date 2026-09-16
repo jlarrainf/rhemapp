@@ -208,4 +208,4 @@
 - [x] T38 — Validar y documentar la operación diaria.
   - RF: RF-1 a RF-15
   - Hecho cuando: pasan parser, sincronización, validación de datos, suite de calendario, lint y build; `validation.md` incluye evidencia del caso válido, idempotente, fallido y del contrato público, con limitaciones de ejecución del scheduler.
-  - Evidencia: `validation.md`; `npm run test:vatican-saints`, `npm run test:calendar` (30), `npm run test:readings` (58), `npm run test:mobile` (9), `npm run validate:daily` (113), `npm run lint`, `npm run build`, dry-run real y contrato público documentados. La ejecución programada remota queda pendiente de su primer disparo por GitHub Actions.
+  - Evidencia: `validation.md`; `npm run test:vatican-saints`, `npm run test:calendar` (30), `npm run test:readings` (58), `npm run test:mobile` (9), `npm run validate:daily` (113), `npm run lint`, `npm run build`, dry-run real y contrato público documentados. El workflow remoto `35136162075` terminó correctamente, publicó `a46a28c` y la versión de producción respondió 200 con los cuatro nombres esperados.
