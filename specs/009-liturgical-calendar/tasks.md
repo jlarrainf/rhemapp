@@ -231,3 +231,25 @@
   - RF: RF-1 a RF-18
   - Hecho cuando: pasan tests de nombres, Daily/calendario, lint y build; la revisión manual confirma cerrado/abierto, foco, móvil, fiestas, santos, fuentes posteriores y ausencia agregada.
   - Evidencia: `validation.md` actualizado con comandos, URLs, resultados y limitaciones; `npm run lint`, `npm run build`, `npm run test:vatican-saints` (6/6), `npm run test:mobile` (9/9), comprobación local de HTML/API, AX tree, apertura/cierre y navegación con Tab; tareas T39–T42 marcadas tras evidencia.
+
+## Fase 10 — Integración visual de fiestas y santos
+
+- [x] T43 — Registrar la lista integrada en los artefactos de la spec.
+  - RF: RF-2, RF-11, RF-13, RF-15, RF-16, RF-17, RF-18
+  - Hecho cuando: `spec.md`, `clarifications.md`, `plan.md`, `contract.md` y este backlog definen una única lista visible, orden estable, deduplicación exacta y ausencia de encabezados derivados de fuente.
+  - Evidencia: `spec.md`, `clarifications.md`, `plan.md`, `contract.md` y este backlog actualizados; diff revisado antes de modificar la interfaz.
+
+- [x] T44 — Implementar la proyección unificada del contexto.
+  - RF: RF-2, RF-11, RF-13, RF-15, RF-16, RF-17
+  - Hecho cuando: Daily muestra fiestas, celebraciones y santos de todas las fuentes en una única lista vertical; el caso solo suplementario no usa “Otros”; las fuentes continúan después y los nombres almacenados no cambian.
+  - Evidencia: `src/app/daily/DailyVerseClient.jsx`, `src/lib/readings/liturgicalContext.js`, `scripts/test-daily-reading.mjs`, `scripts/test-liturgical-metadata.mjs`; `npm run test:readings` (63/63) confirma orden, deduplicación y presentación.
+
+- [x] T45 — Validar la integración en todas las variantes de fecha.
+  - RF: RF-8, RF-9, RF-13, RF-15, RF-18
+  - Hecho cuando: pasan las pruebas para fecha con Ordo y Vatican News, fecha solo suplementaria, fecha con nombres repetidos y fecha sin contexto; no aparece “Otros santos y santas del día” en la UI.
+  - Evidencia: `scripts/test-daily-reading.mjs`, `scripts/test-liturgical-metadata.mjs`, `npm run test:calendar` (33/33), `npm run test:vatican-saints` (6/6), `npm run validate:daily` (113 entradas), dry-run sin cambios y comprobación de fecha con Ordo/Vatican News y supplemental-only.
+
+- [x] T46 — Ejecutar regresión visual, documentar y desplegar.
+  - RF: RF-1 a RF-18
+  - Hecho cuando: pasan lint, build, validación de datos y detector de interfaz; se comprueban cerrado/abierto, teclado, móvil, nombres, fiestas, fuentes posteriores y despliegue público.
+  - Evidencia: `validation.md` actualizado con resultados, URLs y limitaciones; `npm run lint`, `npm run build`, AX tree, screenshot, apertura/cierre, foco con `Tab` y revisión pública; T43–T46 marcadas tras completar la evidencia.

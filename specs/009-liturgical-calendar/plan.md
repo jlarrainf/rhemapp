@@ -149,6 +149,10 @@ Conservará el contrato existente y añadirá metadata estructurada de la celebr
 | Fuentes como sección posterior | Separa contenido litúrgico de provenance y evita contaminar la lectura principal | Repetir proveedores y enlaces dentro de cada lista |
 | Disponibilidad agregada de fuentes | Evita falsos estados de ausencia cuando Vatican News ya tiene una captura válida | Basar el estado únicamente en la celebración primaria |
 
+### Refinamiento de integración de la lista
+
+La UI construirá una proyección única de contexto a partir de las celebraciones publicadas, sus santos asociados y `supplementalSaints`. La fuente de cada dato seguirá separada en el contrato y en la sección “Fuentes y verificación”, pero nunca se expresará mediante subtítulos distintos dentro de la lista visible. El orden será determinista: celebraciones, santos del Ordo y captura suplementaria, preservando el orden de cada fuente y eliminando solo duplicados exactos para no repetir visualmente un mismo nombre. Los rangos de celebración seguirán como metadato secundario junto al nombre correspondiente.
+
 ## Trazabilidad hacia RF
 
 | Parte del plan | RF cubiertos |
@@ -160,6 +164,7 @@ Conservará el contrato existente y añadirá metadata estructurada de la celebr
 | Lista pública de santos y presentación compacta | RF-2, RF-4, RF-6, RF-9, RF-11, RF-13 |
 | `informationSource` y enlace atribuido en Daily | RF-7, RF-11, RF-12, RF-14 |
 | `supplementalSaints`, parser y lista web de nombres | RF-7, RF-9, RF-11, RF-15 |
+| Proyección unificada de fiestas y santos | RF-2, RF-11, RF-13, RF-15, RF-16, RF-17, RF-18 |
 | Sincronización y documentación editorial | RF-7, RF-8 |
 | Tests responsive, accesibles y de zona horaria | RF-1 a RF-14 |
 
@@ -182,6 +187,7 @@ Conservará el contrato existente y añadirá metadata estructurada de la celebr
 - Verificación manual de las listas de santos en Daily: nombres verticales, sin tarjetas/separadores/enlaces visibles, disclosure de fuentes accesible por teclado y comportamiento legible en móvil.
 - Verificación manual del contexto cerrado por defecto, su apertura con teclado, la separación posterior de fuentes y la ausencia de mensaje cuando existe únicamente `supplementalSaints`.
 - Tests de presentación de nombres con `San`/`Santa`, preservación de títulos marianos y ausencia de duplicación de información de fuentes en el contexto principal.
+- Tests de proyección unificada: combinación de celebración, santos del Ordo y `supplementalSaints`, deduplicación exacta, orden estable y ausencia de encabezados “Otros” o de separación por proveedor, incluido el caso supplemental-only.
 - Ejecutar `npm run validate:daily`, `npm run lint`, `npm run build` y la suite específica antes de marcar tareas.
 
 ## Riesgos, migración y rollback

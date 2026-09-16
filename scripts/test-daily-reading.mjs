@@ -102,28 +102,22 @@ test("renders verified secondary saint information as an attributed safe externa
 	assert.match(dailyClient, /focus-visible:ring-2/);
 });
 
-test("keeps visible saint sections as simple names-only lists", () => {
-	const saintsStart = dailyClient.indexOf("{saints.length > 0");
-	const supplementalStart = dailyClient.indexOf("{supplementalSaints.length > 0");
+test("keeps the visible context as one simple names list", () => {
+	const contextItemsStart = dailyClient.indexOf("{contextItems.length > 0");
 	const sourcesStart = dailyClient.indexOf("Fuentes y verificación");
-	const saintsRender = dailyClient.slice(saintsStart, supplementalStart);
-	assert.match(saintsRender, /list-disc space-y-1 pl-5/);
-	assert.doesNotMatch(saintsRender, /informationSources|Más información|border-t|flex flex-wrap/);
-
-	const supplementalRender = dailyClient.slice(supplementalStart, sourcesStart);
-	assert.ok(sourcesStart > supplementalStart);
-	assert.match(supplementalRender, /list-disc space-y-1 pl-5/);
-	assert.doesNotMatch(supplementalRender, /informationSource|description|excerpt|biograf|border-t|flex flex-wrap/i);
+	const contextRender = dailyClient.slice(contextItemsStart, sourcesStart);
+	assert.match(contextRender, /list-disc space-y-2 pl-5/);
+	assert.match(contextRender, /aria-label="Fiestas y santos del día"/);
+	assert.doesNotMatch(contextRender, /Santos y santas del día|Otros santos y santas del día|informationSources|Más información|Proveedor|Vatican News/);
+	assert.doesNotMatch(contextRender, /description|excerpt|biograf/i);
 });
 
-test("renders the Vatican News daily name capture as names only", () => {
+test("integrates the Vatican News daily name capture without a source heading", () => {
 	assert.match(dailyClient, /supplementalSaints/);
-	assert.match(dailyClient, /Otros santos y santas del día/);
-	assert.match(dailyClient, /supplementalSaints\.map/);
-	const supplementalStart = dailyClient.indexOf("{supplementalSaints.length > 0");
-	const supplementalRender = dailyClient.slice(supplementalStart, supplementalStart + 700);
-	assert.match(supplementalRender, /formatSaintName\(saint\.name\)/);
-	assert.doesNotMatch(supplementalRender, /informationSource|description|excerpt|biograf/i);
+	assert.match(dailyClient, /getLiturgicalContextItems\(reading\)/);
+	assert.match(dailyClient, /contextItems\.map/);
+	assert.match(dailyClient, /item\.kind === "saint" \? formatSaintName\(item\.name\)/);
+	assert.doesNotMatch(dailyClient, /Otros santos y santas del día/);
 });
 
 test("collapses the complete context and keeps provenance after the main content", () => {
@@ -135,13 +129,14 @@ test("collapses the complete context and keeps provenance after the main content
 	assert.ok(sourcesStart > contextStart);
 	assert.match(dailyClient, /<details className="group">/);
 	assert.match(contextRender, /Fiestas y santos del día/);
-	assert.match(contextRender, /Otras fiestas y celebraciones/);
+	assert.match(contextRender, /contextItems\.length > 0/);
 	assert.doesNotMatch(contextRender, /Vatican News|informationSource|Proveedor|Fuente/);
 	assert.match(contextRender, /!hasContextData &&/);
 });
 
 test("does not report missing context when a supplemental source is available", () => {
-	assert.match(dailyClient, /supplementalSaints\.length > 0/);
+	assert.match(dailyClient, /getLiturgicalContextItems\(reading\)/);
+	assert.match(dailyClient, /contextItems\.length > 0/);
 	assert.match(dailyClient, /\) : !hasContextData && \(/);
 	assert.match(dailyClient, /El contexto litúrgico no está disponible en las fuentes consultadas/);
 });

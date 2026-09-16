@@ -1,6 +1,6 @@
 # Spec 009 — Calendario litúrgico enriquecido
 
-Estado: Refinamiento de contexto litúrgico aprobado para implementación — autorización explícita del propietario el 2026-09-16
+Estado: Refinamiento de lista integrada de contexto aprobado para implementación — autorización explícita del propietario el 2026-09-16
 Prioridad: P1
 
 ## Contexto y objetivo
@@ -24,7 +24,7 @@ Rhemapp ya muestra las lecturas del día y mantiene un calendario chileno con fe
 - H5: Como mantenedor, quiero publicar solo información litúrgica trazable y verificada.
 - H6: Como visitante, quiero acceder a información adicional sobre un santo sin que Rhemapp copie ni presente como propia una biografía externa.
 - H7: Como visitante, quiero ver los nombres de los santos que Vatican News destaca para el día, sin cargar sus biografías.
-- H8: Como visitante, quiero expandir el contexto litúrgico solo cuando lo necesite y encontrar allí las fiestas y los santos del día en una vista limpia.
+- H8: Como visitante, quiero expandir el contexto litúrgico solo cuando lo necesite y encontrar allí una única lista integrada de fiestas y santos del día en una vista limpia.
 
 ## Requisitos funcionales
 
@@ -42,9 +42,9 @@ Rhemapp ya muestra las lecturas del día y mantiene un calendario chileno con fe
 - RF-12: EL SISTEMA ofrece la misma información esencial y los mismos enlaces de fecha en web, PWA y Android mediante contratos compartidos, sin duplicar la lógica del calendario en los clientes.
 - RF-13: CUANDO una entrada publicada contiene uno o más santos del día con nombre y fuente verificados, EL SISTEMA muestra sus nombres en una lista vertical simple en la sección de contexto de Daily y en el resumen mensual, conserva el orden editorial y no muestra descripciones biográficas, contenido auxiliar dentro de la lista ni placeholders cuando no existen santos verificados.
 - RF-14: CUANDO un santo publicado tiene una página específica del santo o de la fecha en Vatican News cotejada editorialmente con la celebración y el nombre del Ordo, EL SISTEMA ofrece en el contexto de Daily un enlace externo claramente atribuido a Vatican News mediante el disclosure de fuentes, fuera de la lista visible de nombres; SI no existe una coincidencia exacta o la URL no está verificada, ENTONCES no muestra el enlace ni inventa o copia información adicional.
-- RF-15: CUANDO el proceso diario de sincronización consulta la página `https://www.vaticannews.va/es/santos.html` para la fecha vigente en `America/Santiago`, EL SISTEMA debe validar la fecha mostrada por la fuente, extraer solo nombres inequívocos en el orden visible y publicar una captura fechada y verificada; CUANDO la captura válida existe, EL SISTEMA muestra en el Daily web una lista vertical separada y claramente atribuida con esos nombres, sin tarjetas, separadores ni enlaces dentro de la lista; SI la fuente falla, no corresponde a la fecha, cambia su estructura o un nombre no puede extraerse sin ambigüedad, ENTONCES el proceso rechaza la actualización de esa fecha, conserva la última captura válida de esa misma fecha y no bloquea las lecturas.
-- RF-16: CUANDO Daily dispone de contexto litúrgico verificable, EL SISTEMA lo presenta dentro de un bloque colapsable “Contexto litúrgico”, cerrado por defecto, que incluye la fiesta o celebración del día, las celebraciones opcionales, el tiempo/color y las listas de santos y santas disponibles.
-- RF-17: CUANDO Daily muestra un santo o santa en cualquiera de sus listas, EL SISTEMA presenta el nombre con el tratamiento “San” o “Santa” correspondiente antes del nombre, conserva los tratamientos marianos o títulos ya publicados que no admiten ese prefijo y no altera el nombre almacenado ni la provenance.
+- RF-15: CUANDO el proceso diario de sincronización consulta la página `https://www.vaticannews.va/es/santos.html` para la fecha vigente en `America/Santiago`, EL SISTEMA debe validar la fecha mostrada por la fuente, extraer solo nombres inequívocos en el orden visible y publicar una captura fechada y verificada; CUANDO la captura válida existe, EL SISTEMA integra esos nombres en la misma lista vertical de fiestas, celebraciones y santos del Daily, sin separar por fuente, tarjetas, separadores ni enlaces dentro de la lista; SI la fuente falla, no corresponde a la fecha, cambia su estructura o un nombre no puede extraerse sin ambigüedad, ENTONCES el proceso rechaza la actualización de esa fecha, conserva la última captura válida de esa misma fecha y no bloquea las lecturas.
+- RF-16: CUANDO Daily dispone de contexto litúrgico verificable, EL SISTEMA lo presenta dentro de un bloque colapsable “Contexto litúrgico”, cerrado por defecto, que incluye en una única lista integrada la fiesta o celebración del día, las celebraciones opcionales y los santos y santas disponibles, además del tiempo/color cuando existan.
+- RF-17: CUANDO Daily muestra un santo o santa en la lista integrada del contexto, EL SISTEMA presenta el nombre con el tratamiento “San” o “Santa” correspondiente antes del nombre, conserva los tratamientos marianos o títulos ya publicados que no admiten ese prefijo y no altera el nombre almacenado ni la provenance.
 - RF-18: SI una fuente secundaria ya aporta una captura válida de santos para la fecha pero la fuente litúrgica principal aún no contiene una celebración, ENTONCES EL SISTEMA muestra la captura dentro del contexto y no presenta el mensaje de contexto no disponible; dicho mensaje solo aparece cuando no existe información contextual verificable en ninguna fuente revisada.
 
 ## Requisitos no funcionales
@@ -57,14 +57,14 @@ Rhemapp ya muestra las lecturas del día y mantiene un calendario chileno con fe
 - Los errores y estados vacíos estarán en español y no expondrán detalles técnicos ni secretos.
 - El calendario debe poder servirse desde datos locales verificados cuando la fuente externa no esté disponible durante una consulta.
 - La nueva metadata no debe requerir autenticación ni crear datos privados.
-- Los santos se presentarán como nombres breves y ordenados; la información adicional se conservará únicamente como URL externa verificada y atribución del proveedor, nunca como una copia de la descripción o biografía.
+- Los santos y fiestas se presentarán como nombres breves en una única lista integrada y ordenada; la información adicional se conservará únicamente como URL externa verificada y atribución del proveedor, nunca como una copia de la descripción o biografía.
 - El contexto litúrgico será colapsable y estará cerrado inicialmente para priorizar una vista limpia; las fuentes quedarán en una sección posterior independiente, también accesible mediante disclosure.
 - Los nombres de santos y santas visibles se presentarán con “San” o “Santa” cuando el nombre no incluya ya un tratamiento mariano o hagiográfico equivalente; esta presentación no modifica el dato de origen.
 - Vatican News será una fuente secundaria informativa: el Ordo mantiene la autoridad para seleccionar el nombre y la celebración litúrgica. La aplicación no hará scraping durante la petición del usuario ni publicará texto externo protegido.
 - Un proceso server-side/CI programado consultará la página una vez al día y actualizará únicamente el JSON público versionado después de pasar validaciones de fuente, fecha, estructura, nombres, orden y duplicados. La interfaz web solo leerá la captura local publicada.
 - La actualización será idempotente y fallará de forma segura: una respuesta caída, incompleta, fechada incorrectamente o ambigua no sobrescribirá datos válidos ni trasladará nombres de otra fecha. La ejecución conservará trazabilidad en Git y el despliegue a Vercel ocurrirá mediante el flujo existente de `main`.
 - Los nombres de Vatican News se incorporarán mediante una captura fechada con URL, atribución y estado de verificación. La interfaz web no mostrará descripciones, biografías, titulares ni enlaces individuales de esa captura.
-- Los nombres de santos visibles en Daily se presentarán en listas verticales planas, sin tarjetas, píldoras, separadores ni enlaces incrustados; los enlaces secundarios verificados de RF-14 permanecerán accesibles únicamente desde el disclosure “Fuente y verificación”.
+- Los nombres de santos y fiestas visibles en Daily se presentarán en una lista vertical plana única, sin etiquetas derivadas de la fuente, tarjetas, píldoras, separadores ni enlaces incrustados; los enlaces secundarios verificados de RF-14 permanecerán accesibles únicamente desde el disclosure “Fuente y verificación”.
 
 ## Casos límite
 
@@ -79,6 +79,8 @@ Rhemapp ya muestra las lecturas del día y mantiene un calendario chileno con fe
 - Job diario retrasado, duplicado o ejecutado fuera de la medianoche chilena; la fecha de trabajo se resolverá explícitamente con `America/Santiago` y la operación será idempotente.
 - Job sin permisos de escritura, conflicto al publicar en `main` o despliegue posterior fallido; la captura anterior continuará sirviéndose y el fallo quedará visible en la ejecución del workflow.
 - Lista de santos con enlaces secundarios verificados; el diseño debe ocultar esos enlaces del bloque visible de nombres sin perder su acceso desde el disclosure de fuentes.
+- Fecha con celebraciones del Ordo y captura suplementaria de Vatican News; la interfaz debe integrar todos los nombres en una sola lista y no presentar “Otros santos y santas del día” ni otro subtítulo que suponga una fuente anterior.
+- Fecha con solo captura suplementaria de Vatican News; la interfaz debe mostrar esa misma lista integrada, sin clasificarla como “otros”.
 - Fecha con captura de Vatican News pero sin celebración del Ordo publicada todavía; la captura secundaria cuenta como contexto disponible y suprime el mensaje de ausencia.
 - Contexto litúrgico largo, cerrado por defecto, abierto con teclado o en pantalla estrecha.
 - Cambio de fecha alrededor de medianoche en un dispositivo con otra zona horaria.
@@ -105,15 +107,15 @@ Rhemapp ya muestra las lecturas del día y mantiene un calendario chileno con fe
 - Los casos de santos verificados, ausentes, duplicados y no verificados tienen fixtures y pruebas; los nombres aparecen en Daily y en el resumen mensual sin inventar datos.
 - Los casos de enlace secundario presente, ausente, no coincidente y URL inválida tienen fixtures y pruebas; Daily muestra atribución externa sin almacenar ni renderizar biografías copiadas.
 - Los casos de captura Vatican News presente, ausente, fechada incorrectamente, con nombres múltiples y con contenido ambiguo tienen fixtures y pruebas; Daily web muestra únicamente los nombres verificados y la fuente atribuida en una lista vertical simple.
-- La lista visible de santos en Daily no contiene tarjetas, separadores, enlaces ni textos auxiliares; los enlaces RF-14 siguen disponibles mediante el disclosure de fuentes.
+- La lista visible integrada de fiestas y santos en Daily no contiene tarjetas, separadores, enlaces, textos biográficos ni subtítulos derivados de fuente; los enlaces RF-14 siguen disponibles mediante el disclosure de fuentes.
 - La vista mensual navega con fechas ISO y enlaza correctamente a Daily.
 - Se prueban las fronteras del sábado 15:00, medianoche, fechas futuras y zonas horarias distintas.
 - `npm run validate:daily`, `npm run lint`, `npm run build` y la suite específica pasan.
 - Se verifica manualmente la experiencia en escritorio, móvil, teclado, lector de pantalla y estado sin conexión relevante.
 - La documentación operativa registra fuente, licencia, sincronización, conservación de última versión y rollback.
 - El workflow diario puede ejecutarse manualmente, es idempotente, actualiza solo la fecha vigente y deja la captura publicada disponible para el deploy de `main`.
-- Daily muestra fiestas y santos en un contexto colapsable, con tratamientos “San”/“Santa” y fuentes separadas después del contenido principal.
+- Daily muestra fiestas y santos en una única lista integrada dentro del contexto colapsable, con tratamientos “San”/“Santa” y fuentes separadas después del contenido principal.
 
 ## Dudas abiertas
 
-No quedan dudas de producto pendientes para RF-14 a RF-18. La decisión aprobada es ofrecer desde Daily enlaces externos exactos cuando corresponda y, adicionalmente, mostrar en la web los nombres de una captura fechada de `santos.html`, sin texto copiado, con Vatican News como fuente secundaria y el Ordo como fuente litúrgica primaria. La captura se consultará diariamente desde un job server-side/CI, con resolución de fecha chilena, validación estricta e idempotencia; ningún contenido externo que no supere el gate de URL, fecha, correspondencia, licencia/atribución, estructura y nombres puede llegar al calendario público. El contexto se abrirá solo por interacción del visitante y las fuentes se mantendrán fuera del contenido principal.
+No quedan dudas de producto pendientes para RF-14 a RF-18. La decisión aprobada es ofrecer desde Daily enlaces externos exactos cuando corresponda y mostrar en una única lista integrada los nombres de la celebración, los santos del Ordo y la captura fechada de `santos.html`, sin separar por fuente ni copiar texto externo. Vatican News sigue siendo fuente secundaria y el Ordo fuente litúrgica primaria; la provenance se conserva y se muestra después del contenido principal. La captura se consultará diariamente desde un job server-side/CI, con resolución de fecha chilena, validación estricta e idempotencia; ningún contenido externo que no supere el gate de URL, fecha, correspondencia, licencia/atribución, estructura y nombres puede llegar al calendario público. El contexto se abrirá solo por interacción del visitante.

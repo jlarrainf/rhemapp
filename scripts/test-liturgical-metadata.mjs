@@ -3,7 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import test from "node:test";
 import { normalizeLiturgicalMetadata, normalizeSupplementalSaints, toPublicPublishedEntry, validateLiturgicalMetadata } from "../src/lib/readings/liturgicalMetadata.js";
-import { hasPublishedLiturgicalContext } from "../src/lib/readings/liturgicalContext.js";
+import { getLiturgicalContextItems, hasPublishedLiturgicalContext } from "../src/lib/readings/liturgicalContext.js";
 import { validateReadingEntry } from "../src/lib/readings/validateReading.js";
 
 const root = process.cwd();
@@ -25,6 +25,34 @@ test("counts a verified supplemental capture as available liturgical context", (
 	assert.equal(hasPublishedLiturgicalContext({ supplementalSaints: [{ name: "Eufemia" }] }), true);
 	assert.equal(hasPublishedLiturgicalContext({ celebrations: [] }), false);
 	assert.equal(hasPublishedLiturgicalContext({ liturgicalSeason: "ordinary" }), true);
+});
+
+test("combines celebrations and saints in a stable deduplicated display order", () => {
+	const items = getLiturgicalContextItems({
+		celebrations: [
+			{
+				name: "Fiesta de prueba",
+				rank: "feast",
+				isPrimary: true,
+				saints: [{ name: "Eufemia" }, { name: "Nicomedes" }],
+			},
+			{
+				name: "Memoria opcional",
+				rank: "optional-memorial",
+				saints: [{ name: "Nicomedes" }],
+			},
+		],
+		supplementalSaints: [{ name: "Eufemia" }, { name: "Cipriano" }],
+	});
+
+	assert.deepEqual(items.map((item) => item.name), [
+		"Fiesta de prueba",
+		"Memoria opcional",
+		"Eufemia",
+		"Nicomedes",
+		"Cipriano",
+	]);
+	assert.deepEqual(items.map((item) => item.kind), ["celebration", "celebration", "saint", "saint", "saint"]);
 });
 
 test("preserves the dated Vatican News name capture and publishes no descriptive text", () => {

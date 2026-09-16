@@ -12,7 +12,7 @@ import {
 	addCalendarDays,
 	isValidDateKey,
 } from "@/lib/liturgicalSchedule.js";
-import { hasPublishedLiturgicalContext } from "@/lib/readings/liturgicalContext.js";
+import { getLiturgicalContextItems, hasPublishedLiturgicalContext } from "@/lib/readings/liturgicalContext.js";
 import { formatSaintName } from "@/lib/readings/saintNames.js";
 
 function getDateKeyInTimeZone(date, timeZone = DAILY_TIME_ZONE) {
@@ -92,10 +92,10 @@ const COLOR_SWATCHES = {
 };
 
 function LiturgicalContext({ reading }) {
-	const celebrations = Array.isArray(reading?.celebrations) ? reading.celebrations : [];
-	const primary = celebrations.find((celebration) => celebration?.isPrimary) || celebrations[0] || null;
-	const optionalCelebrations = celebrations.filter((celebration) => celebration !== primary);
-	const saints = celebrations.flatMap((celebration) => Array.isArray(celebration?.saints) ? celebration.saints : []);
+	const saints = Array.isArray(reading?.celebrations)
+		? reading.celebrations.flatMap((celebration) => Array.isArray(celebration?.saints) ? celebration.saints : [])
+		: [];
+	const contextItems = getLiturgicalContextItems(reading);
 	const supplementalSaints = Array.isArray(reading?.supplementalSaints)
 		? reading.supplementalSaints.filter((saint) => saint?.name?.trim())
 		: [];
@@ -131,63 +131,32 @@ function LiturgicalContext({ reading }) {
 					</summary>
 
 					<div id="liturgical-context-details" className="mt-5 border-t border-gray-200 pt-5 dark:border-gray-700">
-						<div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-							<div className="min-w-0">
-								{primary ? (
-									<>
-										<p className="text-sm font-medium text-[#b79b72]">Celebración principal</p>
-										<h3 className="mt-1 text-xl font-semibold text-[#314156] dark:text-gray-100">{primary.name}</h3>
-										{primary.rank && <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">{RANK_LABELS[primary.rank] || "Celebración"}</p>}
-									</>
-								) : !hasContextData && (
-									<p className="text-sm text-gray-600 dark:text-gray-300">
-										El contexto litúrgico no está disponible en las fuentes consultadas para esta fecha.
-									</p>
-								)}
-							</div>
-							<div className="flex shrink-0 flex-wrap gap-2 text-sm text-gray-700 dark:text-gray-200">
-								{reading?.liturgicalSeason && <span className="rounded-full bg-[#314156]/[0.08] px-3 py-1 dark:bg-white/10">{SEASON_LABELS[reading.liturgicalSeason] || reading.liturgicalSeason}</span>}
-								{reading?.liturgicalColor && COLOR_LABELS[reading.liturgicalColor] && (
-									<span className="inline-flex items-center gap-2 rounded-full bg-[#314156]/[0.08] px-3 py-1 dark:bg-white/10">
-										<span className={`h-3 w-3 rounded-full ${COLOR_SWATCHES[reading.liturgicalColor]}`} aria-hidden="true" />
-										Color {COLOR_LABELS[reading.liturgicalColor]}
-									</span>
-								)}
-							</div>
+						<div className="flex justify-end gap-2 text-sm text-gray-700 dark:text-gray-200">
+							{reading?.liturgicalSeason && <span className="rounded-full bg-[#314156]/[0.08] px-3 py-1 dark:bg-white/10">{SEASON_LABELS[reading.liturgicalSeason] || reading.liturgicalSeason}</span>}
+							{reading?.liturgicalColor && COLOR_LABELS[reading.liturgicalColor] && (
+								<span className="inline-flex items-center gap-2 rounded-full bg-[#314156]/[0.08] px-3 py-1 dark:bg-white/10">
+									<span className={`h-3 w-3 rounded-full ${COLOR_SWATCHES[reading.liturgicalColor]}`} aria-hidden="true" />
+									Color {COLOR_LABELS[reading.liturgicalColor]}
+								</span>
+							)}
 						</div>
 
-						{optionalCelebrations.length > 0 && (
-							<div className="mt-5">
-								<h3 className="text-sm font-semibold text-[#314156] dark:text-gray-100">Otras fiestas y celebraciones</h3>
-								<ul className="mt-2 space-y-2 text-sm text-gray-700 dark:text-gray-200">
-									{optionalCelebrations.map((celebration) => (
-										<li key={`${celebration.name}-${celebration.rank}`}>
-											<span className="font-medium">{celebration.name}</span>
-											{celebration.rank && <span className="text-gray-500 dark:text-gray-400"> · {RANK_LABELS[celebration.rank] || "Celebración"}</span>}
+						{contextItems.length > 0 ? (
+							<ul aria-label="Fiestas y santos del día" className="mt-5 list-disc space-y-2 pl-5 text-sm text-gray-700 dark:text-gray-200">
+								{contextItems.map((item, index) => {
+									const displayName = item.kind === "saint" ? formatSaintName(item.name) : item.name;
+									return (
+										<li key={`${item.kind}-${item.name}-${index}`}>
+											<span className={item.kind === "celebration" ? "font-medium" : undefined}>{displayName}</span>
+											{item.rank && <span className="text-gray-500 dark:text-gray-400"> · {RANK_LABELS[item.rank] || "Celebración"}</span>}
 										</li>
-									))}
-								</ul>
-							</div>
-						)}
-
-						{saints.length > 0 && (
-							<div className="mt-5" aria-labelledby="daily-saints-title">
-								<h3 id="daily-saints-title" className="text-sm font-semibold text-[#314156] dark:text-gray-100">Santos y santas del día</h3>
-								<ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-gray-700 dark:text-gray-200">
-									{saints.map((saint, index) => <li key={`${saint.name}-${index}`}>{formatSaintName(saint.name)}</li>)}
-								</ul>
-							</div>
-						)}
-
-						{supplementalSaints.length > 0 && (
-							<div className="mt-5" aria-labelledby="supplemental-saints-title">
-								<h3 id="supplemental-saints-title" className="text-sm font-semibold text-[#314156] dark:text-gray-100">
-									Otros santos y santas del día
-								</h3>
-								<ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-gray-700 dark:text-gray-200">
-									{supplementalSaints.map((saint, index) => <li key={`${saint.name}-${index}`}>{formatSaintName(saint.name)}</li>)}
-								</ul>
-							</div>
+									);
+								})}
+							</ul>
+						) : !hasContextData && (
+							<p className="mt-5 text-sm text-gray-600 dark:text-gray-300">
+								El contexto litúrgico no está disponible en las fuentes consultadas para esta fecha.
+							</p>
 						)}
 					</div>
 				</details>

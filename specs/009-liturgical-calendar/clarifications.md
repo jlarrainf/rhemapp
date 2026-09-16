@@ -86,3 +86,11 @@ Estado: Resolved — decisiones de alcance registradas el 2026-09-14 y ampliacio
 - **Fuentes:** `Fuente y verificación` se moverá a una sección independiente posterior al contexto. La lista principal no mencionará proveedores, URLs, atribución ni enlaces; las fuentes primarias, secundarias y enlaces RF-14 quedarán dentro del disclosure posterior.
 - **Disponibilidad:** la captura suplementaria válida de Vatican News cuenta como contexto disponible aunque todavía falte la celebración estructurada del Ordo. El mensaje de ausencia solo se permite cuando no hay celebración, santo, captura suplementaria, tiempo ni color verificables en las fuentes revisadas.
 - **Accesibilidad y responsive:** el contexto estará cerrado inicialmente, será operable por teclado, tendrá un resumen identificable y conservará legibilidad en móvil; la sección de fuentes posterior mantendrá su foco y enlaces accesibles.
+
+## Refinamiento aprobado: lista integrada de fiestas y santos
+
+- **Una sola lista visible:** Daily reunirá en una única lista las fiestas/celebraciones del Ordo y todos los santos disponibles, incluidos los nombres de la captura de Vatican News. La separación por fuente se conserva únicamente en los datos y en la sección posterior de provenance.
+- **Orden estable:** la lista mostrará primero las celebraciones en el orden editorial publicado, después los santos asociados del Ordo y finalmente los nombres suplementarios de Vatican News, conservando el orden de cada fuente. Los nombres repetidos de forma exacta se mostrarán una sola vez para evitar duplicación visual.
+- **Encabezado:** no se mostrarán “Santos y santas del día”, “Otros santos y santas del día” ni encabezados equivalentes basados en la existencia de una fuente anterior. El resumen del disclosure seguirá siendo “Fiestas y santos del día” y la lista tendrá ese mismo significado unificado.
+- **Metadatos de celebración:** el rango de una fiesta o celebración seguirá visible como información secundaria junto a su nombre cuando exista; no se mostrará información de fuente dentro de la lista.
+- **Fecha solo suplementaria:** cuando solo exista `supplementalSaints`, sus nombres aparecerán directamente en la lista unificada, sin la palabra “otros” y sin cambiar el mensaje de disponibilidad agregada.
