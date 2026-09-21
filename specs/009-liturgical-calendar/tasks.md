@@ -275,3 +275,35 @@
   - RF: RF-1 a RF-18
   - Hecho cuando: pasan lint, build, validación de datos y detector; `validation.md` registra la comparación visual, las URLs y el despliegue público.
   - Evidencia: `validation.md` actualizado con comparación visual, pruebas públicas y estado exitoso de Vercel; T47–T50 marcadas tras la evidencia.
+
+## Fase 12 — Remediación del incidente del sincronizador diario
+
+- [x] T51 — Registrar el diagnóstico del incidente operativo.
+  - RF: RF-15, RF-19
+  - Hecho cuando: la spec, las clarificaciones, el plan, este backlog y `validation.md` registran los runs afectados, la reproducción local, la causa raíz, el impacto, los límites y la secuencia de remediación; ningún código de aplicación se modifica durante esta fase.
+  - Evidencia: runs de GitHub Actions `35503401236` y `35590502665`; run exitoso de comparación `35435040835`; `npm run sync:vatican-saints -- --date 2026-09-20 --dry-run` y `--date 2026-09-21 --dry-run` reproducen el fallo sin mutar el JSON.
+
+- [x] T52 — Aprobar el contrato editorial para encabezados compuestos de Vatican News.
+  - RF: RF-15, RF-19
+  - Hecho cuando: la revisión define que cada nombre o grupo explícito conserva una entrada, que `Pablo Chông Hasang y Compañeros` permanece como grupo único, y los fixtures mínimos distinguen entradas válidas de texto biográfico ambiguo.
+  - Evidencia: decisión registrada en `spec.md` y `clarifications.md`; expectativas aprobadas: 2026-09-20 → `Andrea Kim Taego˘n`, `Pablo Chông Hasang y Compañeros`, `Eustaquio`; 2026-09-21 → `Mateo`, `Pánfilo`, `Efigenia`.
+
+- [x] T53 — Endurecer el parser y sus pruebas contra el contrato aprobado.
+  - RF: RF-15, RF-19
+  - Hecho cuando: `vaticanNewsSaints.js` conserva nombres Unicode y alias parentéticos válidos sin transliterarlos, omite encabezados litúrgicos sin nombre individual, acepta una captura vacía válida, rechaza duplicados/fechas/estructura/paréntesis inválidos y mantiene la extracción fail-closed; `npm run test:vatican-saints` cubre los formatos del incidente y las regresiones existentes.
+  - Evidencia: `src/lib/readings/vaticanNewsSaints.js`, `scripts/test-vatican-news-saints.mjs` y fixtures del 20/09, 21/09, 01/11 y 21/11; `npm run test:vatican-saints` (12/12); escaneo real concurrente del 2026-09-20 al 2026-12-31 (103/103 páginas aceptadas, 0 rechazadas, 0 HTTP inesperados); dry-runs locales sin mutar el JSON.
+
+- [ ] T54 — Aislar el fallo opcional de Vatican News dentro del workflow.
+  - RF: RF-7, RF-8, RF-15, RF-19
+  - Hecho cuando: `.github/workflows/sync-daily-readings.yml` permite que la sincronización primaria, `validate:daily` y el commit de cambios válidos continúen ante una captura secundaria rechazada; el run muestra una advertencia o estado parcial explícito y nunca publica la captura inválida.
+  - Evidencia: pendiente de implementación; verificar también permisos, concurrencia, idempotencia y el camino de fallo del commit.
+
+- [ ] T55 — Verificar recuperación, publicación e idempotencia del flujo completo.
+  - RF: RF-7, RF-8, RF-15, RF-19
+  - Hecho cuando: pasan los dry-runs del 20 y 21 de septiembre, la fuente inválida deja intacta la captura anterior, la fuente válida actualiza solo la fecha vigente y un `workflow_dispatch` controlado confirma validación, commit condicionado y despliegue sin bloqueo por la fuente secundaria.
+  - Evidencia: pendiente de ejecución remota y de comprobación de la versión publicada; no marcar por un render local únicamente.
+
+- [ ] T56 — Actualizar operación, validación y cierre del incidente.
+  - RF: RF-1 a RF-19
+  - Hecho cuando: `docs/liturgical-calendar-operation.md` y `validation.md` describen `partial`, advertencias, conservación de la última captura, rollback y enlaces a los runs; pasan `npm run test:readings`, `npm run test:calendar`, `npm run test:vatican-saints`, `npm run validate:daily`, `npm run lint`, `npm run build` y `git diff --check`; la spec puede volver a `Accepted` solo con evidencia RF-15/RF-19.
+  - Evidencia: pendiente de completar después de T52–T55.

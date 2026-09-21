@@ -127,7 +127,7 @@ async function main() {
 	const previousDocument = JSON.stringify(data);
 	const nextDocument = `${JSON.stringify(candidate, null, 2)}\n`;
 	const changed = previousDocument !== JSON.stringify(candidate);
-	console.log(`${dateKey}: ${names.join(", ")} (${VATICAN_NEWS_PROVIDER})`);
+	console.log(`${dateKey}: ${names.length > 0 ? names.join(", ") : "sin nombres individuales"} (${VATICAN_NEWS_PROVIDER})`);
 
 	if (dryRun) {
 		console.log(changed ? `Simulación: se actualizaría ${filePath}` : "Simulación: sin cambios; la captura ya está actualizada");

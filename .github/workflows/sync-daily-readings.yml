@@ -30,6 +30,8 @@ jobs:
           BIBLE_API_KEY: ${{ secrets.BIBLE_API_KEY }}
         run: npm run sync:daily -- --start 2026-09-10 --end 2026-12-31
       - name: Actualizar nombres de santos de Vatican News
+        id: sync_vatican_saints
+        continue-on-error: true
         run: npm run sync:vatican-saints
       - name: Validar lecturas
         run: npm run validate:daily -- --year 2026 --start 2026-09-10 --end 2026-12-31
@@ -43,3 +45,21 @@ jobs:
           git add public/data/daily-readings
           git commit -m "chore: sincronizar evangelios diarios"
           git push
+      - name: Registrar estado de la captura secundaria
+        if: always()
+        env:
+          VATICAN_OUTCOME: ${{ steps.sync_vatican_saints.outcome }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          if [ "$VATICAN_OUTCOME" = "failure" ]; then
+            echo "::warning title=Captura secundaria degradada::Vatican News no se actualizó; se conserva la última captura válida y la publicación primaria continúa."
+            {
+              echo "### Advertencia: captura secundaria de Vatican News"
+              echo ""
+              echo "La captura opcional falló o fue rechazada por el parser. Se conservó la última captura válida; la validación y publicación primaria continuaron."
+              echo ""
+              echo "[Ver ejecución completa]($RUN_URL)"
+            } >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "Captura secundaria de Vatican News: $VATICAN_OUTCOME" >> "$GITHUB_STEP_SUMMARY"
+          fi

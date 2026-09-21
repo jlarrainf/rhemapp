@@ -23,16 +23,51 @@ const DESCRIPTOR_WORDS = Object.freeze([
 	"abad",
 	"abadessa",
 	"abadesa",
+	"arcángel",
+	"arcangel",
+	"apóstol",
+	"apostol",
+	"apóstoles",
+	"apostoles",
 	"beato",
 	"beata",
+	"canónigo",
+	"canonigo",
+	"cardenal",
+	"catequista",
+	"carmelita",
+	"carmelitas",
+	"conde",
+	"condesa",
 	"confesor",
 	"confesora",
 	"diácono",
 	"diacono",
+	"discípula",
+	"discipula",
+	"discípulas",
+	"discipulas",
+	"discípulo",
+	"discipulo",
+	"discípulos",
+	"discipulos",
 	"doctor",
+	"doctora",
+	"doctoras",
+	"duque",
+	"duquesa",
 	"eremita",
+	"evangelista",
+	"franciscana",
+	"franciscano",
+	"franciscanas",
+	"franciscanos",
 	"fundador",
 	"fundadora",
+	"hermana",
+	"hermano",
+	"hija",
+	"hijo",
 	"mártir",
 	"martir",
 	"mártires",
@@ -41,23 +76,39 @@ const DESCRIPTOR_WORDS = Object.freeze([
 	"monja",
 	"obispo",
 	"papa",
+	"patrón",
+	"patron",
+	"patrona",
 	"presbítero",
 	"presbitero",
 	"presbíteros",
 	"presbiteros",
+	"protectora",
+	"reina",
+	"rey",
 	"religiosa",
 	"religioso",
 	"sacerdote",
+	"sacerdotes",
+	"soldado",
+	"soldados",
 	"santa",
 	"santo",
 	"santas",
 	"santos",
 	"virgen",
 	"viuda",
+	"médico",
+	"medico",
+	"filósofo",
+	"filosofo",
 ]);
 
 const DESCRIPTOR_PATTERN = new RegExp(`^(?:${DESCRIPTOR_WORDS.join("|")})(?:\\b|\\s)`, "iu");
-const NAME_PATTERN = /^[\p{L}\p{M}\d]+(?:[ .'’'\-]+[\p{L}\p{M}\d]+)*(?:\s+y\s+[\p{L}\p{M}\d]+(?:[ .'’'\-]+[\p{L}\p{M}\d]+)*)?$/u;
+const DESCRIPTOR_AND_NAME_PATTERN = new RegExp(`^((?:${DESCRIPTOR_WORDS.join("|")})(?:\\b|\\s)+)y\\s+(.+)$`, "iu");
+const DESCRIPTOR_CONNECTOR_PATTERN = /^(?:a|al|como|con|de|del|desde|en|entre|para|por|según|segun|sin|junto)(?:\b|\s)/iu;
+const NON_SAINT_HEADING_PATTERN = /^(?:conmemoraci[oó]n|dedicaci[oó]n|fiesta|memoria|presentaci[oó]n|solemnidad)\b/iu;
+const NAME_PATTERN = /^[\p{L}\p{M}\p{N}\p{Sk}]+(?:[ .'’'()\-]+[\p{L}\p{M}\p{N}\p{Sk}]+)*(?:\s+y\s+[\p{L}\p{M}\p{N}\p{Sk}]+(?:[ .'’'()\-]+[\p{L}\p{M}\p{N}\p{Sk}]+)*)?[)]?$/u;
 
 function normalizeWhitespace(value) {
 	return value.replace(/\s+/g, " ").trim();
@@ -67,8 +118,23 @@ function decodeHtml(value) {
 	const namedEntities = {
 		amp: "&",
 		apos: "'",
+		Aacute: "Á",
+		aacute: "á",
+		Eacute: "É",
+		eacute: "é",
+		Iacute: "Í",
+		iacute: "í",
+		Ntilde: "Ñ",
+		ntilde: "ñ",
 		nbsp: " ",
+		Oacute: "Ó",
+		oacute: "ó",
 		quot: '"',
+		Uacute: "Ú",
+		uacute: "ú",
+		uuml: "ü",
+		lt: "<",
+		gt: ">",
 	};
 
 	return value
@@ -92,21 +158,56 @@ function normalizedDateLabel(dateKey) {
 	return `${day} ${SPANISH_MONTHS[month - 1]}`;
 }
 
-function stripLeadingSaintPrefix(value) {
-	return value.replace(/^(?:(?:s|ss|b|bb)\.\s*|(?:san|santa|santos|santas|beato|beata|beatos|beatas)\s+)/iu, "").trim();
+function normalizedDateLabelComparison(value) {
+	const normalized = normalizedComparison(value);
+	return normalized.replace(/^(0?\d{1,2})(\s+)/u, (_, day, separator) => `${Number(day)}${separator}`);
+}
+
+function stripLeadingSaintPrefix(value, index) {
+	const prefix = value.match(/^(?:(?:ss|bb|s|b)\.\s*|(?:san|santa|santos|santas|beato|beata|beatos|beatas)\s+)/iu);
+	if (!prefix) {
+		if (/^nuestra\s+señora\b/iu.test(value)) return value;
+		throw new Error(`Ambiguous Vatican News saint heading at index ${index}`);
+	}
+
+	const name = value.slice(prefix[0].length).trim();
+	if (!name) throw new Error(`Empty Vatican News saint heading at index ${index}`);
+	return name;
+}
+
+function cleanName(value) {
+	return normalizeWhitespace(value).replace(/[.;:]+$/u, "");
+}
+
+function isDescriptorPart(value) {
+	const part = normalizeWhitespace(value);
+	return Boolean(part) && (DESCRIPTOR_PATTERN.test(part) || DESCRIPTOR_CONNECTOR_PATTERN.test(part) || /^\p{Ll}/u.test(part));
+}
+
+function isNameCandidate(value) {
+	const name = cleanName(value);
+	const openingParentheses = (name.match(/\(/gu) || []).length;
+	const closingParentheses = (name.match(/\)/gu) || []).length;
+	return Boolean(name)
+		&& /^\p{Lu}/u.test(name)
+		&& openingParentheses === closingParentheses
+		&& !isDescriptorPart(name)
+		&& NAME_PATTERN.test(name);
 }
 
 function assertName(value, context) {
-	const name = normalizeWhitespace(value).replace(/[.;:]+$/u, "");
-	if (!name || !NAME_PATTERN.test(name)) {
+	const name = cleanName(value);
+	if (!isNameCandidate(name)) {
 		throw new Error(`Ambiguous Vatican News saint name in ${context}`);
 	}
 	return name;
 }
 
 function extractNamesFromHeading(heading, index) {
-	const cleanedHeading = stripLeadingSaintPrefix(normalizeWhitespace(heading));
-	if (!cleanedHeading) throw new Error(`Empty Vatican News saint heading at index ${index}`);
+	const normalizedHeading = normalizeWhitespace(heading);
+	if (NON_SAINT_HEADING_PATTERN.test(normalizedHeading)) return [];
+
+	const cleanedHeading = stripLeadingSaintPrefix(normalizedHeading, index);
 
 	const [firstPart, ...descriptorParts] = cleanedHeading.split(",").map(normalizeWhitespace);
 	const names = [assertName(firstPart, `heading ${index}`)];
@@ -114,13 +215,32 @@ function extractNamesFromHeading(heading, index) {
 	for (const descriptorPart of descriptorParts) {
 		if (!descriptorPart) throw new Error(`Empty Vatican News saint descriptor at index ${index}`);
 
-		const descriptorMatch = descriptorPart.match(new RegExp(`^(?:${DESCRIPTOR_WORDS.join("|")})\\s+y\\s+(.+)$`, "iu"));
-		if (descriptorMatch && !DESCRIPTOR_PATTERN.test(descriptorMatch[1])) {
-			names.push(assertName(descriptorMatch[1], `heading ${index}`));
+		const leadingNameMatch = descriptorPart.match(/^y\s+(.+)$/iu);
+		if (leadingNameMatch) {
+			if (isDescriptorPart(leadingNameMatch[1])) {
+				throw new Error(`Ambiguous Vatican News saint descriptor at index ${index}`);
+			}
+			names.push(assertName(leadingNameMatch[1], `heading ${index}`));
 			continue;
 		}
 
-		if (!DESCRIPTOR_PATTERN.test(descriptorPart)) {
+		const descriptorAndNameMatch = descriptorPart.match(DESCRIPTOR_AND_NAME_PATTERN);
+		if (descriptorAndNameMatch) {
+			const candidate = descriptorAndNameMatch[2];
+			if (isDescriptorPart(candidate)) continue;
+			if (isNameCandidate(candidate)) {
+				names.push(assertName(candidate, `heading ${index}`));
+				continue;
+			}
+			throw new Error(`Ambiguous Vatican News saint descriptor at index ${index}`);
+		}
+
+		if (isNameCandidate(descriptorPart)) {
+			names.push(assertName(descriptorPart, `heading ${index}`));
+			continue;
+		}
+
+		if (!isDescriptorPart(descriptorPart)) {
 			throw new Error(`Ambiguous Vatican News saint descriptor at index ${index}`);
 		}
 	}
@@ -163,14 +283,14 @@ export function parseVaticanNewsSaintNames(html, dateKey) {
 		throw new Error("Vatican News page title does not match the saint calendar");
 	}
 
-	const sourceDate = normalizedComparison(extractDateLabel(html));
-	if (sourceDate !== normalizedComparison(normalizedDateLabel(dateKey))) {
+	const sourceDate = normalizedDateLabelComparison(extractDateLabel(html));
+	if (sourceDate !== normalizedDateLabelComparison(normalizedDateLabel(dateKey))) {
 		throw new Error(`Vatican News date mismatch: expected ${dateKey}, received ${sourceDate || "unknown"}`);
 	}
 
 	const names = extractSaintHeadings(html).flatMap(extractNamesFromHeading);
 	const normalizedNames = names.map(normalizedComparison);
-	if (names.length === 0 || normalizedNames.some((name) => !name)) {
+	if (normalizedNames.some((name) => !name)) {
 		throw new Error("Vatican News returned no usable saint names");
 	}
 	if (new Set(normalizedNames).size !== normalizedNames.length) {
@@ -182,7 +302,7 @@ export function parseVaticanNewsSaintNames(html, dateKey) {
 
 export function buildSupplementalSaints(dateKey, names, fetchedAt = new Date().toISOString()) {
 	if (!isValidDateKey(dateKey)) throw new Error(`Invalid Vatican News date: ${dateKey}`);
-	if (!Array.isArray(names) || names.length === 0) throw new Error("Vatican News names are required");
+	if (!Array.isArray(names)) throw new Error("Vatican News names are required");
 	return names.map((name) => ({
 		name: assertName(name, "published capture"),
 		source: {

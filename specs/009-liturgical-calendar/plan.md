@@ -6,6 +6,42 @@ La spec extiende el dominio de lecturas existente para incluir metadata litúrgi
 
 No se introduce una base de datos para el calendario en esta fase. La fuente de publicación seguirá siendo el conjunto local validado, actualizado por el sincronizador editorial.
 
+## Plan de remediación del incidente operativo 2026-09-21
+
+### Diagnóstico
+
+La causa inmediata está confirmada en los runs remotos `35503401236` y `35590502665`: el paso de captura de nombres de Vatican News termina con `Ambiguous Vatican News saint name in heading 0` el 20 de septiembre y `Ambiguous Vatican News saint descriptor at index 0` el 21 de septiembre. La sincronización primaria de calendario termina antes de ese paso; validación y commit quedan omitidos porque el workflow trata la captura secundaria opcional como un paso bloqueante.
+
+El parser vigente no cubre dos cambios legítimos de la fuente: encabezados con varios nombres separados por coordinación y descriptores nuevos como `apóstol y evangelista`, además de caracteres Unicode presentes en nombres publicados. El comportamiento fail-closed debe conservarse: el sistema no puede adivinar una separación ni publicar descriptores como nombres.
+
+### Resultado objetivo
+
+El pipeline tendrá dos propiedades independientes:
+
+1. La sincronización primaria de lecturas podrá validar y publicar sus cambios válidos aunque falle la captura opcional de Vatican News.
+2. La captura secundaria seguirá siendo atómica, fechada, idempotente y fail-closed. Ante una ambigüedad, conservará la última captura válida de esa fecha y producirá una advertencia visible con diagnóstico suficiente para corregir el parser.
+
+### Orden de ejecución
+
+1. **Cerrar la decisión editorial (T52).** Revisar los encabezados reales del 20 y 21 de septiembre y decidir cómo representar un grupo con varios nombres. Crear fixtures mínimos, no una copia innecesaria de la página completa, con la salida esperada y los casos que deben seguir siendo rechazados.
+2. **Endurecer el contrato del parser (T53).** Ajustar `src/lib/readings/vaticanNewsSaints.js` para aceptar únicamente las formas aprobadas: vocabulario de descriptores respaldado por fixtures, encabezados compuestos con separadores explícitos, Unicode y alias parentéticos válidos preservados en el campo `name`. Omitir encabezados litúrgicos sin nombre individual y permitir una captura válida con lista vacía. Mantener rechazo ante texto biográfico indistinguible, paréntesis desbalanceados, duplicados, fecha incorrecta, secciones ausentes o estructura no reconocida.
+3. **Aislar el workflow (T54).** Reordenar o separar `.github/workflows/sync-daily-readings.yml` para que el resultado secundario no omita `validate:daily` ni el commit de la parte primaria. La ejecución debe conservar la captura anterior cuando T53 rechace la fuente y dejar un resumen de advertencia; no se debe usar `continue-on-error` de forma que oculte el estado sin una salida observable.
+4. **Verificar el flujo completo (T55).** Ejecutar las pruebas de parser, validación de datos y dry-runs con 20/09 y 21/09; simular fuente secundaria inválida y confirmar que la captura anterior no cambia. Ejecutar un `workflow_dispatch` controlado y comprobar en GitHub que la sincronización primaria, la validación, el commit condicionado y el despliegue siguen su camino aunque la fuente secundaria esté degradada.
+5. **Cerrar documentación y operación (T56).** Actualizar `docs/liturgical-calendar-operation.md` y `validation.md` con el estado `partial`, la advertencia, la conservación de última captura, el rollback y los enlaces a los runs. Solo después se podrá devolver la spec a estado aceptado.
+
+### Límites y no objetivos del incidente
+
+- No rotar `BIBLE_API_KEY`, cambiar Vercel, migrar el JSON a una base de datos ni alterar la autoridad del Ordo: ninguna de esas acciones explica el fallo observado.
+- No relajar el parser para aceptar cualquier texto visible ni convertir el fallo en éxito silencioso.
+- El rango fijo `2026-09-10`–`2026-12-31` genera advertencias esperables para fechas futuras aún no publicadas; es una mejora operativa separable y no la causa del fallo actual.
+
+### Criterios de salida
+
+- Los fixtures de 2026-09-20 y 2026-09-21 pasan con la representación editorial aprobada y los casos ambiguos siguen fallando sin mutación.
+- Una falla secundaria deja la entrada secundaria anterior intacta, permite validar/commit de cambios primarios válidos y queda visible como `partial`/advertencia en el run.
+- Un run válido e idempotente no genera cambios repetidos ni duplica nombres.
+- `npm run test:vatican-saints`, `npm run test:calendar`, `npm run test:readings`, `npm run validate:daily`, `npm run lint` y `npm run build` pasan; `validation.md` contiene evidencia RF-15 y RF-19.
+
 ## Arquitectura y módulos
 
 - `src/lib/readings/`: normalización, validación y compatibilidad de metadata litúrgica.
@@ -167,9 +203,10 @@ El bloque conservará el componente nativo `<details>` y se alineará visualment
 | Daily enriquecido | RF-1, RF-2, RF-3, RF-9, RF-11 |
 | Lista pública de santos y presentación compacta | RF-2, RF-4, RF-6, RF-9, RF-11, RF-13 |
 | `informationSource` y enlace atribuido en Daily | RF-7, RF-11, RF-12, RF-14 |
-| `supplementalSaints`, parser y lista web de nombres | RF-7, RF-9, RF-11, RF-15 |
+| `supplementalSaints`, parser y lista web de nombres | RF-7, RF-9, RF-11, RF-15, RF-19 |
 | Proyección unificada de fiestas y santos | RF-2, RF-11, RF-13, RF-15, RF-16, RF-17, RF-18 |
-| Sincronización y documentación editorial | RF-7, RF-8 |
+| Sincronización y documentación editorial | RF-7, RF-8, RF-19 |
+| Aislamiento del fallo secundario y publicación parcial observable | RF-7, RF-8, RF-15, RF-19 |
 | Tests responsive, accesibles y de zona horaria | RF-1 a RF-14 |
 
 ## Estrategia de tests
@@ -186,6 +223,8 @@ El bloque conservará el componente nativo `<details>` y se alineará visualment
 - Tests de API para parámetros repetidos, calendario no soportado, datos incompletos y respuesta válida.
 - Tests de sincronización para fuente caída, respuesta parcial, conservación de la última entrada y estado stale.
 - Tests del job diario para zona horaria chilena, fecha de fuente, idempotencia, escritura solo de la fecha vigente, preservación de campos no relacionados y rechazo sin mutación ante HTML inválido.
+- Tests de regresión para encabezados compuestos, descriptores ampliados y Unicode válido observados el 2026-09-20 y 2026-09-21; cada caso debe conservar el orden aprobado y rechazar ambigüedad no resuelta.
+- Tests del workflow o una simulación equivalente para confirmar que un fallo de Vatican News conserva su captura anterior, deja estado `partial`/advertencia y no impide validar ni publicar cambios primarios válidos.
 - Verificación manual de Daily y calendario en móvil, escritorio, teclado y lector de pantalla.
 - Verificación manual de enlaces externos en Daily y Android: nombre accesible, nueva pestaña/intención externa, atribución visible y degradación segura cuando falta `informationSource`.
 - Verificación manual de las listas de santos en Daily: nombres verticales, sin tarjetas/separadores/enlaces visibles, disclosure de fuentes accesible por teclado y comportamiento legible en móvil.

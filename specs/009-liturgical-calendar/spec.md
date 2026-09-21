@@ -1,6 +1,6 @@
 # Spec 009 — Calendario litúrgico enriquecido
 
-Estado: Refinamiento de lista integrada de contexto aprobado para implementación — autorización explícita del propietario el 2026-09-16
+Estado: Implementing — remediación del incidente del sincronizador en curso; T52 aprobada y T53–T56 pendientes de verificación
 Prioridad: P1
 
 ## Contexto y objetivo
@@ -42,10 +42,11 @@ Rhemapp ya muestra las lecturas del día y mantiene un calendario chileno con fe
 - RF-12: EL SISTEMA ofrece la misma información esencial y los mismos enlaces de fecha en web, PWA y Android mediante contratos compartidos, sin duplicar la lógica del calendario en los clientes.
 - RF-13: CUANDO una entrada publicada contiene uno o más santos del día con nombre y fuente verificados, EL SISTEMA muestra sus nombres en una lista vertical simple en la sección de contexto de Daily y en el resumen mensual, conserva el orden editorial y no muestra descripciones biográficas, contenido auxiliar dentro de la lista ni placeholders cuando no existen santos verificados.
 - RF-14: CUANDO un santo publicado tiene una página específica del santo o de la fecha en Vatican News cotejada editorialmente con la celebración y el nombre del Ordo, EL SISTEMA ofrece en el contexto de Daily un enlace externo claramente atribuido a Vatican News mediante el disclosure de fuentes, fuera de la lista visible de nombres; SI no existe una coincidencia exacta o la URL no está verificada, ENTONCES no muestra el enlace ni inventa o copia información adicional.
-- RF-15: CUANDO el proceso diario de sincronización consulta la página `https://www.vaticannews.va/es/santos.html` para la fecha vigente en `America/Santiago`, EL SISTEMA debe validar la fecha mostrada por la fuente, extraer solo nombres inequívocos en el orden visible y publicar una captura fechada y verificada; CUANDO la captura válida existe, EL SISTEMA integra esos nombres en la misma lista vertical de fiestas, celebraciones y santos del Daily, sin separar por fuente, tarjetas, separadores ni enlaces dentro de la lista; SI la fuente falla, no corresponde a la fecha, cambia su estructura o un nombre no puede extraerse sin ambigüedad, ENTONCES el proceso rechaza la actualización de esa fecha, conserva la última captura válida de esa misma fecha y no bloquea las lecturas.
+- RF-15: CUANDO el proceso diario de sincronización consulta la página `https://www.vaticannews.va/es/santos.html` para la fecha vigente en `America/Santiago`, EL SISTEMA debe validar la fecha mostrada por la fuente, extraer solo nombres inequívocos en el orden visible y publicar una captura fechada y verificada; CUANDO la captura válida existe, EL SISTEMA integra esos nombres en la misma lista vertical de fiestas, celebraciones y santos del Daily, sin separar por fuente, tarjetas, separadores ni enlaces dentro de la lista; SI la página solo contiene encabezados litúrgicos no nominales, la captura válida produce una lista vacía y no publica esos encabezados como santos; SI la fuente falla, no corresponde a la fecha, cambia su estructura o un nombre no puede extraerse sin ambigüedad, ENTONCES el proceso rechaza la actualización de esa fecha, conserva la última captura válida de esa misma fecha y no bloquea las lecturas.
 - RF-16: CUANDO Daily dispone de contexto litúrgico verificable, EL SISTEMA lo presenta dentro de un bloque colapsable “Contexto litúrgico”, cerrado por defecto, que incluye en una única lista integrada la fiesta o celebración del día, las celebraciones opcionales y los santos y santas disponibles, además del tiempo/color cuando existan.
 - RF-17: CUANDO Daily muestra un santo o santa en la lista integrada del contexto, EL SISTEMA presenta el nombre con el tratamiento “San” o “Santa” correspondiente antes del nombre, conserva los tratamientos marianos o títulos ya publicados que no admiten ese prefijo y no altera el nombre almacenado ni la provenance.
 - RF-18: SI una fuente secundaria ya aporta una captura válida de santos para la fecha pero la fuente litúrgica principal aún no contiene una celebración, ENTONCES EL SISTEMA muestra la captura dentro del contexto y no presenta el mensaje de contexto no disponible; dicho mensaje solo aparece cuando no existe información contextual verificable en ninguna fuente revisada.
+- RF-19: CUANDO falla la captura opcional de nombres de Vatican News por una respuesta externa inválida o por un cambio de formato que el parser no reconoce, EL SISTEMA conserva la última captura válida de esa fecha, ejecuta la validación y permite publicar los cambios válidos de la sincronización litúrgica primaria; el workflow debe dejar el fallo secundario visible como advertencia accionable sin abortar toda la publicación ni ejecutar un commit de captura inválida. Cuando la fuente publica un grupo explícito, el sistema conserva el nombre/grupo completo como una sola entrada y no inventa ni separa personas no nombradas.
 
 ## Requisitos no funcionales
 
@@ -78,6 +79,10 @@ Rhemapp ya muestra las lecturas del día y mantiene un calendario chileno con fe
 - Página secundaria sin coincidencia exacta, redirección, cambio de URL o ausencia de página individual en Vatican News.
 - Página de `santos.html` con más de un nombre, fiesta enlazada, títulos biográficos o cambios de estructura; solo se publicarán nombres extraídos y revisados sin ambigüedad.
 - Job diario retrasado, duplicado o ejecutado fuera de la medianoche chilena; la fecha de trabajo se resolverá explícitamente con `America/Santiago` y la operación será idempotente.
+- Fuente de Vatican News con encabezados compuestos, varios nombres, descriptores nuevos o caracteres Unicode válidos; el parser debe conservar el texto del nombre sin inventar, transliterar ni descartar silenciosamente la fecha completa.
+- Fuente de Vatican News con encabezados de celebración sin nombre individual, como `Fiesta de todos los santos`, o con un encabezado litúrgico mezclado con nombres; esos títulos se excluyen del listado suplementario y no se publican como santos.
+- Nombre de Vatican News con alias parentético, como `Simone y Judas (Tadeo)`; se conserva el alias sin perder el balance del nombre.
+- Fallo del parser secundario después de una sincronización primaria válida; el pipeline debe poder validar y publicar la parte primaria sin perder la captura secundaria anterior.
 - Job sin permisos de escritura, conflicto al publicar en `main` o despliegue posterior fallido; la captura anterior continuará sirviéndose y el fallo quedará visible en la ejecución del workflow.
 - Lista de santos con enlaces secundarios verificados; el diseño debe ocultar esos enlaces del bloque visible de nombres sin perder su acceso desde el disclosure de fuentes.
 - Fecha con celebraciones del Ordo y captura suplementaria de Vatican News; la interfaz debe integrar todos los nombres en una sola lista y no presentar “Otros santos y santas del día” ni otro subtítulo que suponga una fuente anterior.
@@ -103,7 +108,7 @@ Rhemapp ya muestra las lecturas del día y mantiene un calendario chileno con fe
 
 ## Criterios de finalización
 
-- RF-1 a RF-15 tienen implementación y evidencia en `validation.md`.
+- RF-1 a RF-19 tienen implementación y evidencia en `validation.md`.
 - Las entradas completas, opcionales, incompletas y con conflicto de fuente tienen fixtures y validadores.
 - Los casos de santos verificados, ausentes, duplicados y no verificados tienen fixtures y pruebas; los nombres aparecen en Daily y en el resumen mensual sin inventar datos.
 - Los casos de enlace secundario presente, ausente, no coincidente y URL inválida tienen fixtures y pruebas; Daily muestra atribución externa sin almacenar ni renderizar biografías copiadas.
@@ -117,7 +122,23 @@ Rhemapp ya muestra las lecturas del día y mantiene un calendario chileno con fe
 - El workflow diario puede ejecutarse manualmente, es idempotente, actualiza solo la fecha vigente y deja la captura publicada disponible para el deploy de `main`.
 - Daily muestra fiestas y santos en una única lista integrada dentro del contexto colapsable, con tratamientos “San”/“Santa” y fuentes separadas después del contenido principal.
 - El contexto litúrgico comparte el lenguaje visual de las tarjetas de lectura sin introducir una superficie visual ajena al resto de Daily.
+- El workflow diario supera una ejecución con fallo controlado de Vatican News: conserva la última captura secundaria, valida los datos primarios y publica únicamente cambios válidos; el run identifica la advertencia y no publica contenido ambiguo.
+
+## Incidente operativo detectado — 2026-09-21
+
+El aviso recibido corresponde al workflow de GitHub Actions `Sincronizar calendario diario`, no a una notificación de la aplicación. La evidencia remota es reproducible:
+
+- El run `35590502665` del 2026-09-21 terminó en `Actualizar nombres de santos de Vatican News` con `Ambiguous Vatican News saint descriptor at index 0`; `Actualizar calendario 2026` terminó correctamente y validación/commit quedaron omitidos.
+- El run `35503401236` del 2026-09-20 falló en el mismo paso con `Ambiguous Vatican News saint name in heading 0`.
+- El run `35435040835` del 2026-09-19 fue exitoso, lo que acota la regresión al cambio de formato de la fuente entre esas fechas.
+- La reproducción local sin escritura (`npm run sync:vatican-saints -- --date 2026-09-20 --dry-run` y `--date 2026-09-21 --dry-run`) produce los mismos errores.
+
+La causa raíz confirmada es una incompatibilidad entre el parser fail-closed y el HTML vigente de Vatican News. El 2026-09-20 la fuente publica un encabezado compuesto como `ss. Andrea Kim Taego˘n, sacerdote, y Pablo Chông Hasang y Compañeros, mártires coreanos`; el parser no modela esa separación de nombres y su patrón de nombre no acepta todos los caracteres observados. El 2026-09-21 publica `s. Mateo, apóstol y evangelista`; `apóstol` no forma parte del vocabulario de descriptores aceptado. El rechazo es correcto para impedir una publicación ambigua, pero el pipeline actual convierte ese fallo de una fuente secundaria en fallo total del job.
+
+El impacto es operativo: no se reemplaza la captura secundaria con contenido dudoso, pero también se omiten los pasos posteriores del workflow y no se pueden publicar cambios primarios válidos calculados en esa ejecución. La solución debe mantener el rechazo fail-closed por fecha y aislar el paso secundario opcional del commit/validación primaria.
+
+La implementación queda planificada en T52–T56. Hasta que esas tareas se completen y validen, la spec no debe volver a declararse cumplida para el camino operativo RF-15/RF-19.
 
 ## Dudas abiertas
 
-No quedan dudas de producto pendientes para RF-14 a RF-18. La decisión aprobada es ofrecer desde Daily enlaces externos exactos cuando corresponda y mostrar en una única lista integrada los nombres de la celebración, los santos del Ordo y la captura fechada de `santos.html`, sin separar por fuente ni copiar texto externo. Vatican News sigue siendo fuente secundaria y el Ordo fuente litúrgica primaria; la provenance se conserva y se muestra después del contenido principal. La captura se consultará diariamente desde un job server-side/CI, con resolución de fecha chilena, validación estricta e idempotencia; ningún contenido externo que no supere el gate de URL, fecha, correspondencia, licencia/atribución, estructura y nombres puede llegar al calendario público. El contexto se abrirá solo por interacción del visitante.
+La intención de RF-14 a RF-18 permanece aprobada. T52 queda resuelta para este incidente: cada nombre o grupo explícito separado por la estructura editorial de Vatican News se publica como una entrada; `Pablo Chông Hasang y Compañeros` se conserva como un único grupo porque la fuente no nombra individualmente a los compañeros. La extracción conserva solo nombres explícitos, en orden, sin descriptores biográficos ni transliteración; cualquier caso que siga siendo ambiguo se rechaza y conserva la captura anterior. El workflow separará la captura secundaria opcional de la publicación primaria, manteniendo visible la advertencia y la trazabilidad.

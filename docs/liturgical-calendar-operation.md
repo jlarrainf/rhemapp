@@ -15,6 +15,8 @@ npm run validate:daily
 
 El rango se controla con `DAILY_SYNC_START` y `DAILY_SYNC_END` o con los argumentos del sincronizador. La fuente primaria se intenta primero y los respaldos se marcan como provisionales. Una respuesta incompleta, inválida, no verificada o en conflicto no reemplaza la entrada anterior: esa entrada queda con `source.syncStatus=stale`, conserva su contenido y registra el intento solo en el estado operativo local. Si no existe una versión previa, el día queda `unavailable` en `syncState` y no se publica contenido parcial.
 
+La captura opcional de nombres de Vatican News tiene un contrato separado. Si la página válida contiene únicamente encabezados de celebraciones no nominales, el sincronizador registra una captura sin nombres y no publica esos encabezados como `supplementalSaints`. Si el parser encuentra una ambigüedad, fecha incorrecta o cambio de estructura, rechaza solo la captura secundaria y conserva la captura anterior de esa fecha.
+
 Cada ejecución conserva `syncState.lastAttemptAt` y un intento por fecha con `status`, fuente y `attemptedAt`. Los mensajes de error quedan truncados y no se exponen mediante `/api/readings` ni `/api/calendar`. La escritura del JSON es atómica y la validación del documento candidato ocurre antes de reemplazar el archivo.
 
 ## Fuente secundaria informativa de santos
@@ -44,7 +46,9 @@ No hay autenticación ni datos privados en estos contratos. La vista mensual no 
 | `fresh` | Datos de la última sincronización válida | Mantener publicación |
 | `stale` | Última versión verificada con aviso discreto | Revisar la fuente antes de volver a sincronizar |
 | `unavailable` | Día sin publicación | No inventar celebración, santo ni lectura |
-| `partial` | La ejecución tuvo uno o más fallos | Corregir la fuente y repetir validación |
+| `partial` | La ejecución tuvo uno o más fallos | Corregir la fuente y repetir validación; una falla secundaria de Vatican News deja warning y no bloquea la publicación primaria |
+
+El paso secundario de Vatican News puede terminar con advertencia sin abortar la validación ni el commit de la sincronización primaria. El workflow deja el diagnóstico en el resumen de la ejecución y conserva la última captura secundaria válida; un fallo de la sincronización primaria o de `validate:daily` sí mantiene el job como fallido y evita publicar cambios.
 
 Para desactivar una incorporación nueva, pausa el job diario y conserva el JSON versionado. El rollback consiste en revertir el commit de captura mediante el flujo normal de Git, ejecutar `npm run validate:daily` y volver a desplegar. No borres el historial ni elimines metadata válida para ocultar un fallo.
 

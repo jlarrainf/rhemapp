@@ -1,6 +1,6 @@
 # Clarificaciones — Spec 009
 
-Estado: Resolved — decisiones de alcance registradas el 2026-09-14 y ampliaciones de santos, fuente secundaria y nombres de `santos.html` aprobadas el 2026-09-15; pendiente revisión humana del documento completo
+Estado: Resolved for T52 — decisiones de alcance registradas el 2026-09-14 y ampliaciones aprobadas hasta el 2026-09-16; regla editorial del incidente resuelta el 2026-09-21; T53–T56 pendientes de implementación y verificación
 
 ## Hallazgos de QA
 
@@ -77,6 +77,38 @@ Estado: Resolved — decisiones de alcance registradas el 2026-09-14 y ampliacio
 - **Fallo seguro:** si la fuente no responde, la fecha no coincide, el HTML cambia o el job no puede publicar, no se reemplazará la entrada válida ni se reutilizarán nombres de otra fecha. Las lecturas y los santos del Ordo seguirán disponibles; el fallo quedará registrado en la ejecución del workflow.
 - **Despliegue:** el job hará commit solo si cambió la captura y usará el flujo existente de `main` para que Vercel publique la nueva versión. No se necesitan nuevas variables de entorno ni secretos para consultar la URL pública.
 - **Revisión humana:** la revisión humana se realiza sobre la spec, el parser, sus fixtures y las validaciones antes de habilitar el job; las capturas diarias que pasan el contrato determinista no requieren una aprobación manual repetitiva.
+
+## Incidente operativo: regresión del formato de Vatican News — 2026-09-21
+
+### Hallazgo reproducible
+
+- Los runs `35503401236` (2026-09-20) y `35590502665` (2026-09-21) fallaron únicamente en `Actualizar nombres de santos de Vatican News`, después de que `Actualizar calendario 2026` terminara correctamente.
+- El 2026-09-20 el parser rechazó `ss. Andrea Kim Taego˘n, sacerdote, y Pablo Chông Hasang y Compañeros, mártires coreanos` con `Ambiguous Vatican News saint name in heading 0`.
+- El 2026-09-21 rechazó `s. Mateo, apóstol y evangelista` con `Ambiguous Vatican News saint descriptor at index 0`.
+- La reproducción local en modo `--dry-run` devuelve ambos errores y no muta `public/data/daily-readings/2026.json`.
+- El 2026-09-19 (`35435040835`) fue exitoso; la diferencia temporal confirma una regresión de compatibilidad con el formato publicado, no una falla general de credenciales o de instalación.
+
+### Causa e impacto
+
+El parser asumía que cada encabezado tendría un solo nombre y descriptores pertenecientes a un vocabulario cerrado. La fuente ahora publica encabezados con nombres compuestos, separadores coordinados, descriptores nuevos y caracteres Unicode válidos. El modo fail-closed evita publicar una inferencia incorrecta, pero el workflow ejecuta el paso opcional en serie: al fallar, salta validación y commit, por lo que tampoco publica cambios primarios válidos de esa ejecución.
+
+### Decisiones de remediación aprobadas
+
+- La captura secundaria seguirá siendo fail-closed por fecha: una captura ambigua no se publica, no borra la anterior y no reutiliza nombres de otro día.
+- La sincronización primaria, su validación y su commit deben quedar aislados del resultado de Vatican News. Un fallo secundario debe dejar una advertencia visible y una salida operacional `partial` o equivalente, pero no convertir en fallido el camino de publicación primaria.
+- El parser debe aceptar únicamente formatos demostrados por fixtures de fuente: descriptores ampliados, encabezados con varios nombres y Unicode válido. No se aceptará texto por descarte ni se normalizarán nombres de forma que cambie lo publicado por la fuente.
+- La extracción debe conservar solo nombres explícitos y ordenados. Cada nombre o grupo explícito separado por la estructura editorial se publica como una entrada; `Pablo Chông Hasang y Compañeros` se conserva como un grupo único porque los compañeros no están individualmente nombrados.
+- Los encabezados que representan una celebración litúrgica y no un nombre individual (`Fiesta de todos los santos`, `Conmemoración de todos los fieles difuntos`, `Presentación de la B. virgen María`) se omiten. Si una fecha no contiene nombres individuales después de omitirlos, la captura es válida con lista vacía y no se publica texto de celebración en `supplementalSaints`.
+- Los alias parentéticos forman parte del nombre explícito y se conservan, siempre que los paréntesis estén balanceados.
+- La corrección no requiere rotar `BIBLE_API_KEY`, cambiar Vercel ni modificar el contrato público de lecturas.
+
+### Secuencia aprobable
+
+1. Convertir los encabezados observados en fixtures mínimos con expectativas explícitas, usando la regla editorial aprobada para nombres y grupos.
+2. Ajustar el contrato del parser, su normalización Unicode y sus pruebas, manteniendo rechazo seguro para casos no reconocidos.
+3. Separar en GitHub Actions el resultado opcional de Vatican News del camino de validación/commit de la sincronización primaria.
+4. Ejecutar pruebas locales y un `workflow_dispatch` controlado; comprobar que un fallo secundario conserva la captura anterior, que los cambios primarios válidos sí se publican y que el run deja una advertencia accionable.
+5. Actualizar la documentación operativa y la validación RF por RF antes de cerrar el incidente.
 
 ## Refinamiento aprobado: contexto litúrgico colapsable y disponibilidad por fuente
 
