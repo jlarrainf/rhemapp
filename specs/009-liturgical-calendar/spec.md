@@ -1,6 +1,6 @@
 # Spec 009 — Calendario litúrgico enriquecido
 
-Estado: Implementing — remediación del incidente del sincronizador en curso; T52 aprobada y T53–T56 pendientes de verificación
+Estado: Accepted — remediación del incidente del sincronizador verificada el 2026-09-21; T51–T56 completadas
 Prioridad: P1
 
 ## Contexto y objetivo
@@ -137,8 +137,8 @@ La causa raíz confirmada es una incompatibilidad entre el parser fail-closed y 
 
 El impacto es operativo: no se reemplaza la captura secundaria con contenido dudoso, pero también se omiten los pasos posteriores del workflow y no se pueden publicar cambios primarios válidos calculados en esa ejecución. La solución debe mantener el rechazo fail-closed por fecha y aislar el paso secundario opcional del commit/validación primaria.
 
-La implementación queda planificada en T52–T56. Hasta que esas tareas se completen y validen, la spec no debe volver a declararse cumplida para el camino operativo RF-15/RF-19.
+La implementación se ejecutó y verificó en T52–T56. El camino operativo RF-15/RF-19 vuelve a considerarse cumplido: la captura secundaria sigue siendo fail-closed, mientras que su fallo opcional ya no impide validar ni publicar cambios primarios válidos.
 
 ## Dudas abiertas
 
-La intención de RF-14 a RF-18 permanece aprobada. T52 queda resuelta para este incidente: cada nombre o grupo explícito separado por la estructura editorial de Vatican News se publica como una entrada; `Pablo Chông Hasang y Compañeros` se conserva como un único grupo porque la fuente no nombra individualmente a los compañeros. La extracción conserva solo nombres explícitos, en orden, sin descriptores biográficos ni transliteración; cualquier caso que siga siendo ambiguo se rechaza y conserva la captura anterior. El workflow separará la captura secundaria opcional de la publicación primaria, manteniendo visible la advertencia y la trazabilidad.
+La intención de RF-14 a RF-18 permanece aprobada. T52 queda resuelta para este incidente: cada nombre o grupo explícito separado por la estructura editorial de Vatican News se publica como una entrada; `Pablo Chông Hasang y Compañeros` se conserva como un único grupo porque la fuente no nombra individualmente a los compañeros. La extracción conserva solo nombres explícitos, en orden, sin descriptores biográficos ni transliteración; cualquier caso que siga siendo ambiguo se rechaza y conserva la captura anterior. El workflow separa la captura secundaria opcional de la publicación primaria, mantiene visible la advertencia y deja la trazabilidad en el resumen de la ejecución. La verificación remota de `35600357915` confirmó que los pasos primario, secundario, validación, commit condicionado y registro de estado completan correctamente en `main` tras publicar `477484d`.

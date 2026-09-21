@@ -1,6 +1,6 @@
 # Clarificaciones — Spec 009
 
-Estado: Resolved for T52 — decisiones de alcance registradas el 2026-09-14 y ampliaciones aprobadas hasta el 2026-09-16; regla editorial del incidente resuelta el 2026-09-21; T53–T56 pendientes de implementación y verificación
+Estado: Resolved — decisiones de alcance registradas el 2026-09-14 y ampliaciones aprobadas hasta el 2026-09-16; regla editorial del incidente resuelta y verificada el 2026-09-21; T51–T56 completadas
 
 ## Hallazgos de QA
 

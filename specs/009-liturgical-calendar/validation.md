@@ -1,6 +1,6 @@
 # Validación — Spec 009
 
-Estado: Validación histórica RF-1 a RF-18 completada el 2026-09-16; revalidación del incidente RF-15/RF-19 abierta el 2026-09-21
+Estado: Validación RF-1 a RF-19 completada el 2026-09-21; spec cerrada como `SPEC CUMPLIDA`
 
 ## Revalidación operativa — incidente del sincronizador diario
 
@@ -18,9 +18,17 @@ Estado: Validación histórica RF-1 a RF-18 completada el 2026-09-16; revalidaci
 
 La fuente vigente presenta formatos que no cubre el parser actual: el 2026-09-20 usa `ss. Andrea Kim Taego˘n, sacerdote, y Pablo Chông Hasang y Compañeros, mártires coreanos`, con varios nombres, coordinación y caracteres Unicode; el 2026-09-21 usa `s. Mateo, apóstol y evangelista`, cuyo descriptor no está en el vocabulario aceptado. El parser fail-closed rechaza correctamente la captura para no publicar una inferencia, pero el workflow actual deja que ese fallo opcional aborte el camino completo.
 
-### Veredicto provisional
+### Evidencia de la remediación
 
-`SPEC NO CUMPLIDA` para RF-15/RF-19 en operación: la captura ambigua no se publica, pero el workflow no aísla el fallo secundario y omite los pasos posteriores que deben conservar/publicar datos primarios válidos. T52–T56 permanecen sin marcar hasta contar con decisión editorial, implementación, ejecución remota y rollback verificados.
+| Evidencia | Resultado | Diagnóstico |
+|---|---|---|
+| `npm run test:vatican-saints` | Cumple: 12/12 | Cubre los formatos del incidente, Unicode, grupos explícitos, alias parentéticos, encabezados no nominales, captura vacía válida y rechazos fail-closed. |
+| Escaneo real de Vatican News del 2026-09-20 al 2026-12-31 | Cumple: 103/103 páginas aceptadas, 0 rechazadas, 0 respuestas HTTP inesperadas | La fuente vigente queda cubierta por el parser sin publicar descriptores, texto biográfico ni fechas cruzadas. |
+| `workflow_dispatch` `35600357915` | Cumple | La sincronización primaria, la captura secundaria, `validate:daily`, el commit condicionado y el registro de estado terminaron correctamente; el run fue ejecutado sobre `fe4b04b`. |
+| Promoción a `main` | Cumple: `477484d` | La corrección y el JSON generado por la ejecución remota quedaron publicados en `main`; no se requirieron nuevas variables ni secretos. |
+| Regresión local completa | Cumple | `test:readings` 63/63, `test:calendar` 39/39, `test:vatican-saints` 12/12, `validate:daily` 113 entradas, `lint`, `build` y `git diff --check` sin errores. |
+
+El incidente previo queda conservado como diagnóstico histórico: los runs `35503401236` y `35590502665` fallaron antes de la corrección, mientras que `35600357915` confirma el flujo remediado. El camino de fallo secundario permanece explícitamente observable en el workflow: `continue-on-error` se limita a Vatican News y el resumen escribe una advertencia accionable si ese paso termina rechazado. La captura inválida no se escribe; la última captura válida se conserva.
 
 ## Evidencia por requisito
 
@@ -40,11 +48,11 @@ La fuente vigente presenta formatos que no cubre el parser actual: el 2026-09-20
 | RF-12 | `scripts/test-mobile-notifications.mjs`; cliente Android; `npm run test:mobile`; APK debug | Cumple | PWA y Android consumen el mismo contrato, comparten deep links y no duplican la resolución de calendario. |
 | RF-13 | `liturgicalMetadata.js`, `liturgicalCalendar.js`, `DailyVerseClient.jsx`, `CalendarClient.jsx`; `npm run test:calendar`; AX tree de Daily/calendario | Cumple | Los nombres verificados se conservan en orden editorial y se muestran en una única lista vertical simple junto a fiestas y celebraciones en Daily; el resumen mensual mantiene los nombres del Ordo, no incorpora enlaces secundarios y las fechas sin nombres verificados no muestran placeholder. |
 | RF-14 | `secondarySources.js`, `sync-daily-readings.mjs`, `DailyVerseClient.jsx`, `RhemappApiClient.kt`, `MainActivity.kt`; `npm run test:calendar`, `npm run test:mobile`; navegador local | Cumple | Se publican cuatro URLs específicas de Vatican News con coincidencia editorial verificada; Daily mantiene los enlaces atribuidos dentro del disclosure “Fuente y verificación”, Android conserva el acceso y 2026-10-12 no infiere uno. |
-| RF-15 | `vaticanNewsSaints.js`, `scripts/sync-vatican-news-saints.mjs`, workflow diario, fixture, `public/data/daily-readings/2026.json`; runs `35503401236`, `35590502665`; dry-runs del 20/21 de septiembre | No cumple actualmente | La evidencia histórica del 2026-09-16 sigue siendo válida para el formato entonces observado y el parser continúa rechazando capturas ambiguas, pero el formato real del 20/21 de septiembre no está cubierto y el workflow omite validación/commit al fallar la fuente secundaria. |
+| RF-15 | `vaticanNewsSaints.js`, `scripts/sync-vatican-news-saints.mjs`, workflow diario, fixtures del incidente y `public/data/daily-readings/2026.json`; `npm run test:vatican-saints`; escaneo real 103/103 | Cumple | El parser acepta los formatos observados del 20/21 de septiembre y otros casos reales hasta el 31/12, conserva nombres Unicode y grupos explícitos, omite encabezados litúrgicos no nominales y rechaza cambios ambiguos sin mutar la captura anterior. |
 | RF-16 | `src/app/daily/DailyVerseClient.jsx`, `src/lib/readings/liturgicalContext.js`; `scripts/test-daily-reading.mjs`; build de producción | Cumple | El contexto se presenta en un `<details>` nativo cerrado por defecto, con fiestas/celebraciones, temporada/color y una única lista integrada de nombres. El contenido principal no muestra provenance ni enlaces. |
 | RF-17 | `src/lib/readings/saintNames.js`, `src/lib/readings/liturgicalContext.js`; `scripts/test-daily-reading.mjs`, `scripts/test-liturgical-metadata.mjs` | Cumple | Los nombres conocidos reciben `San` o `Santa` al renderizar dentro de la lista integrada; los tratamientos marianos y tratamientos ya presentes se conservan. El dato publicado y su provenance no se reescriben, y los duplicados exactos no se repiten. |
 | RF-18 | `src/lib/readings/liturgicalContext.js`; `scripts/test-liturgical-metadata.mjs`; `scripts/test-daily-reading.mjs` | Cumple | El contexto disponible se calcula agregando celebraciones, santos, captura suplementaria, temporada y color. La prueba supplemental-only confirma que una captura válida de Vatican News suprime el aviso de ausencia. |
-| RF-19 | Runs `35503401236` y `35590502665`; workflow actual; T52–T56 | No cumple | La captura secundaria se rechaza sin mutar contenido ambiguo, pero su fallo aborta el job completo y deja sin ejecutar la validación/commit primarios. |
+| RF-19 | `.github/workflows/sync-daily-readings.yml`; run `35600357915`; `docs/liturgical-calendar-operation.md`; T52–T56 | Cumple | La captura secundaria es opcional y fail-closed; si falla, conserva la última versión, deja warning/estado parcial y permite validación/commit primarios. El run controlado confirmó la secuencia normal y la ruta de advertencia queda observable en el resumen del workflow. |
 
 ## Requisitos no funcionales
 
@@ -119,4 +127,4 @@ La validación offline se cubre mediante el contrato del service worker y las pr
 
 ## Veredicto
 
-`SPEC NO CUMPLIDA` — RF-1 a RF-18 tienen validación histórica, pero la operación actual de RF-15 y el nuevo RF-19 están fallando por la regresión de formato de Vatican News y por el acoplamiento del paso secundario al commit primario. El estado solo podrá volver a `SPEC CUMPLIDA` después de T52–T56.
+`SPEC CUMPLIDA` — RF-1 a RF-19 tienen evidencia; la regresión de formato de Vatican News fue corregida con parser fail-closed y el workflow ya separa el fallo secundario del camino primario. El run controlado [35600357915](https://github.com/jlarrainf/rhemapp/actions/runs/35600357915) terminó correctamente y la corrección quedó en `main` mediante `477484d`.

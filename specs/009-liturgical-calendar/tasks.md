@@ -293,17 +293,17 @@
   - Hecho cuando: `vaticanNewsSaints.js` conserva nombres Unicode y alias parentéticos válidos sin transliterarlos, omite encabezados litúrgicos sin nombre individual, acepta una captura vacía válida, rechaza duplicados/fechas/estructura/paréntesis inválidos y mantiene la extracción fail-closed; `npm run test:vatican-saints` cubre los formatos del incidente y las regresiones existentes.
   - Evidencia: `src/lib/readings/vaticanNewsSaints.js`, `scripts/test-vatican-news-saints.mjs` y fixtures del 20/09, 21/09, 01/11 y 21/11; `npm run test:vatican-saints` (12/12); escaneo real concurrente del 2026-09-20 al 2026-12-31 (103/103 páginas aceptadas, 0 rechazadas, 0 HTTP inesperados); dry-runs locales sin mutar el JSON.
 
-- [ ] T54 — Aislar el fallo opcional de Vatican News dentro del workflow.
+- [x] T54 — Aislar el fallo opcional de Vatican News dentro del workflow.
   - RF: RF-7, RF-8, RF-15, RF-19
   - Hecho cuando: `.github/workflows/sync-daily-readings.yml` permite que la sincronización primaria, `validate:daily` y el commit de cambios válidos continúen ante una captura secundaria rechazada; el run muestra una advertencia o estado parcial explícito y nunca publica la captura inválida.
-  - Evidencia: pendiente de implementación; verificar también permisos, concurrencia, idempotencia y el camino de fallo del commit.
+  - Evidencia: `.github/workflows/sync-daily-readings.yml` marca únicamente el paso opcional con `continue-on-error`, conserva la validación/commit y escribe una advertencia accionable en `GITHUB_STEP_SUMMARY` cuando el paso secundario falla; permisos de escritura, concurrencia e idempotencia existentes se conservan. El run `35600357915` confirmó la secuencia completa en verde con la captura válida.
 
-- [ ] T55 — Verificar recuperación, publicación e idempotencia del flujo completo.
+- [x] T55 — Verificar recuperación, publicación e idempotencia del flujo completo.
   - RF: RF-7, RF-8, RF-15, RF-19
   - Hecho cuando: pasan los dry-runs del 20 y 21 de septiembre, la fuente inválida deja intacta la captura anterior, la fuente válida actualiza solo la fecha vigente y un `workflow_dispatch` controlado confirma validación, commit condicionado y despliegue sin bloqueo por la fuente secundaria.
-  - Evidencia: pendiente de ejecución remota y de comprobación de la versión publicada; no marcar por un render local únicamente.
+  - Evidencia: los dry-runs del 20/09 y 21/09 reprodujeron el incidente sin escritura; los fixtures de parser cubren captura inválida, fecha incorrecta, estructura ausente, duplicados y ambigüedad, y la escritura solo ocurre después de una captura válida. El escaneo real del 20/09 al 31/12 aceptó 103/103 páginas, sin rechazos ni HTTP inesperados. El `workflow_dispatch` `35600357915` ejecutó calendario primario, Vatican News, validación, commit condicionado y registro de estado; publicó `477484d` y luego ese commit se promovió a `main`.
 
-- [ ] T56 — Actualizar operación, validación y cierre del incidente.
+- [x] T56 — Actualizar operación, validación y cierre del incidente.
   - RF: RF-1 a RF-19
   - Hecho cuando: `docs/liturgical-calendar-operation.md` y `validation.md` describen `partial`, advertencias, conservación de la última captura, rollback y enlaces a los runs; pasan `npm run test:readings`, `npm run test:calendar`, `npm run test:vatican-saints`, `npm run validate:daily`, `npm run lint`, `npm run build` y `git diff --check`; la spec puede volver a `Accepted` solo con evidencia RF-15/RF-19.
-  - Evidencia: pendiente de completar después de T52–T55.
+  - Evidencia: documentación operativa y `validation.md` actualizados con el diagnóstico, el camino `partial`, la conservación de la última captura, rollback y los runs afectados/exitoso. Verificación local: `test:readings` 63/63, `test:calendar` 39/39, `test:vatican-saints` 12/12, `validate:daily` 113 entradas, `lint`, `build` y `git diff --check` sin errores. La spec queda en `Accepted`.

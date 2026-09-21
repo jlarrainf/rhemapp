@@ -27,7 +27,7 @@ El pipeline tendrá dos propiedades independientes:
 2. **Endurecer el contrato del parser (T53).** Ajustar `src/lib/readings/vaticanNewsSaints.js` para aceptar únicamente las formas aprobadas: vocabulario de descriptores respaldado por fixtures, encabezados compuestos con separadores explícitos, Unicode y alias parentéticos válidos preservados en el campo `name`. Omitir encabezados litúrgicos sin nombre individual y permitir una captura válida con lista vacía. Mantener rechazo ante texto biográfico indistinguible, paréntesis desbalanceados, duplicados, fecha incorrecta, secciones ausentes o estructura no reconocida.
 3. **Aislar el workflow (T54).** Reordenar o separar `.github/workflows/sync-daily-readings.yml` para que el resultado secundario no omita `validate:daily` ni el commit de la parte primaria. La ejecución debe conservar la captura anterior cuando T53 rechace la fuente y dejar un resumen de advertencia; no se debe usar `continue-on-error` de forma que oculte el estado sin una salida observable.
 4. **Verificar el flujo completo (T55).** Ejecutar las pruebas de parser, validación de datos y dry-runs con 20/09 y 21/09; simular fuente secundaria inválida y confirmar que la captura anterior no cambia. Ejecutar un `workflow_dispatch` controlado y comprobar en GitHub que la sincronización primaria, la validación, el commit condicionado y el despliegue siguen su camino aunque la fuente secundaria esté degradada.
-5. **Cerrar documentación y operación (T56).** Actualizar `docs/liturgical-calendar-operation.md` y `validation.md` con el estado `partial`, la advertencia, la conservación de última captura, el rollback y los enlaces a los runs. Solo después se podrá devolver la spec a estado aceptado.
+5. **Cerrar documentación y operación (T56).** Actualizar `docs/liturgical-calendar-operation.md` y `validation.md` con el estado `partial`, la advertencia, la conservación de última captura, el rollback y los enlaces a los runs. Esta etapa se completó después de la verificación local y remota; la spec vuelve a estado `Accepted`.
 
 ### Límites y no objetivos del incidente
 
@@ -38,7 +38,7 @@ El pipeline tendrá dos propiedades independientes:
 ### Criterios de salida
 
 - Los fixtures de 2026-09-20 y 2026-09-21 pasan con la representación editorial aprobada y los casos ambiguos siguen fallando sin mutación.
-- Una falla secundaria deja la entrada secundaria anterior intacta, permite validar/commit de cambios primarios válidos y queda visible como `partial`/advertencia en el run.
+- Una falla secundaria deja la entrada secundaria anterior intacta, permite validar/commit de cambios primarios válidos y queda visible como `partial`/advertencia en el run; el comportamiento de rechazo y conservación está cubierto por fixtures y dry-runs, y el aislamiento está implementado en el workflow.
 - Un run válido e idempotente no genera cambios repetidos ni duplica nombres.
 - `npm run test:vatican-saints`, `npm run test:calendar`, `npm run test:readings`, `npm run validate:daily`, `npm run lint` y `npm run build` pasan; `validation.md` contiene evidencia RF-15 y RF-19.
 
