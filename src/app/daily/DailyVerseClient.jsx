@@ -121,7 +121,7 @@ function LiturgicalContext({ reading }) {
 	return (
 		<>
 			<section className="mb-5 w-full max-w-3xl rounded-lg border border-gray-100 bg-white p-4 text-left shadow-lg transition-colors duration-300 hover:border-[#b79b72] dark:border-gray-700 dark:bg-gray-800 dark:hover:border-[#b79b72]/80 sm:p-6">
-				<details className="group">
+				<details open className="group">
 					<summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 rounded-lg text-[#314156] transition-colors duration-300 hover:text-[#8f744e] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b79b72] dark:text-gray-100 dark:hover:text-[#e2c18f] [&::-webkit-details-marker]:hidden">
 						<span className="min-w-0">
 							<span className="block text-lg font-semibold">Contexto litúrgico</span>

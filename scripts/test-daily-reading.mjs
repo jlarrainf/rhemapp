@@ -123,14 +123,14 @@ test("integrates the Vatican News daily name capture without a source heading", 
 	assert.doesNotMatch(dailyClient, /Otros santos y santas del día/);
 });
 
-test("collapses the complete context and keeps provenance after the main content", () => {
+test("opens the complete context by default and keeps provenance after the main content", () => {
 	const contextStart = dailyClient.indexOf("Contexto litúrgico");
 	const sourcesStart = dailyClient.indexOf("Fuentes y verificación");
 	const contextRender = dailyClient.slice(contextStart, sourcesStart);
 
 	assert.ok(contextStart >= 0);
 	assert.ok(sourcesStart > contextStart);
-	assert.match(dailyClient, /<details className="group">/);
+	assert.match(dailyClient, /<details open className="group">/);
 	assert.match(contextRender, /Fiestas y santos del día/);
 	assert.match(contextRender, /contextItems\.length > 0/);
 	assert.doesNotMatch(contextRender, /Vatican News|informationSource|Proveedor|Fuente/);

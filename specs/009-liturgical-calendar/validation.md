@@ -1,6 +1,6 @@
 # Validación — Spec 009
 
-Estado: Validación RF-1 a RF-19 completada el 2026-09-21; spec cerrada como `SPEC CUMPLIDA`
+Estado: Validación RF-1 a RF-19 y T57 completada el 2026-09-21; spec cerrada como `SPEC CUMPLIDA`
 
 ## Revalidación operativa — incidente del sincronizador diario
 
@@ -30,6 +30,10 @@ La fuente vigente presenta formatos que no cubre el parser actual: el 2026-09-20
 
 El incidente previo queda conservado como diagnóstico histórico: los runs `35503401236` y `35590502665` fallaron antes de la corrección, mientras que `35600357915` confirma el flujo remediado. El camino de fallo secundario permanece explícitamente observable en el workflow: `continue-on-error` se limita a Vatican News y el resumen escribe una advertencia accionable si ese paso termina rechazado. La captura inválida no se escribe; la última captura válida se conserva.
 
+### Evidencia T57 — estado inicial del contexto
+
+`src/app/daily/DailyVerseClient.jsx` declara `<details open className="group">`, por lo que el contexto litúrgico aparece desplegado al cargar Daily y conserva el control nativo para cerrarlo y volverlo a abrir. `scripts/test-daily-reading.mjs` verifica el atributo `open`, la lista integrada y la separación posterior de “Fuentes y verificación”; `npm run test:readings` terminó con 63/63 y `npm run lint` sin advertencias.
+
 ## Evidencia por requisito
 
 | RF | Test o evidencia | Resultado | Observaciones |
@@ -49,7 +53,7 @@ El incidente previo queda conservado como diagnóstico histórico: los runs `355
 | RF-13 | `liturgicalMetadata.js`, `liturgicalCalendar.js`, `DailyVerseClient.jsx`, `CalendarClient.jsx`; `npm run test:calendar`; AX tree de Daily/calendario | Cumple | Los nombres verificados se conservan en orden editorial y se muestran en una única lista vertical simple junto a fiestas y celebraciones en Daily; el resumen mensual mantiene los nombres del Ordo, no incorpora enlaces secundarios y las fechas sin nombres verificados no muestran placeholder. |
 | RF-14 | `secondarySources.js`, `sync-daily-readings.mjs`, `DailyVerseClient.jsx`, `RhemappApiClient.kt`, `MainActivity.kt`; `npm run test:calendar`, `npm run test:mobile`; navegador local | Cumple | Se publican cuatro URLs específicas de Vatican News con coincidencia editorial verificada; Daily mantiene los enlaces atribuidos dentro del disclosure “Fuente y verificación”, Android conserva el acceso y 2026-10-12 no infiere uno. |
 | RF-15 | `vaticanNewsSaints.js`, `scripts/sync-vatican-news-saints.mjs`, workflow diario, fixtures del incidente y `public/data/daily-readings/2026.json`; `npm run test:vatican-saints`; escaneo real 103/103 | Cumple | El parser acepta los formatos observados del 20/21 de septiembre y otros casos reales hasta el 31/12, conserva nombres Unicode y grupos explícitos, omite encabezados litúrgicos no nominales y rechaza cambios ambiguos sin mutar la captura anterior. |
-| RF-16 | `src/app/daily/DailyVerseClient.jsx`, `src/lib/readings/liturgicalContext.js`; `scripts/test-daily-reading.mjs`; build de producción | Cumple | El contexto se presenta en un `<details>` nativo cerrado por defecto, con fiestas/celebraciones, temporada/color y una única lista integrada de nombres. El contenido principal no muestra provenance ni enlaces. |
+| RF-16 | `src/app/daily/DailyVerseClient.jsx`, `src/lib/readings/liturgicalContext.js`; `scripts/test-daily-reading.mjs`; build de producción | Cumple | El contexto se presenta en un `<details>` nativo abierto por defecto y cerrable mediante su resumen, con fiestas/celebraciones, temporada/color y una única lista integrada de nombres. El contenido principal no muestra provenance ni enlaces. |
 | RF-17 | `src/lib/readings/saintNames.js`, `src/lib/readings/liturgicalContext.js`; `scripts/test-daily-reading.mjs`, `scripts/test-liturgical-metadata.mjs` | Cumple | Los nombres conocidos reciben `San` o `Santa` al renderizar dentro de la lista integrada; los tratamientos marianos y tratamientos ya presentes se conservan. El dato publicado y su provenance no se reescriben, y los duplicados exactos no se repiten. |
 | RF-18 | `src/lib/readings/liturgicalContext.js`; `scripts/test-liturgical-metadata.mjs`; `scripts/test-daily-reading.mjs` | Cumple | El contexto disponible se calcula agregando celebraciones, santos, captura suplementaria, temporada y color. La prueba supplemental-only confirma que una captura válida de Vatican News suprime el aviso de ausencia. |
 | RF-19 | `.github/workflows/sync-daily-readings.yml`; run `35600357915`; `docs/liturgical-calendar-operation.md`; T52–T56 | Cumple | La captura secundaria es opcional y fail-closed; si falla, conserva la última versión, deja warning/estado parcial y permite validación/commit primarios. El run controlado confirmó la secuencia normal y la ruta de advertencia queda observable en el resumen del workflow. |
@@ -63,7 +67,7 @@ El incidente previo queda conservado como diagnóstico histórico: los runs `355
 - Fuente secundaria y derechos: `informationSource` está separado de la fuente litúrgica, se limita a proveedor/URL/verificación/atribución y no contiene texto externo. Vatican News se consulta únicamente desde el job server-side/CI; Daily lee el JSON local publicado.
 - Captura de nombres Vatican News: `supplementalSaints` conserva solo nombres, fuente, atribución, verificación, fecha de revisión y obtención; el parser real de 2026-09-16 produjo cuatro nombres, no renderiza reseñas ni biografías y la captura ausente no bloquea las lecturas.
 - Simplificación visual: la captura local y el AX tree de producción local confirman una única lista vertical plana de nombres y fiestas, sin separación por fuente, y el disclosure de fuentes cerrado por defecto; al expandirlo, los enlaces RF-14 siguen disponibles sin quedar dentro de la lista.
-- Contexto colapsable: el `<summary>` es enfocable y operable con teclado; el contenido se mantiene cerrado inicialmente y el indicador visual acompaña el estado abierto/cerrado sin agregar controles duplicados.
+- Contexto colapsable: el `<summary>` es enfocable y operable con teclado; el contenido se muestra abierto inicialmente y el indicador visual acompaña el estado abierto/cerrado sin agregar controles duplicados.
 - Separación de provenance: el bloque principal no menciona proveedores, fuentes ni enlaces; “Fuentes y verificación” aparece después como disclosure independiente.
 - Disponibilidad agregada: `supplementalSaints` válido es suficiente para considerar disponible el contexto, incluso si la fuente primaria no publica celebración para la fecha.
 - Integración de fuentes: el caso con Ordo y Vatican News y el caso supplemental-only se proyectan en la misma lista “Fiestas y santos del día”; no se muestra “Otros santos y santas del día”.
@@ -82,7 +86,7 @@ El incidente previo queda conservado como diagnóstico histórico: los runs `355
 - [x] La captura de `santos.html` se valida por fecha, fuente, orden y duplicados; Daily web muestra únicamente los nombres verificados y no contamina el resumen mensual.
 - [x] Daily muestra fiestas y santos en una única lista vertical simple, sin tarjetas, separadores, subtítulos por fuente ni enlaces visibles; el acceso RF-14 permanece en “Fuente y verificación”.
 - [x] El parser diario valida la representación fechada de Vatican News, rechaza cambios de estructura/fecha/nombres y el workflow actualiza solo cuando la captura es válida.
-- [x] El contexto litúrgico es colapsable, cerrado por defecto y contiene fiestas/celebraciones y santos/santas en listas limpias.
+- [x] El contexto litúrgico es colapsable, abierto por defecto y contiene fiestas/celebraciones y santos/santas en listas limpias.
 - [x] Los nombres se presentan con `San`/`Santa` cuando corresponde, preservando tratamientos ya publicados y sin cambiar el contrato de datos.
 - [x] Las fuentes se muestran después del contexto principal, la lista es única para todas las fuentes y el aviso de ausencia solo aparece cuando ninguna fuente aporta contexto verificable.
 
@@ -107,7 +111,7 @@ Con `npm start`, revisar:
 
 1. `/calendario?month=2026-09`: aparecen 30 días, días no publicados explícitos y resúmenes sin lecturas completas.
 2. En la celda del 26 de septiembre, comprobar el resumen `Santos: Santos Cosme y Damián` y abrir `/daily?date=2026-09-26`.
-3. En `/daily?date=2026-09-15`, comprobar que “Contexto litúrgico” aparece cerrado; al abrirlo, aparece una única lista con `Nuestra Señora de los Dolores`, `Santísima Virgen de los Dolores`, `San Nicomedes` y `Santa Catalina de Génova`, sin tarjetas, separadores ni enlaces visibles.
+3. En `/daily?date=2026-09-15`, comprobar que “Contexto litúrgico” aparece abierto; la única lista contiene `Nuestra Señora de los Dolores`, `Santísima Virgen de los Dolores`, `San Nicomedes` y `Santa Catalina de Génova`, sin tarjetas, separadores ni enlaces visibles. Cerrarlo y volverlo a abrir con teclado.
 4. En `/daily?date=2026-09-15`, comprobar que `Fuentes y verificación` aparece después del contexto y contiene la provenance; el bloque principal no menciona fuentes ni proveedores.
 5. En `/daily?date=2026-09-16`, comprobar que el contexto no muestra “no está disponible” y, al abrirlo, la misma lista unificada muestra `Santa Eufemia`, `San Víctor III`, `San Cornelio` y `San Cipriano`, sin texto biográfico ni el encabezado “Otros santos y santas del día”.
 6. Abrir `/daily?date=2026-10-12`: debe conservarse el tratamiento de `Nuestra Señora del Pilar`, sin añadir información biográfica ni una URL secundaria inexistente.
@@ -123,7 +127,7 @@ Integración unificada verificada el 2026-09-16: el commit `97e1eff` (`feat: uni
 
 Refinamiento visual verificado el 2026-09-16: el commit `4575fe2` (`feat: polish liturgical context card`) llegó a `main`; Vercel reportó `success` para el deployment `B3qjWLbXbefwHBLxDt7CuH3Axtck`. En producción, la tarjeta de `/daily?date=2026-09-16` conserva el estado cerrado por defecto y, al abrirse, muestra una lista única con `Santa Eufemia`, `San Víctor III`, `San Cornelio` y `San Cipriano`. La captura visual confirmó superficie, radio, borde, sombra, paleta navy/dorado, marcadores dorados y espaciado coherentes con las tarjetas de lectura; el árbol de accesibilidad confirmó el control expandido y los cuatro nombres. Las rutas `/daily?date=2026-09-15`, `/daily?date=2026-09-16` y `/daily?date=2026-09-26` respondieron 200, mantuvieron `Fuentes y verificación` después del contexto, no mostraron `Otros santos y santas del día` ni el aviso de ausencia, y `/api/readings?date=2026-09-16` respondió 200 con cuatro `supplementalSaints` de Vatican News.
 
-La validación offline se cubre mediante el contrato del service worker y las pruebas PWA/Android; no se ejecutó una simulación de desconexión física ni se usó un dispositivo Android físico. La comprobación de accesibilidad se realizó mediante el árbol de accesibilidad del navegador y teclado, sin un lector de pantalla externo. Para esta ampliación se verificaron de forma automatizada el estado cerrado, la lista única, la ausencia de encabezados por fuente, los tratamientos y el caso supplemental-only; la revisión visual de producción queda documentada tras el despliegue.
+La validación offline se cubre mediante el contrato del service worker y las pruebas PWA/Android; no se ejecutó una simulación de desconexión física ni se usó un dispositivo Android físico. La comprobación de accesibilidad se realizó mediante el árbol de accesibilidad del navegador y teclado, sin un lector de pantalla externo. Para esta ampliación se verificaron de forma automatizada el estado abierto inicial, la lista única, la ausencia de encabezados por fuente, los tratamientos y el caso supplemental-only; la revisión visual de producción queda documentada tras el despliegue.
 
 ## Veredicto
 

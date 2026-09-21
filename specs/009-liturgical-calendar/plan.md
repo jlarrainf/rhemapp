@@ -74,7 +74,7 @@ El pipeline tendrá dos propiedades independientes:
 
 ### Refinamiento del contexto litúrgico
 
-- `LiturgicalContext` conservará una sola superficie visual, pero su contenido se envolverá en un `<details>` nativo cerrado por defecto con el resumen `Contexto litúrgico`.
+- `LiturgicalContext` conservará una sola superficie visual, pero su contenido se envolverá en un `<details open>` nativo con el resumen `Contexto litúrgico`; la persona podrá cerrarlo sin perder el contenido ni el foco accesible.
 - Dentro del disclosure se mostrarán la fiesta/celebración principal, las celebraciones opcionales, el tiempo/color y dos listas de nombres: santos y santas litúrgicos y nombres suplementarios disponibles. Ninguna de esas listas mostrará proveedores o enlaces.
 - `formatSaintName` será una utilidad de presentación compartida por las listas de Daily. Agregará `San` o `Santa` a nombres sin tratamiento, conservará títulos marianos o hagiográficos existentes y no modificará los JSON ni el contrato público.
 - El disclosure de fuentes se separará del contexto y aparecerá después en una sección independiente. Allí quedarán la fuente editorial, el estado, la atribución, el enlace secundario y el enlace a Vatican News de la captura, sin duplicar esa información en el bloque principal.
@@ -229,7 +229,11 @@ El bloque conservará el componente nativo `<details>` y se alineará visualment
 - Verificación manual de enlaces externos en Daily y Android: nombre accesible, nueva pestaña/intención externa, atribución visible y degradación segura cuando falta `informationSource`.
 - Verificación manual de las listas de santos en Daily: nombres verticales, sin tarjetas/separadores/enlaces visibles, disclosure de fuentes accesible por teclado y comportamiento legible en móvil.
 - Verificación visual del bloque contra `VerseCard`: superficie, radio, borde, sombra, colores, espaciado, foco y comportamiento en móvil.
-- Verificación manual del contexto cerrado por defecto, su apertura con teclado, la separación posterior de fuentes y la ausencia de mensaje cuando existe únicamente `supplementalSaints`.
+- Verificación manual del contexto abierto por defecto, su cierre y reapertura con teclado, la separación posterior de fuentes y la ausencia de mensaje cuando existe únicamente `supplementalSaints`.
+
+### Ajuste de estado inicial aprobado el 2026-09-21
+
+El contexto litúrgico debe iniciar abierto en Daily. La implementación se limita a declarar el estado inicial del `<details>`; no cambia la proyección de datos, el orden de la lista, la provenance ni la sección posterior de fuentes. La regresión cubrirá apertura inicial, cierre/reapertura por teclado y legibilidad responsive.
 - Tests de presentación de nombres con `San`/`Santa`, preservación de títulos marianos y ausencia de duplicación de información de fuentes en el contexto principal.
 - Tests de proyección unificada: combinación de celebración, santos del Ordo y `supplementalSaints`, deduplicación exacta, orden estable y ausencia de encabezados “Otros” o de separación por proveedor, incluido el caso supplemental-only.
 - Ejecutar `npm run validate:daily`, `npm run lint`, `npm run build` y la suite específica antes de marcar tareas.

@@ -113,11 +113,17 @@ El parser asumía que cada encabezado tendría un solo nombre y descriptores per
 ## Refinamiento aprobado: contexto litúrgico colapsable y disponibilidad por fuente
 
 - **Contenido principal:** el contexto litúrgico de Daily reunirá la fiesta o celebración principal, las celebraciones opcionales, el tiempo/color y las listas disponibles de santos y santas. No se agregará una tarjeta ni una superficie nueva.
-- **Presentación:** todo el contexto se envolverá en un disclosure nativo “Contexto litúrgico”, cerrado por defecto. Su resumen será visible y tendrá foco de teclado; al abrirlo se conservará HTML semántico y listas verticales simples.
+- **Presentación:** todo el contexto se envolverá en un disclosure nativo “Contexto litúrgico”, abierto por defecto. Su resumen será visible y tendrá foco de teclado; la persona podrá cerrarlo y volver a abrirlo, conservando HTML semántico y listas verticales simples.
 - **Tratamientos:** los nombres visibles de santos se mostrarán con “San” o “Santa” según el tratamiento editorial aplicable. Los nombres marianos o los nombres que ya traen un título equivalente conservarán ese título, y el dato de origen no se reescribirá.
 - **Fuentes:** `Fuente y verificación` se moverá a una sección independiente posterior al contexto. La lista principal no mencionará proveedores, URLs, atribución ni enlaces; las fuentes primarias, secundarias y enlaces RF-14 quedarán dentro del disclosure posterior.
 - **Disponibilidad:** la captura suplementaria válida de Vatican News cuenta como contexto disponible aunque todavía falte la celebración estructurada del Ordo. El mensaje de ausencia solo se permite cuando no hay celebración, santo, captura suplementaria, tiempo ni color verificables en las fuentes revisadas.
-- **Accesibilidad y responsive:** el contexto estará cerrado inicialmente, será operable por teclado, tendrá un resumen identificable y conservará legibilidad en móvil; la sección de fuentes posterior mantendrá su foco y enlaces accesibles.
+- **Accesibilidad y responsive:** el contexto estará abierto inicialmente, será operable por teclado para cerrarlo y volverlo a abrir, tendrá un resumen identificable y conservará legibilidad en móvil; la sección de fuentes posterior mantendrá su foco y enlaces accesibles.
+
+## Cambio aprobado: contexto visible inicialmente
+
+- **Decisión:** desde el 2026-09-21 el disclosure “Contexto litúrgico” se renderiza abierto por defecto para que la celebración, el tiempo/color y los santos del día sean visibles sin una interacción adicional.
+- **Límite:** el cambio afecta únicamente el estado inicial; el elemento sigue siendo un `<details>` nativo y se puede cerrar o volver a abrir con mouse, teclado y tecnologías de asistencia.
+- **Motivo:** la información litúrgica es parte central de la consulta diaria y debe poder verse inmediatamente junto a las lecturas. No se agregan datos, secciones ni fuentes nuevas.
 
 ## Refinamiento aprobado: lista integrada de fiestas y santos
 

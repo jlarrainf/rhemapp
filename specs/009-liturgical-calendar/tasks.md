@@ -307,3 +307,10 @@
   - RF: RF-1 a RF-19
   - Hecho cuando: `docs/liturgical-calendar-operation.md` y `validation.md` describen `partial`, advertencias, conservación de la última captura, rollback y enlaces a los runs; pasan `npm run test:readings`, `npm run test:calendar`, `npm run test:vatican-saints`, `npm run validate:daily`, `npm run lint`, `npm run build` y `git diff --check`; la spec puede volver a `Accepted` solo con evidencia RF-15/RF-19.
   - Evidencia: documentación operativa y `validation.md` actualizados con el diagnóstico, el camino `partial`, la conservación de la última captura, rollback y los runs afectados/exitoso. Verificación local: `test:readings` 63/63, `test:calendar` 39/39, `test:vatican-saints` 12/12, `validate:daily` 113 entradas, `lint`, `build` y `git diff --check` sin errores. La spec queda en `Accepted`.
+
+## Fase 13 — Contexto litúrgico visible inicialmente
+
+- [x] T57 — Mostrar el contexto litúrgico desplegado por defecto.
+  - RF: RF-16, RF-17, RF-18
+  - Hecho cuando: Daily renderiza el disclosure “Contexto litúrgico” abierto inicialmente, permite cerrarlo y volverlo a abrir con teclado, conserva la lista integrada, las fuentes posteriores y la legibilidad responsive; pasan las pruebas de lectura, lint y build.
+  - Evidencia: `src/app/daily/DailyVerseClient.jsx` usa `<details open>` y `scripts/test-daily-reading.mjs` verifica el estado inicial abierto, la lista integrada y la provenance posterior; `npm run test:readings` (63/63), `npm run lint` y `npm run build` pasan. El control sigue siendo un disclosure nativo cerrable y reabrible con teclado.
