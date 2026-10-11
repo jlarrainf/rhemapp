@@ -21,7 +21,9 @@
             "pageTitle": "Eucaristía del Jueves 10 de Septiembre de 2026",
             "verified": true,
             "fetchedAt": "2026-10-10T11:12:35.306Z",
-            "syncStatus": "fresh"
+            "syncStatus": "stale",
+            "lastSyncAttemptAt": "2026-10-11T11:26:03.787Z",
+            "lastSyncError": "fetch failed"
           }
         }
       ],
@@ -55,7 +57,9 @@
             "pageTitle": "Eucaristía del Jueves 10 de Septiembre de 2026",
             "verified": true,
             "fetchedAt": "2026-10-10T11:12:35.306Z",
-            "syncStatus": "fresh"
+            "syncStatus": "stale",
+            "lastSyncAttemptAt": "2026-10-11T11:26:03.787Z",
+            "lastSyncError": "fetch failed"
           }
         },
         {
@@ -91,7 +95,9 @@
             "pageTitle": "Eucaristía del Jueves 10 de Septiembre de 2026",
             "verified": true,
             "fetchedAt": "2026-10-10T11:12:35.306Z",
-            "syncStatus": "fresh"
+            "syncStatus": "stale",
+            "lastSyncAttemptAt": "2026-10-11T11:26:03.787Z",
+            "lastSyncError": "fetch failed"
           }
         },
         {
@@ -116,7 +122,9 @@
             "pageTitle": "Eucaristía del Jueves 10 de Septiembre de 2026",
             "verified": true,
             "fetchedAt": "2026-10-10T11:12:35.306Z",
-            "syncStatus": "fresh"
+            "syncStatus": "stale",
+            "lastSyncAttemptAt": "2026-10-11T11:26:03.787Z",
+            "lastSyncError": "fetch failed"
           }
         }
       ],
@@ -127,7 +135,9 @@
         "pageTitle": "Eucaristía del Jueves 10 de Septiembre de 2026",
         "verified": true,
         "fetchedAt": "2026-10-10T11:12:35.306Z",
-        "syncStatus": "fresh"
+        "syncStatus": "stale",
+        "lastSyncAttemptAt": "2026-10-11T11:26:03.787Z",
+        "lastSyncError": "fetch failed"
       },
       "gospel": {
         "reference": "Lucas 6:27-36",
@@ -178,7 +188,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Viernes 11 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:35.674Z",
+            "fetchedAt": "2026-10-11T11:26:14.344Z",
             "syncStatus": "fresh"
           }
         },
@@ -208,7 +218,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Viernes 11 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:35.674Z",
+            "fetchedAt": "2026-10-11T11:26:14.344Z",
             "syncStatus": "fresh"
           }
         },
@@ -233,7 +243,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Viernes 11 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:35.674Z",
+            "fetchedAt": "2026-10-11T11:26:14.344Z",
             "syncStatus": "fresh"
           }
         }
@@ -244,7 +254,7 @@
         "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
         "pageTitle": "Eucaristía del Viernes 11 de Septiembre de 2026",
         "verified": true,
-        "fetchedAt": "2026-10-10T11:12:35.674Z",
+        "fetchedAt": "2026-10-11T11:26:14.344Z",
         "syncStatus": "fresh"
       },
       "gospel": {
@@ -289,7 +299,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Sábado 12 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:35.774Z",
+            "fetchedAt": "2026-10-11T11:26:15.060Z",
             "syncStatus": "fresh"
           }
         },
@@ -314,7 +324,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Sábado 12 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:35.774Z",
+            "fetchedAt": "2026-10-11T11:26:15.060Z",
             "syncStatus": "fresh"
           }
         },
@@ -340,7 +350,7 @@
             "pageTitle": "Eucaristía del Sábado 12 de Septiembre de 2026",
             "verified": true,
             "ordoValidated": true,
-            "fetchedAt": "2026-10-10T11:12:35.774Z",
+            "fetchedAt": "2026-10-11T11:26:15.060Z",
             "syncStatus": "fresh"
           }
         }
@@ -352,7 +362,7 @@
         "pageTitle": "Eucaristía del Sábado 12 de Septiembre de 2026",
         "verified": true,
         "ordoValidated": true,
-        "fetchedAt": "2026-10-10T11:12:35.774Z",
+        "fetchedAt": "2026-10-11T11:26:15.060Z",
         "syncStatus": "fresh"
       },
       "gospel": {
@@ -382,7 +392,7 @@
             "pageTitle": "Eucaristía del Sábado 12 de Septiembre de 2026",
             "verified": true,
             "ordoValidated": true,
-            "fetchedAt": "2026-10-10T11:12:35.774Z",
+            "fetchedAt": "2026-10-11T11:26:15.060Z",
             "syncStatus": "fresh"
           }
         }
@@ -416,7 +426,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Domingo 13 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:35.874Z",
+            "fetchedAt": "2026-10-11T11:26:15.164Z",
             "syncStatus": "fresh"
           }
         },
@@ -446,7 +456,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Domingo 13 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:35.874Z",
+            "fetchedAt": "2026-10-11T11:26:15.164Z",
             "syncStatus": "fresh"
           }
         },
@@ -471,7 +481,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Domingo 13 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:35.874Z",
+            "fetchedAt": "2026-10-11T11:26:15.164Z",
             "syncStatus": "fresh"
           }
         },
@@ -496,7 +506,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Domingo 13 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:35.874Z",
+            "fetchedAt": "2026-10-11T11:26:15.164Z",
             "syncStatus": "fresh"
           }
         }
@@ -507,7 +517,7 @@
         "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
         "pageTitle": "Eucaristía del Domingo 13 de Septiembre de 2026",
         "verified": true,
-        "fetchedAt": "2026-10-10T11:12:35.874Z",
+        "fetchedAt": "2026-10-11T11:26:15.164Z",
         "syncStatus": "fresh"
       },
       "gospel": {
@@ -557,7 +567,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Lunes 14 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:35.975Z",
+            "fetchedAt": "2026-10-11T11:26:15.266Z",
             "syncStatus": "fresh"
           }
         },
@@ -587,7 +597,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Lunes 14 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:35.975Z",
+            "fetchedAt": "2026-10-11T11:26:15.266Z",
             "syncStatus": "fresh"
           }
         },
@@ -612,7 +622,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Lunes 14 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:35.975Z",
+            "fetchedAt": "2026-10-11T11:26:15.266Z",
             "syncStatus": "fresh"
           }
         }
@@ -623,7 +633,7 @@
         "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
         "pageTitle": "Eucaristía del Lunes 14 de Septiembre de 2026",
         "verified": true,
-        "fetchedAt": "2026-10-10T11:12:35.975Z",
+        "fetchedAt": "2026-10-11T11:26:15.266Z",
         "syncStatus": "fresh"
       },
       "gospel": {
@@ -668,7 +678,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Martes 15 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:36.071Z",
+            "fetchedAt": "2026-10-11T11:26:15.373Z",
             "syncStatus": "fresh"
           }
         },
@@ -703,7 +713,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Martes 15 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:36.071Z",
+            "fetchedAt": "2026-10-11T11:26:15.373Z",
             "syncStatus": "fresh"
           }
         },
@@ -729,7 +739,7 @@
             "pageTitle": "Eucaristía del Martes 15 de Septiembre de 2026",
             "verified": true,
             "ordoValidated": true,
-            "fetchedAt": "2026-10-10T11:12:36.071Z",
+            "fetchedAt": "2026-10-11T11:26:15.373Z",
             "syncStatus": "fresh"
           }
         }
@@ -741,7 +751,7 @@
         "pageTitle": "Eucaristía del Martes 15 de Septiembre de 2026",
         "verified": true,
         "ordoValidated": true,
-        "fetchedAt": "2026-10-10T11:12:36.071Z",
+        "fetchedAt": "2026-10-11T11:26:15.373Z",
         "syncStatus": "fresh"
       },
       "gospel": {
@@ -770,7 +780,7 @@
                 "provider": "Ordo de la Conferencia Episcopal de Chile",
                 "url": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
                 "verified": true,
-                "fetchedAt": "2026-10-10T11:12:36.071Z",
+                "fetchedAt": "2026-10-11T11:26:15.373Z",
                 "syncStatus": "fresh"
               },
               "informationSource": {
@@ -788,7 +798,7 @@
             "pageTitle": "Eucaristía del Martes 15 de Septiembre de 2026",
             "verified": true,
             "ordoValidated": true,
-            "fetchedAt": "2026-10-10T11:12:36.071Z",
+            "fetchedAt": "2026-10-11T11:26:15.373Z",
             "syncStatus": "fresh"
           }
         }
@@ -854,7 +864,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Miércoles 16 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:36.169Z",
+            "fetchedAt": "2026-10-11T11:26:15.478Z",
             "syncStatus": "fresh"
           }
         },
@@ -889,7 +899,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Miércoles 16 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:36.169Z",
+            "fetchedAt": "2026-10-11T11:26:15.478Z",
             "syncStatus": "fresh"
           }
         },
@@ -914,7 +924,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Miércoles 16 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:36.169Z",
+            "fetchedAt": "2026-10-11T11:26:15.478Z",
             "syncStatus": "fresh"
           }
         }
@@ -925,7 +935,7 @@
         "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
         "pageTitle": "Eucaristía del Miércoles 16 de Septiembre de 2026",
         "verified": true,
-        "fetchedAt": "2026-10-10T11:12:36.169Z",
+        "fetchedAt": "2026-10-11T11:26:15.478Z",
         "syncStatus": "fresh"
       },
       "gospel": {
@@ -1016,7 +1026,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Jueves 17 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:36.268Z",
+            "fetchedAt": "2026-10-11T11:26:15.581Z",
             "syncStatus": "fresh"
           }
         },
@@ -1051,7 +1061,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Jueves 17 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:36.268Z",
+            "fetchedAt": "2026-10-11T11:26:15.581Z",
             "syncStatus": "fresh"
           }
         },
@@ -1076,7 +1086,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Jueves 17 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:36.268Z",
+            "fetchedAt": "2026-10-11T11:26:15.581Z",
             "syncStatus": "fresh"
           }
         }
@@ -1087,7 +1097,7 @@
         "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
         "pageTitle": "Eucaristía del Jueves 17 de Septiembre de 2026",
         "verified": true,
-        "fetchedAt": "2026-10-10T11:12:36.268Z",
+        "fetchedAt": "2026-10-11T11:26:15.581Z",
         "syncStatus": "fresh"
       },
       "gospel": {
@@ -1132,7 +1142,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Viernes 18 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:36.368Z",
+            "fetchedAt": "2026-10-11T11:26:15.682Z",
             "syncStatus": "fresh"
           }
         },
@@ -1174,7 +1184,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Viernes 18 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:36.368Z",
+            "fetchedAt": "2026-10-11T11:26:15.682Z",
             "syncStatus": "fresh"
           }
         },
@@ -1199,7 +1209,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Viernes 18 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:36.368Z",
+            "fetchedAt": "2026-10-11T11:26:15.682Z",
             "syncStatus": "fresh"
           }
         }
@@ -1210,7 +1220,7 @@
         "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
         "pageTitle": "Eucaristía del Viernes 18 de Septiembre de 2026",
         "verified": true,
-        "fetchedAt": "2026-10-10T11:12:36.368Z",
+        "fetchedAt": "2026-10-11T11:26:15.682Z",
         "syncStatus": "fresh"
       },
       "gospel": {
@@ -1284,7 +1294,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Sábado 19 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:36.462Z",
+            "fetchedAt": "2026-10-11T11:26:15.778Z",
             "syncStatus": "fresh"
           }
         },
@@ -1309,7 +1319,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Sábado 19 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:36.462Z",
+            "fetchedAt": "2026-10-11T11:26:15.778Z",
             "syncStatus": "fresh"
           }
         },
@@ -1334,7 +1344,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Sábado 19 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:36.462Z",
+            "fetchedAt": "2026-10-11T11:26:15.778Z",
             "syncStatus": "fresh"
           }
         }
@@ -1345,7 +1355,7 @@
         "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
         "pageTitle": "Eucaristía del Sábado 19 de Septiembre de 2026",
         "verified": true,
-        "fetchedAt": "2026-10-10T11:12:36.462Z",
+        "fetchedAt": "2026-10-11T11:26:15.778Z",
         "syncStatus": "fresh"
       },
       "gospel": {
@@ -1403,7 +1413,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Domingo 20 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:36.558Z",
+            "fetchedAt": "2026-10-11T11:26:15.884Z",
             "syncStatus": "fresh"
           }
         },
@@ -1438,7 +1448,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Domingo 20 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:36.558Z",
+            "fetchedAt": "2026-10-11T11:26:15.884Z",
             "syncStatus": "fresh"
           }
         },
@@ -1465,7 +1475,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Domingo 20 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:36.558Z",
+            "fetchedAt": "2026-10-11T11:26:15.884Z",
             "syncStatus": "fresh"
           }
         },
@@ -1491,7 +1501,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Domingo 20 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:36.558Z",
+            "fetchedAt": "2026-10-11T11:26:15.884Z",
             "syncStatus": "fresh"
           }
         }
@@ -1502,7 +1512,7 @@
         "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
         "pageTitle": "Eucaristía del Domingo 20 de Septiembre de 2026",
         "verified": true,
-        "fetchedAt": "2026-10-10T11:12:36.558Z",
+        "fetchedAt": "2026-10-11T11:26:15.884Z",
         "syncStatus": "fresh"
       },
       "gospel": {
@@ -1553,7 +1563,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Lunes 21 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:36.659Z",
+            "fetchedAt": "2026-10-11T11:26:15.988Z",
             "syncStatus": "fresh"
           }
         },
@@ -1578,7 +1588,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Lunes 21 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:36.659Z",
+            "fetchedAt": "2026-10-11T11:26:15.988Z",
             "syncStatus": "fresh"
           }
         },
@@ -1603,7 +1613,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Lunes 21 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:36.659Z",
+            "fetchedAt": "2026-10-11T11:26:15.988Z",
             "syncStatus": "fresh"
           }
         }
@@ -1614,7 +1624,7 @@
         "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
         "pageTitle": "Eucaristía del Lunes 21 de Septiembre de 2026",
         "verified": true,
-        "fetchedAt": "2026-10-10T11:12:36.659Z",
+        "fetchedAt": "2026-10-11T11:26:15.988Z",
         "syncStatus": "fresh"
       },
       "gospel": {
@@ -1699,7 +1709,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Martes 22 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:36.756Z",
+            "fetchedAt": "2026-10-11T11:26:16.089Z",
             "syncStatus": "fresh"
           }
         },
@@ -1744,7 +1754,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Martes 22 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:36.756Z",
+            "fetchedAt": "2026-10-11T11:26:16.089Z",
             "syncStatus": "fresh"
           }
         },
@@ -1769,7 +1779,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Martes 22 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:36.756Z",
+            "fetchedAt": "2026-10-11T11:26:16.089Z",
             "syncStatus": "fresh"
           }
         }
@@ -1780,7 +1790,7 @@
         "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
         "pageTitle": "Eucaristía del Martes 22 de Septiembre de 2026",
         "verified": true,
-        "fetchedAt": "2026-10-10T11:12:36.756Z",
+        "fetchedAt": "2026-10-11T11:26:16.089Z",
         "syncStatus": "fresh"
       },
       "gospel": {
@@ -1860,7 +1870,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Miércoles 23 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:36.853Z",
+            "fetchedAt": "2026-10-11T11:26:16.192Z",
             "syncStatus": "fresh"
           }
         },
@@ -1910,7 +1920,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Miércoles 23 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:36.853Z",
+            "fetchedAt": "2026-10-11T11:26:16.192Z",
             "syncStatus": "fresh"
           }
         },
@@ -1935,7 +1945,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Miércoles 23 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:36.853Z",
+            "fetchedAt": "2026-10-11T11:26:16.192Z",
             "syncStatus": "fresh"
           }
         }
@@ -1946,7 +1956,7 @@
         "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
         "pageTitle": "Eucaristía del Miércoles 23 de Septiembre de 2026",
         "verified": true,
-        "fetchedAt": "2026-10-10T11:12:36.853Z",
+        "fetchedAt": "2026-10-11T11:26:16.192Z",
         "syncStatus": "fresh"
       },
       "gospel": {
@@ -2015,7 +2025,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Jueves 24 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:36.949Z",
+            "fetchedAt": "2026-10-11T11:26:16.293Z",
             "syncStatus": "fresh"
           }
         },
@@ -2050,7 +2060,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Jueves 24 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:36.949Z",
+            "fetchedAt": "2026-10-11T11:26:16.293Z",
             "syncStatus": "fresh"
           }
         },
@@ -2075,7 +2085,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Jueves 24 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:36.949Z",
+            "fetchedAt": "2026-10-11T11:26:16.293Z",
             "syncStatus": "fresh"
           }
         }
@@ -2086,7 +2096,7 @@
         "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
         "pageTitle": "Eucaristía del Jueves 24 de Septiembre de 2026",
         "verified": true,
-        "fetchedAt": "2026-10-10T11:12:36.949Z",
+        "fetchedAt": "2026-10-11T11:26:16.293Z",
         "syncStatus": "fresh"
       },
       "gospel": {
@@ -2155,7 +2165,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Viernes 25 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:37.054Z",
+            "fetchedAt": "2026-10-11T11:26:16.395Z",
             "syncStatus": "fresh"
           }
         },
@@ -2187,7 +2197,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Viernes 25 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:37.054Z",
+            "fetchedAt": "2026-10-11T11:26:16.395Z",
             "syncStatus": "fresh"
           }
         },
@@ -2212,7 +2222,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Viernes 25 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:37.054Z",
+            "fetchedAt": "2026-10-11T11:26:16.395Z",
             "syncStatus": "fresh"
           }
         }
@@ -2223,7 +2233,7 @@
         "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
         "pageTitle": "Eucaristía del Viernes 25 de Septiembre de 2026",
         "verified": true,
-        "fetchedAt": "2026-10-10T11:12:37.054Z",
+        "fetchedAt": "2026-10-11T11:26:16.395Z",
         "syncStatus": "fresh"
       },
       "gospel": {
@@ -2282,7 +2292,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Sábado 26 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:37.152Z",
+            "fetchedAt": "2026-10-11T11:26:16.496Z",
             "syncStatus": "fresh"
           }
         },
@@ -2317,7 +2327,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Sábado 26 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:37.152Z",
+            "fetchedAt": "2026-10-11T11:26:16.496Z",
             "syncStatus": "fresh"
           }
         },
@@ -2343,7 +2353,7 @@
             "pageTitle": "Eucaristía del Sábado 26 de Septiembre de 2026",
             "verified": true,
             "ordoValidated": true,
-            "fetchedAt": "2026-10-10T11:12:37.152Z",
+            "fetchedAt": "2026-10-11T11:26:16.496Z",
             "syncStatus": "fresh"
           }
         }
@@ -2355,7 +2365,7 @@
         "pageTitle": "Eucaristía del Sábado 26 de Septiembre de 2026",
         "verified": true,
         "ordoValidated": true,
-        "fetchedAt": "2026-10-10T11:12:37.152Z",
+        "fetchedAt": "2026-10-11T11:26:16.496Z",
         "syncStatus": "fresh"
       },
       "gospel": {
@@ -2384,7 +2394,7 @@
                 "provider": "Ordo de la Conferencia Episcopal de Chile",
                 "url": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
                 "verified": true,
-                "fetchedAt": "2026-10-10T11:12:37.152Z",
+                "fetchedAt": "2026-10-11T11:26:16.496Z",
                 "syncStatus": "fresh"
               },
               "informationSource": {
@@ -2402,7 +2412,7 @@
             "pageTitle": "Eucaristía del Sábado 26 de Septiembre de 2026",
             "verified": true,
             "ordoValidated": true,
-            "fetchedAt": "2026-10-10T11:12:37.152Z",
+            "fetchedAt": "2026-10-11T11:26:16.496Z",
             "syncStatus": "fresh"
           }
         }
@@ -2470,7 +2480,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Domingo 27 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:37.246Z",
+            "fetchedAt": "2026-10-11T11:26:16.599Z",
             "syncStatus": "fresh"
           }
         },
@@ -2495,7 +2505,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Domingo 27 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:37.246Z",
+            "fetchedAt": "2026-10-11T11:26:16.599Z",
             "syncStatus": "fresh"
           }
         },
@@ -2520,7 +2530,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Domingo 27 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:37.246Z",
+            "fetchedAt": "2026-10-11T11:26:16.599Z",
             "syncStatus": "fresh"
           }
         },
@@ -2545,7 +2555,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Domingo 27 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:37.246Z",
+            "fetchedAt": "2026-10-11T11:26:16.599Z",
             "syncStatus": "fresh"
           }
         }
@@ -2556,7 +2566,7 @@
         "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
         "pageTitle": "Eucaristía del Domingo 27 de Septiembre de 2026",
         "verified": true,
-        "fetchedAt": "2026-10-10T11:12:37.246Z",
+        "fetchedAt": "2026-10-11T11:26:16.599Z",
         "syncStatus": "fresh"
       },
       "gospel": {
@@ -2625,7 +2635,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Lunes 28 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:37.341Z",
+            "fetchedAt": "2026-10-11T11:26:16.697Z",
             "syncStatus": "fresh"
           }
         },
@@ -2656,7 +2666,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Lunes 28 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:37.341Z",
+            "fetchedAt": "2026-10-11T11:26:16.697Z",
             "syncStatus": "fresh"
           }
         },
@@ -2681,7 +2691,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Lunes 28 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:37.341Z",
+            "fetchedAt": "2026-10-11T11:26:16.697Z",
             "syncStatus": "fresh"
           }
         }
@@ -2692,7 +2702,7 @@
         "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
         "pageTitle": "Eucaristía del Lunes 28 de Septiembre de 2026",
         "verified": true,
-        "fetchedAt": "2026-10-10T11:12:37.341Z",
+        "fetchedAt": "2026-10-11T11:26:16.697Z",
         "syncStatus": "fresh"
       },
       "gospel": {
@@ -2777,7 +2787,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Martes 29 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:37.438Z",
+            "fetchedAt": "2026-10-11T11:26:16.796Z",
             "syncStatus": "fresh"
           }
         },
@@ -2802,7 +2812,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Martes 29 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:37.438Z",
+            "fetchedAt": "2026-10-11T11:26:16.796Z",
             "syncStatus": "fresh"
           }
         },
@@ -2827,7 +2837,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Martes 29 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:37.438Z",
+            "fetchedAt": "2026-10-11T11:26:16.796Z",
             "syncStatus": "fresh"
           }
         }
@@ -2838,7 +2848,7 @@
         "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
         "pageTitle": "Eucaristía del Martes 29 de Septiembre de 2026",
         "verified": true,
-        "fetchedAt": "2026-10-10T11:12:37.438Z",
+        "fetchedAt": "2026-10-11T11:26:16.796Z",
         "syncStatus": "fresh"
       },
       "gospel": {
@@ -2934,7 +2944,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Miércoles 30 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:37.532Z",
+            "fetchedAt": "2026-10-11T11:26:16.895Z",
             "syncStatus": "fresh"
           }
         },
@@ -2961,7 +2971,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Miércoles 30 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:37.532Z",
+            "fetchedAt": "2026-10-11T11:26:16.895Z",
             "syncStatus": "fresh"
           }
         },
@@ -2986,7 +2996,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Miércoles 30 de Septiembre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:37.532Z",
+            "fetchedAt": "2026-10-11T11:26:16.895Z",
             "syncStatus": "fresh"
           }
         }
@@ -2997,7 +3007,7 @@
         "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
         "pageTitle": "Eucaristía del Miércoles 30 de Septiembre de 2026",
         "verified": true,
-        "fetchedAt": "2026-10-10T11:12:37.532Z",
+        "fetchedAt": "2026-10-11T11:26:16.895Z",
         "syncStatus": "fresh"
       },
       "gospel": {
@@ -3077,7 +3087,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Jueves 01 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:37.626Z",
+            "fetchedAt": "2026-10-11T11:26:18.000Z",
             "syncStatus": "fresh"
           }
         },
@@ -3108,7 +3118,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Jueves 01 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:37.626Z",
+            "fetchedAt": "2026-10-11T11:26:18.000Z",
             "syncStatus": "fresh"
           }
         },
@@ -3133,7 +3143,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Jueves 01 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:37.626Z",
+            "fetchedAt": "2026-10-11T11:26:18.000Z",
             "syncStatus": "fresh"
           }
         }
@@ -3144,7 +3154,7 @@
         "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
         "pageTitle": "Eucaristía del Jueves 01 de Octubre de 2026",
         "verified": true,
-        "fetchedAt": "2026-10-10T11:12:37.626Z",
+        "fetchedAt": "2026-10-11T11:26:18.000Z",
         "syncStatus": "fresh"
       },
       "gospel": {
@@ -3207,7 +3217,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:13:44.207Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:37.722Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:18.094Z",
         "lastSyncError": "Referencia no reconocida: Salmos Sal. 90, 1-6. 10-11"
       },
       "supplementalSaints": [
@@ -3261,7 +3271,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Sábado 03 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:37.818Z",
+            "fetchedAt": "2026-10-11T11:26:18.192Z",
             "syncStatus": "fresh"
           }
         },
@@ -3311,7 +3321,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Sábado 03 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:37.818Z",
+            "fetchedAt": "2026-10-11T11:26:18.192Z",
             "syncStatus": "fresh"
           }
         },
@@ -3336,7 +3346,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Sábado 03 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:37.818Z",
+            "fetchedAt": "2026-10-11T11:26:18.192Z",
             "syncStatus": "fresh"
           }
         }
@@ -3347,7 +3357,7 @@
         "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
         "pageTitle": "Eucaristía del Sábado 03 de Octubre de 2026",
         "verified": true,
-        "fetchedAt": "2026-10-10T11:12:37.818Z",
+        "fetchedAt": "2026-10-11T11:26:18.192Z",
         "syncStatus": "fresh"
       },
       "gospel": {
@@ -3405,7 +3415,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Domingo 04 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:37.912Z",
+            "fetchedAt": "2026-10-11T11:26:18.290Z",
             "syncStatus": "fresh"
           }
         },
@@ -3440,7 +3450,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Domingo 04 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:37.912Z",
+            "fetchedAt": "2026-10-11T11:26:18.290Z",
             "syncStatus": "fresh"
           }
         },
@@ -3465,7 +3475,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Domingo 04 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:37.912Z",
+            "fetchedAt": "2026-10-11T11:26:18.290Z",
             "syncStatus": "fresh"
           }
         },
@@ -3491,7 +3501,7 @@
             "pageTitle": "Eucaristía del Domingo 04 de Octubre de 2026",
             "verified": true,
             "ordoValidated": true,
-            "fetchedAt": "2026-10-10T11:12:37.912Z",
+            "fetchedAt": "2026-10-11T11:26:18.290Z",
             "syncStatus": "fresh"
           }
         }
@@ -3503,7 +3513,7 @@
         "pageTitle": "Eucaristía del Domingo 04 de Octubre de 2026",
         "verified": true,
         "ordoValidated": true,
-        "fetchedAt": "2026-10-10T11:12:37.912Z",
+        "fetchedAt": "2026-10-11T11:26:18.290Z",
         "syncStatus": "fresh"
       },
       "gospel": {
@@ -3532,7 +3542,7 @@
                 "provider": "Ordo de la Conferencia Episcopal de Chile",
                 "url": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
                 "verified": true,
-                "fetchedAt": "2026-10-10T11:12:37.912Z",
+                "fetchedAt": "2026-10-11T11:26:18.290Z",
                 "syncStatus": "fresh"
               },
               "informationSource": {
@@ -3550,7 +3560,7 @@
             "pageTitle": "Eucaristía del Domingo 04 de Octubre de 2026",
             "verified": true,
             "ordoValidated": true,
-            "fetchedAt": "2026-10-10T11:12:37.912Z",
+            "fetchedAt": "2026-10-11T11:26:18.290Z",
             "syncStatus": "fresh"
           }
         }
@@ -3596,7 +3606,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Lunes 05 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:38.008Z",
+            "fetchedAt": "2026-10-11T11:26:18.444Z",
             "syncStatus": "fresh"
           }
         },
@@ -3633,7 +3643,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Lunes 05 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:38.008Z",
+            "fetchedAt": "2026-10-11T11:26:18.444Z",
             "syncStatus": "fresh"
           }
         },
@@ -3658,7 +3668,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Lunes 05 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:38.008Z",
+            "fetchedAt": "2026-10-11T11:26:18.444Z",
             "syncStatus": "fresh"
           }
         }
@@ -3669,7 +3679,7 @@
         "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
         "pageTitle": "Eucaristía del Lunes 05 de Octubre de 2026",
         "verified": true,
-        "fetchedAt": "2026-10-10T11:12:38.008Z",
+        "fetchedAt": "2026-10-11T11:26:18.444Z",
         "syncStatus": "fresh"
       },
       "gospel": {
@@ -3738,7 +3748,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Martes 06 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:38.105Z",
+            "fetchedAt": "2026-10-11T11:26:18.575Z",
             "syncStatus": "fresh"
           }
         },
@@ -3768,7 +3778,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Martes 06 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:38.105Z",
+            "fetchedAt": "2026-10-11T11:26:18.575Z",
             "syncStatus": "fresh"
           }
         },
@@ -3793,7 +3803,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Martes 06 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:38.105Z",
+            "fetchedAt": "2026-10-11T11:26:18.575Z",
             "syncStatus": "fresh"
           }
         }
@@ -3804,7 +3814,7 @@
         "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
         "pageTitle": "Eucaristía del Martes 06 de Octubre de 2026",
         "verified": true,
-        "fetchedAt": "2026-10-10T11:12:38.105Z",
+        "fetchedAt": "2026-10-11T11:26:18.575Z",
         "syncStatus": "fresh"
       },
       "gospel": {
@@ -3873,7 +3883,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:13:47.572Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:38.200Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:18.671Z",
         "lastSyncError": "2026-10-07: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       },
       "supplementalSaints": [
@@ -3928,7 +3938,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Jueves 08 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:39.132Z",
+            "fetchedAt": "2026-10-11T11:26:19.632Z",
             "syncStatus": "fresh"
           }
         },
@@ -3953,7 +3963,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Jueves 08 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:39.132Z",
+            "fetchedAt": "2026-10-11T11:26:19.632Z",
             "syncStatus": "fresh"
           }
         },
@@ -3978,7 +3988,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Jueves 08 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:39.132Z",
+            "fetchedAt": "2026-10-11T11:26:19.632Z",
             "syncStatus": "fresh"
           }
         }
@@ -3989,7 +3999,7 @@
         "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
         "pageTitle": "Eucaristía del Jueves 08 de Octubre de 2026",
         "verified": true,
-        "fetchedAt": "2026-10-10T11:12:39.132Z",
+        "fetchedAt": "2026-10-11T11:26:19.632Z",
         "syncStatus": "fresh"
       },
       "gospel": {
@@ -4047,7 +4057,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Viernes 09 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:39.226Z",
+            "fetchedAt": "2026-10-11T11:26:20.892Z",
             "syncStatus": "fresh"
           }
         },
@@ -4072,7 +4082,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Viernes 09 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:39.226Z",
+            "fetchedAt": "2026-10-11T11:26:20.892Z",
             "syncStatus": "fresh"
           }
         },
@@ -4097,7 +4107,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Viernes 09 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:39.226Z",
+            "fetchedAt": "2026-10-11T11:26:20.892Z",
             "syncStatus": "fresh"
           }
         }
@@ -4108,7 +4118,7 @@
         "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
         "pageTitle": "Eucaristía del Viernes 09 de Octubre de 2026",
         "verified": true,
-        "fetchedAt": "2026-10-10T11:12:39.226Z",
+        "fetchedAt": "2026-10-11T11:26:20.892Z",
         "syncStatus": "fresh"
       },
       "gospel": {
@@ -4210,7 +4220,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Sábado 10 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:39.319Z",
+            "fetchedAt": "2026-10-11T11:26:20.991Z",
             "syncStatus": "fresh"
           }
         },
@@ -4235,7 +4245,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Sábado 10 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:39.319Z",
+            "fetchedAt": "2026-10-11T11:26:20.991Z",
             "syncStatus": "fresh"
           }
         },
@@ -4260,7 +4270,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Sábado 10 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:39.319Z",
+            "fetchedAt": "2026-10-11T11:26:20.991Z",
             "syncStatus": "fresh"
           }
         }
@@ -4271,7 +4281,7 @@
         "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
         "pageTitle": "Eucaristía del Sábado 10 de Octubre de 2026",
         "verified": true,
-        "fetchedAt": "2026-10-10T11:12:39.319Z",
+        "fetchedAt": "2026-10-11T11:26:20.991Z",
         "syncStatus": "fresh"
       },
       "gospel": {
@@ -4352,7 +4362,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Domingo 11 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:39.418Z",
+            "fetchedAt": "2026-10-11T11:26:21.091Z",
             "syncStatus": "fresh"
           }
         },
@@ -4377,7 +4387,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Domingo 11 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:39.418Z",
+            "fetchedAt": "2026-10-11T11:26:21.091Z",
             "syncStatus": "fresh"
           }
         },
@@ -4407,7 +4417,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Domingo 11 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:39.418Z",
+            "fetchedAt": "2026-10-11T11:26:21.091Z",
             "syncStatus": "fresh"
           }
         },
@@ -4432,7 +4442,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Domingo 11 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:39.418Z",
+            "fetchedAt": "2026-10-11T11:26:21.091Z",
             "syncStatus": "fresh"
           }
         }
@@ -4443,7 +4453,7 @@
         "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
         "pageTitle": "Eucaristía del Domingo 11 de Octubre de 2026",
         "verified": true,
-        "fetchedAt": "2026-10-10T11:12:39.418Z",
+        "fetchedAt": "2026-10-11T11:26:21.091Z",
         "syncStatus": "fresh"
       },
       "gospel": {
@@ -4459,7 +4469,42 @@
         "title": "Inviten al banquete nupcial a todos los que encuentren",
         "excerpt": "Inviten al banquete nupcial a todos los que encuentren",
         "excerptReference": "Mateo 22:1-14"
-      }
+      },
+      "supplementalSaints": [
+        {
+          "name": "Felipe",
+          "source": {
+            "provider": "Vatican News",
+            "url": "https://www.vaticannews.va/es/santos.html",
+            "verified": true,
+            "attribution": "Vatican News",
+            "reviewedForDate": "2026-10-11",
+            "fetchedAt": "2026-10-11T11:26:43.238Z"
+          }
+        },
+        {
+          "name": "Juan XXIII",
+          "source": {
+            "provider": "Vatican News",
+            "url": "https://www.vaticannews.va/es/santos.html",
+            "verified": true,
+            "attribution": "Vatican News",
+            "reviewedForDate": "2026-10-11",
+            "fetchedAt": "2026-10-11T11:26:43.238Z"
+          }
+        },
+        {
+          "name": "Alejandro Sauli",
+          "source": {
+            "provider": "Vatican News",
+            "url": "https://www.vaticannews.va/es/santos.html",
+            "verified": true,
+            "attribution": "Vatican News",
+            "reviewedForDate": "2026-10-11",
+            "fetchedAt": "2026-10-11T11:26:43.238Z"
+          }
+        }
+      ]
     },
     {
       "date": "2026-10-12",
@@ -4479,7 +4524,7 @@
                 "url": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
                 "verified": true,
                 "syncStatus": "stale",
-                "lastSyncAttemptAt": "2026-10-10T11:12:39.518Z",
+                "lastSyncAttemptAt": "2026-10-11T11:26:21.191Z",
                 "lastSyncError": "2026-10-12: la publicación se descartó porque está incompleta o es inválida: readings[0].reference: referencia bíblica inválida | readings[0].excerptReference: referencia del extracto inválida"
               }
             }
@@ -4489,7 +4534,7 @@
             "url": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "verified": true,
             "syncStatus": "stale",
-            "lastSyncAttemptAt": "2026-10-10T11:12:39.518Z",
+            "lastSyncAttemptAt": "2026-10-11T11:26:21.191Z",
             "lastSyncError": "2026-10-12: la publicación se descartó porque está incompleta o es inválida: readings[0].reference: referencia bíblica inválida | readings[0].excerptReference: referencia del extracto inválida"
           }
         }
@@ -4517,7 +4562,7 @@
         "ordoValidated": true,
         "fetchedAt": "2026-09-10T16:13:51.038Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:39.518Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:21.191Z",
         "lastSyncError": "2026-10-12: la publicación se descartó porque está incompleta o es inválida: readings[0].reference: referencia bíblica inválida | readings[0].excerptReference: referencia del extracto inválida"
       }
     },
@@ -4548,7 +4593,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Martes 13 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:39.612Z",
+            "fetchedAt": "2026-10-11T11:26:21.296Z",
             "syncStatus": "fresh"
           }
         },
@@ -4583,7 +4628,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Martes 13 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:39.612Z",
+            "fetchedAt": "2026-10-11T11:26:21.296Z",
             "syncStatus": "fresh"
           }
         },
@@ -4608,7 +4653,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Martes 13 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:39.612Z",
+            "fetchedAt": "2026-10-11T11:26:21.296Z",
             "syncStatus": "fresh"
           }
         }
@@ -4619,7 +4664,7 @@
         "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
         "pageTitle": "Eucaristía del Martes 13 de Octubre de 2026",
         "verified": true,
-        "fetchedAt": "2026-10-10T11:12:39.612Z",
+        "fetchedAt": "2026-10-11T11:26:21.296Z",
         "syncStatus": "fresh"
       },
       "gospel": {
@@ -4664,7 +4709,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Miércoles 14 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:39.710Z",
+            "fetchedAt": "2026-10-11T11:26:21.398Z",
             "syncStatus": "fresh"
           }
         },
@@ -4694,7 +4739,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Miércoles 14 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:39.710Z",
+            "fetchedAt": "2026-10-11T11:26:21.398Z",
             "syncStatus": "fresh"
           }
         },
@@ -4719,7 +4764,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Miércoles 14 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:39.710Z",
+            "fetchedAt": "2026-10-11T11:26:21.398Z",
             "syncStatus": "fresh"
           }
         }
@@ -4730,7 +4775,7 @@
         "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
         "pageTitle": "Eucaristía del Miércoles 14 de Octubre de 2026",
         "verified": true,
-        "fetchedAt": "2026-10-10T11:12:39.710Z",
+        "fetchedAt": "2026-10-11T11:26:21.398Z",
         "syncStatus": "fresh"
       },
       "gospel": {
@@ -4775,7 +4820,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Jueves 15 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:39.804Z",
+            "fetchedAt": "2026-10-11T11:26:21.495Z",
             "syncStatus": "fresh"
           }
         },
@@ -4800,7 +4845,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Jueves 15 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:39.804Z",
+            "fetchedAt": "2026-10-11T11:26:21.495Z",
             "syncStatus": "fresh"
           }
         },
@@ -4826,7 +4871,7 @@
             "pageTitle": "Eucaristía del Jueves 15 de Octubre de 2026",
             "verified": true,
             "ordoValidated": true,
-            "fetchedAt": "2026-10-10T11:12:39.804Z",
+            "fetchedAt": "2026-10-11T11:26:21.495Z",
             "syncStatus": "fresh"
           }
         }
@@ -4838,7 +4883,7 @@
         "pageTitle": "Eucaristía del Jueves 15 de Octubre de 2026",
         "verified": true,
         "ordoValidated": true,
-        "fetchedAt": "2026-10-10T11:12:39.804Z",
+        "fetchedAt": "2026-10-11T11:26:21.495Z",
         "syncStatus": "fresh"
       },
       "gospel": {
@@ -4867,7 +4912,7 @@
                 "provider": "Ordo de la Conferencia Episcopal de Chile",
                 "url": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
                 "verified": true,
-                "fetchedAt": "2026-10-10T11:12:39.804Z",
+                "fetchedAt": "2026-10-11T11:26:21.495Z",
                 "syncStatus": "fresh"
               },
               "informationSource": {
@@ -4885,7 +4930,7 @@
             "pageTitle": "Eucaristía del Jueves 15 de Octubre de 2026",
             "verified": true,
             "ordoValidated": true,
-            "fetchedAt": "2026-10-10T11:12:39.804Z",
+            "fetchedAt": "2026-10-11T11:26:21.495Z",
             "syncStatus": "fresh"
           }
         }
@@ -4918,7 +4963,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Viernes 16 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:39.901Z",
+            "fetchedAt": "2026-10-11T11:26:21.593Z",
             "syncStatus": "fresh"
           }
         },
@@ -4953,7 +4998,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Viernes 16 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:39.901Z",
+            "fetchedAt": "2026-10-11T11:26:21.593Z",
             "syncStatus": "fresh"
           }
         },
@@ -4978,7 +5023,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Viernes 16 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:39.901Z",
+            "fetchedAt": "2026-10-11T11:26:21.593Z",
             "syncStatus": "fresh"
           }
         }
@@ -4989,7 +5034,7 @@
         "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
         "pageTitle": "Eucaristía del Viernes 16 de Octubre de 2026",
         "verified": true,
-        "fetchedAt": "2026-10-10T11:12:39.901Z",
+        "fetchedAt": "2026-10-11T11:26:21.593Z",
         "syncStatus": "fresh"
       },
       "gospel": {
@@ -5034,7 +5079,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:13:56.159Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:39.990Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:21.687Z",
         "lastSyncError": "Rango no reconocido: Salmos 8, 2-3ª. 4-7"
       }
     },
@@ -5065,7 +5110,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:13:58.720Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:40.089Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:21.786Z",
         "lastSyncError": "Rango no reconocido: Salmos 95, 1. 3-5. 7-10ac"
       }
     },
@@ -5096,7 +5141,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Lunes 19 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:40.185Z",
+            "fetchedAt": "2026-10-11T11:26:21.884Z",
             "syncStatus": "fresh"
           }
         },
@@ -5121,7 +5166,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Lunes 19 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:40.185Z",
+            "fetchedAt": "2026-10-11T11:26:21.884Z",
             "syncStatus": "fresh"
           }
         },
@@ -5146,7 +5191,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Lunes 19 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:40.185Z",
+            "fetchedAt": "2026-10-11T11:26:21.884Z",
             "syncStatus": "fresh"
           }
         }
@@ -5157,7 +5202,7 @@
         "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
         "pageTitle": "Eucaristía del Lunes 19 de Octubre de 2026",
         "verified": true,
-        "fetchedAt": "2026-10-10T11:12:40.185Z",
+        "fetchedAt": "2026-10-11T11:26:21.884Z",
         "syncStatus": "fresh"
       },
       "gospel": {
@@ -5202,7 +5247,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:00.541Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:40.280Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:21.985Z",
         "lastSyncError": "Rango no reconocido: Salmos 84, 9ab. 10-14"
       }
     },
@@ -5233,7 +5278,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:01.394Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:40.377Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:22.082Z",
         "lastSyncError": "Referencia no reconocida: Salmos Is 12, 2-6"
       }
     },
@@ -5264,7 +5309,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Jueves 22 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:40.471Z",
+            "fetchedAt": "2026-10-11T11:26:22.181Z",
             "syncStatus": "fresh"
           }
         },
@@ -5304,7 +5349,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Jueves 22 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:40.471Z",
+            "fetchedAt": "2026-10-11T11:26:22.181Z",
             "syncStatus": "fresh"
           }
         },
@@ -5329,7 +5374,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Jueves 22 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:40.471Z",
+            "fetchedAt": "2026-10-11T11:26:22.181Z",
             "syncStatus": "fresh"
           }
         }
@@ -5340,7 +5385,7 @@
         "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
         "pageTitle": "Eucaristía del Jueves 22 de Octubre de 2026",
         "verified": true,
-        "fetchedAt": "2026-10-10T11:12:40.471Z",
+        "fetchedAt": "2026-10-11T11:26:22.181Z",
         "syncStatus": "fresh"
       },
       "gospel": {
@@ -5385,7 +5430,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Viernes 23 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:40.571Z",
+            "fetchedAt": "2026-10-11T11:26:22.283Z",
             "syncStatus": "fresh"
           }
         },
@@ -5416,7 +5461,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Viernes 23 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:40.571Z",
+            "fetchedAt": "2026-10-11T11:26:22.283Z",
             "syncStatus": "fresh"
           }
         },
@@ -5441,7 +5486,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Viernes 23 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:40.571Z",
+            "fetchedAt": "2026-10-11T11:26:22.283Z",
             "syncStatus": "fresh"
           }
         }
@@ -5452,7 +5497,7 @@
         "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
         "pageTitle": "Eucaristía del Viernes 23 de Octubre de 2026",
         "verified": true,
-        "fetchedAt": "2026-10-10T11:12:40.571Z",
+        "fetchedAt": "2026-10-11T11:26:22.283Z",
         "syncStatus": "fresh"
       },
       "gospel": {
@@ -5497,7 +5542,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Sábado 24 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:40.668Z",
+            "fetchedAt": "2026-10-11T11:26:22.383Z",
             "syncStatus": "fresh"
           }
         },
@@ -5522,7 +5567,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Sábado 24 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:40.668Z",
+            "fetchedAt": "2026-10-11T11:26:22.383Z",
             "syncStatus": "fresh"
           }
         },
@@ -5547,7 +5592,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Sábado 24 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:40.668Z",
+            "fetchedAt": "2026-10-11T11:26:22.383Z",
             "syncStatus": "fresh"
           }
         }
@@ -5558,7 +5603,7 @@
         "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
         "pageTitle": "Eucaristía del Sábado 24 de Octubre de 2026",
         "verified": true,
-        "fetchedAt": "2026-10-10T11:12:40.668Z",
+        "fetchedAt": "2026-10-11T11:26:22.383Z",
         "syncStatus": "fresh"
       },
       "gospel": {
@@ -5603,7 +5648,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:04.828Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:40.763Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:22.490Z",
         "lastSyncError": "Rango no reconocido: Salmos 17, 2-4. 47. 51ab"
       }
     },
@@ -5635,7 +5680,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Lunes 26 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:40.863Z",
+            "fetchedAt": "2026-10-11T11:26:22.591Z",
             "syncStatus": "fresh"
           }
         },
@@ -5665,7 +5710,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Lunes 26 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:40.863Z",
+            "fetchedAt": "2026-10-11T11:26:22.591Z",
             "syncStatus": "fresh"
           }
         },
@@ -5690,7 +5735,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Lunes 26 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:40.863Z",
+            "fetchedAt": "2026-10-11T11:26:22.591Z",
             "syncStatus": "fresh"
           }
         }
@@ -5701,7 +5746,7 @@
         "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
         "pageTitle": "Eucaristía del Lunes 26 de Octubre de 2026",
         "verified": true,
-        "fetchedAt": "2026-10-10T11:12:40.863Z",
+        "fetchedAt": "2026-10-11T11:26:22.591Z",
         "syncStatus": "fresh"
       },
       "gospel": {
@@ -5747,7 +5792,7 @@
         "ordoValidated": true,
         "fetchedAt": "2026-09-10T16:14:06.378Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:40.966Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:22.698Z",
         "lastSyncError": "2026-10-27: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -5778,7 +5823,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:07.157Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:41.257Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:23.015Z",
         "lastSyncError": "Referencia no reconocida: Salmos Sal 18, 2-5"
       }
     },
@@ -5809,7 +5854,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:10.548Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:41.359Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:23.112Z",
         "lastSyncError": "Rango no reconocido: Salmos 143, 1-2. 9-10ab"
       }
     },
@@ -5840,7 +5885,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Viernes 30 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:41.453Z",
+            "fetchedAt": "2026-10-11T11:26:23.210Z",
             "syncStatus": "fresh"
           }
         },
@@ -5865,7 +5910,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Viernes 30 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:41.453Z",
+            "fetchedAt": "2026-10-11T11:26:23.210Z",
             "syncStatus": "fresh"
           }
         },
@@ -5890,7 +5935,7 @@
             "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
             "pageTitle": "Eucaristía del Viernes 30 de Octubre de 2026",
             "verified": true,
-            "fetchedAt": "2026-10-10T11:12:41.453Z",
+            "fetchedAt": "2026-10-11T11:26:23.210Z",
             "syncStatus": "fresh"
           }
         }
@@ -5901,7 +5946,7 @@
         "ordoUrl": "https://www.iglesia.cl/docs/2026-Ordinario-II.pdf",
         "pageTitle": "Eucaristía del Viernes 30 de Octubre de 2026",
         "verified": true,
-        "fetchedAt": "2026-10-10T11:12:41.453Z",
+        "fetchedAt": "2026-10-11T11:26:23.210Z",
         "syncStatus": "fresh"
       },
       "gospel": {
@@ -5951,7 +5996,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:12.296Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:41.549Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:23.306Z",
         "lastSyncError": "Rango no reconocido: Salmos 41, 2-3. 5bcd"
       }
     },
@@ -5984,7 +6029,7 @@
         "ordoValidated": true,
         "fetchedAt": "2026-09-10T16:14:13.541Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:41.645Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:23.406Z",
         "lastSyncError": "2026-11-01: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -6016,7 +6061,7 @@
         "ordoValidated": true,
         "fetchedAt": "2026-09-10T16:14:14.539Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:42.009Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:23.759Z",
         "lastSyncError": "2026-11-02: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -6047,7 +6092,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:15.643Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:42.304Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:24.096Z",
         "lastSyncError": "2026-11-03: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -6078,7 +6123,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:18.030Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:42.607Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:24.409Z",
         "lastSyncError": "2026-11-04: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -6109,7 +6154,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:18.993Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:42.896Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:24.745Z",
         "lastSyncError": "2026-11-05: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -6140,7 +6185,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:20.030Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:43.197Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:25.068Z",
         "lastSyncError": "2026-11-06: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -6171,7 +6216,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:21.079Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:43.484Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:25.378Z",
         "lastSyncError": "2026-11-07: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -6202,7 +6247,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:21.625Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:43.771Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:25.706Z",
         "lastSyncError": "2026-11-08: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -6233,7 +6278,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:22.465Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:44.053Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:26.019Z",
         "lastSyncError": "2026-11-09: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -6264,7 +6309,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:23.764Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:44.892Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:26.329Z",
         "lastSyncError": "2026-11-10: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -6295,7 +6340,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:24.338Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:45.484Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:26.641Z",
         "lastSyncError": "2026-11-11: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -6326,7 +6371,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:24.990Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:45.771Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:26.969Z",
         "lastSyncError": "2026-11-12: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -6357,7 +6402,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:26.787Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:46.066Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:27.271Z",
         "lastSyncError": "2026-11-13: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -6388,7 +6433,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:27.670Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:46.348Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:27.621Z",
         "lastSyncError": "2026-11-14: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -6419,7 +6464,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:28.432Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:46.643Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:27.974Z",
         "lastSyncError": "2026-11-15: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -6450,7 +6495,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:29.176Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:46.930Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:28.455Z",
         "lastSyncError": "2026-11-16: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -6481,7 +6526,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:29.723Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:47.214Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:28.753Z",
         "lastSyncError": "2026-11-17: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -6512,7 +6557,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:30.249Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:47.501Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:29.050Z",
         "lastSyncError": "2026-11-18: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -6543,7 +6588,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:30.789Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:47.796Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:29.358Z",
         "lastSyncError": "2026-11-19: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -6574,7 +6619,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:31.307Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:48.117Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:29.706Z",
         "lastSyncError": "2026-11-20: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -6605,7 +6650,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:31.887Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:48.411Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:30.001Z",
         "lastSyncError": "2026-11-21: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -6636,7 +6681,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:34.185Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:48.707Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:30.344Z",
         "lastSyncError": "2026-11-22: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -6667,7 +6712,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:34.846Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:48.987Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:30.643Z",
         "lastSyncError": "2026-11-23: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -6699,7 +6744,7 @@
         "ordoValidated": true,
         "fetchedAt": "2026-09-10T16:14:35.425Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:49.327Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:30.947Z",
         "lastSyncError": "2026-11-24: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -6730,7 +6775,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:36.374Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:49.619Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:31.251Z",
         "lastSyncError": "2026-11-25: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -6761,7 +6806,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:36.940Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:49.901Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:31.550Z",
         "lastSyncError": "2026-11-26: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -6792,7 +6837,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:37.513Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:50.186Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:31.865Z",
         "lastSyncError": "2026-11-27: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -6823,7 +6868,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:38.378Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:50.569Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:32.168Z",
         "lastSyncError": "2026-11-28: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -6854,7 +6899,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:39.206Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:50.865Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:32.470Z",
         "lastSyncError": "2026-11-29: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -6885,7 +6930,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:39.992Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:51.159Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:32.776Z",
         "lastSyncError": "2026-11-30: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -6916,7 +6961,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:40.559Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:51.448Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:33.111Z",
         "lastSyncError": "2026-12-01: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -6947,7 +6992,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:41.113Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:51.755Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:33.409Z",
         "lastSyncError": "2026-12-02: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -6983,7 +7028,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:42.374Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:52.052Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:33.716Z",
         "lastSyncError": "2026-12-03: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -7014,7 +7059,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:43.773Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:52.352Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:34.030Z",
         "lastSyncError": "2026-12-04: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -7058,7 +7103,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:44.363Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:52.647Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:34.379Z",
         "lastSyncError": "2026-12-05: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -7089,7 +7134,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:45.222Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:52.948Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:34.687Z",
         "lastSyncError": "2026-12-06: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -7120,7 +7165,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:45.757Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:53.250Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:34.995Z",
         "lastSyncError": "2026-12-07: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -7151,7 +7196,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:46.481Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:53.551Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:35.301Z",
         "lastSyncError": "2026-12-08: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -7182,7 +7227,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:47.189Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:53.844Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:35.609Z",
         "lastSyncError": "2026-12-09: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -7213,7 +7258,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:48.040Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:54.133Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:35.921Z",
         "lastSyncError": "2026-12-10: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -7244,7 +7289,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:48.969Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:54.430Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:36.228Z",
         "lastSyncError": "2026-12-11: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -7275,7 +7320,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:51.092Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:54.718Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:36.535Z",
         "lastSyncError": "2026-12-12: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -7311,7 +7356,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:51.646Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:55.026Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:36.836Z",
         "lastSyncError": "2026-12-13: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -7342,7 +7387,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:52.659Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:55.475Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:37.135Z",
         "lastSyncError": "2026-12-14: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -7373,7 +7418,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:53.528Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:55.768Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:37.449Z",
         "lastSyncError": "2026-12-15: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -7404,7 +7449,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:54.154Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:56.061Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:37.754Z",
         "lastSyncError": "2026-12-16: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -7435,7 +7480,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:54.774Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:56.345Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:38.057Z",
         "lastSyncError": "2026-12-17: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -7466,7 +7511,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:55.371Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:56.661Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:38.355Z",
         "lastSyncError": "2026-12-18: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -7497,7 +7542,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:14:58.644Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:56.938Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:38.677Z",
         "lastSyncError": "2026-12-19: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -7528,7 +7573,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:15:00.452Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:57.252Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:38.980Z",
         "lastSyncError": "2026-12-20: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -7559,7 +7604,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:15:01.107Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:57.725Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:39.573Z",
         "lastSyncError": "2026-12-21: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -7590,7 +7635,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:15:01.888Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:58.014Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:39.878Z",
         "lastSyncError": "2026-12-22: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -7621,7 +7666,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:15:02.637Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:58.306Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:40.198Z",
         "lastSyncError": "2026-12-23: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -7652,7 +7697,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:15:03.345Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:58.604Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:40.506Z",
         "lastSyncError": "2026-12-24: la publicación se descartó porque está incompleta o es inválida: readings[0].title: título requerido | readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -7683,7 +7728,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:15:04.022Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:58.901Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:40.806Z",
         "lastSyncError": "2026-12-25: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -7714,7 +7759,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:15:04.593Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:59.180Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:41.131Z",
         "lastSyncError": "2026-12-26: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -7745,7 +7790,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:15:05.367Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:59.468Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:41.453Z",
         "lastSyncError": "2026-12-27: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -7776,7 +7821,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:15:07.209Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:12:59.756Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:41.757Z",
         "lastSyncError": "2026-12-28: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -7807,7 +7852,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:15:08.669Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:13:00.040Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:42.058Z",
         "lastSyncError": "2026-12-29: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -7838,7 +7883,7 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:15:09.226Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:13:00.339Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:42.371Z",
         "lastSyncError": "2026-12-30: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     },
@@ -7869,27 +7914,28 @@
         "provisional": true,
         "fetchedAt": "2026-09-10T16:15:09.835Z",
         "syncStatus": "stale",
-        "lastSyncAttemptAt": "2026-10-10T11:13:00.633Z",
+        "lastSyncAttemptAt": "2026-10-11T11:26:42.693Z",
         "lastSyncError": "2026-12-31: la publicación se descartó porque está incompleta o es inválida: readings: falta la lectura obligatoria first-reading | readings: falta la lectura obligatoria psalm"
       }
     }
   ],
-  "syncedAt": "2026-10-10T11:13:00.941Z",
+  "syncedAt": "2026-10-11T11:26:43.033Z",
   "syncState": {
-    "lastAttemptAt": "2026-10-10T11:12:35.302Z",
+    "lastAttemptAt": "2026-10-11T11:26:03.783Z",
     "status": "partial",
     "attempts": {
       "2026-09-10": {
-        "status": "published",
-        "attemptedAt": "2026-10-10T11:12:35.306Z",
+        "status": "stale",
+        "attemptedAt": "2026-10-11T11:26:03.787Z",
         "source": {
           "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
           "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-10"
-        }
+        },
+        "error": "fetch failed"
       },
       "2026-09-11": {
         "status": "published",
-        "attemptedAt": "2026-10-10T11:12:35.674Z",
+        "attemptedAt": "2026-10-11T11:26:14.344Z",
         "source": {
           "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
           "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-11"
@@ -7897,7 +7943,7 @@
       },
       "2026-09-12": {
         "status": "published",
-        "attemptedAt": "2026-10-10T11:12:35.774Z",
+        "attemptedAt": "2026-10-11T11:26:15.060Z",
         "source": {
           "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
           "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-12"
@@ -7905,7 +7951,7 @@
       },
       "2026-09-13": {
         "status": "published",
-        "attemptedAt": "2026-10-10T11:12:35.874Z",
+        "attemptedAt": "2026-10-11T11:26:15.164Z",
         "source": {
           "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
           "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-13"
@@ -7913,7 +7959,7 @@
       },
       "2026-09-14": {
         "status": "published",
-        "attemptedAt": "2026-10-10T11:12:35.975Z",
+        "attemptedAt": "2026-10-11T11:26:15.266Z",
         "source": {
           "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
           "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-14"
@@ -7921,7 +7967,7 @@
       },
       "2026-09-15": {
         "status": "published",
-        "attemptedAt": "2026-10-10T11:12:36.071Z",
+        "attemptedAt": "2026-10-11T11:26:15.373Z",
         "source": {
           "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
           "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-15"
@@ -7929,7 +7975,7 @@
       },
       "2026-09-16": {
         "status": "published",
-        "attemptedAt": "2026-10-10T11:12:36.169Z",
+        "attemptedAt": "2026-10-11T11:26:15.478Z",
         "source": {
           "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
           "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-16"
@@ -7937,7 +7983,7 @@
       },
       "2026-09-17": {
         "status": "published",
-        "attemptedAt": "2026-10-10T11:12:36.268Z",
+        "attemptedAt": "2026-10-11T11:26:15.581Z",
         "source": {
           "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
           "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-17"
@@ -7945,7 +7991,7 @@
       },
       "2026-09-18": {
         "status": "published",
-        "attemptedAt": "2026-10-10T11:12:36.368Z",
+        "attemptedAt": "2026-10-11T11:26:15.682Z",
         "source": {
           "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
           "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-18"
@@ -7953,7 +7999,7 @@
       },
       "2026-09-19": {
         "status": "published",
-        "attemptedAt": "2026-10-10T11:12:36.462Z",
+        "attemptedAt": "2026-10-11T11:26:15.778Z",
         "source": {
           "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
           "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-19"
@@ -7961,7 +8007,7 @@
       },
       "2026-09-20": {
         "status": "published",
-        "attemptedAt": "2026-10-10T11:12:36.558Z",
+        "attemptedAt": "2026-10-11T11:26:15.884Z",
         "source": {
           "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
           "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-20"
@@ -7969,7 +8015,7 @@
       },
       "2026-09-21": {
         "status": "published",
-        "attemptedAt": "2026-10-10T11:12:36.659Z",
+        "attemptedAt": "2026-10-11T11:26:15.988Z",
         "source": {
           "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
           "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-21"
@@ -7977,7 +8023,7 @@
       },
       "2026-09-22": {
         "status": "published",
-        "attemptedAt": "2026-10-10T11:12:36.756Z",
+        "attemptedAt": "2026-10-11T11:26:16.089Z",
         "source": {
           "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
           "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-22"
@@ -7985,7 +8031,7 @@
       },
       "2026-09-23": {
         "status": "published",
-        "attemptedAt": "2026-10-10T11:12:36.853Z",
+        "attemptedAt": "2026-10-11T11:26:16.192Z",
         "source": {
           "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
           "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-23"
@@ -7993,7 +8039,7 @@
       },
       "2026-09-24": {
         "status": "published",
-        "attemptedAt": "2026-10-10T11:12:36.949Z",
+        "attemptedAt": "2026-10-11T11:26:16.293Z",
         "source": {
           "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
           "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-24"
@@ -8001,7 +8047,7 @@
       },
       "2026-09-25": {
         "status": "published",
-        "attemptedAt": "2026-10-10T11:12:37.054Z",
+        "attemptedAt": "2026-10-11T11:26:16.395Z",
         "source": {
           "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
           "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-25"
@@ -8009,7 +8055,7 @@
       },
       "2026-09-26": {
         "status": "published",
-        "attemptedAt": "2026-10-10T11:12:37.152Z",
+        "attemptedAt": "2026-10-11T11:26:16.496Z",
         "source": {
           "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
           "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-26"
@@ -8017,7 +8063,7 @@
       },
       "2026-09-27": {
         "status": "published",
-        "attemptedAt": "2026-10-10T11:12:37.246Z",
+        "attemptedAt": "2026-10-11T11:26:16.599Z",
         "source": {
           "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
           "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-27"
@@ -8025,7 +8071,7 @@
       },
       "2026-09-28": {
         "status": "published",
-        "attemptedAt": "2026-10-10T11:12:37.341Z",
+        "attemptedAt": "2026-10-11T11:26:16.697Z",
         "source": {
           "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
           "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-28"
@@ -8033,7 +8079,7 @@
       },
       "2026-09-29": {
         "status": "published",
-        "attemptedAt": "2026-10-10T11:12:37.438Z",
+        "attemptedAt": "2026-10-11T11:26:16.796Z",
         "source": {
           "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
           "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-29"
@@ -8041,7 +8087,7 @@
       },
       "2026-09-30": {
         "status": "published",
-        "attemptedAt": "2026-10-10T11:12:37.532Z",
+        "attemptedAt": "2026-10-11T11:26:16.895Z",
         "source": {
           "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
           "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-09-30"
@@ -8049,7 +8095,7 @@
       },
       "2026-10-01": {
         "status": "published",
-        "attemptedAt": "2026-10-10T11:12:37.626Z",
+        "attemptedAt": "2026-10-11T11:26:18.000Z",
         "source": {
           "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
           "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-10-01"
@@ -8057,7 +8103,7 @@
       },
       "2026-10-02": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:37.722Z",
+        "attemptedAt": "2026-10-11T11:26:18.094Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-10-02"
@@ -8066,7 +8112,7 @@
       },
       "2026-10-03": {
         "status": "published",
-        "attemptedAt": "2026-10-10T11:12:37.818Z",
+        "attemptedAt": "2026-10-11T11:26:18.192Z",
         "source": {
           "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
           "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-10-03"
@@ -8074,7 +8120,7 @@
       },
       "2026-10-04": {
         "status": "published",
-        "attemptedAt": "2026-10-10T11:12:37.912Z",
+        "attemptedAt": "2026-10-11T11:26:18.290Z",
         "source": {
           "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
           "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-10-04"
@@ -8082,7 +8128,7 @@
       },
       "2026-10-05": {
         "status": "published",
-        "attemptedAt": "2026-10-10T11:12:38.008Z",
+        "attemptedAt": "2026-10-11T11:26:18.444Z",
         "source": {
           "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
           "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-10-05"
@@ -8090,7 +8136,7 @@
       },
       "2026-10-06": {
         "status": "published",
-        "attemptedAt": "2026-10-10T11:12:38.105Z",
+        "attemptedAt": "2026-10-11T11:26:18.575Z",
         "source": {
           "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
           "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-10-06"
@@ -8098,7 +8144,7 @@
       },
       "2026-10-07": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:38.200Z",
+        "attemptedAt": "2026-10-11T11:26:18.671Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-10-07"
@@ -8107,7 +8153,7 @@
       },
       "2026-10-08": {
         "status": "published",
-        "attemptedAt": "2026-10-10T11:12:39.132Z",
+        "attemptedAt": "2026-10-11T11:26:19.632Z",
         "source": {
           "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
           "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-10-08"
@@ -8115,7 +8161,7 @@
       },
       "2026-10-09": {
         "status": "published",
-        "attemptedAt": "2026-10-10T11:12:39.226Z",
+        "attemptedAt": "2026-10-11T11:26:20.892Z",
         "source": {
           "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
           "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-10-09"
@@ -8123,7 +8169,7 @@
       },
       "2026-10-10": {
         "status": "published",
-        "attemptedAt": "2026-10-10T11:12:39.319Z",
+        "attemptedAt": "2026-10-11T11:26:20.991Z",
         "source": {
           "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
           "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-10-10"
@@ -8131,7 +8177,7 @@
       },
       "2026-10-11": {
         "status": "published",
-        "attemptedAt": "2026-10-10T11:12:39.418Z",
+        "attemptedAt": "2026-10-11T11:26:21.091Z",
         "source": {
           "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
           "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-10-11"
@@ -8139,7 +8185,7 @@
       },
       "2026-10-12": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:39.518Z",
+        "attemptedAt": "2026-10-11T11:26:21.191Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-10-12"
@@ -8148,7 +8194,7 @@
       },
       "2026-10-13": {
         "status": "published",
-        "attemptedAt": "2026-10-10T11:12:39.612Z",
+        "attemptedAt": "2026-10-11T11:26:21.296Z",
         "source": {
           "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
           "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-10-13"
@@ -8156,7 +8202,7 @@
       },
       "2026-10-14": {
         "status": "published",
-        "attemptedAt": "2026-10-10T11:12:39.710Z",
+        "attemptedAt": "2026-10-11T11:26:21.398Z",
         "source": {
           "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
           "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-10-14"
@@ -8164,7 +8210,7 @@
       },
       "2026-10-15": {
         "status": "published",
-        "attemptedAt": "2026-10-10T11:12:39.804Z",
+        "attemptedAt": "2026-10-11T11:26:21.495Z",
         "source": {
           "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
           "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-10-15"
@@ -8172,7 +8218,7 @@
       },
       "2026-10-16": {
         "status": "published",
-        "attemptedAt": "2026-10-10T11:12:39.901Z",
+        "attemptedAt": "2026-10-11T11:26:21.593Z",
         "source": {
           "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
           "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-10-16"
@@ -8180,7 +8226,7 @@
       },
       "2026-10-17": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:39.990Z",
+        "attemptedAt": "2026-10-11T11:26:21.687Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-10-17"
@@ -8189,7 +8235,7 @@
       },
       "2026-10-18": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:40.089Z",
+        "attemptedAt": "2026-10-11T11:26:21.786Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-10-18"
@@ -8198,7 +8244,7 @@
       },
       "2026-10-19": {
         "status": "published",
-        "attemptedAt": "2026-10-10T11:12:40.185Z",
+        "attemptedAt": "2026-10-11T11:26:21.884Z",
         "source": {
           "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
           "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-10-19"
@@ -8206,7 +8252,7 @@
       },
       "2026-10-20": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:40.280Z",
+        "attemptedAt": "2026-10-11T11:26:21.985Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-10-20"
@@ -8215,7 +8261,7 @@
       },
       "2026-10-21": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:40.377Z",
+        "attemptedAt": "2026-10-11T11:26:22.082Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-10-21"
@@ -8224,7 +8270,7 @@
       },
       "2026-10-22": {
         "status": "published",
-        "attemptedAt": "2026-10-10T11:12:40.471Z",
+        "attemptedAt": "2026-10-11T11:26:22.181Z",
         "source": {
           "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
           "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-10-22"
@@ -8232,7 +8278,7 @@
       },
       "2026-10-23": {
         "status": "published",
-        "attemptedAt": "2026-10-10T11:12:40.571Z",
+        "attemptedAt": "2026-10-11T11:26:22.283Z",
         "source": {
           "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
           "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-10-23"
@@ -8240,7 +8286,7 @@
       },
       "2026-10-24": {
         "status": "published",
-        "attemptedAt": "2026-10-10T11:12:40.668Z",
+        "attemptedAt": "2026-10-11T11:26:22.383Z",
         "source": {
           "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
           "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-10-24"
@@ -8248,7 +8294,7 @@
       },
       "2026-10-25": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:40.763Z",
+        "attemptedAt": "2026-10-11T11:26:22.490Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-10-25"
@@ -8257,7 +8303,7 @@
       },
       "2026-10-26": {
         "status": "published",
-        "attemptedAt": "2026-10-10T11:12:40.863Z",
+        "attemptedAt": "2026-10-11T11:26:22.591Z",
         "source": {
           "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
           "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-10-26"
@@ -8265,7 +8311,7 @@
       },
       "2026-10-27": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:40.966Z",
+        "attemptedAt": "2026-10-11T11:26:22.698Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-10-27"
@@ -8274,7 +8320,7 @@
       },
       "2026-10-28": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:41.257Z",
+        "attemptedAt": "2026-10-11T11:26:23.015Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-10-28"
@@ -8283,7 +8329,7 @@
       },
       "2026-10-29": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:41.359Z",
+        "attemptedAt": "2026-10-11T11:26:23.112Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-10-29"
@@ -8292,7 +8338,7 @@
       },
       "2026-10-30": {
         "status": "published",
-        "attemptedAt": "2026-10-10T11:12:41.453Z",
+        "attemptedAt": "2026-10-11T11:26:23.210Z",
         "source": {
           "provider": "Eucaristía Diaria / Conferencia Episcopal de Chile",
           "url": "https://www.eucaristiadiaria.cl/dia_cal.php?fecha=2026-10-30"
@@ -8300,7 +8346,7 @@
       },
       "2026-10-31": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:41.549Z",
+        "attemptedAt": "2026-10-11T11:26:23.306Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-10-31"
@@ -8309,7 +8355,7 @@
       },
       "2026-11-01": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:41.645Z",
+        "attemptedAt": "2026-10-11T11:26:23.406Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-11-01"
@@ -8318,7 +8364,7 @@
       },
       "2026-11-02": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:42.009Z",
+        "attemptedAt": "2026-10-11T11:26:23.759Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-11-02"
@@ -8327,7 +8373,7 @@
       },
       "2026-11-03": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:42.304Z",
+        "attemptedAt": "2026-10-11T11:26:24.096Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-11-03"
@@ -8336,7 +8382,7 @@
       },
       "2026-11-04": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:42.607Z",
+        "attemptedAt": "2026-10-11T11:26:24.409Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-11-04"
@@ -8345,7 +8391,7 @@
       },
       "2026-11-05": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:42.896Z",
+        "attemptedAt": "2026-10-11T11:26:24.745Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-11-05"
@@ -8354,7 +8400,7 @@
       },
       "2026-11-06": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:43.197Z",
+        "attemptedAt": "2026-10-11T11:26:25.068Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-11-06"
@@ -8363,7 +8409,7 @@
       },
       "2026-11-07": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:43.484Z",
+        "attemptedAt": "2026-10-11T11:26:25.378Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-11-07"
@@ -8372,7 +8418,7 @@
       },
       "2026-11-08": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:43.771Z",
+        "attemptedAt": "2026-10-11T11:26:25.706Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-11-08"
@@ -8381,7 +8427,7 @@
       },
       "2026-11-09": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:44.053Z",
+        "attemptedAt": "2026-10-11T11:26:26.019Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-11-09"
@@ -8390,7 +8436,7 @@
       },
       "2026-11-10": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:44.892Z",
+        "attemptedAt": "2026-10-11T11:26:26.329Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-11-10"
@@ -8399,7 +8445,7 @@
       },
       "2026-11-11": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:45.484Z",
+        "attemptedAt": "2026-10-11T11:26:26.641Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-11-11"
@@ -8408,7 +8454,7 @@
       },
       "2026-11-12": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:45.771Z",
+        "attemptedAt": "2026-10-11T11:26:26.969Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-11-12"
@@ -8417,7 +8463,7 @@
       },
       "2026-11-13": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:46.066Z",
+        "attemptedAt": "2026-10-11T11:26:27.271Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-11-13"
@@ -8426,7 +8472,7 @@
       },
       "2026-11-14": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:46.348Z",
+        "attemptedAt": "2026-10-11T11:26:27.621Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-11-14"
@@ -8435,7 +8481,7 @@
       },
       "2026-11-15": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:46.643Z",
+        "attemptedAt": "2026-10-11T11:26:27.974Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-11-15"
@@ -8444,7 +8490,7 @@
       },
       "2026-11-16": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:46.930Z",
+        "attemptedAt": "2026-10-11T11:26:28.455Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-11-16"
@@ -8453,7 +8499,7 @@
       },
       "2026-11-17": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:47.214Z",
+        "attemptedAt": "2026-10-11T11:26:28.753Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-11-17"
@@ -8462,7 +8508,7 @@
       },
       "2026-11-18": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:47.501Z",
+        "attemptedAt": "2026-10-11T11:26:29.050Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-11-18"
@@ -8471,7 +8517,7 @@
       },
       "2026-11-19": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:47.796Z",
+        "attemptedAt": "2026-10-11T11:26:29.358Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-11-19"
@@ -8480,7 +8526,7 @@
       },
       "2026-11-20": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:48.117Z",
+        "attemptedAt": "2026-10-11T11:26:29.706Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-11-20"
@@ -8489,7 +8535,7 @@
       },
       "2026-11-21": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:48.411Z",
+        "attemptedAt": "2026-10-11T11:26:30.001Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-11-21"
@@ -8498,7 +8544,7 @@
       },
       "2026-11-22": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:48.707Z",
+        "attemptedAt": "2026-10-11T11:26:30.344Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-11-22"
@@ -8507,7 +8553,7 @@
       },
       "2026-11-23": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:48.987Z",
+        "attemptedAt": "2026-10-11T11:26:30.643Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-11-23"
@@ -8516,7 +8562,7 @@
       },
       "2026-11-24": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:49.327Z",
+        "attemptedAt": "2026-10-11T11:26:30.947Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-11-24"
@@ -8525,7 +8571,7 @@
       },
       "2026-11-25": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:49.619Z",
+        "attemptedAt": "2026-10-11T11:26:31.251Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-11-25"
@@ -8534,7 +8580,7 @@
       },
       "2026-11-26": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:49.901Z",
+        "attemptedAt": "2026-10-11T11:26:31.550Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-11-26"
@@ -8543,7 +8589,7 @@
       },
       "2026-11-27": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:50.186Z",
+        "attemptedAt": "2026-10-11T11:26:31.865Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-11-27"
@@ -8552,7 +8598,7 @@
       },
       "2026-11-28": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:50.569Z",
+        "attemptedAt": "2026-10-11T11:26:32.168Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-11-28"
@@ -8561,7 +8607,7 @@
       },
       "2026-11-29": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:50.865Z",
+        "attemptedAt": "2026-10-11T11:26:32.470Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-11-29"
@@ -8570,7 +8616,7 @@
       },
       "2026-11-30": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:51.159Z",
+        "attemptedAt": "2026-10-11T11:26:32.776Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-11-30"
@@ -8579,7 +8625,7 @@
       },
       "2026-12-01": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:51.448Z",
+        "attemptedAt": "2026-10-11T11:26:33.111Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-12-01"
@@ -8588,7 +8634,7 @@
       },
       "2026-12-02": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:51.755Z",
+        "attemptedAt": "2026-10-11T11:26:33.409Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-12-02"
@@ -8597,7 +8643,7 @@
       },
       "2026-12-03": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:52.052Z",
+        "attemptedAt": "2026-10-11T11:26:33.716Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-12-03"
@@ -8606,7 +8652,7 @@
       },
       "2026-12-04": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:52.352Z",
+        "attemptedAt": "2026-10-11T11:26:34.030Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-12-04"
@@ -8615,7 +8661,7 @@
       },
       "2026-12-05": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:52.647Z",
+        "attemptedAt": "2026-10-11T11:26:34.379Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-12-05"
@@ -8624,7 +8670,7 @@
       },
       "2026-12-06": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:52.948Z",
+        "attemptedAt": "2026-10-11T11:26:34.687Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-12-06"
@@ -8633,7 +8679,7 @@
       },
       "2026-12-07": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:53.250Z",
+        "attemptedAt": "2026-10-11T11:26:34.995Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-12-07"
@@ -8642,7 +8688,7 @@
       },
       "2026-12-08": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:53.551Z",
+        "attemptedAt": "2026-10-11T11:26:35.301Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-12-08"
@@ -8651,7 +8697,7 @@
       },
       "2026-12-09": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:53.844Z",
+        "attemptedAt": "2026-10-11T11:26:35.609Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-12-09"
@@ -8660,7 +8706,7 @@
       },
       "2026-12-10": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:54.133Z",
+        "attemptedAt": "2026-10-11T11:26:35.921Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-12-10"
@@ -8669,7 +8715,7 @@
       },
       "2026-12-11": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:54.430Z",
+        "attemptedAt": "2026-10-11T11:26:36.228Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-12-11"
@@ -8678,7 +8724,7 @@
       },
       "2026-12-12": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:54.718Z",
+        "attemptedAt": "2026-10-11T11:26:36.535Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-12-12"
@@ -8687,7 +8733,7 @@
       },
       "2026-12-13": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:55.026Z",
+        "attemptedAt": "2026-10-11T11:26:36.836Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-12-13"
@@ -8696,7 +8742,7 @@
       },
       "2026-12-14": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:55.475Z",
+        "attemptedAt": "2026-10-11T11:26:37.135Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-12-14"
@@ -8705,7 +8751,7 @@
       },
       "2026-12-15": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:55.768Z",
+        "attemptedAt": "2026-10-11T11:26:37.449Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-12-15"
@@ -8714,7 +8760,7 @@
       },
       "2026-12-16": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:56.061Z",
+        "attemptedAt": "2026-10-11T11:26:37.754Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-12-16"
@@ -8723,7 +8769,7 @@
       },
       "2026-12-17": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:56.345Z",
+        "attemptedAt": "2026-10-11T11:26:38.057Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-12-17"
@@ -8732,7 +8778,7 @@
       },
       "2026-12-18": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:56.661Z",
+        "attemptedAt": "2026-10-11T11:26:38.355Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-12-18"
@@ -8741,7 +8787,7 @@
       },
       "2026-12-19": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:56.938Z",
+        "attemptedAt": "2026-10-11T11:26:38.677Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-12-19"
@@ -8750,7 +8796,7 @@
       },
       "2026-12-20": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:57.252Z",
+        "attemptedAt": "2026-10-11T11:26:38.980Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-12-20"
@@ -8759,7 +8805,7 @@
       },
       "2026-12-21": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:57.725Z",
+        "attemptedAt": "2026-10-11T11:26:39.573Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-12-21"
@@ -8768,7 +8814,7 @@
       },
       "2026-12-22": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:58.014Z",
+        "attemptedAt": "2026-10-11T11:26:39.878Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-12-22"
@@ -8777,7 +8823,7 @@
       },
       "2026-12-23": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:58.306Z",
+        "attemptedAt": "2026-10-11T11:26:40.198Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-12-23"
@@ -8786,7 +8832,7 @@
       },
       "2026-12-24": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:58.604Z",
+        "attemptedAt": "2026-10-11T11:26:40.506Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-12-24"
@@ -8795,7 +8841,7 @@
       },
       "2026-12-25": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:58.901Z",
+        "attemptedAt": "2026-10-11T11:26:40.806Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-12-25"
@@ -8804,7 +8850,7 @@
       },
       "2026-12-26": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:59.180Z",
+        "attemptedAt": "2026-10-11T11:26:41.131Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-12-26"
@@ -8813,7 +8859,7 @@
       },
       "2026-12-27": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:59.468Z",
+        "attemptedAt": "2026-10-11T11:26:41.453Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-12-27"
@@ -8822,7 +8868,7 @@
       },
       "2026-12-28": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:12:59.756Z",
+        "attemptedAt": "2026-10-11T11:26:41.757Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-12-28"
@@ -8831,7 +8877,7 @@
       },
       "2026-12-29": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:13:00.040Z",
+        "attemptedAt": "2026-10-11T11:26:42.058Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-12-29"
@@ -8840,7 +8886,7 @@
       },
       "2026-12-30": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:13:00.339Z",
+        "attemptedAt": "2026-10-11T11:26:42.371Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-12-30"
@@ -8849,7 +8895,7 @@
       },
       "2026-12-31": {
         "status": "stale",
-        "attemptedAt": "2026-10-10T11:13:00.633Z",
+        "attemptedAt": "2026-10-11T11:26:42.693Z",
         "source": {
           "provider": "Audiobiblia (respaldo provisional)",
           "url": "https://es.audiobiblia.net/misal/2026-12-31"
